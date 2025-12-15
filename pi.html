@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PI Profile | PAL Lab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .pi-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .pi-image {
+            width: 100%;
+            border-radius: 8px;
+            background-color: var(--card-bg);
+            /* Placeholder bg */
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border: 1px solid var(--secondary-color);
+        }
+
+        .bio-section h3 {
+            color: var(--accent-color);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .pi-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">PAL Lab</a>
+            <div class="hamburger" id="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pi.html" class="active">PI Profile</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="members.html">Members</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="#" class="lang-switch">EN | 中文</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
+        <h2 class="fade-in">Principal Investigator</h2>
+
+        <div class="pi-container fade-in">
+            <div class="pi-side">
+                <div class="pi-image">
+                    <img src="image/pi/peichen_yu.jpg" alt="Prof. Peichen Yu"
+                        style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div style="margin-top: 20px;">
+                    <h3>Peichen Yu</h3>
+                    <p style="color: var(--accent-color);">Professor</p>
+                    <p>Department of Photonics</p>
+                    <p>National Yang Ming Chiao Tung University</p>
+                </div>
+            </div>
+
+            <div class="pi-info">
+                <div class="bio-section">
+                    <h3>Biography</h3>
+                    <p>Peichen Yu received the Ph.D. degree in electrical engineering from the University of Michigan,
+                        Ann Arbor, MI, USA, in 2004.</p>
+                    <p>From 2004 to 2006, she joined the Advanced Design Group, Intel Corporation, Hillsboro, OR, USA,
+                        as a Resolution Enhancement Technology (RET) Design Engineer.</p>
+                    <p>Since 2006, she switched careers to academia and is currently a Professor with the Department of
+                        Photonics, National Yang Ming Chiao Tung University.</p>
+                </div>
+
+                <div class="bio-section">
+                    <h3>Research Interests</h3>
+                    <ul style="list-style-type: disc; margin-left: 20px; color: var(--text-secondary);">
+                        <li>Nanostructures and metasurfaces patterning for optoelectronic applications</li>
+                        <li>Development of RET solutions, including inverse lithography technology (ILT) for ArF 193i
+                            and EUV lithography</li>
+                    </ul>
+                </div>
+
+                <div class="bio-section">
+                    <h3>Achievements & Membership</h3>
+                    <p>She has published over 60 refereed technical articles in the above research areas. Her work has
+                        been highlighted in various scientific journals, including <em>Virtual Journal of Nanoscale
+                            Science and Technology</em>, <em>SPIE Newsroom</em>, and <em>NPG Nature Asia-Material</em>.
+                    </p>
+                    <p>She is a member of the IEEE Photonics Society and SPIE. She received several research and
+                        teaching awards in Taiwan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Photonics & Lithography (PAL) Lab</p>
+            <p>National Yang Ming Chiao Tung University</p>
+            <p>&copy; 2025 PAL Lab. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

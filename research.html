@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | PAL Lab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .research-card {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            background-color: #020c1b;
+            /* Placeholder for image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 3rem;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            color: var(--text-color);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .card-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Icon placeholders */
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 196, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">PAL Lab</a>
+            <div class="hamburger" id="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pi.html">PI Profile</a></li>
+                <li><a href="research.html" class="active">Research</a></li>
+                <li><a href="members.html">Members</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="#" class="lang-switch">EN | 中文</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
+        <h2 class="fade-in">Research Areas</h2>
+        <p class="fade-in" style="color: var(--text-secondary); max-width: 800px;">
+            Our lab explores the cutting edge of photonics and lithography, focusing on three main pillars of research.
+        </p>
+
+        <div class="research-grid fade-in">
+            <!-- Research Item 1 -->
+            <div class="research-card">
+                <div class="card-img">
+                    <img src="image/Research/AR_glass.jpg" alt="AR Glasses"
+                        style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="card-content">
+                    <div class="icon-box">01</div>
+                    <h3>Meta-Optics Element Augmented Reality (AR) Waveguides</h3>
+                    <p>Design and fabrication of advanced diffractive optical elements using metasurfaces to enhance the
+                        field of view and efficiency of AR display systems.</p>
+                </div>
+            </div>
+
+            <!-- Research Item 2 -->
+            <div class="research-card">
+                <div class="card-img">
+                    <video src="image/Research/RET.mp4" autoplay loop muted playsinline
+                        style="width:100%; height:100%; object-fit:cover; border-radius:8px;"></video>
+                </div>
+                <div class="card-content">
+                    <div class="icon-box">02</div>
+                    <h3>Resolution Enhancement Technique</h3>
+                    <p>Developing computational lithography algorithms, including Source-Mask Optimization (SMO) and
+                        OPC, to push the limits of semiconductor manufacturing for ArF and EUV systems.</p>
+                </div>
+            </div>
+
+            <!-- Research Item 3 -->
+            <div class="research-card">
+                <div class="card-img">
+                    <video src="image\Research\Quantum_Annealing.mp4" autoplay loop muted playsinline
+                        style="width:100%; height:100%; object-fit:cover; border-radius:8px;"></video>
+                </div>
+                <div class="card-content">
+                    <div class="icon-box">03</div>
+                    <h3>Quantum Annealing</h3>
+                    <p>Applying quantum computing paradigms to solve complex optimization problems in inverse
+                        lithography and mask synthesis, achieving faster convergence and better pattern fidelity.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Photonics & Lithography (PAL) Lab</p>
+            <p>National Yang Ming Chiao Tung University</p>
+            <p>&copy; 2025 PAL Lab. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

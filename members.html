@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members | PAL Lab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .members-section {
+            margin-bottom: 60px;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .member-card {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .member-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #020c1b;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--text-secondary);
+            border: 2px solid var(--accent-color);
+        }
+
+        .member-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .member-grade {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .member-topic {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        h3.section-title {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">PAL Lab</a>
+            <div class="hamburger" id="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pi.html">PI Profile</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="members.html" class="active">Members</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="#" class="lang-switch">EN | 中文</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
+        <h2 class="fade-in">Lab Members</h2>
+
+        <!-- Ph.D. Students -->
+        <div class="members-section fade-in">
+            <h3 class="section-title">Ph.D. Students</h3>
+            <div class="members-grid">
+                <!-- Placeholder Member 1 -->
+                <div class="member-card">
+                    <div class="member-avatar">S1</div>
+                    <div class="member-name">Student Name</div>
+                    <div class="member-grade">Ph.D. Year 3</div>
+                    <div class="member-topic">Research Topic: Advanced ILT</div>
+                </div>
+                <!-- Placeholder Member 2 -->
+                <div class="member-card">
+                    <div class="member-avatar">S2</div>
+                    <div class="member-name">Student Name</div>
+                    <div class="member-grade">Ph.D. Year 1</div>
+                    <div class="member-topic">Research Topic: Metasurfaces</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Master Students -->
+        <div class="members-section fade-in">
+            <h3 class="section-title">Master's Students</h3>
+            <div class="members-grid">
+                <!-- Placeholder Member -->
+                <div class="member-card">
+                    <div class="member-avatar">M1</div>
+                    <div class="member-name">Student Name</div>
+                    <div class="member-grade">Master Year 2</div>
+                    <div class="member-topic">Research Topic: AR Waveguides</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-avatar">M2</div>
+                    <div class="member-name">Student Name</div>
+                    <div class="member-grade">Master Year 1</div>
+                    <div class="member-topic">Research Topic: Quantum Algorithms</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-avatar">M3</div>
+                    <div class="member-name">Student Name</div>
+                    <div class="member-grade">Master Year 1</div>
+                    <div class="member-topic">Research Topic: Optical Testing</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alumni -->
+        <div class="members-section fade-in">
+            <h3 class="section-title">Alumni</h3>
+            <div class="members-grid">
+                <!-- Placeholder Alumni -->
+                <div class="member-card">
+                    <div class="member-avatar">A1</div>
+                    <div class="member-name">Alumni Name</div>
+                    <div class="member-grade">Ph.D. 2024</div>
+                    <div class="member-topic">Now at: TSMC</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-avatar">A2</div>
+                    <div class="member-name">Alumni Name</div>
+                    <div class="member-grade">Master 2023</div>
+                    <div class="member-topic">Now at: MediaTek</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Photonics & Lithography (PAL) Lab</p>
+            <p>National Yang Ming Chiao Tung University</p>
+            <p>&copy; 2025 PAL Lab. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
