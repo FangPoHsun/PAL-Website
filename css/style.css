@@ -177,31 +177,33 @@ nav {
 
 /* --- HOME PAGE SCROLL CONTAINER --- */
 .home-scroll-container {
+    /* Removed scroll snap for smoother "gradually visible" effect */
     height: 100vh;
     overflow-y: scroll;
-    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-    /* Ensure it accounts for fixed header if needed, but we usually want 100vh absolute */
-}
-
-/* Sections - General Styles */
-section {
-    padding: 100px 0;
-    /* Default padding for normal pages */
-    /* Remove global 100vh height */
 }
 
 /* Home Container Sections */
 .home-scroll-container section {
     min-height: 100vh;
-    height: 100vh;
+    /* Ensure each section is a complete block */
     display: flex;
     align-items: center;
     justify-content: center;
-    scroll-snap-align: start;
     padding-top: var(--header-height);
-    /* Offset for header */
-    padding-bottom: 0;
+    padding-bottom: 20px;
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Hero Section */

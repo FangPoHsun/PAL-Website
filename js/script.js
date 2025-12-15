@@ -9,12 +9,24 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.classList.toggle('toggle');
     });
 
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            hamburger.classList.remove('toggle'); // Also remove toggle class
+    // --- Scroll Reveal Animation ---
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Optional: Stop observing once revealed if you want it to happen only once
+                // observer.unobserve(entry.target);
+            }
         });
+    }, {
+        root: null, // viewport
+        threshold: 0.15, // Trigger when 15% visible
+        rootMargin: "0px 0px -50px 0px" // Offset slightly so it doesn't trigger too early at bottom
     });
+
+    revealElements.forEach(el => revealObserver.observe(el));
 
     // --- Sticky Header Effect ---
     const header = document.querySelector('header');
