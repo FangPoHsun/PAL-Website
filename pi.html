@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prof. Peichen Yu - Principal Investigator of PAL Lab at NYCU, specializing in photonics, lithography, and metasurface research.">
     <title>PI Profile | PAL Lab</title>
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -49,7 +53,7 @@
     <header>
         <nav>
             <a href="index.html" class="logo">PAL Lab</a>
-            <div class="hamburger" id="hamburger">
+            <div class="hamburger" id="hamburger" role="button" aria-label="Toggle navigation menu" tabindex="0">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
@@ -60,13 +64,14 @@
                 <li><a href="research.html">Research</a></li>
                 <li><a href="members.html">Members</a></li>
                 <li><a href="publications.html">Publications</a></li>
+                <li><a href="calendar.html">Lab Calendar</a></li>
                 <li><a href="#" class="lang-switch">EN | 中文</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
-        <h2 class="fade-in">Principal Investigator</h2>
+        <h2 class="fade-in" data-en="Principal Investigator" data-zh="實驗室主持人">Principal Investigator</h2>
 
         <div class="pi-container fade-in">
             <div class="pi-side">
@@ -75,40 +80,47 @@
                         style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
                 </div>
                 <div style="margin-top: 20px;">
-                    <h3>Peichen Yu</h3>
-                    <p style="color: var(--accent-color);">Professor</p>
-                    <p>Department of Photonics</p>
-                    <p>National Yang Ming Chiao Tung University</p>
+                    <h3 data-en="Peichen Yu" data-zh="余沛慈">Peichen Yu</h3>
+                    <p style="color: var(--accent-color);" data-en="Professor" data-zh="教授">Professor</p>
+                    <p data-en="Department of Photonics" data-zh="光電工程學系">Department of Photonics</p>
+                    <p data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung University</p>
                 </div>
             </div>
 
             <div class="pi-info">
                 <div class="bio-section">
-                    <h3>Biography</h3>
-                    <p>Peichen Yu received the Ph.D. degree in electrical engineering from the University of Michigan,
+                    <h3 data-en="Biography" data-zh="學經歷">Biography</h3>
+                    <p data-en="Peichen Yu received the Ph.D. degree in electrical engineering from the University of Michigan, Ann Arbor, MI, USA, in 2004."
+                       data-zh="余沛慈教授於2004年取得美國密西根大學安乙堡分校電機工程博士學位。">Peichen Yu received the Ph.D. degree in electrical engineering from the University of Michigan,
                         Ann Arbor, MI, USA, in 2004.</p>
-                    <p>From 2004 to 2006, she joined the Advanced Design Group, Intel Corporation, Hillsboro, OR, USA,
+                    <p data-en="From 2004 to 2006, she joined the Advanced Design Group, Intel Corporation, Hillsboro, OR, USA, as a Resolution Enhancement Technology (RET) Design Engineer."
+                       data-zh="2004至2006年間，於美國Intel Corporation先進設計部門擔任解析度增強技術(RET)設計工程師。">From 2004 to 2006, she joined the Advanced Design Group, Intel Corporation, Hillsboro, OR, USA,
                         as a Resolution Enhancement Technology (RET) Design Engineer.</p>
-                    <p>Since 2006, she switched careers to academia and is currently a Professor with the Department of
+                    <p data-en="Since 2006, she switched careers to academia and is currently a Professor with the Department of Photonics, National Yang Ming Chiao Tung University."
+                       data-zh="2006年起轉入學術界，現為國立陽明交通大學光電工程學系教授。">Since 2006, she switched careers to academia and is currently a Professor with the Department of
                         Photonics, National Yang Ming Chiao Tung University.</p>
                 </div>
 
                 <div class="bio-section">
-                    <h3>Research Interests</h3>
+                    <h3 data-en="Research Interests" data-zh="研究領域">Research Interests</h3>
                     <ul style="list-style-type: disc; margin-left: 20px; color: var(--text-secondary);">
-                        <li>Nanostructures and metasurfaces patterning for optoelectronic applications</li>
-                        <li>Development of RET solutions, including inverse lithography technology (ILT) for ArF 193i
+                        <li data-en="Nanostructures and metasurfaces patterning for optoelectronic applications"
+                            data-zh="光電應用之奈米結構與超穎表面圖案化技術">Nanostructures and metasurfaces patterning for optoelectronic applications</li>
+                        <li data-en="Development of RET solutions, including inverse lithography technology (ILT) for ArF 193i and EUV lithography"
+                            data-zh="解析度增強技術開發，包括ArF 193i與EUV微影之逆向微影技術(ILT)">Development of RET solutions, including inverse lithography technology (ILT) for ArF 193i
                             and EUV lithography</li>
                     </ul>
                 </div>
 
                 <div class="bio-section">
-                    <h3>Achievements & Membership</h3>
-                    <p>She has published over 60 refereed technical articles in the above research areas. Her work has
+                    <h3 data-en="Achievements & Membership" data-zh="學術成就與會員資格">Achievements & Membership</h3>
+                    <p data-en="She has published over 60 refereed technical articles in the above research areas. Her work has been highlighted in various scientific journals, including Virtual Journal of Nanoscale Science and Technology, SPIE Newsroom, and NPG Nature Asia-Material."
+                       data-zh="在上述研究領域已發表超過60篇經同儕審查的技術論文，研究成果曾被多個科學期刊報導，包括Virtual Journal of Nanoscale Science and Technology、SPIE Newsroom及NPG Nature Asia-Material。">She has published over 60 refereed technical articles in the above research areas. Her work has
                         been highlighted in various scientific journals, including <em>Virtual Journal of Nanoscale
                             Science and Technology</em>, <em>SPIE Newsroom</em>, and <em>NPG Nature Asia-Material</em>.
                     </p>
-                    <p>She is a member of the IEEE Photonics Society and SPIE. She received several research and
+                    <p data-en="She is a member of the IEEE Photonics Society and SPIE. She received several research and teaching awards in Taiwan."
+                       data-zh="現為IEEE Photonics Society與SPIE會員，曾多次獲得台灣研究與教學獎項。">She is a member of the IEEE Photonics Society and SPIE. She received several research and
                         teaching awards in Taiwan.</p>
                 </div>
             </div>
@@ -118,8 +130,8 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>Photonics & Lithography (PAL) Lab</p>
-            <p>National Yang Ming Chiao Tung University</p>
+            <p data-en="Photonics & Lithography (PAL) Lab" data-zh="光子晶體與微影技術實驗室 (PAL Lab)">Photonics & Lithography (PAL) Lab</p>
+            <p data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung University</p>
             <p>&copy; 2025 PAL Lab. All Rights Reserved.</p>
         </div>
     </footer>

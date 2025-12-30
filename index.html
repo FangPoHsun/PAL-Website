@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PAL Lab at NYCU specializes in photonics, metasurfaces, AR waveguides, computational lithography, and quantum annealing research led by Prof. Peichen Yu.">
     <title>PAL Lab | Photonics & Lithography</title>
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -15,7 +19,7 @@
     <header>
         <nav>
             <a href="index.html" class="logo">PAL Lab</a>
-            <div class="hamburger" id="hamburger">
+            <div class="hamburger" id="hamburger" role="button" aria-label="Toggle navigation menu" tabindex="0">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
@@ -26,6 +30,7 @@
                 <li><a href="research.html">Research</a></li>
                 <li><a href="members.html">Members</a></li>
                 <li><a href="publications.html">Publications</a></li>
+                <li><a href="calendar.html">Lab Calendar</a></li>
                 <li><a href="#" class="lang-switch">EN | 中文</a></li>
             </ul>
         </nav>
@@ -34,87 +39,159 @@
     <main class="home-scroll-container">
         <!-- Hero Section -->
         <section class="hero">
-            <div class="hero-content">
-                <h1>Photonics & Lithography Lab</h1>
-                <p>Advancing the frontiers of Nanostructures, Metasurfaces, and Computational Lithography.</p>
-                <a href="research.html" class="btn">Explore Research</a>
+            <div class="hero-content reveal">
+                <h1 data-en-html="Photonics &amp; Lithography Lab" data-zh-html="<span style='white-space: nowrap;'>光子晶體與微影技術</span><br><span style='white-space: nowrap;'>實驗室</span>">Photonics & Lithography Lab</h1>
+                <p data-en="Advancing the frontiers of Nanostructures, Metasurfaces, and Computational Lithography."
+                   data-zh="推動奈米結構、超穎表面與計算微影技術的前沿發展。">Advancing the frontiers of Nanostructures, Metasurfaces, and Computational Lithography.</p>
+                <div class="hero-btns">
+                    <a href="research.html" class="btn" data-en="Explore Research" data-zh="探索研究">Explore Research</a>
+                    <a href="#highlights" class="btn btn-secondary" data-en="See Highlights ↓" data-zh="查看亮點 ↓">See Highlights &darr;</a>
+                </div>
             </div>
         </section>
 
         <!-- Highlights Carousel Section -->
-        <section class="highlights-section section-bg">
+        <section id="highlights" class="highlights-section section-bg">
             <div class="container">
-                <h2 class="fade-in">Lab Highlights & News</h2>
+                <h2 class="reveal">Lab Highlights & News</h2>
 
-                <div class="carousel-container fade-in">
+                <div class="carousel-container reveal">
                     <div class="carousel-track-container">
                         <ul class="carousel-track">
-                            <!-- Slide 1: Award/Achievement -->
+                            <!-- 
+                                HOW TO ADD A NEW SLIDE:
+                                1. Copy the entire <li> block below (from <li class="carousel-slide"> to </li>).
+                                2. Paste it as the first item in <ul class="carousel-track">.
+                                3. Update the content:
+                                   - Replace the image 'src' (if you have an image), or remove the entire <div class="slide-image"> block if none.
+                                   - Update Title (<h3>), Description (<p>), and Link (<a>).
+                                   - Update Tag class and text (e.g., <span class="tag news">Lab News</span>).
+                                4. Ensure only ONE slide has the class "current-slide" (the first one).
+                             -->
+
+                            <!-- Slide 1: Christmas Gift Exchange 2025 -->
                             <li class="carousel-slide current-slide">
-                                <div class="slide-content">
-                                    <span class="tag award">Award</span>
-                                    <h3>Student Paper Awards at OPTIC 2025</h3>
-                                    <p>Congratulation to Shang-Chiang Sung to win the student award in OPTIC 2025!
-                                        Optical Nano Device and Application
-                                        Title:  Apodized Metasurface Exit-Pupil Expansion Waveguide for High-Efficiency Augmented Reality Glasses
-                                    </p>
-                                    <a href="https://optic2025.conf.tw/site/news_show.aspx?sid=1637&lang=en&pid=573" class="slide-link">Read More &rarr;</a>
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-text">
+                                        <span class="tag news">Lab News</span>
+                                        <h3>2025 Christmas Gift Exchange</h3>
+                                        <p>PAL Lab celebrated Christmas 2025 with a fun gift exchange party!
+                                            Lab members gathered together to share joy and exchange gifts,
+                                            strengthening our lab family bonds.
+                                        </p>
+                                        <a href="members.html" class="slide-link">Meet the Team &rarr;</a>
+                                    </div>
+                                    <div class="slide-image">
+                                        <div class="image-slideshow">
+                                            <img src="image/News_highlight/2025_12_25/xmas_1.jpg"
+                                                alt="Christmas 2025 - 1">
+                                            <img src="image/News_highlight/2025_12_25/xmas_2.jpg"
+                                                alt="Christmas 2025 - 2">
+                                            <img src="image/News_highlight/2025_12_25/xmas_3.jpg"
+                                                alt="Christmas 2025 - 3">
+                                            <img src="image/News_highlight/2025_12_25/xmas_4.jpg"
+                                                alt="Christmas 2025 - 4">
+                                            <img src="image/News_highlight/2025_12_25/xmas_5.jpg"
+                                                alt="Christmas 2025 - 5">
+                                            <img src="image/News_highlight/2025_12_25/xmas_6.jpg"
+                                                alt="Christmas 2025 - 6">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Slide 2: Award/Achievement -->
+                            <li class="carousel-slide">
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-text">
+                                        <span class="tag award">Award</span>
+                                        <h3>Student Paper Awards at OPTIC 2025</h3>
+                                        <p>Congratulation to Shang-Chiang Sung to win the student award in OPTIC 2025!
+                                            Optical Nano Device and Application. Title: Apodized Metasurface Exit-Pupil
+                                            Expansion Waveguide for High-Efficiency Augmented Reality Glasses
+                                        </p>
+                                        <a href="https://optic2025.conf.tw/site/news_show.aspx?sid=1637&lang=en&pid=573"
+                                            class="slide-link">Read More &rarr;</a>
+                                    </div>
+                                    <!-- Example of image placeholder if user wants to add one -->
+                                    <div class="slide-image">
+                                        <!-- Using the research image for demo -->
+                                        <img src="image/News_highlight/Student%20ShangJiang.jpg" alt="student award">
+                                    </div>
                                 </div>
                             </li>
 
                             <li class="carousel-slide">
-                                <div class="slide-content">
-                                    <span class="tag award">Award</span>
-                                    <h3>Student Paper Awards at OPTIC 2025</h3>
-                                    <p>Congratulation to Ping-Ke Li to win the student award in OPTIC 2025!
-                                        Optical Nano Device and Application
-                                        Title:  Polarization-Controlled Meta-Holography via large area Chiral Metasurfaces 
-                                    </p>
-                                    <a href="https://optic2025.conf.tw/site/news_show.aspx?sid=1637&lang=en&pid=573" class="slide-link">Read More &rarr;</a>
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-text">
+                                        <span class="tag award">Award</span>
+                                        <h3>Student Paper Awards at OPTIC 2025</h3>
+                                        <p>Congratulation to Ping-Ke Li to win the student award in OPTIC 2025!
+                                            Optical Nano Device and Application. Title: Polarization-Controlled
+                                            Meta-Holography via large area Chiral Metasurfaces
+                                        </p>
+                                        <a href="https://optic2025.conf.tw/site/news_show.aspx?sid=1637&lang=en&pid=573"
+                                            class="slide-link">Read More &rarr;</a>
+                                    </div>
+                                    <div class="slide-image">
+                                        <!-- Using the research image for demo -->
+                                        <img src="image/News_highlight/Student%20Paper%20Pingke.jpg"
+                                            alt="student award">
+                                    </div>
                                 </div>
                             </li>
 
                             <!-- Slide 2: New Publication -->
                             <li class="carousel-slide">
-                                <div class="slide-content">
-                                    <span class="tag publication">New Publication</span>
-                                    <h3>Breakthrough in AR Waveguides</h3>
-                                    <p>Published in *Metrology, Inspection, and Process Control*: "Large area metalens
-                                        and
-                                        AR waveguides fabricated by DUV KrF lithography".</p>
-                                    <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13426/1342644/Large-area-metalens-and-AR-waveguides-fabricated-by-DUV-KrF/10.1117/12.3057618.short" class="slide-link">View Paper &rarr;</a>
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-text">
+                                        <span class="tag publication">New Publication</span>
+                                        <h3>Breakthrough in AR Waveguides</h3>
+                                        <p>Published in *Metrology, Inspection, and Process Control*: "Large area
+                                            metalens and AR waveguides fabricated by DUV KrF lithography".</p>
+                                        <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13426/1342644/Large-area-metalens-and-AR-waveguides-fabricated-by-DUV-KrF/10.1117/12.3057618.short"
+                                            class="slide-link">View Paper &rarr;</a>
+                                    </div>
+                                    <div class="slide-image">
+                                        <!-- Using the research image for demo -->
+                                        <video src="image/News_highlight/AR%20glasses.mp4" title="AR Glass Breakthrough"
+                                            autoplay loop muted playsinline></video>
+                                    </div>
                                 </div>
                             </li>
 
                             <!-- Slide 3: Lab News -->
                             <li class="carousel-slide">
-                                <div class="slide-content">
-                                    <span class="tag news">Lab News</span>
-                                    <h3>Welcome New Master Students</h3>
-                                    <p>We are excited to welcome 4 new master students joining the PAL Lab family next
-                                        semester.</p>
-                                    <a href="members.html" class="slide-link">Meet the Team &rarr;</a>
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-text">
+                                        <span class="tag news">Lab News</span>
+                                        <h3>Welcome New Master Students</h3>
+                                        <p>We are excited to welcome 4 new master students joining the PAL Lab family
+                                            next semester.</p>
+                                        <a href="members.html" class="slide-link">Meet the Team &rarr;</a>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
                     </div>
 
-                    <button class="carousel-button carousel-button--left is-hidden">
-                        <svg width="20" height="20" viewBox="0 0 24 24">
+                    <button class="carousel-button carousel-button--left is-hidden" aria-label="Previous slide">
+                        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor" />
                         </svg>
                     </button>
-                    <button class="carousel-button carousel-button--right">
-                        <svg width="20" height="20" viewBox="0 0 24 24">
+                    <button class="carousel-button carousel-button--right" aria-label="Next slide">
+                        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="currentColor" />
                         </svg>
                     </button>
 
-                    <div class="carousel-nav">
-                        <button class="carousel-indicator current-slide"></button>
-                        <button class="carousel-indicator"></button>
-                        <button class="carousel-indicator"></button>
-                        <button class="carousel-indicator"></button>
+                    <div class="carousel-nav" role="tablist" aria-label="Slide navigation">
+                        <button class="carousel-indicator current-slide" role="tab" aria-label="Slide 1" aria-selected="true"></button>
+                        <button class="carousel-indicator" role="tab" aria-label="Slide 2" aria-selected="false"></button>
+                        <button class="carousel-indicator" role="tab" aria-label="Slide 3" aria-selected="false"></button>
+                        <button class="carousel-indicator" role="tab" aria-label="Slide 4" aria-selected="false"></button>
+                        <button class="carousel-indicator" role="tab" aria-label="Slide 5" aria-selected="false"></button>
                     </div>
                 </div>
             </div>
@@ -123,30 +200,38 @@
         <!-- Brief Introduction -->
         <section class="welcome-section section-bg">
             <div class="container">
-                <h2>Welcome to PAL Lab</h2>
-                <p style="color: var(--text-secondary); max-width: 800px; margin-bottom: 2rem;">
-                    Led by Prof. Peichen Yu at National Yang Ming Chiao Tung University, our lab specializes in the
-                    intersection
-                    of photonics and advanced lithography. We combine theoretical design with practical fabrication to
-                    create
-                    next-generation optical devices, from AR waveguides to quantum solutions.
-                </p>
-                <div style="background: var(--card-bg); padding: 2rem; border-radius: 8px;">
-                    <h3>Latest Highlights</h3>
+                <h2 class="reveal" data-en="Welcome to PAL Lab" data-zh="歡迎來到 PAL Lab">Welcome to PAL Lab</h2>
+                <div class="reveal">
+                    <p style="color: var(--text-secondary); max-width: 800px; margin-bottom: 2rem;"
+                       data-en="Led by Prof. Peichen Yu at National Yang Ming Chiao Tung University, our lab specializes in the intersection of photonics and advanced lithography. We combine theoretical design with practical fabrication to create next-generation optical devices, from AR waveguides to quantum solutions."
+                       data-zh="本實驗室由國立陽明交通大學余沛慈教授主持，專注於光子晶體與先進微影技術的交叉領域。我們結合理論設計與實務製程，打造從AR波導到量子解決方案的下一代光學元件。">
+                        Led by Prof. Peichen Yu at National Yang Ming Chiao Tung University, our lab specializes in the
+                        intersection
+                        of photonics and advanced lithography. We combine theoretical design with practical fabrication
+                        to
+                        create
+                        next-generation optical devices, from AR waveguides to quantum solutions.
+                    </p>
+                </div>
+                <div class="reveal" style="background: var(--card-bg); padding: 2rem; border-radius: 8px;">
+                    <h3 data-en="Latest Highlights" data-zh="最新亮點">Latest Highlights</h3>
                     <ul style="color: var(--text-secondary); list-style-type: disc; margin-left: 20px;">
+                        <li>Student Paper Awards at OPTIC 2025 - Ping-Ke Li &  Shang-Chiang Sung</li>
                         <li>New publication in <em>Optical and EUV Nanolithography XXXVIII</em> (2025)</li>
                         <li>Breakthrough in Meta-Optics Element Augmented Reality (AR) Waveguides</li>
                         <li>Advanced research in Quantum Annealing for lithography optimization</li>
                     </ul>
                 </div>
+            </div>
         </section>
 
         <!-- Footer -->
         <footer>
             <div class="container">
-                <p>Photonics & Lithography (PAL) Lab</p>
-                <p>National Yang Ming Chiao Tung University</p>
-                <p>Tin Ka Ping Building, No. 1001, Daxue Rd. Hsinchu City, 300093 Taiwan, Room 306</p>
+                <p data-en="Photonics & Lithography (PAL) Lab" data-zh="光子晶體與微影技術實驗室 (PAL Lab)">Photonics & Lithography (PAL) Lab</p>
+                <p data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung University</p>
+                <p data-en="Tin Ka Ping Building, No. 1001, Daxue Rd. Hsinchu City, 300093 Taiwan, Room 306"
+                   data-zh="田家炳光電大樓 306室，新竹市大學路1001號，300093 台灣">Tin Ka Ping Building, No. 1001, Daxue Rd. Hsinchu City, 300093 Taiwan, Room 306</p>
                 <p><a href="mailto:peichen.yu@nycu.edu.tw">peichen.yu@nycu.edu.tw</a></p>
                 <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.7;">&copy; 2025 PAL Lab. All Rights Reserved.
                 </p>
@@ -154,7 +239,432 @@
         </footer>
     </main>
 
+    <!-- Media Lightbox Modal -->
+    <div class="media-lightbox" id="media-lightbox">
+        <div class="media-lightbox-content">
+            <span class="media-lightbox-close" id="media-lightbox-close">&times;</span>
+            <button class="media-lightbox-nav media-lightbox-prev" id="media-lightbox-prev" aria-label="Previous">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor" />
+                </svg>
+            </button>
+            <div class="media-lightbox-media" id="media-lightbox-media">
+                <!-- Image or video will be inserted here -->
+            </div>
+            <button class="media-lightbox-nav media-lightbox-next" id="media-lightbox-next" aria-label="Next">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="currentColor" />
+                </svg>
+            </button>
+            <div class="media-lightbox-indicators" id="media-lightbox-indicators"></div>
+        </div>
+    </div>
+
+    <style>
+        /* Media Lightbox Styles */
+        .media-lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .media-lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .media-lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .media-lightbox-media {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 100%;
+            max-height: 80vh;
+        }
+
+        .media-lightbox-media img,
+        .media-lightbox-media video {
+            max-width: 90vw;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .media-lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: color 0.2s;
+            z-index: 10;
+        }
+
+        .media-lightbox-close:hover {
+            color: var(--accent-color);
+        }
+
+        .media-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--text-secondary);
+            color: var(--text-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .media-lightbox-nav:hover {
+            background: rgba(255, 196, 0, 0.2);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .media-lightbox-nav.hidden {
+            display: none;
+        }
+
+        .media-lightbox-prev {
+            left: -70px;
+        }
+
+        .media-lightbox-next {
+            right: -70px;
+        }
+
+        .media-lightbox-indicators {
+            display: flex;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .media-lightbox-indicators.hidden {
+            display: none;
+        }
+
+        .media-lightbox-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .media-lightbox-dot.active {
+            background: var(--accent-color);
+            transform: scale(1.2);
+        }
+
+        .media-lightbox-dot:hover {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Make slide images/videos clickable */
+        .slide-image {
+            cursor: pointer;
+        }
+
+        .slide-image:hover img,
+        .slide-image:hover video,
+        .slide-image:hover .image-slideshow {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+        .image-slideshow {
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .media-lightbox-prev {
+                left: 10px;
+            }
+
+            .media-lightbox-next {
+                right: 10px;
+            }
+
+            .media-lightbox-nav {
+                width: 40px;
+                height: 40px;
+            }
+
+            .media-lightbox-close {
+                top: -40px;
+                right: 10px;
+            }
+        }
+    </style>
+
     <script src="js/script.js"></script>
+    <script>
+        // Media Lightbox functionality
+        (function() {
+            const lightbox = document.getElementById('media-lightbox');
+            const lightboxMedia = document.getElementById('media-lightbox-media');
+            const lightboxClose = document.getElementById('media-lightbox-close');
+            const lightboxPrev = document.getElementById('media-lightbox-prev');
+            const lightboxNext = document.getElementById('media-lightbox-next');
+            const lightboxIndicators = document.getElementById('media-lightbox-indicators');
+
+            let currentImages = [];
+            let currentIndex = 0;
+            let autoPlayInterval = null;
+
+            // Find all clickable media in slides
+            function initMediaLightbox() {
+                // Single images and videos
+                document.querySelectorAll('.slide-image > img, .slide-image > video').forEach(media => {
+                    media.style.cursor = 'pointer';
+                    media.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        openSingleMedia(this);
+                    });
+                });
+
+                // Image slideshows
+                document.querySelectorAll('.image-slideshow').forEach(slideshow => {
+                    slideshow.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        openSlideshow(this);
+                    });
+                });
+            }
+
+            function openSingleMedia(media) {
+                currentImages = [];
+                currentIndex = 0;
+
+                if (media.tagName === 'VIDEO') {
+                    const video = document.createElement('video');
+                    video.src = media.src;
+                    video.controls = true;
+                    video.autoplay = true;
+                    video.style.maxWidth = '90vw';
+                    video.style.maxHeight = '80vh';
+                    lightboxMedia.innerHTML = '';
+                    lightboxMedia.appendChild(video);
+                } else {
+                    const img = document.createElement('img');
+                    img.src = media.src;
+                    img.alt = media.alt || '';
+                    lightboxMedia.innerHTML = '';
+                    lightboxMedia.appendChild(img);
+                }
+
+                // Hide navigation for single media
+                lightboxPrev.classList.add('hidden');
+                lightboxNext.classList.add('hidden');
+                lightboxIndicators.classList.add('hidden');
+
+                showLightbox();
+            }
+
+            function openSlideshow(slideshow) {
+                const images = slideshow.querySelectorAll('img');
+                currentImages = Array.from(images).map(img => ({
+                    src: img.src,
+                    alt: img.alt
+                }));
+
+                // Find which image is currently visible (has opacity)
+                currentIndex = 0;
+                images.forEach((img, index) => {
+                    const computedStyle = window.getComputedStyle(img);
+                    if (parseFloat(computedStyle.opacity) > 0.5) {
+                        currentIndex = index;
+                    }
+                });
+
+                if (currentImages.length > 0) {
+                    showImage(currentIndex);
+                    updateNavigation();
+                    createIndicators();
+                    showLightbox();
+                    startAutoPlay();
+                }
+            }
+
+            function showImage(index) {
+                if (index < 0 || index >= currentImages.length) return;
+
+                currentIndex = index;
+                const img = document.createElement('img');
+                img.src = currentImages[index].src;
+                img.alt = currentImages[index].alt;
+                lightboxMedia.innerHTML = '';
+                lightboxMedia.appendChild(img);
+
+                updateIndicators();
+            }
+
+            function updateNavigation() {
+                if (currentImages.length <= 1) {
+                    lightboxPrev.classList.add('hidden');
+                    lightboxNext.classList.add('hidden');
+                } else {
+                    lightboxPrev.classList.remove('hidden');
+                    lightboxNext.classList.remove('hidden');
+                }
+            }
+
+            function createIndicators() {
+                lightboxIndicators.innerHTML = '';
+                if (currentImages.length <= 1) {
+                    lightboxIndicators.classList.add('hidden');
+                    return;
+                }
+
+                lightboxIndicators.classList.remove('hidden');
+                currentImages.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.className = 'media-lightbox-dot' + (index === currentIndex ? ' active' : '');
+                    dot.addEventListener('click', () => {
+                        showImage(index);
+                        resetAutoPlay();
+                    });
+                    lightboxIndicators.appendChild(dot);
+                });
+            }
+
+            function updateIndicators() {
+                const dots = lightboxIndicators.querySelectorAll('.media-lightbox-dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            function showLightbox() {
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+                stopAutoPlay();
+
+                // Stop any playing video
+                const video = lightboxMedia.querySelector('video');
+                if (video) {
+                    video.pause();
+                }
+            }
+
+            function nextImage() {
+                if (currentImages.length > 0) {
+                    const newIndex = (currentIndex + 1) % currentImages.length;
+                    showImage(newIndex);
+                }
+            }
+
+            function prevImage() {
+                if (currentImages.length > 0) {
+                    const newIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+                    showImage(newIndex);
+                }
+            }
+
+            function startAutoPlay() {
+                stopAutoPlay();
+                if (currentImages.length > 1) {
+                    autoPlayInterval = setInterval(nextImage, 3000);
+                }
+            }
+
+            function stopAutoPlay() {
+                if (autoPlayInterval) {
+                    clearInterval(autoPlayInterval);
+                    autoPlayInterval = null;
+                }
+            }
+
+            function resetAutoPlay() {
+                stopAutoPlay();
+                startAutoPlay();
+            }
+
+            // Event listeners
+            lightboxClose.addEventListener('click', closeLightbox);
+
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            lightboxPrev.addEventListener('click', function(e) {
+                e.stopPropagation();
+                prevImage();
+                resetAutoPlay();
+            });
+
+            lightboxNext.addEventListener('click', function(e) {
+                e.stopPropagation();
+                nextImage();
+                resetAutoPlay();
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (!lightbox.classList.contains('active')) return;
+
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                    resetAutoPlay();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                    resetAutoPlay();
+                }
+            });
+
+            // Pause autoplay on hover
+            lightboxMedia.addEventListener('mouseenter', stopAutoPlay);
+            lightboxMedia.addEventListener('mouseleave', function() {
+                if (lightbox.classList.contains('active') && currentImages.length > 1) {
+                    startAutoPlay();
+                }
+            });
+
+            // Initialize on DOM ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initMediaLightbox);
+            } else {
+                initMediaLightbox();
+            }
+        })();
+    </script>
 </body>
 
 </html>
