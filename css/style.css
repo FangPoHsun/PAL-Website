@@ -625,6 +625,12 @@ footer a {
         text-align: center;
     }
 
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
     .slide-text {
         text-align: center;
     }
@@ -676,76 +682,79 @@ footer a {
     }
 
     /* Hide arrows on mobile/tablet */
+    /* Hide arrows on mobile/tablet */
     .carousel-button {
         display: none;
     }
 
-    position: fixed;
-    right: 0;
-    top: var(--header-height);
-    height: calc(100vh - var(--header-height));
-    background-color: var(--card-bg);
-    flex-direction: column;
-    width: 70%;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    padding: 40px;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-}
+    .nav-links {
+        position: fixed;
+        right: 0;
+        top: var(--header-height);
+        height: calc(100vh - var(--header-height));
+        background-color: var(--card-bg);
+        flex-direction: column;
+        width: 70%;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        padding: 40px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    }
 
-.nav-links.active {
-    transform: translateX(0);
-}
 
-.hamburger {
-    display: flex;
-}
+    .nav-links.active {
+        transform: translateX(0);
+    }
 
-.hero h1 {
-    font-size: 2.5rem;
-}
+    .hamburger {
+        display: flex;
+    }
 
-.carousel-container {
-    padding: 30px 20px;
-}
+    .hero h1 {
+        font-size: 2.5rem;
+    }
 
-.carousel-button {
-    width: 30px;
-    height: 30px;
-}
+    .carousel-container {
+        padding: 30px 20px;
+    }
 
-.home-scroll-container section {
-    height: auto;
-    min-height: 100vh;
-    padding-top: 100px;
-    padding-bottom: 50px;
-}
+    .carousel-button {
+        width: 30px;
+        height: 30px;
+    }
 
-/* Research cards mobile fix */
-.research-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
+    .home-scroll-container section {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
 
-.research-card .card-img {
-    height: 180px;
-}
+    /* Research cards mobile fix */
+    .research-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
-.research-card .card-img img,
-.research-card .card-img video {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background-color: #020c1b;
-}
+    .research-card .card-img {
+        height: 180px;
+    }
 
-.card-content {
-    padding: 20px;
-}
+    .research-card .card-img img,
+    .research-card .card-img video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background-color: #020c1b;
+    }
 
-.card-content h3 {
-    font-size: 1.1rem;
-}
+    .card-content {
+        padding: 20px;
+    }
+
+    .card-content h3 {
+        font-size: 1.1rem;
+    }
 }
 
 /* --- Calendar Styles --- */
