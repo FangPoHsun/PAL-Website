@@ -201,26 +201,30 @@
         <section class="welcome-section section-bg">
             <div class="container">
                 <h2 class="reveal" data-en="Welcome to PAL Lab" data-zh="歡迎來到 PAL Lab">Welcome to PAL Lab</h2>
-                <div class="reveal">
-                    <p style="color: var(--text-secondary); max-width: 800px; margin-bottom: 2rem;"
-                       data-en="Led by Prof. Peichen Yu at National Yang Ming Chiao Tung University, our lab specializes in the intersection of photonics and advanced lithography. We combine theoretical design with practical fabrication to create next-generation optical devices, from AR waveguides to quantum solutions."
-                       data-zh="本實驗室由國立陽明交通大學余沛慈教授主持，專注於光子晶體與先進微影技術的交叉領域。我們結合理論設計與實務製程，打造從AR波導到量子解決方案的下一代光學元件。">
-                        Led by Prof. Peichen Yu at National Yang Ming Chiao Tung University, our lab specializes in the
-                        intersection
-                        of photonics and advanced lithography. We combine theoretical design with practical fabrication
-                        to
-                        create
-                        next-generation optical devices, from AR waveguides to quantum solutions.
-                    </p>
-                </div>
-                <div class="reveal" style="background: var(--card-bg); padding: 2rem; border-radius: 8px;">
-                    <h3 data-en="Latest Highlights" data-zh="最新亮點">Latest Highlights</h3>
-                    <ul style="color: var(--text-secondary); list-style-type: disc; margin-left: 20px;">
-                        <li>Student Paper Awards at OPTIC 2025 - Ping-Ke Li &  Shang-Chiang Sung</li>
-                        <li>New publication in <em>Optical and EUV Nanolithography XXXVIII</em> (2025)</li>
-                        <li>Breakthrough in Meta-Optics Element Augmented Reality (AR) Waveguides</li>
-                        <li>Advanced research in Quantum Annealing for lithography optimization</li>
-                    </ul>
+                <div class="welcome-content reveal">
+                    <div class="welcome-photo">
+                        <img src="image/Home/PAL Group.jpg" alt="PAL Lab Group Photo">
+                        <p class="photo-caption" data-en="PAL Lab Team" data-zh="PAL 實驗室團隊">PAL Lab Team</p>
+                    </div>
+                    <div class="welcome-text">
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;"
+                           data-en="Led by Prof. Peichen Yu at National Yang Ming Chiao Tung University, our lab specializes in the intersection of photonics and advanced lithography. We combine theoretical design with practical fabrication to create next-generation optical devices, from AR waveguides to quantum solutions."
+                           data-zh="本實驗室由國立陽明交通大學余沛慈教授主持，專注於光子晶體與先進微影技術的交叉領域。我們結合理論設計與實務製程，打造從AR波導到量子解決方案的下一代光學元件。">
+                            Led by Prof. Peichen Yu at National Yang Ming Chiao Tung University, our lab specializes in the
+                            intersection of photonics and advanced lithography. We combine theoretical design with practical fabrication
+                            to create next-generation optical devices, from AR waveguides to quantum solutions.
+                        </p>
+                        <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 8px;">
+                            <h3 data-en="Latest Highlights" data-zh="最新亮點">Latest Highlights</h3>
+                            <ul style="color: var(--text-secondary); list-style-type: disc; margin-left: 20px;">
+                                <li>Student Paper Awards at OPTIC 2025 - Ping-Ke Li &  Shang-Chiang Sung</li>
+                                <li>New publication in <em>Optical and EUV Nanolithography XXXVIII</em> (2025)</li>
+                                <li>Breakthrough in Meta-Optics Element Augmented Reality (AR) Waveguides</li>
+                                <li>Advanced research in Quantum Annealing for lithography optimization</li>
+                            </ul>
+                        </div>
+                        <a href="members.html" class="btn" style="margin-top: 1.5rem;" data-en="Meet Our Team" data-zh="認識我們的團隊">Meet Our Team</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -261,6 +265,50 @@
     </div>
 
     <style>
+        /* Welcome Section Layout */
+        .welcome-content {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .welcome-photo {
+            position: relative;
+        }
+
+        .welcome-photo img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .photo-caption {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .welcome-text {
+            display: flex;
+            flex-direction: column;
+            text-align: justify;
+        }
+
+        @media (max-width: 900px) {
+            .welcome-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .welcome-photo {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
         /* Media Lightbox Styles */
         .media-lightbox {
             display: none;
