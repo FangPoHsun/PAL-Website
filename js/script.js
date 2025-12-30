@@ -124,11 +124,43 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         slides.forEach(setSlidePosition);
 
+        // Monitor scroll for mobile to update dots
+        track.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) {
+                const scrollPos = track.scrollLeft;
+                const slideWidth = track.offsetWidth;
+                const currentIndex = Math.round(scrollPos / slideWidth);
+
+                if (currentIndex >= 0 && currentIndex < slides.length) {
+                    const currentDot = dotsNav.querySelector('.current-slide');
+                    const targetDot = dots[currentIndex];
+                    if (currentDot !== targetDot) {
+                        updateDots(currentDot, targetDot);
+                    }
+                }
+            }
+        }, { passive: true });
+
         // Function to move to target slide
         const moveToSlide = (currentSlide, targetSlide) => {
-            track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
-            currentSlide.classList.remove('current-slide');
-            targetSlide.classList.add('current-slide');
+            if (window.innerWidth <= 768) {
+                // Mobile: Native Scroll
+                const targetIndex = slides.findIndex(s => s === targetSlide);
+                const slideWidth = track.offsetWidth;
+                track.scrollTo({
+                    left: targetIndex * slideWidth,
+                    behavior: 'smooth'
+                });
+
+                // Update helpers manually since we hijack the transform logic
+                currentSlide.classList.remove('current-slide');
+                targetSlide.classList.add('current-slide');
+            } else {
+                // Desktop: Transform
+                track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+                currentSlide.classList.remove('current-slide');
+                targetSlide.classList.add('current-slide');
+            }
         };
 
         const updateDots = (currentDot, targetDot) => {
@@ -137,6 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const hideShowArrows = (slides, prevButton, nextButton, targetIndex) => {
+            if (window.innerWidth <= 768) return; // Ignore arrows on mobile
+
             if (targetIndex === 0) {
                 prevButton.classList.add('is-hidden');
                 nextButton.classList.remove('is-hidden');
@@ -153,6 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
         nextButton.addEventListener('click', e => {
             const currentSlide = track.querySelector('.current-slide');
             const nextSlide = currentSlide.nextElementSibling;
+            if (!nextSlide) return;
+
             const currentDot = dotsNav.querySelector('.current-slide');
             const nextDot = currentDot.nextElementSibling;
             const nextIndex = slides.findIndex(slide => slide === nextSlide);
@@ -160,8 +196,6 @@ document.addEventListener('DOMContentLoaded', () => {
             moveToSlide(currentSlide, nextSlide);
             updateDots(currentDot, nextDot);
             hideShowArrows(slides, prevButton, nextButton, nextIndex);
-
-            // Reset auto-play timer on manual interaction
             resetAutoPlay();
         });
 
@@ -169,6 +203,8 @@ document.addEventListener('DOMContentLoaded', () => {
         prevButton.addEventListener('click', e => {
             const currentSlide = track.querySelector('.current-slide');
             const prevSlide = currentSlide.previousElementSibling;
+            if (!prevSlide) return;
+
             const currentDot = dotsNav.querySelector('.current-slide');
             const prevDot = currentDot.previousElementSibling;
             const prevIndex = slides.findIndex(slide => slide === prevSlide);
@@ -176,8 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
             moveToSlide(currentSlide, prevSlide);
             updateDots(currentDot, prevDot);
             hideShowArrows(slides, prevButton, nextButton, prevIndex);
-
-            // Reset auto-play timer on manual interaction
             resetAutoPlay();
         });
 
@@ -194,8 +228,6 @@ document.addEventListener('DOMContentLoaded', () => {
             moveToSlide(currentSlide, targetSlide);
             updateDots(currentDot, targetDot);
             hideShowArrows(slides, prevButton, nextButton, targetIndex);
-
-            // Reset auto-play timer
             resetAutoPlay();
         });
 
@@ -203,18 +235,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let autoPlayTimeout;
 
         const startAutoPlay = () => {
-            // Clear any existing timeout to avoid overlaps
             if (autoPlayTimeout) clearTimeout(autoPlayTimeout);
 
             const currentSlide = track.querySelector('.current-slide');
-            let delay = 5000; // Default delay
+            let delay = 5000;
 
-            // Check if current slide has a nested image slideshow
             const slideshow = currentSlide.querySelector('.image-slideshow');
             if (slideshow) {
-                // Determine duration based on number of images
-                // User CSS has 18s animation for 6 images (3s each).
-                // We'll calculate: (number of images * 3000) + buffer
                 const imgCount = slideshow.querySelectorAll('img').length;
                 if (imgCount > 0) {
                     delay = (imgCount * 3000);
@@ -222,16 +249,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             autoPlayTimeout = setTimeout(() => {
-                const nextSlide = currentSlide.nextElementSibling || slides[0]; // Loop back to start
-                const currentDot = dotsNav.querySelector('.current-slide');
-                const nextDot = nextSlide === slides[0] ? dots[0] : currentDot.nextElementSibling;
+                // If user touches/scrolls on mobile, we might want to interact differently,
+                // but for now keeping autopay is standard.
+                // However, 'current-slide' might be stale on mobile if we don't update it on scroll.
+                // Fortunately we added the 'scroll' listener to update dots.
+                // We should also ensure 'current-slide' class is updated on scroll.
+                // Let's rely on the scroll listener updates?
+                // Actually scroll listener updates dots, but we need to update the slide class too for this logic.
+
+                // Refetch fresh current slide in case scroll changed it
+                const freshCurrentSlide = track.querySelector('.current-slide');
+                const nextSlide = freshCurrentSlide.nextElementSibling || slides[0];
+                const freshCurrentDot = dotsNav.querySelector('.current-slide');
+                const nextDot = nextSlide === slides[0] ? dots[0] : freshCurrentDot.nextElementSibling;
                 const nextIndex = slides.findIndex(slide => slide === nextSlide);
 
-                moveToSlide(currentSlide, nextSlide);
-                updateDots(currentDot, nextDot);
+                moveToSlide(freshCurrentSlide, nextSlide);
+                updateDots(freshCurrentDot, nextDot);
                 hideShowArrows(slides, prevButton, nextButton, nextIndex);
 
-                // Continue loop
                 startAutoPlay();
             }, delay);
         };
@@ -244,57 +280,56 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initialize AutoPlay
         startAutoPlay();
 
-        // Handle Resize (Re-calculate positions)
+        // Handle Resize
         window.addEventListener('resize', () => {
-            const newSlideWidth = slides[0].getBoundingClientRect().width;
-            slides.forEach((slide, index) => {
-                slide.style.left = newSlideWidth * index + 'px';
-            });
-            // Re-center current slide
-            const currentSlide = track.querySelector('.current-slide');
-            track.style.transform = 'translateX(-' + currentSlide.style.left + ')';
+            // If switching to mobile, remove transform
+            if (window.innerWidth <= 768) {
+                track.style.transform = '';
+            } else {
+                // Restore positions
+                const newSlideWidth = slides[0].getBoundingClientRect().width;
+                slides.forEach((slide, index) => {
+                    slide.style.left = newSlideWidth * index + 'px';
+                });
+                const currentSlide = track.querySelector('.current-slide');
+                track.style.transform = 'translateX(-' + currentSlide.style.left + ')';
+            }
         });
 
-        // --- Touch / Swipe Support ---
+        // --- Mobile Logic Updates ---
+        // For mobile, we rely on Native Scroll (overflow-x: auto) + Scroll Snap.
+        // We REMOVE the touch event listeners that did transform manipulation
+        // because they conflict with native scroll.
+
+        // Only add touch listeners if NOT mobile (though typically desktops usually don't need swipe unless touchscreen laptop)
+        // Actually, easiest is just to remove the custom swipe logic entirely since we have native scroll now?
+        // Or keep it for desktop-touch users?
+        // Let's keep a simplified version only if width > 768.
+
         let startX = 0;
-        let diff = 0;
         let isDragging = false;
 
-        track.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-            // Pause auto-play on touch
-            if (autoPlayTimeout) clearTimeout(autoPlayTimeout);
-            track.style.transition = 'none'; // Remove transition for direct 1:1 movement
-        }, { passive: true });
+        // We will remove the old touch logic completely in favor of native scroll on mobile,
+        // and buttons on desktop. (Desktop drag is rare).
 
-        track.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            const currentX = e.touches[0].clientX;
-            diff = startX - currentX;
-            // Optional: visual feedback (drag the track slightly)
-            // Ideally we'd need current translate value, but for simplicity we rely on snap after end.
-            // keeping it simple: just detect swipe direction on end.
-        }, { passive: true });
+        // Add listener to update current-slide class on scroll (Manual scroll updates)
+        track.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) {
+                const scrollPos = track.scrollLeft;
+                const slideWidth = track.offsetWidth; // Use offsetWidth
+                const index = Math.round(scrollPos / slideWidth);
 
-        track.addEventListener('touchend', () => {
-            isDragging = false;
-            track.style.transition = 'transform 0.5s ease-in-out'; // Restore transition
+                if (index >= 0 && index < slides.length) {
+                    // Update classes
+                    slides.forEach(s => s.classList.remove('current-slide'));
+                    slides[index].classList.add('current-slide');
 
-            const threshold = 50; // min swipe distance
-
-            if (diff > threshold) {
-                // Swiped Left -> Next Slide
-                nextButton.click();
-            } else if (diff < -threshold) {
-                // Swiped Right -> Prev Slide
-                prevButton.click();
+                    const dot = dots[index];
+                    dotsNav.querySelector('.current-slide').classList.remove('current-slide');
+                    dot.classList.add('current-slide');
+                }
             }
-
-            diff = 0;
-            // Restart auto-play
-            startAutoPlay();
-        });
+        }, { passive: true });
     }
 
 
