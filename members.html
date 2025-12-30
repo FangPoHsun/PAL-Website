@@ -52,13 +52,26 @@
             font-size: 2rem;
             color: var(--text-secondary);
             border: 2px solid var(--accent-color);
+            overflow: hidden;
+        }
+
+        .member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .member-name {
             font-size: 1.1rem;
             font-weight: 700;
             color: var(--text-color);
-            margin-bottom: 5px;
+            margin-bottom: 2px;
+        }
+
+        .member-name-zh {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
         }
 
         .member-grade {
@@ -70,9 +83,28 @@
         }
 
         .member-topic {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
-            font-style: italic;
+            width: 100%;
+        }
+
+        .member-topic ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .member-topic li {
+            background: rgba(255, 196, 0, 0);
+            border: 1px solid  var(--accent-color);
+            border-radius: 12px;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            color:  rgba(251, 250, 247, 0.8);
         }
 
         h3.section-title {
@@ -107,71 +139,69 @@
     </header>
 
     <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
-        <h2 class="fade-in">Lab Members</h2>
+        <h2 class="fade-in" data-en="Lab Members" data-zh="實驗室成員">Lab Members</h2>
 
         <!-- Ph.D. Students -->
         <div class="members-section fade-in">
-            <h3 class="section-title">Ph.D. Students</h3>
+            <h3 class="section-title" data-en="Ph.D. Students" data-zh="博士生">Ph.D. Students</h3>
             <div class="members-grid">
-                <!-- Placeholder Member 1 -->
                 <div class="member-card">
-                    <div class="member-avatar">S1</div>
-                    <div class="member-name">Student Name</div>
-                    <div class="member-grade">Ph.D. Year 3</div>
-                    <div class="member-topic">Research Topic: Advanced ILT</div>
+                    <div class="member-avatar">
+                        <img src="image/Member/Ph.D/方柏勛 Po-Hsun Fang.jpg" alt="Po-Hsun Fang">
+                    </div>
+                    <div class="member-name" data-en="Po-Hsun Fang" data-zh="方柏勛">Po-Hsun Fang</div>
+                    <div class="member-name-zh">方柏勛</div>
+                    <div class="member-grade">Ph.D. Student</div>
+                    <div class="member-topic">
+                        <ul>
+                            <li>Resolution Enhancement Techniques</li>
+                            <li>OPC</li>
+                            <li>ILT</li>
+                            <li>SMO</li>
+                            <li>Quantum Annealing</li>
+                        </ul>
+                    </div>
                 </div>
-                <!-- Placeholder Member 2 -->
                 <div class="member-card">
-                    <div class="member-avatar">S2</div>
-                    <div class="member-name">Student Name</div>
-                    <div class="member-grade">Ph.D. Year 1</div>
-                    <div class="member-topic">Research Topic: Metasurfaces</div>
+                    <div class="member-avatar">
+                        <img src="image/Member/Ph.D/劉學澧 Hsuehli Liu.jpg" alt="Hsuehli Liu">
+                    </div>
+                    <div class="member-name" data-en="Hsuehli Liu" data-zh="劉學澧">Hsuehli Liu</div>
+                    <div class="member-name-zh">劉學澧</div>
+                    <div class="member-grade">Ph.D. Student</div>
+                    <div class="member-topic"></div>
                 </div>
             </div>
         </div>
 
-        <!-- Master Students -->
+        <!-- Master Students
         <div class="members-section fade-in">
-            <h3 class="section-title">Master's Students</h3>
+            <h3 class="section-title" data-en="Master Students" data-zh="碩士生">Master Students</h3>
             <div class="members-grid">
-                <!-- Placeholder Member -->
                 <div class="member-card">
-                    <div class="member-avatar">M1</div>
-                    <div class="member-name">Student Name</div>
-                    <div class="member-grade">Master Year 2</div>
-                    <div class="member-topic">Research Topic: AR Waveguides</div>
-                </div>
-                <div class="member-card">
-                    <div class="member-avatar">M2</div>
-                    <div class="member-name">Student Name</div>
-                    <div class="member-grade">Master Year 1</div>
-                    <div class="member-topic">Research Topic: Quantum Algorithms</div>
-                </div>
-                <div class="member-card">
-                    <div class="member-avatar">M3</div>
-                    <div class="member-name">Student Name</div>
-                    <div class="member-grade">Master Year 1</div>
-                    <div class="member-topic">Research Topic: Optical Testing</div>
+                    <div class="member-avatar">
+                        <img src="image/Member/Ph.D/方柏勛 Po-Hsun Fang.jpg" alt="Po-Hsun Fang">
+                    </div>
+                    <div class="member-name" data-en="Po-Hsun Fang" data-zh="方柏勛">Po-Hsun Fang</div>
+                    <div class="member-name-zh">方柏勛</div>
+                    <div class="member-grade">Ph.D. Student</div>
+                    <div class="member-topic"></div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <!-- Alumni -->
+        <!-- In-service Master Program -->
         <div class="members-section fade-in">
-            <h3 class="section-title">Alumni</h3>
+            <h3 class="section-title" data-en="In-service Master Program" data-zh="在職碩士班">In-service Master Program</h3>
             <div class="members-grid">
-                <!-- Placeholder Alumni -->
                 <div class="member-card">
-                    <div class="member-avatar">A1</div>
-                    <div class="member-name">Alumni Name</div>
-                    <div class="member-grade">Ph.D. 2024</div>
-                    <div class="member-topic">Now at: TSMC</div>
-                </div>
-                <div class="member-card">
-                    <div class="member-avatar">A2</div>
-                    <div class="member-name">Alumni Name</div>
-                    <div class="member-grade">Master 2023</div>
-                    <div class="member-topic">Now at: MediaTek</div>
+                    <div class="member-avatar">
+                        <img src="image/Member/In-service Master Program/陳子廷 Tzuting_Chen.jpg" alt="Tzuting Chen">
+                    </div>
+                    <div class="member-name" data-en="Tzuting Chen" data-zh="陳子廷">Tzuting Chen</div>
+                    <div class="member-name-zh">陳子廷</div>
+                    <div class="member-grade">In-service Master</div>
+                    <div class="member-topic"></div>
                 </div>
             </div>
         </div>

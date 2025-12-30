@@ -127,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Monitor scroll for mobile to update dots
         track.addEventListener('scroll', () => {
             if (window.innerWidth <= 768) {
+                // Mobile mode: update based on scroll position
                 const scrollPos = track.scrollLeft;
                 const slideWidth = track.offsetWidth;
                 const currentIndex = Math.round(scrollPos / slideWidth);
@@ -137,6 +138,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (currentDot !== targetDot) {
                         updateDots(currentDot, targetDot);
                     }
+                }
+            } else {
+                // Desktop mode: reset scroll position if somehow scrolled
+                if (track.scrollLeft !== 0) {
+                    track.scrollLeft = 0;
                 }
             }
         }, { passive: true });
@@ -280,19 +286,80 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initialize AutoPlay
         startAutoPlay();
 
-        // Handle Resize
-        window.addEventListener('resize', () => {
-            // If switching to mobile, remove transform
-            if (window.innerWidth <= 768) {
+        // Handle Resize with debounce
+        // Simplified Resize Handler
+        const handleResize = () => {
+            const isMobile = window.innerWidth <= 768;
+            const currentSlide = track.querySelector('.current-slide');
+            const currentIndex = slides.findIndex(s => s === currentSlide);
+
+            // Disable transitions temporarily
+            track.classList.add('no-transition');
+
+            if (isMobile) {
+                // Mobile: Undo any transforms, rely on native scroll
                 track.style.transform = '';
+                slides.forEach(s => s.style.left = '');
+
+                // Snap to current slide
+                const slideWidth = track.offsetWidth;
+                track.scrollLeft = currentIndex * slideWidth;
             } else {
-                // Restore positions
-                const newSlideWidth = slides[0].getBoundingClientRect().width;
+                // Desktop: Reset scroll, re-apply transforms
+                track.scrollLeft = 0;
+
+                // Re-calculate absolute positions
+                const slideWidth = slides[0].getBoundingClientRect().width;
                 slides.forEach((slide, index) => {
-                    slide.style.left = newSlideWidth * index + 'px';
+                    slide.style.left = slideWidth * index + 'px';
                 });
-                const currentSlide = track.querySelector('.current-slide');
-                track.style.transform = 'translateX(-' + currentSlide.style.left + ')';
+
+                // Move to current slide
+                track.style.transform = 'translateX(-' + (slideWidth * currentIndex) + 'px)';
+
+                // Update buttons
+                hideShowArrows(slides, prevButton, nextButton, currentIndex);
+            }
+
+            // Re-enable transitions
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    track.classList.remove('no-transition');
+                });
+            });
+        };
+
+        window.addEventListener('resize', () => {
+            // Simple debounce
+            clearTimeout(window.carouselResizeTimer);
+            window.carouselResizeTimer = setTimeout(handleResize, 100);
+        });
+
+        // Also handle orientation change for mobile devices
+        window.addEventListener('orientationchange', () => {
+            // Wait for orientation change to complete
+            setTimeout(handleResize, 200);
+        });
+
+        // Initial setup based on current viewport
+        track.classList.add('no-transition');
+        if (window.innerWidth <= 768) {
+            // Mobile: clear transforms and use native scroll
+            track.style.transform = '';
+            slides.forEach(slide => {
+                slide.style.left = '';
+            });
+        }
+        // Re-enable transition after initial setup
+        requestAnimationFrame(() => {
+            track.classList.remove('no-transition');
+        });
+
+        // Handle visibility change (when user switches tabs and comes back)
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+                // Reset carousel position when page becomes visible again
+                handleResize();
             }
         });
 
@@ -315,18 +382,27 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add listener to update current-slide class on scroll (Manual scroll updates)
         track.addEventListener('scroll', () => {
             if (window.innerWidth <= 768) {
+                // Mobile mode: update slide and dot classes based on scroll
                 const scrollPos = track.scrollLeft;
-                const slideWidth = track.offsetWidth; // Use offsetWidth
+                const slideWidth = track.offsetWidth;
                 const index = Math.round(scrollPos / slideWidth);
 
                 if (index >= 0 && index < slides.length) {
-                    // Update classes
+                    // Update slide classes
                     slides.forEach(s => s.classList.remove('current-slide'));
                     slides[index].classList.add('current-slide');
 
-                    const dot = dots[index];
-                    dotsNav.querySelector('.current-slide').classList.remove('current-slide');
-                    dot.classList.add('current-slide');
+                    // Update dot classes
+                    const currentDot = dotsNav.querySelector('.current-slide');
+                    if (currentDot && dots[index] && currentDot !== dots[index]) {
+                        currentDot.classList.remove('current-slide');
+                        dots[index].classList.add('current-slide');
+                    }
+                }
+            } else {
+                // Desktop mode: ensure scroll is reset
+                if (track.scrollLeft !== 0) {
+                    track.scrollLeft = 0;
                 }
             }
         }, { passive: true });
