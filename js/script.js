@@ -1,13 +1,74 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Language Switching System ---
+    const langSwitch = document.querySelector('.lang-switch');
+
+    // Get saved language or default to English
+    let currentLang = localStorage.getItem('pallab-lang') || 'en';
+
+    // Apply language on page load
+    const applyLanguage = (lang) => {
+        document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-TW' : 'en');
+
+        // Update all translatable elements
+        document.querySelectorAll('[data-en]').forEach(el => {
+            if (lang === 'zh' && el.dataset.zh) {
+                el.textContent = el.dataset.zh;
+            } else if (el.dataset.en) {
+                el.textContent = el.dataset.en;
+            }
+        });
+
+        // Update elements with HTML content
+        document.querySelectorAll('[data-en-html]').forEach(el => {
+            if (lang === 'zh' && el.dataset.zhHtml) {
+                el.innerHTML = el.dataset.zhHtml;
+            } else if (el.dataset.enHtml) {
+                el.innerHTML = el.dataset.enHtml;
+            }
+        });
+
+        // Update lang switch button text
+        if (langSwitch) {
+            langSwitch.textContent = lang === 'zh' ? '中文 | EN' : 'EN | 中文';
+        }
+
+        // Save preference
+        localStorage.setItem('pallab-lang', lang);
+        currentLang = lang;
+    };
+
+    // Initialize language
+    applyLanguage(currentLang);
+
+    // Toggle language on click
+    if (langSwitch) {
+        langSwitch.addEventListener('click', (e) => {
+            e.preventDefault();
+            const newLang = currentLang === 'en' ? 'zh' : 'en';
+            applyLanguage(newLang);
+        });
+    }
+
     // --- Mobile Navigation Toggle ---
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
 
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        hamburger.classList.toggle('toggle');
-    });
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+
+        // Support keyboard navigation for hamburger menu
+        hamburger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('toggle');
+            }
+        });
+    }
 
     // --- Scroll Reveal Animation ---
     const revealElements = document.querySelectorAll('.reveal');
@@ -30,23 +91,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Sticky Header Effect ---
     const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.4)';
-        } else {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
-        }
-    });
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.4)';
+            } else {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            }
+        });
+    }
 
     // --- Carousel Logic ---
     const track = document.querySelector('.carousel-track');
-    // Only proceed if carousel exists (index.html)
-    if (track) {
+    const nextButton = document.querySelector('.carousel-button--right');
+    const prevButton = document.querySelector('.carousel-button--left');
+    const dotsNav = document.querySelector('.carousel-nav');
+
+    // Only proceed if all carousel elements exist (index.html)
+    if (track && nextButton && prevButton && dotsNav) {
         const slides = Array.from(track.children);
-        const nextButton = document.querySelector('.carousel-button--right');
-        const prevButton = document.querySelector('.carousel-button--left');
-        const dotsNav = document.querySelector('.carousel-nav');
         const dots = Array.from(dotsNav.children);
+
+        // Ensure we have slides to work with
+        if (slides.length === 0) return;
 
         // Arrange slides next to one another
         // width of one slide
@@ -227,6 +294,66 @@ document.addEventListener('DOMContentLoaded', () => {
             diff = 0;
             // Restart auto-play
             startAutoPlay();
+        });
+    }
+
+
+    // --- Research Detail Modal Logic ---
+    const modalOverlay = document.getElementById('research-modal');
+    // Only proceed if modal exists (research.html)
+    if (modalOverlay) {
+        const modalBody = document.querySelector('.modal-body');
+        const closeBtn = document.querySelector('.close-modal');
+        // Select all cards instead of buttons
+        const researchCards = document.querySelectorAll('.research-card');
+
+        const openModal = (content) => {
+            // Content can be HTML from a hidden div
+            modalBody.innerHTML = content;
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+            // Apply language to dynamically injected content
+            const currentLang = localStorage.getItem('pallab-lang') || 'en';
+            modalBody.querySelectorAll('[data-en]').forEach(el => {
+                if (currentLang === 'zh' && el.dataset.zh) {
+                    el.textContent = el.dataset.zh;
+                } else if (el.dataset.en) {
+                    el.textContent = el.dataset.en;
+                }
+            });
+        };
+
+        const closeModal = () => {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        researchCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Find hidden detail content WITHIN the clicked card
+                // Ensure we don't trigger if clicking inside the detail itself (rare edge case since detail is hidden)
+                const detailContent = card.querySelector('.research-detail').innerHTML;
+                if (detailContent) {
+                    openModal(detailContent);
+                }
+            });
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+
+        // Close on clicking outside
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                closeModal();
+            }
         });
     }
 });

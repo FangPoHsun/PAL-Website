@@ -695,6 +695,32 @@ footer a {
         padding-top: 100px;
         padding-bottom: 50px;
     }
+
+    /* Research cards mobile fix */
+    .research-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .research-card .card-img {
+        height: 180px;
+    }
+
+    .research-card .card-img img,
+    .research-card .card-img video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background-color: #020c1b;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .card-content h3 {
+        font-size: 1.1rem;
+    }
 }
 
 /* --- Calendar Styles --- */
@@ -873,5 +899,180 @@ footer a {
 @media (max-width: 900px) {
     .calendar-layout {
         grid-template-columns: 1fr;
+    }
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8892b0;
+    /* Light slate */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+    /* Highlight on hover */
+}
+
+/* Modal Content Scrollbar */
+.modal-content::-webkit-scrollbar-track {
+    background: var(--card-bg);
+}
+
+/* --- Research Modal Styles --- */
+/* (Button style removed as buttons are gone, or kept for legacy/other uses? 
+   User said "remove", so we don't need .btn-expand styles anymore, 
+   but keeping generic classes is fine. I'll simply add the pointer to the card.) 
+*/
+
+.research-card {
+    /* ... existing properties (handled in upper section) ... */
+    cursor: pointer;
+    /* Clickable indication */
+}
+
+/* Existing .btn-expand is no longer needed but leaving it won't hurt if references exist. 
+   I will focus on the Modal Overlay styles below. 
+*/
+
+.btn-expand {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.btn-expand:hover {
+    background: rgba(255, 196, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    padding: 40px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: scale(0.9);
+    transition: var(--transition);
+    overflow-y: auto;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-modal:hover {
+    color: var(--accent-color);
+    transform: rotate(90deg);
+}
+
+.modal-body h3 {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 196, 0, 0.2);
+    padding-bottom: 10px;
+}
+
+.modal-body p {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.modal-body ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+}
+
+.modal-body li {
+    margin-bottom: 10px;
+}
+
+/* Detail Media in Modal */
+.detail-media {
+    width: 100%;
+    max-height: 350px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail-media img,
+.detail-media video {
+    max-width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .detail-media {
+        max-height: 250px;
+    }
+
+    .detail-media img,
+    .detail-media video {
+        max-height: 250px;
     }
 }

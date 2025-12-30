@@ -5,7 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevMonthBtn = document.getElementById('prev-month');
     const nextMonthBtn = document.getElementById('next-month');
 
-    if (!calendarGrid) return; // Not on calendar page
+    // Exit if not on calendar page or required elements missing
+    if (!calendarGrid || !monthDisplay || !eventDetailsContainer || !prevMonthBtn || !nextMonthBtn) return;
+
+    // Check if calendar data is loaded
+    if (typeof routineEvents === 'undefined' || typeof specificEvents === 'undefined') {
+        console.warn('Calendar data not loaded. Please ensure calendar-data.js is included before calendar.js');
+        return;
+    }
 
     let currentDate = new Date();
 
