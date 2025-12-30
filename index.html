@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PAL Lab at NYCU specializes in photonics, metasurfaces, AR waveguides, computational lithography, and quantum annealing research led by Prof. Peichen Yu.">
     <title>PAL Lab | Photonics & Lithography</title>
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -15,7 +19,7 @@
     <header>
         <nav>
             <a href="index.html" class="logo">PAL Lab</a>
-            <div class="hamburger" id="hamburger">
+            <div class="hamburger" id="hamburger" role="button" aria-label="Toggle navigation menu" tabindex="0">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
@@ -26,6 +30,7 @@
                 <li><a href="research.html">Research</a></li>
                 <li><a href="members.html">Members</a></li>
                 <li><a href="publications.html">Publications</a></li>
+                <li><a href="calendar.html">Lab Calendar</a></li>
                 <li><a href="#" class="lang-switch">EN | 中文</a></li>
             </ul>
         </nav>
@@ -34,87 +39,159 @@
     <main class="home-scroll-container">
         <!-- Hero Section -->
         <section class="hero">
-            <div class="hero-content">
-                <h1>Photonics & Lithography Lab</h1>
-                <p>Advancing the frontiers of Nanostructures, Metasurfaces, and Computational Lithography.</p>
-                <a href="research.html" class="btn">Explore Research</a>
+            <div class="hero-content reveal">
+                <h1 data-en="Photonics & Lithography Lab" data-zh="光子晶體與微影技術實驗室">Photonics & Lithography Lab</h1>
+                <p data-en="Advancing the frontiers of Nanostructures, Metasurfaces, and Computational Lithography."
+                   data-zh="推動奈米結構、超穎表面與計算微影技術的前沿發展。">Advancing the frontiers of Nanostructures, Metasurfaces, and Computational Lithography.</p>
+                <div class="hero-btns">
+                    <a href="research.html" class="btn" data-en="Explore Research" data-zh="探索研究">Explore Research</a>
+                    <a href="#highlights" class="btn btn-secondary" data-en="See Highlights ↓" data-zh="查看亮點 ↓">See Highlights &darr;</a>
+                </div>
             </div>
         </section>
 
         <!-- Highlights Carousel Section -->
-        <section class="highlights-section section-bg">
+        <section id="highlights" class="highlights-section section-bg">
             <div class="container">
-                <h2 class="fade-in">Lab Highlights & News</h2>
+                <h2 class="reveal">Lab Highlights & News</h2>
 
-                <div class="carousel-container fade-in">
+                <div class="carousel-container reveal">
                     <div class="carousel-track-container">
                         <ul class="carousel-track">
-                            <!-- Slide 1: Award/Achievement -->
+                            <!-- 
+                                HOW TO ADD A NEW SLIDE:
+                                1. Copy the entire <li> block below (from <li class="carousel-slide"> to </li>).
+                                2. Paste it as the first item in <ul class="carousel-track">.
+                                3. Update the content:
+                                   - Replace the image 'src' (if you have an image), or remove the entire <div class="slide-image"> block if none.
+                                   - Update Title (<h3>), Description (<p>), and Link (<a>).
+                                   - Update Tag class and text (e.g., <span class="tag news">Lab News</span>).
+                                4. Ensure only ONE slide has the class "current-slide" (the first one).
+                             -->
+
+                            <!-- Slide 1: Christmas Gift Exchange 2025 -->
                             <li class="carousel-slide current-slide">
-                                <div class="slide-content">
-                                    <span class="tag award">Award</span>
-                                    <h3>Student Paper Awards at OPTIC 2025</h3>
-                                    <p>Congratulation to Shang-Chiang Sung to win the student award in OPTIC 2025!
-                                        Optical Nano Device and Application
-                                        Title:  Apodized Metasurface Exit-Pupil Expansion Waveguide for High-Efficiency Augmented Reality Glasses
-                                    </p>
-                                    <a href="https://optic2025.conf.tw/site/news_show.aspx?sid=1637&lang=en&pid=573" class="slide-link">Read More &rarr;</a>
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-text">
+                                        <span class="tag news">Lab News</span>
+                                        <h3>2025 Christmas Gift Exchange</h3>
+                                        <p>PAL Lab celebrated Christmas 2025 with a fun gift exchange party!
+                                            Lab members gathered together to share joy and exchange gifts,
+                                            strengthening our lab family bonds.
+                                        </p>
+                                        <a href="members.html" class="slide-link">Meet the Team &rarr;</a>
+                                    </div>
+                                    <div class="slide-image">
+                                        <div class="image-slideshow">
+                                            <img src="image/News_highlight/2025_12_25/xmas_1.jpg"
+                                                alt="Christmas 2025 - 1">
+                                            <img src="image/News_highlight/2025_12_25/xmas_2.jpg"
+                                                alt="Christmas 2025 - 2">
+                                            <img src="image/News_highlight/2025_12_25/xmas_3.jpg"
+                                                alt="Christmas 2025 - 3">
+                                            <img src="image/News_highlight/2025_12_25/xmas_4.jpg"
+                                                alt="Christmas 2025 - 4">
+                                            <img src="image/News_highlight/2025_12_25/xmas_5.jpg"
+                                                alt="Christmas 2025 - 5">
+                                            <img src="image/News_highlight/2025_12_25/xmas_6.jpg"
+                                                alt="Christmas 2025 - 6">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Slide 2: Award/Achievement -->
+                            <li class="carousel-slide">
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-text">
+                                        <span class="tag award">Award</span>
+                                        <h3>Student Paper Awards at OPTIC 2025</h3>
+                                        <p>Congratulation to Shang-Chiang Sung to win the student award in OPTIC 2025!
+                                            Optical Nano Device and Application. Title: Apodized Metasurface Exit-Pupil
+                                            Expansion Waveguide for High-Efficiency Augmented Reality Glasses
+                                        </p>
+                                        <a href="https://optic2025.conf.tw/site/news_show.aspx?sid=1637&lang=en&pid=573"
+                                            class="slide-link">Read More &rarr;</a>
+                                    </div>
+                                    <!-- Example of image placeholder if user wants to add one -->
+                                    <div class="slide-image">
+                                        <!-- Using the research image for demo -->
+                                        <img src="image/News_highlight/Student%20ShangJiang.jpg" alt="student award">
+                                    </div>
                                 </div>
                             </li>
 
                             <li class="carousel-slide">
-                                <div class="slide-content">
-                                    <span class="tag award">Award</span>
-                                    <h3>Student Paper Awards at OPTIC 2025</h3>
-                                    <p>Congratulation to Ping-Ke Li to win the student award in OPTIC 2025!
-                                        Optical Nano Device and Application
-                                        Title:  Polarization-Controlled Meta-Holography via large area Chiral Metasurfaces 
-                                    </p>
-                                    <a href="https://optic2025.conf.tw/site/news_show.aspx?sid=1637&lang=en&pid=573" class="slide-link">Read More &rarr;</a>
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-text">
+                                        <span class="tag award">Award</span>
+                                        <h3>Student Paper Awards at OPTIC 2025</h3>
+                                        <p>Congratulation to Ping-Ke Li to win the student award in OPTIC 2025!
+                                            Optical Nano Device and Application. Title: Polarization-Controlled
+                                            Meta-Holography via large area Chiral Metasurfaces
+                                        </p>
+                                        <a href="https://optic2025.conf.tw/site/news_show.aspx?sid=1637&lang=en&pid=573"
+                                            class="slide-link">Read More &rarr;</a>
+                                    </div>
+                                    <div class="slide-image">
+                                        <!-- Using the research image for demo -->
+                                        <img src="image/News_highlight/Student%20Paper%20Pingke.jpg"
+                                            alt="student award">
+                                    </div>
                                 </div>
                             </li>
 
                             <!-- Slide 2: New Publication -->
                             <li class="carousel-slide">
-                                <div class="slide-content">
-                                    <span class="tag publication">New Publication</span>
-                                    <h3>Breakthrough in AR Waveguides</h3>
-                                    <p>Published in *Metrology, Inspection, and Process Control*: "Large area metalens
-                                        and
-                                        AR waveguides fabricated by DUV KrF lithography".</p>
-                                    <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13426/1342644/Large-area-metalens-and-AR-waveguides-fabricated-by-DUV-KrF/10.1117/12.3057618.short" class="slide-link">View Paper &rarr;</a>
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-text">
+                                        <span class="tag publication">New Publication</span>
+                                        <h3>Breakthrough in AR Waveguides</h3>
+                                        <p>Published in *Metrology, Inspection, and Process Control*: "Large area
+                                            metalens and AR waveguides fabricated by DUV KrF lithography".</p>
+                                        <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13426/1342644/Large-area-metalens-and-AR-waveguides-fabricated-by-DUV-KrF/10.1117/12.3057618.short"
+                                            class="slide-link">View Paper &rarr;</a>
+                                    </div>
+                                    <div class="slide-image">
+                                        <!-- Using the research image for demo -->
+                                        <video src="image/News_highlight/AR%20glasses.mp4" title="AR Glass Breakthrough"
+                                            autoplay loop muted playsinline></video>
+                                    </div>
                                 </div>
                             </li>
 
                             <!-- Slide 3: Lab News -->
                             <li class="carousel-slide">
-                                <div class="slide-content">
-                                    <span class="tag news">Lab News</span>
-                                    <h3>Welcome New Master Students</h3>
-                                    <p>We are excited to welcome 4 new master students joining the PAL Lab family next
-                                        semester.</p>
-                                    <a href="members.html" class="slide-link">Meet the Team &rarr;</a>
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-text">
+                                        <span class="tag news">Lab News</span>
+                                        <h3>Welcome New Master Students</h3>
+                                        <p>We are excited to welcome 4 new master students joining the PAL Lab family
+                                            next semester.</p>
+                                        <a href="members.html" class="slide-link">Meet the Team &rarr;</a>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
                     </div>
 
-                    <button class="carousel-button carousel-button--left is-hidden">
-                        <svg width="20" height="20" viewBox="0 0 24 24">
+                    <button class="carousel-button carousel-button--left is-hidden" aria-label="Previous slide">
+                        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor" />
                         </svg>
                     </button>
-                    <button class="carousel-button carousel-button--right">
-                        <svg width="20" height="20" viewBox="0 0 24 24">
+                    <button class="carousel-button carousel-button--right" aria-label="Next slide">
+                        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="currentColor" />
                         </svg>
                     </button>
 
-                    <div class="carousel-nav">
-                        <button class="carousel-indicator current-slide"></button>
-                        <button class="carousel-indicator"></button>
-                        <button class="carousel-indicator"></button>
-                        <button class="carousel-indicator"></button>
+                    <div class="carousel-nav" role="tablist" aria-label="Slide navigation">
+                        <button class="carousel-indicator current-slide" role="tab" aria-label="Slide 1" aria-selected="true"></button>
+                        <button class="carousel-indicator" role="tab" aria-label="Slide 2" aria-selected="false"></button>
+                        <button class="carousel-indicator" role="tab" aria-label="Slide 3" aria-selected="false"></button>
+                        <button class="carousel-indicator" role="tab" aria-label="Slide 4" aria-selected="false"></button>
+                        <button class="carousel-indicator" role="tab" aria-label="Slide 5" aria-selected="false"></button>
                     </div>
                 </div>
             </div>
@@ -123,30 +200,37 @@
         <!-- Brief Introduction -->
         <section class="welcome-section section-bg">
             <div class="container">
-                <h2>Welcome to PAL Lab</h2>
-                <p style="color: var(--text-secondary); max-width: 800px; margin-bottom: 2rem;">
-                    Led by Prof. Peichen Yu at National Yang Ming Chiao Tung University, our lab specializes in the
-                    intersection
-                    of photonics and advanced lithography. We combine theoretical design with practical fabrication to
-                    create
-                    next-generation optical devices, from AR waveguides to quantum solutions.
-                </p>
-                <div style="background: var(--card-bg); padding: 2rem; border-radius: 8px;">
-                    <h3>Latest Highlights</h3>
+                <h2 class="reveal" data-en="Welcome to PAL Lab" data-zh="歡迎來到 PAL Lab">Welcome to PAL Lab</h2>
+                <div class="reveal">
+                    <p style="color: var(--text-secondary); max-width: 800px; margin-bottom: 2rem;"
+                       data-en="Led by Prof. Peichen Yu at National Yang Ming Chiao Tung University, our lab specializes in the intersection of photonics and advanced lithography. We combine theoretical design with practical fabrication to create next-generation optical devices, from AR waveguides to quantum solutions."
+                       data-zh="本實驗室由國立陽明交通大學余沛慈教授主持，專注於光子晶體與先進微影技術的交叉領域。我們結合理論設計與實務製程，打造從AR波導到量子解決方案的下一代光學元件。">
+                        Led by Prof. Peichen Yu at National Yang Ming Chiao Tung University, our lab specializes in the
+                        intersection
+                        of photonics and advanced lithography. We combine theoretical design with practical fabrication
+                        to
+                        create
+                        next-generation optical devices, from AR waveguides to quantum solutions.
+                    </p>
+                </div>
+                <div class="reveal" style="background: var(--card-bg); padding: 2rem; border-radius: 8px;">
+                    <h3 data-en="Latest Highlights" data-zh="最新亮點">Latest Highlights</h3>
                     <ul style="color: var(--text-secondary); list-style-type: disc; margin-left: 20px;">
                         <li>New publication in <em>Optical and EUV Nanolithography XXXVIII</em> (2025)</li>
                         <li>Breakthrough in Meta-Optics Element Augmented Reality (AR) Waveguides</li>
                         <li>Advanced research in Quantum Annealing for lithography optimization</li>
                     </ul>
                 </div>
+            </div>
         </section>
 
         <!-- Footer -->
         <footer>
             <div class="container">
-                <p>Photonics & Lithography (PAL) Lab</p>
-                <p>National Yang Ming Chiao Tung University</p>
-                <p>Tin Ka Ping Building, No. 1001, Daxue Rd. Hsinchu City, 300093 Taiwan, Room 306</p>
+                <p data-en="Photonics & Lithography (PAL) Lab" data-zh="光子晶體與微影技術實驗室 (PAL Lab)">Photonics & Lithography (PAL) Lab</p>
+                <p data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung University</p>
+                <p data-en="Tin Ka Ping Building, No. 1001, Daxue Rd. Hsinchu City, 300093 Taiwan, Room 306"
+                   data-zh="田家炳光電大樓 306室，新竹市大學路1001號，300093 台灣">Tin Ka Ping Building, No. 1001, Daxue Rd. Hsinchu City, 300093 Taiwan, Room 306</p>
                 <p><a href="mailto:peichen.yu@nycu.edu.tw">peichen.yu@nycu.edu.tw</a></p>
                 <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.7;">&copy; 2025 PAL Lab. All Rights Reserved.
                 </p>
