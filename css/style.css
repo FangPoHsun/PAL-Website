@@ -221,13 +221,13 @@ nav {
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: clamp(2rem, 5vw, 4rem);
     background: linear-gradient(90deg, #e6f1ff, #ffc400);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
-    line-height: 1.1;
+    line-height: 1.2;
 }
 
 .hero p {
@@ -286,6 +286,14 @@ nav {
     list-style: none;
     touch-action: pan-y;
     cursor: grab;
+    /* Desktop mode: no scroll, use transform */
+    overflow-x: visible;
+    scroll-snap-type: none;
+}
+
+/* Disable transition during resize */
+.carousel-track.no-transition {
+    transition: none !important;
 }
 
 .carousel-track:active {
@@ -319,6 +327,10 @@ nav {
 .carousel-slide {
     min-width: 100%;
     box-sizing: border-box;
+    /* Desktop mode: Ensure slides don't shrink */
+    flex: 0 0 100%;
+    /* We disable snap on desktop to let JS control the Transform animation */
+    scroll-snap-align: none;
 }
 
 .slide-content-wrapper {
@@ -711,7 +723,7 @@ footer a {
     }
 
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
     }
 
     .carousel-container {
