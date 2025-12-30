@@ -26,6 +26,7 @@
                 <li><a href="research.html">Research</a></li>
                 <li><a href="members.html">Members</a></li>
                 <li><a href="publications.html">Publications</a></li>
+                <li><a href="calendar.html">Lab Calendar</a></li>
                 <li><a href="#" class="lang-switch">EN | 中文</a></li>
             </ul>
         </nav>
@@ -37,63 +38,126 @@
             <div class="hero-content reveal">
                 <h1>Photonics & Lithography Lab</h1>
                 <p>Advancing the frontiers of Nanostructures, Metasurfaces, and Computational Lithography.</p>
-                <a href="research.html" class="btn">Explore Research</a>
+                <div class="hero-btns">
+                    <a href="research.html" class="btn">Explore Research</a>
+                    <a href="#highlights" class="btn btn-secondary">See Highlights &darr;</a>
+                </div>
             </div>
         </section>
 
         <!-- Highlights Carousel Section -->
-        <section class="highlights-section section-bg">
+        <section id="highlights" class="highlights-section section-bg">
             <div class="container">
                 <h2 class="reveal">Lab Highlights & News</h2>
 
                 <div class="carousel-container reveal">
                     <div class="carousel-track-container">
                         <ul class="carousel-track">
-                            <!-- Slide 1: Award/Achievement -->
+                            <!-- 
+                                HOW TO ADD A NEW SLIDE:
+                                1. Copy the entire <li> block below (from <li class="carousel-slide"> to </li>).
+                                2. Paste it as the first item in <ul class="carousel-track">.
+                                3. Update the content:
+                                   - Replace the image 'src' (if you have an image), or remove the entire <div class="slide-image"> block if none.
+                                   - Update Title (<h3>), Description (<p>), and Link (<a>).
+                                   - Update Tag class and text (e.g., <span class="tag news">Lab News</span>).
+                                4. Ensure only ONE slide has the class "current-slide" (the first one).
+                             -->
+
+                            <!-- Slide 1: Christmas Gift Exchange 2025 -->
                             <li class="carousel-slide current-slide">
-                                <div class="slide-content">
-                                    <span class="tag award">Award</span>
-                                    <h3>Student Paper Awards at OPTIC 2025</h3>
-                                    <p>Congratulation to Shang-Chiang Sung to win the student award in OPTIC 2025!
-                                        Optical Nano Device and Application
-                                        Title:  Apodized Metasurface Exit-Pupil Expansion Waveguide for High-Efficiency Augmented Reality Glasses
-                                    </p>
-                                    <a href="https://optic2025.conf.tw/site/news_show.aspx?sid=1637&lang=en&pid=573" class="slide-link">Read More &rarr;</a>
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-text">
+                                        <span class="tag news">Lab News</span>
+                                        <h3>2025 Christmas Gift Exchange</h3>
+                                        <p>PAL Lab celebrated Christmas 2025 with a fun gift exchange party!
+                                            Lab members gathered together to share joy and exchange gifts,
+                                            strengthening our lab family bonds.
+                                        </p>
+                                        <a href="members.html" class="slide-link">Meet the Team &rarr;</a>
+                                    </div>
+                                    <div class="slide-image">
+                                        <div class="image-slideshow">
+                                            <img src="image/News_highlight/2025_12_25/LINE_ALBUM_2025.12.26 交換禮物_251230_6.jpg" alt="Christmas 2025 - 1">
+                                            <img src="image/News_highlight/2025_12_25/LINE_ALBUM_2025.12.26 交換禮物_251230_1.jpg" alt="Christmas 2025 - 2">
+                                            <img src="image/News_highlight/2025_12_25/LINE_ALBUM_2025.12.26 交換禮物_251230_5.jpg" alt="Christmas 2025 - 3">
+                                            <img src="image/News_highlight/2025_12_25/LINE_ALBUM_2025.12.26 交換禮物_251230_15.jpg" alt="Christmas 2025 - 4">
+                                            <img src="image/News_highlight/2025_12_25/LINE_ALBUM_2025.12.26 交換禮物_251230_20.jpg" alt="Christmas 2025 - 5">
+                                            <img src="image/News_highlight/2025_12_25/LINE_ALBUM_2025.12.26 交換禮物_251230_25.jpg" alt="Christmas 2025 - 6">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Slide 2: Award/Achievement -->
+                            <li class="carousel-slide">
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-text">
+                                        <span class="tag award">Award</span>
+                                        <h3>Student Paper Awards at OPTIC 2025</h3>
+                                        <p>Congratulation to Shang-Chiang Sung to win the student award in OPTIC 2025!
+                                            Optical Nano Device and Application. Title: Apodized Metasurface Exit-Pupil
+                                            Expansion Waveguide for High-Efficiency Augmented Reality Glasses
+                                        </p>
+                                        <a href="https://optic2025.conf.tw/site/news_show.aspx?sid=1637&lang=en&pid=573"
+                                            class="slide-link">Read More &rarr;</a>
+                                    </div>
+                                    <!-- Example of image placeholder if user wants to add one -->
+                                    <div class="slide-image">
+                                        <!-- Using the research image for demo -->
+                                        <img src="image/News_highlight/Student ShangJiang.jpg" alt="student award">
+                                    </div>
                                 </div>
                             </li>
 
                             <li class="carousel-slide">
-                                <div class="slide-content">
-                                    <span class="tag award">Award</span>
-                                    <h3>Student Paper Awards at OPTIC 2025</h3>
-                                    <p>Congratulation to Ping-Ke Li to win the student award in OPTIC 2025!
-                                        Optical Nano Device and Application
-                                        Title:  Polarization-Controlled Meta-Holography via large area Chiral Metasurfaces 
-                                    </p>
-                                    <a href="https://optic2025.conf.tw/site/news_show.aspx?sid=1637&lang=en&pid=573" class="slide-link">Read More &rarr;</a>
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-text">
+                                        <span class="tag award">Award</span>
+                                        <h3>Student Paper Awards at OPTIC 2025</h3>
+                                        <p>Congratulation to Ping-Ke Li to win the student award in OPTIC 2025!
+                                            Optical Nano Device and Application. Title: Polarization-Controlled
+                                            Meta-Holography via large area Chiral Metasurfaces
+                                        </p>
+                                        <a href="https://optic2025.conf.tw/site/news_show.aspx?sid=1637&lang=en&pid=573"
+                                            class="slide-link">Read More &rarr;</a>
+                                    </div>
+                                    <div class="slide-image">
+                                        <!-- Using the research image for demo -->
+                                        <img src="image/News_highlight/Student Paper Pingke.jpg" alt="student award">
+                                    </div>
                                 </div>
                             </li>
 
                             <!-- Slide 2: New Publication -->
                             <li class="carousel-slide">
-                                <div class="slide-content">
-                                    <span class="tag publication">New Publication</span>
-                                    <h3>Breakthrough in AR Waveguides</h3>
-                                    <p>Published in *Metrology, Inspection, and Process Control*: "Large area metalens
-                                        and
-                                        AR waveguides fabricated by DUV KrF lithography".</p>
-                                    <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13426/1342644/Large-area-metalens-and-AR-waveguides-fabricated-by-DUV-KrF/10.1117/12.3057618.short" class="slide-link">View Paper &rarr;</a>
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-text">
+                                        <span class="tag publication">New Publication</span>
+                                        <h3>Breakthrough in AR Waveguides</h3>
+                                        <p>Published in *Metrology, Inspection, and Process Control*: "Large area
+                                            metalens and AR waveguides fabricated by DUV KrF lithography".</p>
+                                        <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13426/1342644/Large-area-metalens-and-AR-waveguides-fabricated-by-DUV-KrF/10.1117/12.3057618.short"
+                                            class="slide-link">View Paper &rarr;</a>
+                                    </div>
+                                    <div class="slide-image">
+                                        <!-- Using the research image for demo -->
+                                        <video src="image/News_highlight/AR glasses.mp4" alt="AR Glass Breakthrough"
+                                            autoplay loop muted playsinline></video>
+                                    </div>
                                 </div>
                             </li>
 
                             <!-- Slide 3: Lab News -->
                             <li class="carousel-slide">
-                                <div class="slide-content">
-                                    <span class="tag news">Lab News</span>
-                                    <h3>Welcome New Master Students</h3>
-                                    <p>We are excited to welcome 4 new master students joining the PAL Lab family next
-                                        semester.</p>
-                                    <a href="members.html" class="slide-link">Meet the Team &rarr;</a>
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-text">
+                                        <span class="tag news">Lab News</span>
+                                        <h3>Welcome New Master Students</h3>
+                                        <p>We are excited to welcome 4 new master students joining the PAL Lab family
+                                            next semester.</p>
+                                        <a href="members.html" class="slide-link">Meet the Team &rarr;</a>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -115,6 +179,7 @@
                         <button class="carousel-indicator"></button>
                         <button class="carousel-indicator"></button>
                         <button class="carousel-indicator"></button>
+                        <button class="carousel-indicator"></button>
                     </div>
                 </div>
             </div>
@@ -128,7 +193,8 @@
                     <p style="color: var(--text-secondary); max-width: 800px; margin-bottom: 2rem;">
                         Led by Prof. Peichen Yu at National Yang Ming Chiao Tung University, our lab specializes in the
                         intersection
-                        of photonics and advanced lithography. We combine theoretical design with practical fabrication to
+                        of photonics and advanced lithography. We combine theoretical design with practical fabrication
+                        to
                         create
                         next-generation optical devices, from AR waveguides to quantum solutions.
                     </p>

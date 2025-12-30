@@ -133,11 +133,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Auto Play
-        let autoPlayInterval;
+        let autoPlayTimeout;
 
         const startAutoPlay = () => {
-            autoPlayInterval = setInterval(() => {
-                const currentSlide = track.querySelector('.current-slide');
+            // Clear any existing timeout to avoid overlaps
+            if (autoPlayTimeout) clearTimeout(autoPlayTimeout);
+
+            const currentSlide = track.querySelector('.current-slide');
+            let delay = 5000; // Default delay
+
+            // Check if current slide has a nested image slideshow
+            const slideshow = currentSlide.querySelector('.image-slideshow');
+            if (slideshow) {
+                // Determine duration based on number of images
+                // User CSS has 18s animation for 6 images (3s each).
+                // We'll calculate: (number of images * 3000) + buffer
+                const imgCount = slideshow.querySelectorAll('img').length;
+                if (imgCount > 0) {
+                    delay = (imgCount * 3000);
+                }
+            }
+
+            autoPlayTimeout = setTimeout(() => {
                 const nextSlide = currentSlide.nextElementSibling || slides[0]; // Loop back to start
                 const currentDot = dotsNav.querySelector('.current-slide');
                 const nextDot = nextSlide === slides[0] ? dots[0] : currentDot.nextElementSibling;
@@ -146,11 +163,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 moveToSlide(currentSlide, nextSlide);
                 updateDots(currentDot, nextDot);
                 hideShowArrows(slides, prevButton, nextButton, nextIndex);
-            }, 5000); // 5 seconds
+
+                // Continue loop
+                startAutoPlay();
+            }, delay);
         };
 
         const resetAutoPlay = () => {
-            clearInterval(autoPlayInterval);
+            if (autoPlayTimeout) clearTimeout(autoPlayTimeout);
             startAutoPlay();
         };
 
@@ -166,6 +186,47 @@ document.addEventListener('DOMContentLoaded', () => {
             // Re-center current slide
             const currentSlide = track.querySelector('.current-slide');
             track.style.transform = 'translateX(-' + currentSlide.style.left + ')';
+        });
+
+        // --- Touch / Swipe Support ---
+        let startX = 0;
+        let diff = 0;
+        let isDragging = false;
+
+        track.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            // Pause auto-play on touch
+            if (autoPlayTimeout) clearTimeout(autoPlayTimeout);
+            track.style.transition = 'none'; // Remove transition for direct 1:1 movement
+        }, { passive: true });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const currentX = e.touches[0].clientX;
+            diff = startX - currentX;
+            // Optional: visual feedback (drag the track slightly)
+            // Ideally we'd need current translate value, but for simplicity we rely on snap after end.
+            // keeping it simple: just detect swipe direction on end.
+        }, { passive: true });
+
+        track.addEventListener('touchend', () => {
+            isDragging = false;
+            track.style.transition = 'transform 0.5s ease-in-out'; // Restore transition
+
+            const threshold = 50; // min swipe distance
+
+            if (diff > threshold) {
+                // Swiped Left -> Next Slide
+                nextButton.click();
+            } else if (diff < -threshold) {
+                // Swiped Right -> Prev Slide
+                prevButton.click();
+            }
+
+            diff = 0;
+            // Restart auto-play
+            startAutoPlay();
         });
     }
 });
