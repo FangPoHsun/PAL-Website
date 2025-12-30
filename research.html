@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore PAL Lab research areas: AR waveguides, metalens fabrication, resolution enhancement techniques, and quantum annealing for lithography optimization.">
+    <meta name="description"
+        content="Explore PAL Lab research areas: AR waveguides, metalens fabrication, resolution enhancement techniques, and quantum annealing for lithography optimization.">
     <title>Research | PAL Lab</title>
     <link rel="icon" type="image/x-icon" href="image/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -105,6 +106,12 @@
             font-weight: bold;
             font-size: 1.2rem;
         }
+
+        /* Prevent user interaction with videos */
+        .card-img video,
+        .detail-media video {
+            pointer-events: none;
+        }
     </style>
 </head>
 
@@ -147,10 +154,11 @@
                 </div>
                 <div class="card-content">
                     <div class="icon-box">01</div>
-                    <h3 data-en="Meta-Optics Element Augmented Reality (AR) Waveguides"
-                        data-zh="超穎光學元件擴增實境波導">Meta-Optics Element Augmented Reality (AR) Waveguides</h3>
+                    <h3 data-en="Meta-Optics Element Augmented Reality (AR) Waveguides" data-zh="超穎光學元件擴增實境波導">
+                        Meta-Optics Element Augmented Reality (AR) Waveguides</h3>
                     <p data-en="Design and fabrication of advanced diffractive optical elements using metasurfaces to enhance the field of view and efficiency of AR display systems."
-                       data-zh="利用超穎表面設計與製造先進繞射光學元件，以提升擴增實境顯示系統的視角與效率。">Design and fabrication of advanced diffractive optical elements using metasurfaces to enhance the
+                        data-zh="利用超穎表面設計與製造先進繞射光學元件，以提升擴增實境顯示系統的視角與效率。">Design and fabrication of advanced diffractive
+                        optical elements using metasurfaces to enhance the
                         field of view and efficiency of AR display systems.</p>
 
 
@@ -159,15 +167,36 @@
                         <div class="detail-media">
                             <img src="image/Research/AR_glass.jpg" alt="AR Glasses">
                         </div>
-                        <h3 data-en="Meta-Optics for AR Waveguides" data-zh="用於AR波導的超穎光學">Meta-Optics for AR Waveguides</h3>
-                        <p><strong data-en="Overview:" data-zh="概述：">Overview:</strong> <span data-en="This project focuses on overcoming the limitations of traditional refractive optics in Augmented Reality (AR) systems. By leveraging metasurfaces—planar arrays of sub-wavelength nanostructures—we can manipulate the phase, amplitude, and polarization of light with unprecedented control." data-zh="本專案專注於克服傳統折射光學在擴增實境(AR)系統中的限制。透過利用超穎表面——亞波長奈米結構的平面陣列——我們可以以前所未有的精確度操控光的相位、振幅和偏振。">This project focuses on overcoming the limitations of traditional refractive optics in Augmented Reality (AR) systems. By leveraging metasurfaces—planar arrays of sub-wavelength nanostructures—we can manipulate the phase, amplitude, and polarization of light with unprecedented control.</span></p>
+                        <h3 data-en="Meta-Optics for AR Waveguides" data-zh="用於AR波導的超穎光學">Meta-Optics for AR Waveguides
+                        </h3>
+                        <p><strong data-en="Overview:" data-zh="概述：">Overview:</strong> <span
+                                data-en="This project focuses on overcoming the limitations of traditional refractive optics in Augmented Reality (AR) systems. By leveraging metasurfaces—planar arrays of sub-wavelength nanostructures—we can manipulate the phase, amplitude, and polarization of light with unprecedented control."
+                                data-zh="本專案專注於克服傳統折射光學在擴增實境(AR)系統中的限制。透過利用超穎表面——亞波長奈米結構的平面陣列——我們可以以前所未有的精確度操控光的相位、振幅和偏振。">This
+                                project focuses on overcoming the limitations of traditional refractive optics in
+                                Augmented Reality (AR) systems. By leveraging metasurfaces—planar arrays of
+                                sub-wavelength nanostructures—we can manipulate the phase, amplitude, and polarization
+                                of light with unprecedented control.</span></p>
                         <h4 data-en="Key Research Areas:" data-zh="主要研究領域：">Key Research Areas:</h4>
                         <ul>
-                            <li><strong data-en="Field of View (FOV) Expansion:" data-zh="視場角(FOV)擴展：">Field of View (FOV) Expansion:</strong> <span data-en="Using high-index materials and optimized grating designs to push the FOV limit beyond 50 degrees." data-zh="使用高折射率材料和優化的光柵設計，將視場角極限推展至50度以上。">Using high-index materials and optimized grating designs to push the FOV limit beyond 50 degrees.</span></li>
-                            <li><strong data-en="Efficiency Optimization:" data-zh="效率優化：">Efficiency Optimization:</strong> <span data-en="Addressing the 'rainbow effect' and uniform light extraction through precise nano-imprint lithography." data-zh="透過精密奈米壓印微影技術解決「彩虹效應」並實現均勻的光萃取。">Addressing the "rainbow effect" and uniform light extraction through precise nano-imprint lithography.</span></li>
-                            <li><strong data-en="Full-Color Display:" data-zh="全彩顯示：">Full-Color Display:</strong> <span data-en="Developing multiplexed metasurfaces that can diffract RGB wavelengths simultaneously without crosstalk." data-zh="開發可同時繞射RGB波長而無串擾的多工超穎表面。">Developing multiplexed metasurfaces that can diffract RGB wavelengths simultaneously without crosstalk.</span></li>
+                            <li><strong data-en="Field of View (FOV) Expansion:" data-zh="視場角(FOV)擴展：">Field of View
+                                    (FOV) Expansion:</strong> <span
+                                    data-en="Using high-index materials and optimized grating designs to push the FOV limit beyond 50 degrees."
+                                    data-zh="使用高折射率材料和優化的光柵設計，將視場角極限推展至50度以上。">Using high-index materials and optimized
+                                    grating designs to push the FOV limit beyond 50 degrees.</span></li>
+                            <li><strong data-en="Efficiency Optimization:" data-zh="效率優化：">Efficiency
+                                    Optimization:</strong> <span
+                                    data-en="Addressing the 'rainbow effect' and uniform light extraction through precise nano-imprint lithography."
+                                    data-zh="透過精密奈米壓印微影技術解決「彩虹效應」並實現均勻的光萃取。">Addressing the "rainbow effect" and uniform
+                                    light extraction through precise nano-imprint lithography.</span></li>
+                            <li><strong data-en="Full-Color Display:" data-zh="全彩顯示：">Full-Color Display:</strong> <span
+                                    data-en="Developing multiplexed metasurfaces that can diffract RGB wavelengths simultaneously without crosstalk."
+                                    data-zh="開發可同時繞射RGB波長而無串擾的多工超穎表面。">Developing multiplexed metasurfaces that can
+                                    diffract RGB wavelengths simultaneously without crosstalk.</span></li>
                         </ul>
-                        <p data-en="Our approach integrates theoretical simulation (RCWA/FDTD) with extensive cleanroom fabrication (E-beam lithography, RIE) to create lightweight, high-performance AR glasses." data-zh="我們的方法整合理論模擬(RCWA/FDTD)與完整的無塵室製程(電子束微影、反應性離子蝕刻)，打造輕量化、高性能的AR眼鏡。">Our approach integrates theoretical simulation (RCWA/FDTD) with extensive cleanroom fabrication (E-beam lithography, RIE) to create lightweight, high-performance AR glasses.</p>
+                        <p data-en="Our approach integrates theoretical simulation (RCWA/FDTD) with extensive cleanroom fabrication (E-beam lithography, RIE) to create lightweight, high-performance AR glasses."
+                            data-zh="我們的方法整合理論模擬(RCWA/FDTD)與完整的無塵室製程(電子束微影、反應性離子蝕刻)，打造輕量化、高性能的AR眼鏡。">Our approach
+                            integrates theoretical simulation (RCWA/FDTD) with extensive cleanroom fabrication (E-beam
+                            lithography, RIE) to create lightweight, high-performance AR glasses.</p>
                     </div>
                 </div>
             </div>
@@ -181,10 +210,11 @@
                 </div>
                 <div class="card-content">
                     <div class="icon-box">02</div>
-                    <h3 data-en="Metalens & Large-Area Meta-Optics"
-                        data-zh="超穎透鏡與大面積超穎光學">Metalens & Large-Area Meta-Optics</h3>
+                    <h3 data-en="Metalens & Large-Area Meta-Optics" data-zh="超穎透鏡與大面積超穎光學">Metalens & Large-Area
+                        Meta-Optics</h3>
                     <p data-en="Developing large-area metalens arrays using KrF photolithography with AI-assisted design, achieving high focusing efficiency for imaging, AR displays, and multifocal applications."
-                       data-zh="利用KrF微影技術結合AI輔助設計，開發大面積超穎透鏡陣列，實現高聚焦效率，應用於成像、AR顯示與多焦點系統。">Developing large-area metalens arrays using KrF photolithography with AI-assisted design,
+                        data-zh="利用KrF微影技術結合AI輔助設計，開發大面積超穎透鏡陣列，實現高聚焦效率，應用於成像、AR顯示與多焦點系統。">Developing large-area metalens
+                        arrays using KrF photolithography with AI-assisted design,
                         achieving high focusing efficiency for imaging, AR displays, and multifocal applications.</p>
 
 
@@ -192,16 +222,46 @@
                         <div class="detail-media">
                             <img src="image/Research/Metalens.jpg" alt="Metalens">
                         </div>
-                        <h3 data-en="Metalens & Large-Area Meta-Optics" data-zh="超穎透鏡與大面積超穎光學">Metalens & Large-Area Meta-Optics</h3>
-                        <p><strong data-en="Overview:" data-zh="概述：">Overview:</strong> <span data-en="Metalenses are planar optical elements composed of sub-wavelength nanostructures that can manipulate light wavefronts with high precision. Our lab pioneers large-area metalens fabrication using deep-UV KrF photolithography, enabling scalable manufacturing beyond traditional e-beam lithography limitations." data-zh="超穎透鏡是由亞波長奈米結構組成的平面光學元件，可高精度地操控光波前。本實驗室開創性地使用深紫外KrF微影技術進行大面積超穎透鏡製造，突破傳統電子束微影的限制，實現可規模化生產。">Metalenses are planar optical elements composed of sub-wavelength nanostructures that can manipulate light wavefronts with high precision. Our lab pioneers large-area metalens fabrication using deep-UV KrF photolithography, enabling scalable manufacturing beyond traditional e-beam lithography limitations.</span></p>
+                        <h3 data-en="Metalens & Large-Area Meta-Optics" data-zh="超穎透鏡與大面積超穎光學">Metalens & Large-Area
+                            Meta-Optics</h3>
+                        <p><strong data-en="Overview:" data-zh="概述：">Overview:</strong> <span
+                                data-en="Metalenses are planar optical elements composed of sub-wavelength nanostructures that can manipulate light wavefronts with high precision. Our lab pioneers large-area metalens fabrication using deep-UV KrF photolithography, enabling scalable manufacturing beyond traditional e-beam lithography limitations."
+                                data-zh="超穎透鏡是由亞波長奈米結構組成的平面光學元件，可高精度地操控光波前。本實驗室開創性地使用深紫外KrF微影技術進行大面積超穎透鏡製造，突破傳統電子束微影的限制，實現可規模化生產。">Metalenses
+                                are planar optical elements composed of sub-wavelength nanostructures that can
+                                manipulate light wavefronts with high precision. Our lab pioneers large-area metalens
+                                fabrication using deep-UV KrF photolithography, enabling scalable manufacturing beyond
+                                traditional e-beam lithography limitations.</span></p>
                         <h4 data-en="Key Research Areas:" data-zh="主要研究領域：">Key Research Areas:</h4>
                         <ul>
-                            <li><strong data-en="Large-Area Fabrication:" data-zh="大面積製造：">Large-Area Fabrication:</strong> <span data-en="Achieving 2cm x 2cm metalens arrays with consistent optical performance using KrF stepper lithography and optimized process parameters." data-zh="使用KrF步進微影與優化製程參數，實現2cm x 2cm超穎透鏡陣列並保持一致的光學性能。">Achieving 2cm x 2cm metalens arrays with consistent optical performance using KrF stepper lithography and optimized process parameters.</span></li>
-                            <li><strong data-en="AI-Assisted Design:" data-zh="AI輔助設計：">AI-Assisted Design:</strong> <span data-en="Implementing Intelligent Proximity Correction (IPC) algorithms to compensate for optical proximity effects and achieve precise nanostructure patterning." data-zh="實施智慧鄰近校正(IPC)演算法，補償光學鄰近效應並實現精確的奈米結構圖案化。">Implementing Intelligent Proximity Correction (IPC) algorithms to compensate for optical proximity effects and achieve precise nanostructure patterning.</span></li>
-                            <li><strong data-en="High Focusing Efficiency:" data-zh="高聚焦效率：">High Focusing Efficiency:</strong> <span data-en="Demonstrating 60-64% focusing efficiency for NIR metalenses through Jacobian phase error correction and optimized MTF performance." data-zh="透過雅可比相位誤差校正和優化的MTF性能，展示NIR超穎透鏡60-64%的聚焦效率。">Demonstrating 60-64% focusing efficiency for NIR metalenses through Jacobian phase error correction and optimized MTF performance.</span></li>
-                            <li><strong data-en="Multifocal Applications:" data-zh="多焦點應用：">Multifocal Applications:</strong> <span data-en="Developing metalens systems for Vergence-Accommodation Conflict (VAC) mitigation in AR/VR displays through precise depth-plane generation." data-zh="開發超穎透鏡系統，透過精確的深度平面生成來緩解AR/VR顯示器中的輻輳調節衝突(VAC)。">Developing metalens systems for Vergence-Accommodation Conflict (VAC) mitigation in AR/VR displays through precise depth-plane generation.</span></li>
+                            <li><strong data-en="Large-Area Fabrication:" data-zh="大面積製造：">Large-Area
+                                    Fabrication:</strong> <span
+                                    data-en="Achieving 2cm x 2cm metalens arrays with consistent optical performance using KrF stepper lithography and optimized process parameters."
+                                    data-zh="使用KrF步進微影與優化製程參數，實現2cm x 2cm超穎透鏡陣列並保持一致的光學性能。">Achieving 2cm x 2cm metalens
+                                    arrays with consistent optical performance using KrF stepper lithography and
+                                    optimized process parameters.</span></li>
+                            <li><strong data-en="AI-Assisted Design:" data-zh="AI輔助設計：">AI-Assisted Design:</strong>
+                                <span
+                                    data-en="Implementing Intelligent Proximity Correction (IPC) algorithms to compensate for optical proximity effects and achieve precise nanostructure patterning."
+                                    data-zh="實施智慧鄰近校正(IPC)演算法，補償光學鄰近效應並實現精確的奈米結構圖案化。">Implementing Intelligent Proximity
+                                    Correction (IPC) algorithms to compensate for optical proximity effects and achieve
+                                    precise nanostructure patterning.</span></li>
+                            <li><strong data-en="High Focusing Efficiency:" data-zh="高聚焦效率：">High Focusing
+                                    Efficiency:</strong> <span
+                                    data-en="Demonstrating 60-64% focusing efficiency for NIR metalenses through Jacobian phase error correction and optimized MTF performance."
+                                    data-zh="透過雅可比相位誤差校正和優化的MTF性能，展示NIR超穎透鏡60-64%的聚焦效率。">Demonstrating 60-64% focusing
+                                    efficiency for NIR metalenses through Jacobian phase error correction and optimized
+                                    MTF performance.</span></li>
+                            <li><strong data-en="Multifocal Applications:" data-zh="多焦點應用：">Multifocal
+                                    Applications:</strong> <span
+                                    data-en="Developing metalens systems for Vergence-Accommodation Conflict (VAC) mitigation in AR/VR displays through precise depth-plane generation."
+                                    data-zh="開發超穎透鏡系統，透過精確的深度平面生成來緩解AR/VR顯示器中的輻輳調節衝突(VAC)。">Developing metalens systems
+                                    for Vergence-Accommodation Conflict (VAC) mitigation in AR/VR displays through
+                                    precise depth-plane generation.</span></li>
                         </ul>
-                        <p data-en="This research bridges the gap between laboratory-scale metasurface demonstrations and industrial-scale production for consumer optics applications." data-zh="本研究彌合了實驗室規模超穎表面展示與消費光學應用的工業規模生產之間的差距。">This research bridges the gap between laboratory-scale metasurface demonstrations and industrial-scale production for consumer optics applications.</p>
+                        <p data-en="This research bridges the gap between laboratory-scale metasurface demonstrations and industrial-scale production for consumer optics applications."
+                            data-zh="本研究彌合了實驗室規模超穎表面展示與消費光學應用的工業規模生產之間的差距。">This research bridges the gap between
+                            laboratory-scale metasurface demonstrations and industrial-scale production for consumer
+                            optics applications.</p>
                     </div>
                 </div>
             </div>
@@ -210,31 +270,56 @@
             <div class="research-card">
                 <div class="card-img">
                     <video src="image/Research/RET.mp4" title="Resolution Enhancement Technique"
-                        style="width:100%; height:100%; object-fit:cover; border-radius:8px;" autoplay loop
-                        muted></video>
+                        style="width:100%; height:100%; object-fit:cover; border-radius:8px;" autoplay loop muted
+                        playsinline></video>
                 </div>
                 <div class="card-content">
                     <div class="icon-box">03</div>
-                    <h3 data-en="Resolution Enhancement Technique"
-                        data-zh="解析度增強技術">Resolution Enhancement Technique</h3>
+                    <h3 data-en="Resolution Enhancement Technique" data-zh="解析度增強技術">Resolution Enhancement Technique
+                    </h3>
                     <p data-en="Developing computational lithography algorithms, including Source-Mask Optimization (SMO) and OPC, to push the limits of semiconductor manufacturing for ArF and EUV systems."
-                       data-zh="開發計算微影演算法，包括光源光罩最佳化(SMO)與光學鄰近校正(OPC)，突破ArF與EUV系統的半導體製造極限。">Developing computational lithography algorithms, including Source-Mask Optimization (SMO) and
+                        data-zh="開發計算微影演算法，包括光源光罩最佳化(SMO)與光學鄰近校正(OPC)，突破ArF與EUV系統的半導體製造極限。">Developing computational
+                        lithography algorithms, including Source-Mask Optimization (SMO) and
                         OPC, to push the limits of semiconductor manufacturing for ArF and EUV systems.</p>
 
 
                     <div class="research-detail" style="display: none;">
                         <div class="detail-media">
-                            <video src="image/Research/RET.mp4" title="Resolution Enhancement Technique" autoplay loop muted playsinline></video>
+                            <video src="image/Research/RET.mp4" title="Resolution Enhancement Technique" autoplay loop
+                                muted playsinline></video>
                         </div>
-                        <h3 data-en="Resolution Enhancement Techniques (RET)" data-zh="解析度增強技術 (RET)">Resolution Enhancement Techniques (RET)</h3>
-                        <p><strong data-en="Overview:" data-zh="概述：">Overview:</strong> <span data-en="As semiconductor nodes shrink below 3nm, traditional imaging limits pose a massive challenge. Our lab develops advanced computational algorithms to extend the life of current lithography equipment." data-zh="隨著半導體製程節點縮小至3奈米以下，傳統成像極限帶來巨大挑戰。本實驗室開發先進的計算演算法，以延長現有微影設備的使用壽命。">As semiconductor nodes shrink below 3nm, traditional imaging limits pose a massive challenge. Our lab develops advanced computational algorithms to extend the life of current lithography equipment.</span></p>
+                        <h3 data-en="Resolution Enhancement Techniques (RET)" data-zh="解析度增強技術 (RET)">Resolution
+                            Enhancement Techniques (RET)</h3>
+                        <p><strong data-en="Overview:" data-zh="概述：">Overview:</strong> <span
+                                data-en="As semiconductor nodes shrink below 3nm, traditional imaging limits pose a massive challenge. Our lab develops advanced computational algorithms to extend the life of current lithography equipment."
+                                data-zh="隨著半導體製程節點縮小至3奈米以下，傳統成像極限帶來巨大挑戰。本實驗室開發先進的計算演算法，以延長現有微影設備的使用壽命。">As semiconductor
+                                nodes shrink below 3nm, traditional imaging limits pose a massive challenge. Our lab
+                                develops advanced computational algorithms to extend the life of current lithography
+                                equipment.</span></p>
                         <h4 data-en="Methodologies:" data-zh="研究方法：">Methodologies:</h4>
                         <ul>
-                            <li><strong data-en="Source-Mask Optimization (SMO):" data-zh="光源光罩最佳化 (SMO)：">Source-Mask Optimization (SMO):</strong> <span data-en="Simultaneously optimizing the illumination source shape and the mask pattern to maximize the process window." data-zh="同時優化照明光源形狀和光罩圖案，以最大化製程視窗。">Simultaneously optimizing the illumination source shape and the mask pattern to maximize the process window.</span></li>
-                            <li><strong data-en="Inverse Lithography Technology (ILT):" data-zh="逆向微影技術 (ILT)：">Inverse Lithography Technology (ILT):</strong> <span data-en="Using pixel-based optimization to create complex, curvilinear mask shapes that print perfectly square wafers features." data-zh="使用像素級優化創建複雜的曲線光罩形狀，以完美地列印方形晶圓特徵。">Using pixel-based optimization to create complex, curvilinear mask shapes that print perfectly square wafers features.</span></li>
-                            <li><strong data-en="Optical Proximity Correction (OPC):" data-zh="光學鄰近校正 (OPC)：">Optical Proximity Correction (OPC):</strong> <span data-en="Machine-learning enhanced OPC models to predict and correct layout hotspots faster than conventional rigorous simulation." data-zh="機器學習增強的OPC模型，比傳統嚴格模擬更快地預測和校正佈局熱點。">Machine-learning enhanced OPC models to predict and correct layout hotspots faster than conventional rigorous simulation.</span></li>
+                            <li><strong data-en="Source-Mask Optimization (SMO):" data-zh="光源光罩最佳化 (SMO)：">Source-Mask
+                                    Optimization (SMO):</strong> <span
+                                    data-en="Simultaneously optimizing the illumination source shape and the mask pattern to maximize the process window."
+                                    data-zh="同時優化照明光源形狀和光罩圖案，以最大化製程視窗。">Simultaneously optimizing the illumination
+                                    source shape and the mask pattern to maximize the process window.</span></li>
+                            <li><strong data-en="Inverse Lithography Technology (ILT):" data-zh="逆向微影技術 (ILT)：">Inverse
+                                    Lithography Technology (ILT):</strong> <span
+                                    data-en="Using pixel-based optimization to create complex, curvilinear mask shapes that print perfectly square wafers features."
+                                    data-zh="使用像素級優化創建複雜的曲線光罩形狀，以完美地列印方形晶圓特徵。">Using pixel-based optimization to create
+                                    complex, curvilinear mask shapes that print perfectly square wafers features.</span>
+                            </li>
+                            <li><strong data-en="Optical Proximity Correction (OPC):" data-zh="光學鄰近校正 (OPC)：">Optical
+                                    Proximity Correction (OPC):</strong> <span
+                                    data-en="Machine-learning enhanced OPC models to predict and correct layout hotspots faster than conventional rigorous simulation."
+                                    data-zh="機器學習增強的OPC模型，比傳統嚴格模擬更快地預測和校正佈局熱點。">Machine-learning enhanced OPC models to
+                                    predict and correct layout hotspots faster than conventional rigorous
+                                    simulation.</span></li>
                         </ul>
-                        <p data-en="This research has direct applications in high-volume manufacturing, aiming to reduce Edge Placement Error (EPE) and improve yield." data-zh="本研究在大量製造中有直接應用，旨在降低邊緣放置誤差(EPE)並提高良率。">This research has direct applications in high-volume manufacturing, aiming to reduce Edge Placement Error (EPE) and improve yield.</p>
+                        <p data-en="This research has direct applications in high-volume manufacturing, aiming to reduce Edge Placement Error (EPE) and improve yield."
+                            data-zh="本研究在大量製造中有直接應用，旨在降低邊緣放置誤差(EPE)並提高良率。">This research has direct applications in
+                            high-volume manufacturing, aiming to reduce Edge Placement Error (EPE) and improve yield.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -242,30 +327,50 @@
             <!-- Research Item 3 -->
             <div class="research-card">
                 <div class="card-img">
-                    <video src="image/Research/Quantum_annealing.mp4" title="Quantum Annealing"
-                        style="width:100%; height:100%; object-fit:cover; border-radius:8px;" autoplay loop
-                        muted></video>
+                    <video src="image/Research/Quantum_Annealing.mp4" title="Quantum Annealing"
+                        style="width:100%; height:100%; object-fit:cover; border-radius:8px;" autoplay loop muted
+                        playsinline></video>
                 </div>
                 <div class="card-content">
                     <div class="icon-box">04</div>
-                    <h3 data-en="Quantum Annealing"
-                        data-zh="量子退火演算法">Quantum Annealing</h3>
+                    <h3 data-en="Quantum Annealing" data-zh="量子退火演算法">Quantum Annealing</h3>
                     <p data-en="Applying quantum computing paradigms to solve complex optimization problems in inverse lithography and mask synthesis, achieving faster convergence and better pattern fidelity."
-                       data-zh="應用量子計算範式解決逆向微影與光罩合成的複雜最佳化問題，實現更快的收斂速度與更佳的圖案保真度。">Applying quantum computing paradigms to solve complex optimization problems in inverse
+                        data-zh="應用量子計算範式解決逆向微影與光罩合成的複雜最佳化問題，實現更快的收斂速度與更佳的圖案保真度。">Applying quantum computing paradigms
+                        to solve complex optimization problems in inverse
                         lithography and mask synthesis, achieving faster convergence and better pattern fidelity.</p>
 
 
                     <div class="research-detail" style="display: none;">
                         <div class="detail-media">
-                            <video src="image/Research/Quantum_annealing.mp4" title="Quantum Annealing" autoplay loop muted playsinline></video>
+                            <video src="image/Research/Quantum_annealing.mp4" title="Quantum Annealing" autoplay loop
+                                muted playsinline></video>
                         </div>
-                        <h3 data-en="Quantum Annealing for Lithography" data-zh="用於微影的量子退火">Quantum Annealing for Lithography</h3>
-                        <p><strong data-en="Overview:" data-zh="概述：">Overview:</strong> <span data-en="Optimization problems in lithography (like SMO and ILT) are NP-hard and computationally expensive. We explore Quantum Annealing (QA) as a specialized solver to find global minima more efficiently than classical simulated annealing." data-zh="微影中的最佳化問題（如SMO和ILT）是NP難題且計算成本高昂。我們探索量子退火(QA)作為專門的求解器，比傳統模擬退火更有效地尋找全域最小值。">Optimization problems in lithography (like SMO and ILT) are NP-hard and computationally expensive. We explore Quantum Annealing (QA) as a specialized solver to find global minima more efficiently than classical simulated annealing.</span></p>
+                        <h3 data-en="Quantum Annealing for Lithography" data-zh="用於微影的量子退火">Quantum Annealing for
+                            Lithography</h3>
+                        <p><strong data-en="Overview:" data-zh="概述：">Overview:</strong> <span
+                                data-en="Optimization problems in lithography (like SMO and ILT) are NP-hard and computationally expensive. We explore Quantum Annealing (QA) as a specialized solver to find global minima more efficiently than classical simulated annealing."
+                                data-zh="微影中的最佳化問題（如SMO和ILT）是NP難題且計算成本高昂。我們探索量子退火(QA)作為專門的求解器，比傳統模擬退火更有效地尋找全域最小值。">Optimization
+                                problems in lithography (like SMO and ILT) are NP-hard and computationally expensive. We
+                                explore Quantum Annealing (QA) as a specialized solver to find global minima more
+                                efficiently than classical simulated annealing.</span></p>
                         <h4 data-en="Research Highlights:" data-zh="研究亮點：">Research Highlights:</h4>
                         <ul>
-                            <li><strong data-en="Ising Model Formulation:" data-zh="伊辛模型建構：">Ising Model Formulation:</strong> <span data-en="Mapping the lithography mask optimization problem onto the Ising model suitable for D-Wave quantum annealers." data-zh="將微影光罩最佳化問題映射到適用於D-Wave量子退火器的伊辛模型。">Mapping the lithography mask optimization problem onto the Ising model suitable for D-Wave quantum annealers.</span></li>
-                            <li><strong data-en="Hybrid Algorithms:" data-zh="混合演算法：">Hybrid Algorithms:</strong> <span data-en="Combining classical gradient descent with quantum sampling to overcome the qubit connectivity limitations of current hardware." data-zh="結合經典梯度下降與量子採樣，克服當前硬體的量子位元連接性限制。">Combining classical gradient descent with quantum sampling to overcome the qubit connectivity limitations of current hardware.</span></li>
-                            <li><strong data-en="Benchmarking:" data-zh="效能基準測試：">Benchmarking:</strong> <span data-en="Demonstrating significant speedup in convergence time for complex 2D mask patterns compared to traditional CPU/GPU clusters." data-zh="與傳統CPU/GPU叢集相比，展示複雜2D光罩圖案收斂時間的顯著加速。">Demonstrating significant speedup in convergence time for complex 2D mask patterns compared to traditional CPU/GPU clusters.</span></li>
+                            <li><strong data-en="Ising Model Formulation:" data-zh="伊辛模型建構：">Ising Model
+                                    Formulation:</strong> <span
+                                    data-en="Mapping the lithography mask optimization problem onto the Ising model suitable for D-Wave quantum annealers."
+                                    data-zh="將微影光罩最佳化問題映射到適用於D-Wave量子退火器的伊辛模型。">Mapping the lithography mask
+                                    optimization problem onto the Ising model suitable for D-Wave quantum
+                                    annealers.</span></li>
+                            <li><strong data-en="Hybrid Algorithms:" data-zh="混合演算法：">Hybrid Algorithms:</strong> <span
+                                    data-en="Combining classical gradient descent with quantum sampling to overcome the qubit connectivity limitations of current hardware."
+                                    data-zh="結合經典梯度下降與量子採樣，克服當前硬體的量子位元連接性限制。">Combining classical gradient descent with
+                                    quantum sampling to overcome the qubit connectivity limitations of current
+                                    hardware.</span></li>
+                            <li><strong data-en="Benchmarking:" data-zh="效能基準測試：">Benchmarking:</strong> <span
+                                    data-en="Demonstrating significant speedup in convergence time for complex 2D mask patterns compared to traditional CPU/GPU clusters."
+                                    data-zh="與傳統CPU/GPU叢集相比，展示複雜2D光罩圖案收斂時間的顯著加速。">Demonstrating significant speedup in
+                                    convergence time for complex 2D mask patterns compared to traditional CPU/GPU
+                                    clusters.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -276,8 +381,10 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p data-en="Photonics & Lithography (PAL) Lab" data-zh="光子晶體與微影技術實驗室 (PAL Lab)">Photonics & Lithography (PAL) Lab</p>
-            <p data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung University</p>
+            <p data-en="Photonics & Lithography (PAL) Lab" data-zh="光子晶體與微影技術實驗室 (PAL Lab)">Photonics & Lithography
+                (PAL) Lab</p>
+            <p data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung
+                University</p>
             <p>&copy; 2025 PAL Lab. All Rights Reserved.</p>
         </div>
     </footer>
