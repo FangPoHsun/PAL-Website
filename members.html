@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet the PAL Lab team - PhD students, master students, and alumni working on photonics and lithography research at NYCU.">
     <title>Members | PAL Lab</title>
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -48,13 +52,26 @@
             font-size: 2rem;
             color: var(--text-secondary);
             border: 2px solid var(--accent-color);
+            overflow: hidden;
+        }
+
+        .member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .member-name {
             font-size: 1.1rem;
             font-weight: 700;
             color: var(--text-color);
-            margin-bottom: 5px;
+            margin-bottom: 2px;
+        }
+
+        .member-name-zh {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
         }
 
         .member-grade {
@@ -66,9 +83,28 @@
         }
 
         .member-topic {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
-            font-style: italic;
+            width: 100%;
+        }
+
+        .member-topic ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .member-topic li {
+            background: rgba(255, 196, 0, 0);
+            border: 1px solid  var(--accent-color);
+            border-radius: 12px;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            color:  rgba(251, 250, 247, 0.8);
         }
 
         h3.section-title {
@@ -76,6 +112,207 @@
             padding-left: 15px;
             font-size: 1.5rem;
             color: var(--text-color);
+        }
+
+        /* Alumni Compact Tag Style */
+        .alumni-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .alumni-tag {
+            background-color: var(--secondary-color);
+            border: 1px solid transparent;
+            border-radius: 8px;
+            padding: 12px 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .alumni-tag:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .alumni-tag .alumni-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 2px;
+        }
+
+        .alumni-tag .alumni-name-zh {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .alumni-year-group {
+            margin-top: 20px;
+        }
+
+        .alumni-year-group:first-of-type {
+            margin-top: 0;
+        }
+
+        .alumni-year-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            padding-left: 2px;
+        }
+
+        /* Clickable avatar */
+        .member-avatar {
+            cursor: pointer;
+        }
+
+        .member-avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 196, 0, 0.3);
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+        }
+
+        .lightbox-content.has-bio {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .lightbox-content img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .lightbox-caption {
+            text-align: center;
+            margin-top: 15px;
+            color: var(--text-color);
+        }
+
+        .lightbox-content.has-bio .lightbox-caption {
+            text-align: left;
+            margin-top: 0;
+        }
+
+        .lightbox-caption .name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .lightbox-caption .name-zh {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .lightbox-topics {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .lightbox-content.has-bio .lightbox-topics {
+            justify-content: flex-start;
+        }
+
+        .lightbox-topics span {
+            background: rgba(255, 196, 0, 0.1);
+            border: 1px solid var(--accent-color);
+            border-radius: 15px;
+            padding: 6px 14px;
+            font-size: 0.85rem;
+            color: rgba(251, 250, 247, 0.9);
+        }
+
+        .lightbox-bio {
+            max-width: 600px;
+            margin-top: 18px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-color);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            text-align: justify;
+        }
+
+        .lightbox-bio:empty {
+            display: none;
+        }
+
+        .member-bio {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-content.has-bio {
+                flex-direction: column;
+                align-items: center;
+            }
+            .lightbox-content.has-bio .lightbox-caption {
+                text-align: center;
+            }
+            .lightbox-content.has-bio .lightbox-topics {
+                justify-content: center;
+            }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 2rem;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .lightbox-close:hover {
+            color: var(--accent-color);
         }
     </style>
 </head>
@@ -85,7 +322,7 @@
     <header>
         <nav>
             <a href="index.html" class="logo">PAL Lab</a>
-            <div class="hamburger" id="hamburger">
+            <div class="hamburger" id="hamburger" role="button" aria-label="Toggle navigation menu" tabindex="0">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
@@ -96,78 +333,209 @@
                 <li><a href="research.html">Research</a></li>
                 <li><a href="members.html" class="active">Members</a></li>
                 <li><a href="publications.html">Publications</a></li>
+                <li><a href="calendar.html">Lab Calendar</a></li>
                 <li><a href="#" class="lang-switch">EN | 中文</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
-        <h2 class="fade-in">Lab Members</h2>
+        <h2 class="fade-in" data-en="Lab Members" data-zh="實驗室成員">Lab Members</h2>
 
         <!-- Ph.D. Students -->
         <div class="members-section fade-in">
-            <h3 class="section-title">Ph.D. Students</h3>
+            <h3 class="section-title" data-en="Ph.D. Students" data-zh="博士生">Ph.D. Students</h3>
             <div class="members-grid">
-                <!-- Placeholder Member 1 -->
                 <div class="member-card">
-                    <div class="member-avatar">S1</div>
-                    <div class="member-name">Student Name</div>
-                    <div class="member-grade">Ph.D. Year 3</div>
-                    <div class="member-topic">Research Topic: Advanced ILT</div>
+                    <div class="member-avatar">
+                        <img src="image/Member/Ph.D/劉學澧 Hsuehli Liu.jpg" alt="Hsuehli Liu">
+                    </div>
+                    <div class="member-name">Hsuehli Liu</div>
+                    <div class="member-name-zh">劉學澧</div>
+                    <div class="member-grade">Ph.D. Student</div>
+                    <div class="member-topic">
+                        <ul>
+                            <li>Metasurfaces Optics</li>
+                            <li>OPC</li>
+                            <li>Machine Learning</li>
+                            <li>Computational Acceleration</li>
+                        </ul>
+                    </div>
+                    <div class="member-bio">Hsuehli Liu received the bachelor's degree in photonics from National Yang Ming Chiao Tung University, in 2019, where he is currently pursuing the Ph.D. degree. His research focuses on metasurface optics, photolithography, optical proximity correction (OPC), and the application of deep neural networks for lithography modeling and computational acceleration. In particular, he explores data-driven techniques for layout-to-image prediction and OPC mask optimization using deep-learning models. He is a Student Member of SPIE and has received multiple research awards in Taiwan.</div>
                 </div>
-                <!-- Placeholder Member 2 -->
                 <div class="member-card">
-                    <div class="member-avatar">S2</div>
-                    <div class="member-name">Student Name</div>
-                    <div class="member-grade">Ph.D. Year 1</div>
-                    <div class="member-topic">Research Topic: Metasurfaces</div>
+                    <div class="member-avatar">
+                        <img src="image/Member/Ph.D/方柏勛 Po-Hsun Fang.jpg" alt="Po-Hsun Fang">
+                    </div>
+                    <div class="member-name">Po-Hsun Fang</div>
+                    <div class="member-name-zh">方柏勛</div>
+                    <div class="member-grade">Ph.D. Student</div>
+                    <div class="member-topic">
+                        <ul>
+                            <li>Resolution Enhancement Techniques</li>
+                            <li>OPC</li>
+                            <li>ILT</li>
+                            <li>SMO</li>
+                            <li>Quantum Annealing</li>
+                        </ul>
+                    </div>
+                    <div class="member-bio">Po-Hsun Fang is a PhD student in the Department of Photonics at National Yang Ming Chiao Tung University (NYCU), Taiwan, working under Prof. Yu. His research focuses on computational lithography, including inverse lithography technology, optical proximity correction, and quantum computing applications for semiconductor manufacturing. He is involved in TSMC's Joint Development Program and D-Wave quantum computing projects. Po-Hsun received the ASML Best Student Paper Award at SPIE Advanced Lithography + Patterning 2025 for his work on quasi Phase-Only Masks in EUV lithography. His current interests include MEEF-based OPC using quantum annealing and machine learning approaches for lithography optimization.</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-avatar">
+                        <img src="image\Member\Ph.D\王冠勛 Kuan-Hsun Wang.jpg" alt="Kuan-Hsun Wang">
+                    </div>
+                    <div class="member-name">Kuan-Hsun Wang</div>
+                    <div class="member-name-zh">王冠勛</div>
+                    <div class="member-grade">Ph.D. Student</div>
+                    <div class="member-topic">
+                        <ul>
+                            <li>Resolution Enhancement Techniques</li>
+                            <li>OPC</li>
+                            <li>ILT</li>
+                            <li>Machine Learning </li>
+                            <li>CAT</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Master Students -->
         <div class="members-section fade-in">
-            <h3 class="section-title">Master's Students</h3>
+            <h3 class="section-title" data-en="Master Students" data-zh="碩士生">Master Students</h3>
             <div class="members-grid">
-                <!-- Placeholder Member -->
                 <div class="member-card">
-                    <div class="member-avatar">M1</div>
-                    <div class="member-name">Student Name</div>
-                    <div class="member-grade">Master Year 2</div>
-                    <div class="member-topic">Research Topic: AR Waveguides</div>
+                    <div class="member-avatar">
+                        <img src="image\Member\Master\李秉科 Ping-Ke Li.jpg" alt="Ping-Ke Li">
+                    </div>
+                    <div class="member-name">Ping-Ke Li</div>
+                    <div class="member-name-zh">李秉科</div>
+                    <div class="member-grade">Master Student 2 Year</div>
+                    <div class="member-topic">
+                        <ul>
+                            <li>Metasurfaces Optics</li>
+                            <li>Optical design</li>
+                            <li>End-to-End Optimization</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="member-card">
-                    <div class="member-avatar">M2</div>
-                    <div class="member-name">Student Name</div>
-                    <div class="member-grade">Master Year 1</div>
-                    <div class="member-topic">Research Topic: Quantum Algorithms</div>
-                </div>
-                <div class="member-card">
-                    <div class="member-avatar">M3</div>
-                    <div class="member-name">Student Name</div>
-                    <div class="member-grade">Master Year 1</div>
-                    <div class="member-topic">Research Topic: Optical Testing</div>
+                    <div class="member-avatar">
+                        <img src="image\Member\Master\宋尚將 Shang-Chiang Sung.jpg" alt="Shang-Chiang Sung">
+                    </div>
+                    <div class="member-name">Shang-Chiang Sung</div>
+                    <div class="member-name-zh">宋尚將</div>
+                    <div class="member-grade">Master Student 2 Year</div>
+                    <div class="member-topic">
+                        <ul>
+                            <li>AR Glasses</li>
+                            <li>Grating Coupler</li>
+                            <li>Inverse Design</li>
+                            <li>SiPh</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Alumni -->
+        <!-- In-service Master Program -->
         <div class="members-section fade-in">
-            <h3 class="section-title">Alumni</h3>
+            <h3 class="section-title" data-en="In-service Master Program" data-zh="在職碩士班">In-service Master Program</h3>
             <div class="members-grid">
-                <!-- Placeholder Alumni -->
                 <div class="member-card">
-                    <div class="member-avatar">A1</div>
-                    <div class="member-name">Alumni Name</div>
-                    <div class="member-grade">Ph.D. 2024</div>
-                    <div class="member-topic">Now at: TSMC</div>
+                    <div class="member-avatar">
+                        <img src="image/Member/In-service Master Program/陳子廷 Tzuting_Chen.jpg" alt="Tzuting Chen">
+                    </div>
+                    <div class="member-name">Tzuting Chen</div>
+                    <div class="member-name-zh">陳子廷</div>
+                    <div class="member-grade">In-service Master</div>
+                    <div class="member-topic">
+                        <ul>
+                            <li>AR Glasses</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="member-card">
-                    <div class="member-avatar">A2</div>
-                    <div class="member-name">Alumni Name</div>
-                    <div class="member-grade">Master 2023</div>
-                    <div class="member-topic">Now at: MediaTek</div>
+            </div>
+        </div>
+
+        <div class="members-section fade-in">
+            <h3 class="section-title" data-en="Alumni" data-zh="畢業生">Alumni (Graduated)</h3>
+
+            <div class="alumni-year-group">
+                <div class="alumni-year-label" data-en="Class of 112" data-zh="112級">Class of 112</div>
+                <div class="alumni-grid">
+                    <div class="alumni-tag">
+                        <div class="alumni-name">Yu-Chia Chang</div>
+                        <div class="alumni-name-zh">張祐嘉</div>
+                    </div>
+                    <div class="alumni-tag">
+                        <div class="alumni-name">Ya-Chun Huang</div>
+                        <div class="alumni-name-zh">黃雅淳</div>
+                    </div>
+                    <div class="alumni-tag">
+                        <div class="alumni-name">Wen-Teng Liang</div>
+                        <div class="alumni-name-zh">梁文鐙</div>
+                    </div>
                 </div>
+            </div>
+
+            <div class="alumni-year-group">
+                <div class="alumni-year-label" data-en="Class of 111" data-zh="111級">Class of 111</div>
+                <div class="alumni-grid">
+                    <div class="alumni-tag">
+                        <div class="alumni-name">I-Hsuan Chuang</div>
+                        <div class="alumni-name-zh">莊宜璇</div>
+                    </div>
+                    <div class="alumni-tag">
+                        <div class="alumni-name">Chuan-En Lin</div>
+                        <div class="alumni-name-zh">林傳恩</div>
+                    </div>
+                    <div class="alumni-tag">
+                        <div class="alumni-name">Tien-Kuang Yang</div>
+                        <div class="alumni-name-zh">楊天廣</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alumni-year-group">
+                <div class="alumni-year-label" data-en="Class of 110" data-zh="110級">Class of 110</div>
+                <div class="alumni-grid">
+                    <div class="alumni-tag">
+                        <div class="alumni-name">Chun-Yen Chou</div>
+                        <div class="alumni-name-zh">周均諺</div>
+                    </div>
+                    <div class="alumni-tag">
+                        <div class="alumni-name">Ching-Ya Lin</div>
+                        <div class="alumni-name-zh">林靜雅</div>
+                    </div>
+                    <div class="alumni-tag">
+                        <div class="alumni-name">I-Chun Wang</div>
+                        <div class="alumni-name-zh">王奕竣</div>
+                    </div>
+                    <div class="alumni-tag">
+                        <div class="alumni-name">Kuan-Yu Lu</div>
+                        <div class="alumni-name-zh">盧冠佑</div>
+                    </div>
+                    <div class="alumni-tag">
+                        <div class="alumni-name">Ling-Chia Huang</div>
+                        <div class="alumni-name-zh">黃苓嘉</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" id="lightbox-close">&times;</span>
+            <img src="" alt="" id="lightbox-img">
+            <div class="lightbox-caption">
+                <div class="name" id="lightbox-name"></div>
+                <div class="name-zh" id="lightbox-name-zh"></div>
+                <div class="lightbox-topics" id="lightbox-topics"></div>
+                <div class="lightbox-bio" id="lightbox-bio"></div>
             </div>
         </div>
     </div>
@@ -175,13 +543,83 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>Photonics & Lithography (PAL) Lab</p>
-            <p>National Yang Ming Chiao Tung University</p>
+            <p data-en="Photonics & Lithography (PAL) Lab" data-zh="光子晶體與微影技術實驗室 (PAL Lab)">Photonics & Lithography (PAL) Lab</p>
+            <p data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung University</p>
             <p>&copy; 2025 PAL Lab. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxContent = document.querySelector('.lightbox-content');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxName = document.getElementById('lightbox-name');
+        const lightboxNameZh = document.getElementById('lightbox-name-zh');
+        const lightboxTopics = document.getElementById('lightbox-topics');
+        const lightboxBio = document.getElementById('lightbox-bio');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        // Add click event to all member avatars
+        document.querySelectorAll('.member-avatar').forEach(avatar => {
+            avatar.addEventListener('click', function() {
+                const img = this.querySelector('img');
+                const card = this.closest('.member-card');
+                const name = card.querySelector('.member-name').textContent;
+                const nameZh = card.querySelector('.member-name-zh').textContent;
+
+                // Get research topics
+                const topicsList = card.querySelectorAll('.member-topic li');
+                lightboxTopics.innerHTML = '';
+                topicsList.forEach(topic => {
+                    const span = document.createElement('span');
+                    span.textContent = topic.textContent;
+                    lightboxTopics.appendChild(span);
+                });
+
+                // Get bio (optional)
+                const bioElement = card.querySelector('.member-bio');
+                const hasBio = bioElement && bioElement.textContent.trim();
+                lightboxBio.textContent = hasBio ? bioElement.textContent : '';
+
+                // Toggle layout based on bio presence
+                if (hasBio) {
+                    lightboxContent.classList.add('has-bio');
+                } else {
+                    lightboxContent.classList.remove('has-bio');
+                }
+
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightboxName.textContent = name;
+                lightboxNameZh.textContent = nameZh;
+
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    </script>
 </body>
 
 </html>
