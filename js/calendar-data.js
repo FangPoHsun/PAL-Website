@@ -31,6 +31,7 @@ const fixedHolidays = {
     "01-01": { title: "New Year's Day (元旦)", description: "Lab Closed", type: "holiday" },
     "02-28": { title: "228 Peace Memorial Day (和平紀念日)", description: "National Holiday", type: "holiday" },
     "10-10": { title: "National Day (雙十節)", description: "Republic of China National Day", type: "holiday" },
+    "12-31": { title: "跨年夜!!! Happy New Yeae!!", description: "New Year's Eve Party", type: "holiday" },
 };
 
 // Lunar calendar festivals - dates vary by year
