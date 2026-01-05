@@ -67,6 +67,14 @@ const membersData = {
             avatar: "image/Member/Master/葉于甄 Yu-Chen Ye.jpg",
             topics: ["Metasurface", "SiPh"],
             bio: ""
+        },
+        {
+            name: "Ti-Chieh Hung",
+            nameZh: "洪第傑",
+            grade: "Master Student 1 Year",
+            avatar: "image/Member/Master/洪第傑 TI-CHIEH HUNG.jpg",
+            topics: ["Metasurface"],
+            bio: ""
         }
     ],
     inservice: [
