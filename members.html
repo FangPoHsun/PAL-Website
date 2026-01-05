@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Meet the PAL Lab team - PhD students, master students, and alumni working on photonics and lithography research at NYCU.">
     <title>Members | PAL Lab</title>
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -41,20 +46,51 @@
             height: 100px;
             border-radius: 50%;
             background-color: #020c1b;
-            margin-bottom: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2rem;
             color: var(--text-secondary);
             border: 2px solid var(--accent-color);
+            overflow: hidden;
+        }
+
+        .member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .extra-gif {
+            position: absolute;
+            width: 90px;
+            height: auto;
+            z-index: 2;
+            pointer-events: auto;
+            /* Don't interfere with clicks */
+        }
+
+        .extra-gif.top-right {
+            top: -10px;
+            right: -20px;
+        }
+
+        .extra-gif.bottom-left {
+            bottom: -20px;
+            left: -20px;
         }
 
         .member-name {
             font-size: 1.1rem;
             font-weight: 700;
             color: var(--text-color);
-            margin-bottom: 5px;
+            margin-bottom: 2px;
+        }
+
+        .member-name-zh {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
         }
 
         .member-grade {
@@ -66,9 +102,28 @@
         }
 
         .member-topic {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
-            font-style: italic;
+            width: 100%;
+        }
+
+        .member-topic ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .member-topic li {
+            background: rgba(255, 196, 0, 0);
+            border: 1px solid var(--accent-color);
+            border-radius: 12px;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            color: rgba(251, 250, 247, 0.8);
         }
 
         h3.section-title {
@@ -76,6 +131,213 @@
             padding-left: 15px;
             font-size: 1.5rem;
             color: var(--text-color);
+        }
+
+        /* Alumni Compact Tag Style */
+        .alumni-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .alumni-tag {
+            background-color: var(--secondary-color);
+            border: 1px solid transparent;
+            border-radius: 8px;
+            padding: 12px 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .alumni-tag:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .alumni-tag .alumni-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 2px;
+        }
+
+        .alumni-tag .alumni-name-zh {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .alumni-year-group {
+            margin-top: 20px;
+        }
+
+        .alumni-year-group:first-of-type {
+            margin-top: 0;
+        }
+
+        .alumni-year-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            padding-left: 2px;
+        }
+
+        /* Clickable avatar */
+        .member-avatar {
+            cursor: pointer;
+        }
+
+        .member-avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 196, 0, 0.3);
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+        }
+
+        .lightbox-content.has-bio {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .lightbox-img-container {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        #lightbox-img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            display: block;
+        }
+
+        .lightbox-caption {
+            text-align: center;
+            margin-top: 15px;
+            color: var(--text-color);
+        }
+
+        .lightbox-content.has-bio .lightbox-caption {
+            text-align: left;
+            margin-top: 0;
+        }
+
+        .lightbox-caption .name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .lightbox-caption .name-zh {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .lightbox-topics {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .lightbox-content.has-bio .lightbox-topics {
+            justify-content: flex-start;
+        }
+
+        .lightbox-topics span {
+            background: rgba(255, 196, 0, 0.1);
+            border: 1px solid var(--accent-color);
+            border-radius: 15px;
+            padding: 6px 14px;
+            font-size: 0.85rem;
+            color: rgba(251, 250, 247, 0.9);
+        }
+
+        .lightbox-bio {
+            max-width: 600px;
+            margin-top: 18px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-color);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            text-align: justify;
+        }
+
+        .lightbox-bio:empty {
+            display: none;
+        }
+
+        .member-bio {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-content.has-bio {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .lightbox-content.has-bio .lightbox-caption {
+                text-align: center;
+            }
+
+            .lightbox-content.has-bio .lightbox-topics {
+                justify-content: center;
+            }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 2rem;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .lightbox-close:hover {
+            color: var(--accent-color);
         }
     </style>
 </head>
@@ -85,7 +347,7 @@
     <header>
         <nav>
             <a href="index.html" class="logo">PAL Lab</a>
-            <div class="hamburger" id="hamburger">
+            <div class="hamburger" id="hamburger" role="button" aria-label="Toggle navigation menu" tabindex="0">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
@@ -96,78 +358,61 @@
                 <li><a href="research.html">Research</a></li>
                 <li><a href="members.html" class="active">Members</a></li>
                 <li><a href="publications.html">Publications</a></li>
+                <li><a href="calendar.html">Lab Calendar</a></li>
                 <li><a href="#" class="lang-switch">EN | 中文</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
-        <h2 class="fade-in">Lab Members</h2>
+        <h2 class="fade-in" data-en="Lab Members" data-zh="實驗室成員">Lab Members</h2>
 
         <!-- Ph.D. Students -->
         <div class="members-section fade-in">
-            <h3 class="section-title">Ph.D. Students</h3>
-            <div class="members-grid">
-                <!-- Placeholder Member 1 -->
-                <div class="member-card">
-                    <div class="member-avatar">S1</div>
-                    <div class="member-name">Student Name</div>
-                    <div class="member-grade">Ph.D. Year 3</div>
-                    <div class="member-topic">Research Topic: Advanced ILT</div>
-                </div>
-                <!-- Placeholder Member 2 -->
-                <div class="member-card">
-                    <div class="member-avatar">S2</div>
-                    <div class="member-name">Student Name</div>
-                    <div class="member-grade">Ph.D. Year 1</div>
-                    <div class="member-topic">Research Topic: Metasurfaces</div>
-                </div>
+            <h3 class="section-title" data-en="Ph.D. Students" data-zh="博士生">Ph.D. Students</h3>
+            <div class="members-grid" id="phd-grid">
+                <!-- PhD members will be rendered here -->
             </div>
         </div>
 
         <!-- Master Students -->
         <div class="members-section fade-in">
-            <h3 class="section-title">Master's Students</h3>
-            <div class="members-grid">
-                <!-- Placeholder Member -->
-                <div class="member-card">
-                    <div class="member-avatar">M1</div>
-                    <div class="member-name">Student Name</div>
-                    <div class="member-grade">Master Year 2</div>
-                    <div class="member-topic">Research Topic: AR Waveguides</div>
-                </div>
-                <div class="member-card">
-                    <div class="member-avatar">M2</div>
-                    <div class="member-name">Student Name</div>
-                    <div class="member-grade">Master Year 1</div>
-                    <div class="member-topic">Research Topic: Quantum Algorithms</div>
-                </div>
-                <div class="member-card">
-                    <div class="member-avatar">M3</div>
-                    <div class="member-name">Student Name</div>
-                    <div class="member-grade">Master Year 1</div>
-                    <div class="member-topic">Research Topic: Optical Testing</div>
-                </div>
+            <h3 class="section-title" data-en="Master Students" data-zh="碩士生">Master Students</h3>
+            <div class="members-grid" id="master-grid">
+                <!-- Master members will be rendered here -->
             </div>
         </div>
 
-        <!-- Alumni -->
+        <!-- In-service Master Program -->
         <div class="members-section fade-in">
-            <h3 class="section-title">Alumni</h3>
-            <div class="members-grid">
-                <!-- Placeholder Alumni -->
-                <div class="member-card">
-                    <div class="member-avatar">A1</div>
-                    <div class="member-name">Alumni Name</div>
-                    <div class="member-grade">Ph.D. 2024</div>
-                    <div class="member-topic">Now at: TSMC</div>
-                </div>
-                <div class="member-card">
-                    <div class="member-avatar">A2</div>
-                    <div class="member-name">Alumni Name</div>
-                    <div class="member-grade">Master 2023</div>
-                    <div class="member-topic">Now at: MediaTek</div>
-                </div>
+            <h3 class="section-title" data-en="In-service Master Program" data-zh="在職碩士班">In-service Master Program</h3>
+            <div class="members-grid" id="inservice-grid">
+                <!-- In-service members will be rendered here -->
+            </div>
+        </div>
+
+        <div class="members-section fade-in">
+            <h3 class="section-title" data-en="Alumni" data-zh="畢業生">Alumni (Graduated)</h3>
+            <div id="alumni-container">
+                <!-- Alumni year groups will be rendered here -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" id="lightbox-close">&times;</span>
+            <div class="lightbox-img-container">
+                <img src="" alt="" id="lightbox-img">
+                <div id="lightbox-extra-gifs"></div>
+            </div>
+            <div class="lightbox-caption">
+                <div class="name" id="lightbox-name"></div>
+                <div class="name-zh" id="lightbox-name-zh"></div>
+                <div class="lightbox-topics" id="lightbox-topics"></div>
+                <div class="lightbox-bio" id="lightbox-bio"></div>
             </div>
         </div>
     </div>
@@ -175,13 +420,181 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>Photonics & Lithography (PAL) Lab</p>
-            <p>National Yang Ming Chiao Tung University</p>
+            <p data-en="Photonics & Lithography (PAL) Lab" data-zh="光子晶體與微影技術實驗室 (PAL Lab)">Photonics & Lithography
+                (PAL) Lab</p>
+            <p data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung
+                University</p>
             <p>&copy; 2025 PAL Lab. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- Dynamic Rendering Scripts -->
+    <script src="js/members-data.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        // Initialize members rendering
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMembers();
+            initLightbox();
+        });
+
+        function renderMembers() {
+            const phdGrid = document.getElementById('phd-grid');
+            const masterGrid = document.getElementById('master-grid');
+            const inserviceGrid = document.getElementById('inservice-grid');
+            const alumniContainer = document.getElementById('alumni-container');
+
+            // Render PhD
+            membersData.phd.forEach(member => {
+                phdGrid.appendChild(createMemberCard(member));
+            });
+
+            // Render Master
+            membersData.master.forEach(member => {
+                masterGrid.appendChild(createMemberCard(member));
+            });
+
+            // Render In-service
+            membersData.inservice.forEach(member => {
+                inserviceGrid.appendChild(createMemberCard(member));
+            });
+
+            // Render Alumni
+            membersData.alumni.forEach(group => {
+                const yearGroup = document.createElement('div');
+                yearGroup.className = 'alumni-year-group';
+                yearGroup.innerHTML = `
+                    <div class="alumni-year-label" data-en="${group.year}" data-zh="${group.yearZh}">${group.year}</div>
+                    <div class="alumni-grid">
+                        ${group.members.map(member => `
+                            <div class="alumni-tag">
+                                <div class="alumni-name">${member.name}</div>
+                                <div class="alumni-name-zh">${member.nameZh}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                alumniContainer.appendChild(yearGroup);
+            });
+        }
+
+        function createMemberCard(member) {
+            const card = document.createElement('div');
+            card.className = 'member-card';
+
+            const topicsHtml = member.topics.length > 0
+                ? `<ul>${member.topics.map(t => `<li>${t}</li>`).join('')}</ul>`
+                : '';
+
+            card.innerHTML = `
+                <div class="member-avatar">
+                   <img src="${member.avatar}" alt="${member.name}">
+                </div>
+                <div class="member-name">${member.name}</div>
+                <div class="member-name-zh">${member.nameZh}</div>
+                <div class="member-grade">${member.grade}</div>
+                <div class="member-topic">
+                    ${topicsHtml}
+                </div>
+                ${member.bio ? `<div class="member-bio">${member.bio}</div>` : ''}
+                ${member.extraGifTopRight ? `<div class="member-extra-top-right" style="display:none;">${member.extraGifTopRight}</div>` : ''}
+                ${member.extraGifBottomLeft ? `<div class="member-extra-bottom-left" style="display:none;">${member.extraGifBottomLeft}</div>` : ''}
+            `;
+            return card;
+        }
+
+        // Lightbox functionality
+        function initLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxContent = document.querySelector('.lightbox-content');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxExtraGifs = document.getElementById('lightbox-extra-gifs');
+            const lightboxName = document.getElementById('lightbox-name');
+            const lightboxNameZh = document.getElementById('lightbox-name-zh');
+            const lightboxTopics = document.getElementById('lightbox-topics');
+            const lightboxBio = document.getElementById('lightbox-bio');
+            const lightboxClose = document.getElementById('lightbox-close');
+
+            // Add click event to all member avatars (using delegation for dynamic content)
+            document.addEventListener('click', function (e) {
+                const avatar = e.target.closest('.member-avatar');
+                if (avatar) {
+                    const img = avatar.querySelector('img');
+                    const card = avatar.closest('.member-card');
+                    const name = card.querySelector('.member-name').textContent;
+                    const nameZh = card.querySelector('.member-name-zh').textContent;
+
+                    // Get research topics
+                    const topicsList = card.querySelectorAll('.member-topic li');
+                    lightboxTopics.innerHTML = '';
+                    topicsList.forEach(topic => {
+                        const span = document.createElement('span');
+                        span.textContent = topic.textContent;
+                        lightboxTopics.appendChild(span);
+                    });
+
+                    // Get bio (optional)
+                    const bioElement = card.querySelector('.member-bio');
+                    const hasBio = bioElement && bioElement.textContent.trim();
+                    lightboxBio.textContent = hasBio ? bioElement.textContent : '';
+
+                    // Toggle layout based on bio presence
+                    if (hasBio) {
+                        lightboxContent.classList.add('has-bio');
+                    } else {
+                        lightboxContent.classList.remove('has-bio');
+                    }
+
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightboxName.textContent = name;
+                    lightboxNameZh.textContent = nameZh;
+
+                    // Handle extra GIFs decorations (with cache buster to restart animation)
+                    lightboxExtraGifs.innerHTML = '';
+                    const extraTopRight = card.querySelector('.member-extra-top-right');
+                    const extraBottomLeft = card.querySelector('.member-extra-bottom-left');
+                    const timestamp = new Date().getTime();
+
+                    if (extraTopRight) {
+                        const gif = document.createElement('img');
+                        gif.src = extraTopRight.textContent + '?t=' + timestamp;
+                        gif.className = 'extra-gif top-right';
+                        lightboxExtraGifs.appendChild(gif);
+                    }
+                    if (extraBottomLeft) {
+                        const gif = document.createElement('img');
+                        gif.src = extraBottomLeft.textContent + '?t=' + timestamp;
+                        gif.className = 'extra-gif bottom-left';
+                        lightboxExtraGifs.appendChild(gif);
+                    }
+
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+
+            // Close lightbox
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // Close with Escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
 </body>
 
 </html>

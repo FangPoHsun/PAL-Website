@@ -177,31 +177,33 @@ nav {
 
 /* --- HOME PAGE SCROLL CONTAINER --- */
 .home-scroll-container {
+    /* Removed scroll snap for smoother "gradually visible" effect */
     height: 100vh;
     overflow-y: scroll;
-    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-    /* Ensure it accounts for fixed header if needed, but we usually want 100vh absolute */
-}
-
-/* Sections - General Styles */
-section {
-    padding: 100px 0;
-    /* Default padding for normal pages */
-    /* Remove global 100vh height */
 }
 
 /* Home Container Sections */
 .home-scroll-container section {
     min-height: 100vh;
-    height: 100vh;
+    /* Ensure each section is a complete block */
     display: flex;
     align-items: center;
     justify-content: center;
-    scroll-snap-align: start;
     padding-top: var(--header-height);
-    /* Offset for header */
-    padding-bottom: 0;
+    padding-bottom: 20px;
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Hero Section */
@@ -219,12 +221,13 @@ section {
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: clamp(2rem, 5vw, 4rem);
     background: linear-gradient(90deg, #e6f1ff, #ffc400);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
-    line-height: 1.1;
+    line-height: 1.2;
 }
 
 .hero p {
@@ -251,25 +254,22 @@ section {
 .highlights-section {
     background-color: var(--secondary-color);
     flex-direction: column;
-    /* For home page, alignment is handled by .home-scroll-container section rule */
-}
-
-/* Welcome Section */
-.welcome-section {
-    background-color: var(--bg-color);
+    padding-top: 20px;
+    /* Reduced from default section padding */
+    padding-bottom: 20px;
 }
 
 .carousel-container {
     position: relative;
     max-width: 900px;
     width: 100%;
-    margin: 40px auto 0;
+    margin: 20px auto 0;
+    /* Reduced top margin */
     background-color: var(--bg-color);
-    /* Darker card feel */
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    padding: 40px 60px;
-    /* Space for arrow buttons */
+    padding: 30px 50px;
+    /* Compact padding */
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -284,28 +284,212 @@ section {
     padding: 0;
     margin: 0;
     list-style: none;
+    touch-action: pan-y;
+    cursor: grab;
+    /* Desktop mode: no scroll, use transform */
+    overflow-x: visible;
+    scroll-snap-type: none;
+}
+
+/* Disable transition during resize */
+.carousel-track.no-transition {
+    transition: none !important;
+}
+
+.carousel-track:active {
+    cursor: grabbing;
+}
+
+/* Welcome Section */
+.welcome-section {
+    background-color: var(--bg-color);
+}
+
+/* Hero Buttons */
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-secondary {
+    border-color: var(--text-color);
+    color: var(--text-color);
+    background: transparent;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 .carousel-slide {
     min-width: 100%;
+    box-sizing: border-box;
+    /* Desktop mode: Ensure slides don't shrink */
+    flex: 0 0 100%;
+    /* We disable snap on desktop to let JS control the Transform animation */
+    scroll-snap-align: none;
 }
 
-.slide-content {
-    text-align: center;
-    padding: 10px;
+.slide-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 0 20px;
 }
 
-.slide-content h3 {
+.slide-text {
+    flex: 1;
+    text-align: left;
+}
+
+.slide-image {
+    flex: 1;
+    max-width: 350px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-content h3,
+.slide-text h3 {
     font-size: 1.5rem;
     margin: 15px 0;
     color: var(--text-color);
 }
 
-.slide-content p {
+.slide-content p,
+.slide-text p {
     color: var(--text-secondary);
     margin-bottom: 20px;
     font-size: 1rem;
 }
+
+/* Updated Spec for Media (Images & Video) */
+.slide-image img,
+.slide-image video {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Image Slideshow for multiple photos */
+.image-slideshow {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    /* Fixed height container */
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #000;
+    /* Fallback background */
+}
+
+.image-slideshow img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    /* Default hidden */
+    animation: imageSlideshow 18s infinite;
+    -webkit-animation: imageSlideshow 18s infinite;
+    /* Safari/iOS support */
+}
+
+/* Ensure the first image dictates the layout if absolute positioning fails, 
+   or at least is visible if animation fails. 
+   Actually, we kept absolute to stack them. 
+   Let's ensure the first one is visible by default if animation is not supported?
+   No, animation support is good. But let's add z-index management.
+*/
+
+/* Stagger animation for each image */
+.image-slideshow img:nth-child(1) {
+    animation-delay: 0s;
+    -webkit-animation-delay: 0s;
+}
+
+.image-slideshow img:nth-child(2) {
+    animation-delay: 3s;
+    -webkit-animation-delay: 3s;
+}
+
+.image-slideshow img:nth-child(3) {
+    animation-delay: 6s;
+    -webkit-animation-delay: 6s;
+}
+
+.image-slideshow img:nth-child(4) {
+    animation-delay: 9s;
+    -webkit-animation-delay: 9s;
+}
+
+.image-slideshow img:nth-child(5) {
+    animation-delay: 12s;
+    -webkit-animation-delay: 12s;
+}
+
+.image-slideshow img:nth-child(6) {
+    animation-delay: 15s;
+    -webkit-animation-delay: 15s;
+}
+
+@keyframes imageSlideshow {
+    0% {
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    16.67% {
+        opacity: 1;
+    }
+
+    22% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes imageSlideshow {
+    0% {
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    16.67% {
+        opacity: 1;
+    }
+
+    22% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
 
 .tag {
     display: inline-block;
@@ -404,7 +588,7 @@ section {
     background-color: var(--card-bg);
 }
 
-/* Footer logic */
+/* Footer */
 footer {
     background-color: #020c1b;
     padding: 40px 0;
@@ -415,11 +599,8 @@ footer {
     min-height: auto;
 }
 
-/* Footer inside home container only */
 .home-scroll-container footer {
     scroll-snap-align: start;
-    /* Optional: make it full height? usually no, footer is small.
-       If we want footer to be last snap point, align start is good. */
 }
 
 footer p {
@@ -449,6 +630,75 @@ footer a {
 
 /* Responsive */
 @media (max-width: 768px) {
+
+    /* Merged Carousel Content Styles */
+    .slide-content-wrapper {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .slide-text {
+        text-align: center;
+    }
+
+    .slide-image {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Image Slideshow mobile fix */
+    .image-slideshow {
+        width: 100%;
+        height: 220px;
+        /* Reduced height for mobile */
+    }
+
+    .image-slideshow img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Native Horizontal Scrolling for Mobile */
+    .carousel-container {
+        padding: 30px 0;
+        /* Full width swipe */
+    }
+
+    .carousel-track {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        touch-action: pan-x;
+        /* ALLOW horizontal scroll, block vertical if needed, or use manipulation */
+        transform: none !important;
+    }
+
+    .carousel-slide {
+        flex: 0 0 100%;
+        scroll-snap-align: center;
+    }
+
+    /* Hide arrows on mobile/tablet */
+    /* Hide arrows on mobile/tablet */
+    .carousel-button {
+        display: none;
+    }
+
     .nav-links {
         position: fixed;
         right: 0;
@@ -463,6 +713,7 @@ footer a {
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
     }
 
+
     .nav-links.active {
         transform: translateX(0);
     }
@@ -472,11 +723,11 @@ footer a {
     }
 
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
     }
 
     .carousel-container {
-        padding: 40px 20px;
+        padding: 30px 20px;
     }
 
     .carousel-button {
@@ -488,7 +739,386 @@ footer a {
         height: auto;
         min-height: 100vh;
         padding-top: 100px;
-        /* More padding on mobile */
         padding-bottom: 50px;
+    }
+
+    /* Research cards mobile fix */
+    .research-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .research-card .card-img {
+        height: 180px;
+    }
+
+    .research-card .card-img img,
+    .research-card .card-img video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background-color: #020c1b;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .card-content h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* --- Calendar Styles --- */
+.calendar-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    /* Reduced gap */
+    margin-top: 20px;
+    /* Reduced margin */
+}
+
+.calendar-container {
+    background: var(--card-bg);
+    padding: 20px;
+    /* Reduced padding */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    /* Compact margin */
+}
+
+.calendar-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    /* Slightly smaller for compact fit */
+}
+
+.calendar-header button {
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.calendar-header button:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+}
+
+.calendar-day.empty {
+    background: transparent;
+    cursor: default;
+}
+
+.calendar-day:not(.empty):hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.calendar-day.today {
+    border: 2px solid var(--accent-color);
+}
+
+.calendar-day.has-event::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--text-secondary);
+}
+
+.calendar-day.event-routine::after {
+    background-color: #64ffda;
+    /* Green for routine */
+}
+
+.calendar-day.event-specific::after {
+    background-color: #ffc400;
+    /* Gold for specific */
+}
+
+.event-details {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    height: fit-content;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.event-card {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    border-left: 4px solid var(--text-secondary);
+}
+
+.event-card.routine {
+    border-left-color: #64ffda;
+}
+
+.event-card.specific {
+    border-left-color: #ffc400;
+}
+
+.event-card h4 {
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.event-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.calendar-legend {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: flex;
+    gap: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot.routine {
+    background: #64ffda;
+}
+
+.dot.specific {
+    background: #ffc400;
+}
+
+@media (max-width: 900px) {
+    .calendar-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8892b0;
+    /* Light slate */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+    /* Highlight on hover */
+}
+
+/* Modal Content Scrollbar */
+.modal-content::-webkit-scrollbar-track {
+    background: var(--card-bg);
+}
+
+/* --- Research Modal Styles --- */
+/* (Button style removed as buttons are gone, or kept for legacy/other uses? 
+   User said "remove", so we don't need .btn-expand styles anymore, 
+   but keeping generic classes is fine. I'll simply add the pointer to the card.) 
+*/
+
+.research-card {
+    /* ... existing properties (handled in upper section) ... */
+    cursor: pointer;
+    /* Clickable indication */
+}
+
+/* Existing .btn-expand is no longer needed but leaving it won't hurt if references exist. 
+   I will focus on the Modal Overlay styles below. 
+*/
+
+.btn-expand {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.btn-expand:hover {
+    background: rgba(255, 196, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    padding: 40px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: scale(0.9);
+    transition: var(--transition);
+    overflow-y: auto;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-modal:hover {
+    color: var(--accent-color);
+    transform: rotate(90deg);
+}
+
+.modal-body h3 {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 196, 0, 0.2);
+    padding-bottom: 10px;
+}
+
+.modal-body p {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.modal-body ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+}
+
+.modal-body li {
+    margin-bottom: 10px;
+}
+
+/* Detail Media in Modal */
+.detail-media {
+    width: 100%;
+    max-height: 350px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail-media img,
+.detail-media video {
+    max-width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .detail-media {
+        max-height: 250px;
+    }
+
+    .detail-media img,
+    .detail-media video {
+        max-height: 250px;
     }
 }
