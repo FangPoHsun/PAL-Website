@@ -64,7 +64,7 @@ const membersData = {
             name: "Chih Han Wu",
             nameZh: "吳芝涵",
             grade: "Master Student 2 Year",
-            avatar: "image\Member\Master\吳芝涵 Chih Han Wu.jpg",
+            avatar: "image/Member/Master/吳芝涵 Chih Han Wu.jpg",
             topics: ["AR", "Metalens"],
             bio: ""
         },
