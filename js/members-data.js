@@ -57,7 +57,15 @@ const membersData = {
             nameZh: "黃朝威",
             grade: "Master Student 2 Year",
             avatar: "image/Member/Master/黃朝威 Chaowei Huang.jpg",
-            topics: ["EUV", "/Lithography", "Fourier Optics"],
+            topics: ["EUV", "Lithography", "Fourier Optics"],
+            bio: ""
+        },
+        {
+            name: "Chih Han Wu",
+            nameZh: "吳芝涵",
+            grade: "Master Student 2 Year",
+            avatar: "image\Member\Master\吳芝涵 Chih Han Wu.jpg",
+            topics: ["AR", "Metalens"],
             bio: ""
         },
         {
