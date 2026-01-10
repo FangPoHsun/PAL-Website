@@ -53,6 +53,14 @@ const membersData = {
             bio: ""
         },
         {
+            name: "Chaowei Huang",
+            nameZh: "黃朝威",
+            grade: "Master Student 2 Year",
+            avatar: "image/Member/Master/黃朝威 Chaowei Huang.jpg",
+            topics: ["EUV", "/Lithography", "Fourier Optics"],
+            bio: ""
+        },
+        {
             name: "Wei-Zhe Li",
             nameZh: "李惟哲",
             grade: "Master Student 1 Year",
