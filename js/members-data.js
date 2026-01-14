@@ -148,6 +148,37 @@ const membersData = {
                 { name: "Kuan-Yu Lu", nameZh: "盧冠佑" },
                 { name: "Ling-Chia Huang", nameZh: "黃苓嘉" }
             ]
+        },
+        {
+            year: "Class of 109",
+            yearZh: "109級",
+            members: [
+                { name: "Sheng-Hsiang Su", nameZh: "蘇聖翔" },
+                { name: "Yu-Teng Chen", nameZh: "陳育騰" },
+                { name: "Tung-Ko Lin", nameZh: "林桐可" }
+            ]
+        },
+        {
+            year: "Class of 108",
+            yearZh: "108級",
+            members: [
+                { name: "Wei-Ping Liao", nameZh: "廖維平" },
+                { name: "Ting-Yun Yang", nameZh: "楊婷芸" },
+                { name: "Yu-Fan Lin", nameZh: "林峪凡" },
+                { name: "Chien-Chi Huang", nameZh: "黃建錡" }
+            ]
+        },
+        {
+            year: "Class of 107",
+            yearZh: "107級",
+            members: [
+                { name: "Chi-Te Lin", nameZh: "林其德" },
+                { name: "Li-Jung Kuo", nameZh: "郭力榕" },
+                { name: "Yu-Chun Chang", nameZh: "張寓鈞" },
+                { name: "Po-Hua Lin", nameZh: "林柏樺" },
+                { name: "Lieh-Yuan Huang", nameZh: "黃烈淵" },
+                { name: "Shu-Te Kung", nameZh: "龔書德" }
+            ]
         }
     ]
 };
