@@ -95,6 +95,14 @@ const membersData = {
     ],
     inservice: [
         {
+            name: "Chia-Wei Chang",
+            nameZh: "張家瑋",
+            grade: "In-service Master",
+            avatar: "image/Member/In-service Master Program/張家偉 Chia-Wei Chang.jpg",
+            topics: ["OPC Modeling", "Lithography", "Metasurface", "Process Optimization"],
+            bio: "CHIA-WEI CHANG received the B.S. degree in photonics from Feng Chia University, Taichung, Taiwan. He is currently pursuing the M.S. degree in electro-optical engineering with National Yang Ming Chiao Tung University, Hsinchu, Taiwan. He has worked with United Microelectronics Corporation, Hsinchu, and Giga Solution Tech. Company Ltd., Hsinchu. He is currently with the Taiwan Semiconductor Research Institute, Hsinchu. His research interests include MEEF and OPC modeling, lithography process optimization, and metasurface-based optical system design"
+        },
+        {
             name: "Tzuting Chen",
             nameZh: "陳子廷",
             grade: "In-service Master",
