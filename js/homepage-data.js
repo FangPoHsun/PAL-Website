@@ -6,8 +6,8 @@ const homepageData = {
             title: "OPC+ Cloud Service Now Available",
             description: "Our team has developed a general-purpose OPC cloud service for freeform mask correction. Easy access, easy use - designed for everyone.",
             image: "image/Research/OPC_Workflow_Comparison.png",
-            link: "https://github.com/FangPoHsun/opc-cloud-platform",
-            linkText: "Explore Platform"
+            link: "brochure/OPC_Cloud_Platform_Brochure.pdf",
+            linkText: "View Brochure"
         },
         {
             tag: "Lab News",
