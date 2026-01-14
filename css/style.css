@@ -516,6 +516,11 @@ nav {
     color: #e6f1ff;
 }
 
+.tag.tag-platform {
+    background-color: rgba(187, 134, 252, 0.2);
+    color: #bb86fc;
+}
+
 .slide-link {
     color: var(--accent-color);
     font-weight: bold;
