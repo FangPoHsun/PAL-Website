@@ -33,6 +33,14 @@ const membersData = {
             avatar: "image/Member/Ph.D/王冠勛 Kuan-Hsun Wang.jpg",
             topics: ["Resolution Enhancement Techniques", "OPC", "ILT", "Machine Learning", "CAT"],
             bio: ""
+        },
+        {
+            name: "KuanLin Lee",
+            nameZh: "李冠霖",
+            grade: "Ph.D. Student",
+            avatar: "image/Member/Ph.D/李冠霖 KuanLin Lee.jpg",
+            topics: ["AR Optical Design", "Metalenses", "Retinal Projection"],
+            bio: ""
         }
     ],
     master: [
