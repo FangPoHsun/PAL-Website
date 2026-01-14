@@ -1,6 +1,15 @@
 const homepageData = {
     newsHighlights: [
         {
+            tag: "Platform Launch",
+            tagClass: "tag-platform",
+            title: "OPC+ Cloud Service Now Available",
+            description: "Our team has developed a general-purpose OPC cloud service for freeform mask correction. Easy access, easy use - designed for everyone.",
+            image: "image/Research/OPC_Workflow_Comparison.png",
+            link: "https://github.com/FangPoHsun/opc-cloud-platform",
+            linkText: "Explore Platform"
+        },
+        {
             tag: "Lab News",
             tagClass: "news",
             title: "2025 Christmas Gift Exchange",
@@ -53,6 +62,7 @@ const homepageData = {
         },
     ],
     latestHighlights: [
+        { en: "Launched OPC+ Cloud Service for general-purpose freeform mask correction", zh: "推出OPC+雲端服務，提供通用自由形式光罩校正" },
         { en: "New Publication Accepted!! *Intelligent Proximity Correction Enabled Large-Area Metasurfaces by KrF Photolithography*", zh: "新論文已被接受！！ *Intelligent Proximity Correction Enabled Large-Area Metasurfaces by KrF Photolithography*" },
         { en: "Student Paper Awards at OPTIC 2025 - Ping-Ke Li & Shang-Chiang Sung", zh: "OPTIC 2025 學生論文獎 - 李秉科 & 宋尚將" },
         { en: "New publication in *Optical and EUV Nanolithography XXXVIII* (2025)", zh: "新論文發表於 *Optical and EUV Nanolithography XXXVIII* (2025)" },
