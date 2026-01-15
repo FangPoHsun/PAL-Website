@@ -99,6 +99,14 @@ const membersData = {
             avatar: "image/Member/Master/洪第傑 TI-CHIEH HUNG.jpg",
             topics: ["Metasurface"],
             bio: ""
+        },
+        {
+            name: "Chia-Yao Yeh.",
+            nameZh: "葉家堯",
+            grade: "Master Student 1 Year",
+            avatar: "image/Member/Master/葉家堯 Chia-Yao Yeh.jpg",
+            topics: ["Quantum Computing", "HPC", "SA", "NA"],
+            bio: ""
         }
     ],
     inservice: [
