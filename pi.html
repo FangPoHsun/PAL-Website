@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Prof. Peichen Yu - Principal Investigator of PAL Lab at NYCU, specializing in photonics, lithography, and metasurface research.">
+    <meta name="description"
+        content="Prof. Peichen Yu - Principal Investigator of PAL Lab at NYCU, specializing in photonics, lithography, and metasurface research.">
     <title>PI Profile | PAL Lab</title>
     <link rel="icon" type="image/x-icon" href="image/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,36 +13,185 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Hero Banner for PI Page */
+        .pi-hero-banner {
+            position: relative;
+            background: linear-gradient(135deg, rgba(17, 34, 64, 0.95) 0%, rgba(10, 25, 47, 0.98) 50%, rgba(17, 34, 64, 0.95) 100%);
+            padding: 30px 0;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 196, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .pi-hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255, 196, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 196, 0, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
         .pi-container {
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 40px;
+            gap: 50px;
             margin-top: 40px;
         }
 
+        /* Enhanced Profile Image */
         .pi-image {
             width: 100%;
-            border-radius: 8px;
+            border-radius: 12px;
             background-color: var(--card-bg);
-            /* Placeholder bg */
             min-height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-secondary);
             font-size: 0.9rem;
-            border: 1px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(255, 196, 0, 0.1);
+        }
+
+        .pi-image::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, transparent 50%, var(--accent-color) 100%);
+            border-radius: 14px;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .pi-image:hover {
+            transform: translateY(-5px);
+            box-shadow:
+                0 15px 50px rgba(0, 0, 0, 0.5),
+                0 0 80px rgba(255, 196, 0, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        /* PI Name Card Styling */
+        .pi-name-card {
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(145deg, rgba(17, 34, 64, 0.8) 0%, rgba(10, 25, 47, 0.9) 100%);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 196, 0, 0.2);
+            text-align: center;
+        }
+
+        .pi-name-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            background: linear-gradient(90deg, #e6f1ff, #ffc400);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Bio Section Cards */
+        .bio-section {
+            background: linear-gradient(145deg, rgba(17, 34, 64, 0.6) 0%, rgba(10, 25, 47, 0.8) 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .bio-section:hover {
+            border-color: rgba(255, 196, 0, 0.2);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
         }
 
         .bio-section h3 {
             color: var(--accent-color);
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .bio-section h3::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, var(--accent-color) 0%, rgba(255, 196, 0, 0.3) 100%);
+            border-radius: 2px;
         }
 
         .bio-section p {
             text-align: justify;
+            line-height: 1.8;
+        }
+
+        /* CV Card - Enhanced Alignment */
+        .cv-card {
+            background: linear-gradient(145deg, rgba(17, 34, 64, 0.8) 0%, rgba(10, 25, 47, 0.9) 100%);
+            border: 1px solid rgba(255, 196, 0, 0.3);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cv-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 196, 0, 0.15);
+            border-color: var(--accent-color);
+        }
+
+        .cv-card .cv-card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 0;
+        }
+
+        .cv-card .cv-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background: rgba(255, 196, 0, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+        }
+
+        .cv-card .cv-title {
+            flex: 1;
+        }
+
+        .cv-card .cv-title h4 {
+            margin: 0 0 4px 0;
+            color: var(--text-color);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .cv-card .cv-title p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
         }
 
         /* PI Research Domains - Premium Styling */
@@ -65,11 +215,11 @@
             right: -2px;
             bottom: -2px;
             background: linear-gradient(45deg,
-                transparent 0%,
-                rgba(255, 196, 0, 0.4) 25%,
-                transparent 50%,
-                rgba(255, 196, 0, 0.4) 75%,
-                transparent 100%);
+                    transparent 0%,
+                    rgba(255, 196, 0, 0.4) 25%,
+                    transparent 50%,
+                    rgba(255, 196, 0, 0.4) 75%,
+                    transparent 100%);
             background-size: 400% 400%;
             border-radius: 14px;
             z-index: -1;
@@ -77,14 +227,18 @@
         }
 
         @keyframes borderGlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .pi-research-domains h4 {
             font-size: 0.75rem;
             color: var(--accent-color);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 600;
@@ -112,21 +266,22 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            justify-content: flex-start;
         }
 
         .pi-research-domains li {
             background: linear-gradient(135deg, rgba(255, 196, 0, 0.2) 0%, rgba(255, 196, 0, 0.05) 100%);
             border: 1px solid rgba(255, 196, 0, 0.6);
             border-radius: 25px;
-            padding: 8px 16px;
-            font-size: 0.8rem;
+            padding: 8px 18px;
+            font-size: 0.85rem;
             font-weight: 500;
             color: #fff;
-            /* transition: all 0.3s ease; */
             box-shadow:
                 0 2px 10px rgba(255, 196, 0, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
 
         .pi-research-domains li:hover {
@@ -138,14 +293,235 @@
             border-color: var(--accent-color);
         }
 
+        /* Enhanced Research Interests List */
+        .research-interests-list {
+            list-style: none !important;
+            margin-left: 0 !important;
+            padding: 0;
+        }
+
+        .research-interests-list li {
+            position: relative;
+            padding: 12px 15px 12px 45px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border-left: 3px solid rgba(255, 196, 0, 0.4);
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .research-interests-list li::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 196, 0, 0.5);
+        }
+
+        .research-interests-list li:hover {
+            background: rgba(255, 196, 0, 0.05);
+            border-left-color: var(--accent-color);
+            transform: translateX(5px);
+        }
+
+        /* Awards Timeline Styling */
+        .awards-timeline {
+            list-style: none !important;
+            margin-left: 0 !important;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .awards-timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent-color) 0%, rgba(255, 196, 0, 0.2) 100%);
+        }
+
+        .awards-timeline li {
+            position: relative;
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            background: rgba(255, 196, 0, 0.03);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 196, 0, 0.1);
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .awards-timeline li::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: var(--card-bg);
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .awards-timeline li:hover {
+            background: rgba(255, 196, 0, 0.08);
+            border-color: rgba(255, 196, 0, 0.3);
+            transform: translateX(5px);
+        }
+
+        .awards-timeline li:hover::before {
+            background: var(--accent-color);
+            box-shadow: 0 0 15px rgba(255, 196, 0, 0.5);
+        }
+
+        /* Service List */
+        .service-list {
+            list-style: none !important;
+            margin-left: 0 !important;
+        }
+
+        .service-list li {
+            position: relative;
+            padding: 10px 15px 10px 35px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .service-list li::before {
+            content: '\2713';
+            position: absolute;
+            left: 10px;
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        .service-list li:hover {
+            background: rgba(100, 255, 218, 0.05);
+        }
+
+        /* Section Labels */
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            padding: 6px 12px;
+            background: rgba(255, 196, 0, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 196, 0, 0.2);
+        }
+
+        /* Contact Links Section */
+        .pi-contact-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: rgba(255, 196, 0, 0.1);
+            border: 1px solid rgba(255, 196, 0, 0.3);
+            border-radius: 25px;
+            color: var(--text-color);
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 196, 0, 0.2);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 196, 0, 0.2);
+        }
+
+        .contact-link svg {
+            width: 18px;
+            height: 18px;
+            color: var(--accent-color);
+        }
+
+        /* Staggered Fade-in Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .fade-in-up:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in-up:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in-up:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in-up:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Highlight */
+        .pi-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px 20px;
+            background: rgba(255, 196, 0, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 196, 0, 0.15);
+            min-width: 100px;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         @media (max-width: 768px) {
             .pi-container {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
 
             .pi-image {
-                max-width: 250px;
-                min-height: 200px;
+                max-width: 280px;
+                min-height: 280px;
                 margin: 0 auto;
             }
 
@@ -153,9 +529,80 @@
                 text-align: center;
             }
 
+            .pi-name-card h3 {
+                font-size: 1.4rem;
+            }
+
+            .pi-stats {
+                gap: 15px;
+            }
+
+            .stat-item {
+                padding: 12px 15px;
+                min-width: 80px;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .pi-contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-link {
+                width: 100%;
+                max-width: 200px;
+                justify-content: center;
+            }
+
             .pi-info {
                 display: flex;
                 flex-direction: column;
+            }
+
+            .bio-section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .bio-section h3 {
+                font-size: 1.1rem;
+            }
+
+            .research-interests-list li {
+                padding: 10px 12px 10px 40px;
+                font-size: 0.9rem;
+            }
+
+            .awards-timeline {
+                padding-left: 25px;
+            }
+
+            .awards-timeline li {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+            }
+
+            .awards-timeline li::before {
+                left: -22px;
+                width: 10px;
+                height: 10px;
+            }
+
+            .cv-card {
+                padding: 15px 18px;
+            }
+
+            .cv-card .cv-icon {
+                width: 42px;
+                height: 42px;
+                min-width: 42px;
+            }
+
+            .cv-card .cv-title h4 {
+                font-size: 0.95rem;
             }
 
             .pi-research-domains {
@@ -167,6 +614,12 @@
 
             .pi-research-domains ul {
                 justify-content: center;
+                gap: 8px;
+            }
+
+            .pi-research-domains li {
+                padding: 6px 14px;
+                font-size: 0.8rem;
             }
 
             .pi-research-domains h4::after {
@@ -205,54 +658,64 @@
             <div class="pi-side">
                 <div class="pi-image">
                     <img src="image/pi/peichen_yu.jpg" alt="Prof. Peichen Yu"
-                        style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                        style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
                 </div>
-                <div style="margin-top: 20px;">
+                <div class="pi-name-card">
                     <h3 data-en="Peichen Yu" data-zh="余沛慈">Peichen Yu</h3>
-                    <p style="color: var(--accent-color);" data-en="Professor" data-zh="教授">Professor</p>
-                    <p data-en="Department of Photonics" data-zh="光電工程學系">Department of Photonics</p>
-                    <p data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung University</p>
-                </div>
-            </div>
+                    <p style="color: var(--accent-color); font-weight: 600; margin-bottom: 8px;" data-en="Professor" data-zh="教授">Professor</p>
+                    <p style="font-size: 0.95rem;" data-en="Department of Photonics" data-zh="光電工程學系">Department of Photonics</p>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);" data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung University</p>
 
-            <div class="pi-info">
-                <div class="bio-section">
-                    <h3 data-en="Biography" data-zh="學經歷">Biography</h3>
-                    <p data-en="Peichen Yu received the Ph.D. degree in electrical engineering from the University of Michigan, Ann Arbor, MI, USA, in 2004."
-                       data-zh="余沛慈教授於2004年取得美國密西根大學安乙堡分校電機工程博士學位。">Peichen Yu received the Ph.D. degree in electrical engineering from the University of Michigan,
-                        Ann Arbor, MI, USA, in 2004.</p>
-                    <p data-en="From 2004 to 2006, she joined the Advanced Design Group, Intel Corporation, Hillsboro, OR, USA, as a Resolution Enhancement Technology (RET) Design Engineer."
-                       data-zh="2004至2006年間，於美國Intel Corporation先進設計部門擔任解析度增強技術(RET)設計工程師。">From 2004 to 2006, she joined the Advanced Design Group, Intel Corporation, Hillsboro, OR, USA,
-                        as a Resolution Enhancement Technology (RET) Design Engineer.</p>
-                    <p data-en="Since 2006, she switched careers to academia and is currently a Professor with the Department of Photonics, National Yang Ming Chiao Tung University."
-                       data-zh="2006年起轉入學術界，現為國立陽明交通大學光電工程學系教授。">Since 2006, she switched careers to academia and is currently a Professor with the Department of
-                        Photonics, National Yang Ming Chiao Tung University.</p>
+                    <!-- Stats Highlight -->
+                    <div class="pi-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">60+</div>
+                            <div class="stat-label" data-en="Publications" data-zh="論文">Publications</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">9</div>
+                            <div class="stat-label" data-en="Awards" data-zh="獎項">Awards</div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Links -->
+                    <div class="pi-contact-links">
+                        <a href="mailto:peichen.yu@nycu.edu.tw" class="contact-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            Email
+                        </a>
+                        <a href="https://scholar.google.com/citations?hl=zh-TW&user=y159uKQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="contact-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                            </svg>
+                            Scholar
+                        </a>
+                    </div>
+                </div>
+                <div class="cv-card" id="cv-card-trigger">
+                    <div class="cv-card-header">
+                        <div class="cv-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <div class="cv-title">
+                            <h4>Curriculum Vitae</h4>
+                            <p>PDF Document</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="bio-section">
-                    <h3 data-en="Research Interests" data-zh="研究領域">Research Interests</h3>
-                    <ul style="list-style-type: disc; margin-left: 20px; color: var(--text-secondary);">
-                        <li data-en="Nanostructures and metasurfaces patterning for optoelectronic applications"
-                            data-zh="光電應用之奈米結構與超穎表面圖案化技術">Nanostructures and metasurfaces patterning for optoelectronic applications</li>
-                        <li data-en="Development of RET solutions, including inverse lithography technology (ILT) for ArF 193i and EUV lithography"
-                            data-zh="解析度增強技術開發，包括ArF 193i與EUV微影之逆向微影技術(ILT)">Development of RET solutions, including inverse lithography technology (ILT) for ArF 193i
-                            and EUV lithography</li>
-                    </ul>
-                </div>
-
-                <div class="bio-section">
-                    <h3 data-en="Achievements & Membership" data-zh="學術成就與會員資格">Achievements & Membership</h3>
-                    <p data-en="She has published over 60 refereed technical articles in the above research areas. Her work has been highlighted in various scientific journals, including Virtual Journal of Nanoscale Science and Technology, SPIE Newsroom, and NPG Nature Asia-Material."
-                       data-zh="在上述研究領域已發表超過60篇經同儕審查的技術論文，研究成果曾被多個科學期刊報導，包括Virtual Journal of Nanoscale Science and Technology、SPIE Newsroom及NPG Nature Asia-Material。">She has published over 60 refereed technical articles in the above research areas. Her work has
-                        been highlighted in various scientific journals, including <em>Virtual Journal of Nanoscale
-                            Science and Technology</em>, <em>SPIE Newsroom</em>, and <em>NPG Nature Asia-Material</em>.
-                    </p>
-                    <p data-en="She is a member of the IEEE Photonics Society and SPIE. She received several research and teaching awards in Taiwan."
-                       data-zh="現為IEEE Photonics Society與SPIE會員，曾多次獲得台灣研究與教學獎項。">She is a member of the IEEE Photonics Society and SPIE. She received several research and
-                        teaching awards in Taiwan.</p>
-                </div>
-
-                <div class="pi-research-domains">
+                <div class="pi-research-domains" style="margin-top: 20px;">
                     <h4 data-en="Research Domains" data-zh="研究領域">Research Domains</h4>
                     <ul>
                         <li>Optical Lithography</li>
@@ -264,19 +727,214 @@
                     </ul>
                 </div>
             </div>
+
+            <div class="pi-info">
+                <div class="bio-section fade-in-up">
+                    <h3 data-en="Biography" data-zh="學經歷">Biography</h3>
+                    <p data-en="PEICHEN YU (Member, IEEE) received the Ph.D. degree in electrical engineering from the University of Michigan, Ann Arbor, MI, USA, in 2004. From 2004 to 2006, she joined the Advanced Design Group, Intel Corporation, Hillsboro, OR, USA, as a Resolution Enhancement Technology (RET) Design Engineer. Since 2006, she switched careers to academia and is currently a Professor with the Department of Photonics, National Yang Ming Chiao Tung University. Her research interests include nanostructures and metasurfaces patterning for optoelectronic applications. She is also actively engaged in the development of RET solutions, including inverse lithography technology (ILT) for ArF 193i and EUV lithography. She has published over 60 refereed technical articles in the above research areas. Her work has been highlighted in various scientific journals, including Virtual Journal of Nanoscale Science and Technology, SPIE Newsroom, and NPG Nature Asia-Material. She is also a member of the IEEE Photonics Society and SPIE. She received several research and teaching awards in Taiwan."
+                        data-zh="余沛慈教授 (IEEE會員) 於2004年取得美國密西根大學安娜堡分校電機工程博士學位。2004至2006年間，她加入美國Intel Corporation先進設計部門擔任解析度增強技術(RET)設計工程師。2006年起轉入學術界，現為國立陽明交通大學光電工程學系教授。她的研究興趣包括應用於光電元件之奈米結構與超穎表面圖案化技術。她亦積極投入RET解決方案之開發，包括適用於ArF 193i與EUV微影之逆向微影技術(ILT)。她在上述研究領域已發表超過60篇經同儕審查的技術論文，研究成果曾被多個科學期刊報導，包括Virtual Journal of Nanoscale Science and Technology、SPIE Newsroom及NPG Nature Asia-Material。她是IEEE Photonics Society與SPIE會員，並曾獲得台灣多項研究與教學獎項。">
+                        PEICHEN YU (Member, IEEE) received the Ph.D. degree in electrical engineering from the
+                        University of Michigan, Ann Arbor, MI, USA, in 2004. From 2004 to 2006, she joined the Advanced
+                        Design Group, Intel Corporation, Hillsboro, OR, USA, as a Resolution Enhancement Technology
+                        (RET) Design Engineer. Since 2006, she switched careers to academia and is currently a Professor
+                        with the Department of Photonics, National Yang Ming Chiao Tung University. Her research
+                        interests include nanostructures and metasurfaces patterning for optoelectronic applications.
+                        She is also actively engaged in the development of RET solutions, including inverse lithography
+                        technology (ILT) for ArF 193i and EUV lithography. She has published over 60 refereed technical
+                        articles in the above research areas. Her work has been highlighted in various scientific
+                        journals, including Virtual Journal of Nanoscale Science and Technology, SPIE Newsroom, and NPG
+                        Nature Asia-Material. She is also a member of the IEEE Photonics Society and SPIE. She received
+                        several research and teaching awards in Taiwan.
+                    </p>
+                </div>
+
+                <div class="bio-section fade-in-up">
+                    <h3 data-en="Research Interests" data-zh="研究領域">Research Interests</h3>
+                    <ul class="research-interests-list">
+                        <li data-en="Cloud-native, GPU-accelerated optical proximity correction (OPC+) platform"
+                            data-zh="雲原生、GPU加速之光學鄰近修正(OPC+)平台">Cloud-native, GPU-accelerated optical proximity
+                            correction (OPC+) platform</li>
+                        <li data-en="Large-area metasurfaces and diffractive Augmented Reality (AR) waveguide structures"
+                            data-zh="大面積超穎表面與繞射式擴增實境(AR)波導結構">Large-area metasurfaces and diffractive Augmented Reality
+                            (AR) waveguide structures</li>
+                        <li data-en="AI-driven Inverse Lithography technology (ILT) strategies for EUV projection lithography"
+                            data-zh="AI驅動之極紫外光(EUV)投影微影逆向微影技術(ILT)">AI-driven Inverse Lithography technology (ILT)
+                            strategies for EUV projection lithography</li>
+                        <li data-en="Hybrid organic/inorganic hetero-junction solar cells" data-zh="混合有機/無機異質接面太陽能電池">
+                            Hybrid organic/inorganic hetero-junction solar cells</li>
+                        <li data-en="Transparent conductive nano-materials for optoelectronic devices"
+                            data-zh="光電元件應用之透明導電奈米材料">Transparent conductive nano-materials for optoelectronic devices
+                        </li>
+                        <li data-en="Nano-fabrication technologies for multi-junction, silicon, and polymer solar cells"
+                            data-zh="多接面、矽及聚合物太陽能電池之奈米製程技術">Nano-fabrication technologies for multi-junction, silicon,
+                            and polymer solar cells</li>
+                        <li data-en="Inverse mask and illumination synthesis approaches for advanced CMOS nodes"
+                            data-zh="先進CMOS節點之逆向光罩與照明合成方法">Inverse mask and illumination synthesis approaches for
+                            advanced CMOS nodes</li>
+                    </ul>
+                </div>
+
+                <div class="bio-section fade-in-up">
+                    <h3 data-en="Achievements & Membership" data-zh="學術成就與會員資格">Achievements & Membership</h3>
+
+                    <p class="section-label" data-en="Honors and Awards" data-zh="榮譽與獎項">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="7"></circle>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                        </svg>
+                        Honors and Awards
+                    </p>
+                    <ul class="awards-timeline">
+                        <li data-en="2025 Excellent Mentor Award, College of EEC, National Yang Ming Chiao Tung University"
+                            data-zh="2025 國立陽明交通大學電機學院導師獎">2025 Excellent Mentor Award, College of EEC, National Yang
+                            Ming Chiao Tung University</li>
+                        <li data-en="2023 Future Tech Award" data-zh="2023 未來科技獎">2023 Future Tech Award</li>
+                        <li data-en="2023 NARLabs R&D Service Platform Achievement Awards"
+                            data-zh="2023 國家實驗研究院研發服務平台亮點成果獎">2023 NARLabs R&D Service Platform Achievement Awards</li>
+                        <li data-en="2021 Excellent Teaching Award, Dept. of Photonics, College of EECS, National Chiao Tung University"
+                            data-zh="2021 國立交通大學電機學院光電系田家炳優良教學獎">2021 Excellent Teaching Award, Dept. of Photonics,
+                            College of EECS, National Chiao Tung University</li>
+                        <li data-en="2013 Dr. Wu Da-You Memorial Award, National Science Council"
+                            data-zh="2013 國科會吳大猷先生紀念獎">2013 Dr. Wu Da-You Memorial Award, National Science Council</li>
+                        <li data-en="2013/2012 Outstanding Teaching Award, College of EECS, National Chiao Tung University"
+                            data-zh="2013/2012 國立交通大學電機學院傑出教學獎">2013/2012 Outstanding Teaching Award, College of EECS,
+                            National Chiao Tung University</li>
+                        <li data-en="2011 Outstanding Young Women Scientists in Taiwan"
+                            data-zh="2011 第四屆傑出女科學家新秀獎物質科學類">2011 Outstanding Young Women Scientists in Taiwan</li>
+                        <li data-en="2010 Y. Z. Hsu Scientific Paper Award - Green Technology"
+                            data-zh="2010 第八屆有庠科技論文獎-綠色科技類">2010 Y. Z. Hsu Scientific Paper Award - Green Technology
+                        </li>
+                        <li data-en="2010 Excellent Undergraduate Mentor Award, National Chiao Tung University"
+                            data-zh="2010 國立交通大學光電工程系績優導師">2010 Excellent Undergraduate Mentor Award, National Chiao
+                            Tung University</li>
+                    </ul>
+
+                    <p class="section-label" style="margin-top: 25px;" data-en="Society Service" data-zh="學會服務">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        Society Service
+                    </p>
+                    <ul class="service-list">
+                        <li data-en="Area1 Program Chair, 44th IEEE PVSC (2017)" data-zh="IEEE PVSC Area1 程序主席 (2017)">
+                            Area1 Program Chair, 44th IEEE PVSC (2017)</li>
+                        <li data-en="Program Committee, IEEE PVSC (2011-2016), IEEE NANO (2009, 2011), OPTIC (2009-2025)"
+                            data-zh="IEEE PVSC (2011-2016), IEEE NANO (2009, 2011), OPTIC (2009-2025) 程序委員">Program
+                            Committee, IEEE PVSC (2011-2016), IEEE NANO (2009, 2011), OPTIC (2009-2025)</li>
+                        <li data-en="Regional Executive Director, ANNA-Taiwan" data-zh="ANNA-Taiwan 區域執行長">Regional
+                            Executive Director, ANNA-Taiwan</li>
+                        <li data-en="Reviewer for Advanced Materials, ACS Nano, Optics Express, Applied Physics Letters, etc."
+                            data-zh="Advanced Materials, ACS Nano, Optics Express, Applied Physics Letters 等期刊審稿人">
+                            Reviewer for Advanced Materials, ACS Nano, Optics Express, Applied Physics Letters, etc.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CV Preview Modal -->
+    <div class="cv-modal" id="cv-modal">
+        <div class="cv-modal-content">
+            <button class="cv-modal-close" id="cv-modal-close" aria-label="Close Modal">&times;</button>
+
+            <div class="cv-modal-img-container">
+                <img src="image/pi/peichen_yu.jpg" alt="Prof. Peichen Yu" class="cv-modal-img">
+            </div>
+
+            <div class="cv-modal-info">
+                <div class="cv-modal-header">
+                    <h3 class="cv-modal-name" data-en="Peichen Yu" data-zh="余沛慈">Peichen Yu</h3>
+                    <div class="cv-modal-name-zh" data-en="Professor" data-zh="教授">Professor</div>
+
+                    <div class="cv-modal-tags">
+                        <span class="cv-modal-tag">Optical Lithography</span>
+                        <span class="cv-modal-tag">OPC</span>
+                        <span class="cv-modal-tag">ILT</span>
+                        <span class="cv-modal-tag">EUV</span>
+                        <span class="cv-modal-tag">Metalens</span>
+                    </div>
+                </div>
+
+                <div class="cv-modal-desc">
+                    <p data-en="Peichen Yu is a Professor in the Department of Photonics at National Yang Ming Chiao Tung University (NYCU), Taiwan. Her research focuses on computational lithography, including inverse lithography technology (ILT), optical proximity correction (OPC), and nanostructure patterning for optoelectronic applications. She is actively involved in developing advanced RET solutions for ArF 193i and EUV lithography."
+                        data-zh="余沛慈教授任教於國立陽明交通大學光電工程學系。她的研究專注於計算微影技術，包括逆向微影技術(ILT)、光學鄰近修正(OPC)以及光電應用之奈米結構圖案化。她積極參與ArF 193i與EUV微影之先進RET解決方案開發。">
+                        Peichen Yu is a Professor in the Department of Photonics at National Yang Ming Chiao Tung
+                        University (NYCU), Taiwan. Her research focuses on computational lithography, including inverse
+                        lithography technology (ILT), optical proximity correction (OPC), and nanostructure patterning
+                        for optoelectronic applications. She is actively involved in developing advanced RET solutions
+                        for ArF 193i and EUV lithography.
+                    </p>
+                    <p style="margin-top: 15px; font-weight: bold; color: var(--accent-color);"
+                        data-en="Download full CV for more details." data-zh="下載完整 CV 了解更多。">Download full CV for more
+                        details.</p>
+                </div>
+
+                <a href="Prof_YU_CV/Peichen%20Yu%20202601.pdf" download class="cv-btn cv-btn-download cv-btn-modal">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download Full CV
+                </a>
+            </div>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p data-en="Photonics & Lithography (PAL) Lab" data-zh="光子與微影技術實驗室 (PAL Lab)">Photonics & Lithography (PAL) Lab</p>
-            <p data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung University</p>
+            <p data-en="Photonics & Lithography (PAL) Lab" data-zh="光子與微影技術實驗室 (PAL Lab)">Photonics & Lithography (PAL)
+                Lab</p>
+            <p data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung
+                University</p>
             <p>&copy; 2025 PAL Lab. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cvModal = document.getElementById('cv-modal');
+            const cvCardTrigger = document.getElementById('cv-card-trigger');
+            const cvModalClose = document.getElementById('cv-modal-close');
+
+            // Trigger modal on entire card click
+            if (cvCardTrigger) {
+                cvCardTrigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    cvModal.classList.add('active');
+                });
+            }
+
+            if (cvModalClose) {
+                cvModalClose.addEventListener('click', () => {
+                    cvModal.classList.remove('active');
+                });
+            }
+
+            // Close on outside click
+            if (cvModal) {
+                cvModal.addEventListener('click', (e) => {
+                    if (e.target === cvModal) {
+                        cvModal.classList.remove('active');
+                    }
+                });
+            }
+
+            // Close on Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && cvModal.classList.contains('active')) {
+                    cvModal.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
