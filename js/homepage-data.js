@@ -28,6 +28,30 @@ const homepageData = {
         {
             tag: "Award",
             tagClass: "award",
+            title: "2nd Place at SPIE AR|VR|MR Optical Design Challenge",
+            description: "Congratulations to Yu-Chia Chang for winning 2nd place at the 2025 SPIE AR|VR|MR Optical Design Challenge! Research title: \"Reducing eye glow in augmented reality waveguide through topological metagrating design\".",
+            link: "https://spie.org/conferences-and-exhibitions/photonics-west/program/conferences/ar-vr-mr/student-optical-design-challenge",
+            linkText: "View Competition",
+            images: [
+                "image/News_highlight/SPIE ARVRMROptical Design Challenge/YouGa.jpg",
+                "image/News_highlight/SPIE ARVRMROptical Design Challenge/Participants.jpg"
+            ]
+        },
+        {
+            tag: "Award",
+            tagClass: "award",
+            title: "ASML Best Student Paper Award at SPIE Advanced Lithography 2025",
+            description: "Congratulations to Po-Hsun Fang for winning the ASML Best Student Paper Award at SPIE Advanced Lithography + Patterning 2025! Research title: \"Quasi Phase Only Mask for high contrast EUV imaging\".",
+            link: "https://dop.nycu.edu.tw/ch/news_ii.html?nID=656",
+            linkText: "Read More",
+            images: [
+                "image/News_highlight/ASML Best Student Paper/S__29188107_0.jpg",
+                "image/News_highlight/ASML Best Student Paper/S__29188108_0.jpg"
+            ]
+        },
+        {
+            tag: "Award",
+            tagClass: "award",
             title: "Student Paper Awards at OPTIC 2025",
             description: "Congratulation to Shang-Chiang Sung to win the student award in OPTIC 2025! Optical Nano Device and Application. Title: Apodized Metasurface Exit-Pupil Expansion Waveguide for High-Efficiency Augmented Reality Glasses",
             link: "https://optic2025.conf.tw/site/news_show.aspx?sid=1637&lang=en&pid=573",
@@ -64,9 +88,11 @@ const homepageData = {
     latestHighlights: [
         { en: "Launched OPC+ Cloud Service for general-purpose freeform mask correction", zh: "推出OPC+雲端服務，提供通用自由形式光罩校正" },
         { en: "New Publication Accepted!! *Intelligent Proximity Correction Enabled Large-Area Metasurfaces by KrF Photolithography*", zh: "新論文已被接受！！ *Intelligent Proximity Correction Enabled Large-Area Metasurfaces by KrF Photolithography*" },
-        { en: "Student Paper Awards at OPTIC 2025 - Ping-Ke Li & Shang-Chiang Sung", zh: "OPTIC 2025 學生論文獎 - 李秉科 & 宋尚將" },
+        { en: "Congratulations! Student Paper Awards at OPTIC 2025 - Ping-Ke Li & Shang-Chiang Sung", zh: "OPTIC 2025 學生論文獎 - 李秉科 & 宋尚將" },
         { en: "New publication in *Optical and EUV Nanolithography XXXVIII* (2025)", zh: "新論文發表於 *Optical and EUV Nanolithography XXXVIII* (2025)" },
         { en: "Breakthrough in Meta-Optics Element Augmented Reality (AR) Waveguides", zh: "超穎光學元件增強現實 (AR) 波導的突破" },
+        { en: "Congratulations! Po-Hsun Fang wins ASML Best Student Paper Award at SPIE Advanced Lithography 2025", zh: "恭喜！方柏勛榮獲2025 SPIE先進微影技術ASML最佳學生論文獎" },
+        { en: "Congratulations! Yu-Chia Chang wins 2nd place at 2025 SPIE AR|VR|MR Optical Design Challenge", zh: "張祐嘉於2025 SPIE AR|VR|MR光學設計挑戰賽榮獲第二名" },
         { en: "Advanced research in Quantum Annealing for lithography optimization", zh: "計算微影優化的量子退火先進研究" },
         { en: "Welcome New Master Students", zh: "歡迎新進研究生加入PAL Lab大家庭" }
     ]
