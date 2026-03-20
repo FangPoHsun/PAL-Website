@@ -18,10 +18,10 @@
 
 const routineEvents = [
     {
-        day: 4, // Thursday
+        day: 3, // Thursday
         title: "Group Meeting",
         time: "09:30 - 12:00",
-        location: "NYCU TKP Photonic Bldg Rm 316",
+        location: "NYCU TKP Photonic Bldg 1 floor meeting room",
         description: "Weekly lab group meeting."
     }
 ];
