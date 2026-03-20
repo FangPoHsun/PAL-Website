@@ -1,6 +1,30 @@
 const homepageData = {
     newsHighlights: [
         {
+            tag: "Award",
+            tagClass: "award",
+            title: "ASML Best Student Paper Award at SPIE Advanced Lithography 2026",
+            description: "Congratulations to Chao-Wei Huang for winning the ASML Best Student Paper Award at 2026 SPIE Advanced Lithography and Patterning Conference! Paper title: \"Exploiting phase-shifting low-n, low-k absorbers for dense contact hole patterning in EUV lithography\".",
+            linkText: "View Poster",
+            link: "image/News_highlight/ASML_Best_Student_Paper_2026/SPIE Poster Template_v2.pdf",
+            images: [
+                "image/News_highlight/ASML_Best_Student_Paper_2026/81665_0.jpg",
+                "image/News_highlight/ASML_Best_Student_Paper_2026/81663_0.jpg",
+                "image/News_highlight/ASML_Best_Student_Paper_2026/81664_0.jpg"
+            ]
+        },
+        {
+            tag: "Lab News",
+            tagClass: "news",
+            title: "2026 PAL Lab Spring Party",
+            description: "PAL Lab celebrated the 2026 Spring Party! Lab members gathered together to enjoy great food and fun activities, welcoming the new year with warmth and laughter.",
+            link: "members.html",
+            linkText: "Meet the Team",
+            image: [
+                "image/News_highlight/2026春酒/S__14729241_0.jpg"
+            ]
+        },
+        {
             tag: "Platform Launch",
             tagClass: "tag-platform",
             title: "OPC+ Cloud Service Now Available",
@@ -23,18 +47,6 @@ const homepageData = {
                 "image/News_highlight/2025_12_25/xmas_4.jpg",
                 "image/News_highlight/2025_12_25/xmas_5.jpg",
                 "image/News_highlight/2025_12_25/xmas_6.jpg"
-            ]
-        },
-        {
-            tag: "Award",
-            tagClass: "award",
-            title: "2nd Place at SPIE AR|VR|MR Optical Design Challenge",
-            description: "Congratulations to Yu-Chia Chang for winning 2nd place at the 2025 SPIE AR|VR|MR Optical Design Challenge! Research title: \"Reducing eye glow in augmented reality waveguide through topological metagrating design\".",
-            link: "https://spie.org/conferences-and-exhibitions/photonics-west/program/conferences/ar-vr-mr/student-optical-design-challenge",
-            linkText: "View Competition",
-            images: [
-                "image/News_highlight/SPIE ARVRMROptical Design Challenge/YouGa.jpg",
-                "image/News_highlight/SPIE ARVRMROptical Design Challenge/Participants.jpg"
             ]
         },
         {
@@ -76,16 +88,10 @@ const homepageData = {
             linkText: "View Paper",
             video: "image/News_highlight/AR%20glasses.mp4"
         },
-        {
-            tag: "Lab News",
-            tagClass: "news",
-            title: "Welcome New Master Students",
-            description: "We are excited to welcome 4 new master students joining the PAL Lab family next semester.",
-            link: "members.html",
-            linkText: "Meet the Team"
-        },
     ],
     latestHighlights: [
+        { en: "Congratulations! Chao-Wei Huang wins ASML Best Student Paper Award at 2026 SPIE Advanced Lithography and Patterning Conference", zh: "恭喜！黃昭維榮獲2026 SPIE先進微影技術ASML最佳學生論文獎" },
+        { en: "2026 PAL Lab Spring Party - Celebrating the New Year Together!", zh: "2026 PAL實驗室春酒 - 一起迎接新年！" },
         { en: "Launched OPC+ Cloud Service for general-purpose freeform mask correction", zh: "推出OPC+雲端服務，提供通用自由形式光罩校正" },
         { en: "New Publication Accepted!! *Intelligent Proximity Correction Enabled Large-Area Metasurfaces by KrF Photolithography*", zh: "新論文已被接受！！ *Intelligent Proximity Correction Enabled Large-Area Metasurfaces by KrF Photolithography*" },
         { en: "Congratulations! Student Paper Awards at OPTIC 2025 - Ping-Ke Li & Shang-Chiang Sung", zh: "OPTIC 2025 學生論文獎 - 李秉科 & 宋尚將" },
@@ -94,6 +100,5 @@ const homepageData = {
         { en: "Congratulations! Po-Hsun Fang wins ASML Best Student Paper Award at SPIE Advanced Lithography 2025", zh: "恭喜！方柏勛榮獲2025 SPIE先進微影技術ASML最佳學生論文獎" },
         { en: "Congratulations! Yu-Chia Chang wins 2nd place at 2025 SPIE AR|VR|MR Optical Design Challenge", zh: "張祐嘉於2025 SPIE AR|VR|MR光學設計挑戰賽榮獲第二名" },
         { en: "Advanced research in Quantum Annealing for lithography optimization", zh: "計算微影優化的量子退火先進研究" },
-        { en: "Welcome New Master Students", zh: "歡迎新進研究生加入PAL Lab大家庭" }
     ]
 };
