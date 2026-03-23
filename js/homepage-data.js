@@ -90,7 +90,7 @@ const homepageData = {
         },
     ],
     latestHighlights: [
-        { en: "Congratulations! Chao-Wei Huang wins ASML Best Student Paper Award at 2026 SPIE Advanced Lithography and Patterning Conference", zh: "恭喜！黃昭維榮獲2026 SPIE先進微影技術ASML最佳學生論文獎" },
+        { en: "Congratulations! Chao-Wei Huang wins ASML Best Student Paper Award at 2026 SPIE Advanced Lithography and Patterning Conference", zh: "恭喜！黃朝威榮獲2026 SPIE先進微影技術ASML最佳學生論文獎" },
         { en: "2026 PAL Lab Spring Party - Celebrating the New Year Together!", zh: "2026 PAL實驗室春酒 - 一起迎接新年！" },
         { en: "Launched OPC+ Cloud Service for general-purpose freeform mask correction", zh: "推出OPC+雲端服務，提供通用自由形式光罩校正" },
         { en: "New Publication Accepted!! *Intelligent Proximity Correction Enabled Large-Area Metasurfaces by KrF Photolithography*", zh: "新論文已被接受！！ *Intelligent Proximity Correction Enabled Large-Area Metasurfaces by KrF Photolithography*" },
