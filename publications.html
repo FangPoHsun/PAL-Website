@@ -24,19 +24,19 @@
             margin-bottom: 25px;
         }
 
+        .type-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 20px 0 12px;
+        }
+
         .pub-item {
             display: flex;
             margin-bottom: 25px;
             align-items: flex-start;
-        }
-
-        .pub-year {
-            font-weight: bold;
-            color: var(--text-secondary);
-            margin-right: 20px;
-            min-width: 50px;
-            display: none;
-            /* Hidden since we group by header */
         }
 
         .pub-content {
@@ -45,9 +45,15 @@
 
         .pub-title {
             font-weight: 700;
-            color: var (--text-color);
+            color: var(--text-color);
             margin-bottom: 5px;
             display: block;
+            text-decoration: none;
+        }
+
+        .pub-title:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
         }
 
         .pub-authors {
@@ -62,21 +68,6 @@
             font-style: italic;
         }
 
-        .scholar-link {
-            display: inline-block;
-            margin-top: 5px;
-            font-size: 0.85rem;
-            color: #fff;
-            background-color: var(--secondary-color);
-            padding: 3px 8px;
-            border-radius: 4px;
-            transition: var(--transition);
-        }
-
-        .scholar-link:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-        }
     </style>
 </head>
 
@@ -104,264 +95,7 @@
 
     <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
         <h2 class="fade-in">Publications</h2>
-
-        <!-- 2025 -->
-        <div class="year-section fade-in">
-            <h3 class="year-header">2025</h3>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Intelligent Proximity Correction Enabled Large-Area Metasurfaces by KrF Photolithography</span>
-                    <div class="pub-authors"> H.-L. Liu, S.-H. Su, P.-K. Chang, Y.-C. Chang, Y.-W. Huang, C.-W. Chang, T.-M. Huang, C.-C. Chen, W.-H. Huang, J.-M. Shieh, 
-and P. Yu</div>
-                    <div class="pub-journal">IEEE Access, doi: 10.1109/ACCESS.2025.3631947</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Reducing M3D effects in EUV masks by balancing diffraction orders</span>
-                    <div class="pub-authors">PK Chang, PH Fang, LF Chen, YL Chen, P Yu</div>
-                    <div class="pub-journal">Optical and EUV Nanolithography XXXVIII, PC134240N</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Large area metalens and AR waveguides fabricated by DUV KrF lithography via
-                        intelligent proximity correction (IPC)</span>
-                    <div class="pub-authors">H Liu, P Chang, PH Fang, SH Su, P Yu</div>
-                    <div class="pub-journal">Metrology, Inspection, and Process Control XXXIX 13426, 1342644</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Practical inverse mask synthesis via data-efficient physics-informed neural
-                        networks (PINN) model</span>
-                    <div class="pub-authors">KH Wang, PH Fang, P Yu</div>
-                    <div class="pub-journal">DTCO and Computational Patterning IV 13425, 390-396</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Quasi phase-only mask (POM) for high contrast EUV imaging</span>
-                    <div class="pub-authors">PH Fang, P Chang, LF Chen, YL Chen, P Yu</div>
-                    <div class="pub-journal">Optical and EUV Nanolithography XXXVIII 13424, 513-520</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Reducing eye glow in augmented reality waveguide through topological
-                        metagrating design</span>
-                    <div class="pub-authors">YC Chang, CE Lin, YC Huang, WT Liang, HL Liu, P Yu, CW Weng, CC Hu</div>
-                    <div class="pub-journal">Optical Architectures for Displays and Sensing in Augmented, Virtual, and
-                        ...</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Metalens integrated Maxwellian view display for augmented reality
-                        glasses</span>
-                    <div class="pub-authors">WT Liang, IH Chuang, H Liu, YC Huang, YC Chang, P Yu</div>
-                    <div class="pub-journal">Optical Architectures for Displays and Sensing in Augmented, Virtual, and
-                        ...</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2024 -->
-        <div class="year-section fade-in">
-            <h3 class="year-header">2024</h3>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">A Novel Optical Proximity Correction Machine Learning Model Using a
-                        Single-Flow Convolutional Feedback Networks with Customized Attention</span>
-                    <div class="pub-authors">CH Huang, HC Tung, YW Feng, HT Hsu, HL Liu, A Lin, P Yu</div>
-                    <div class="pub-journal">IEEE Access</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Metasurface Design, Fabrication, and Applications</span>
-                    <div class="pub-authors">P Yu, YW Huang, YC Chang</div>
-                    <div class="pub-journal">2024 33rd Wireless and Optical Communications Conference (WOCC), 152-153
-                    </div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">75‐4: Late‐News Paper: Metalens‐Integrated Augmented Reality (AR) Waveguides
-                        for Eye‐tracking: A Proof of Concept</span>
-                    <div class="pub-authors">IH Chuang, P Yu, CW Weng, CC Hu</div>
-                    <div class="pub-journal">SID Symposium Digest of Technical Papers 55 (1), 1038-1040</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">P‐227: Late‐News Poster: Design Freeform Metagratings for Eye‐glow
-                        Attenuation in Diffractive AR Waveguides</span>
-                    <div class="pub-authors">CE Lin, CW Weng, CC Hu, P Yu</div>
-                    <div class="pub-journal">SID Symposium Digest of Technical Papers 55 (1), 1567-1569</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Integrated Pressure and Proximity Sensors on Silicone and PU Substrates That
-                        Supports Flexible Hybrid Electronics</span>
-                    <div class="pub-authors">PP Pancham, A Mukherjee, BL Yuan, CH Tsai, P Yu, CY Lo</div>
-                    <div class="pub-journal">IEEE Journal on Flexible Electronics 3 (6), 259-265</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Tackling data inconsistency and runtime issues in inverse lithography
-                        technology (ILT) with comparative convergence study</span>
-                    <div class="pub-authors">PH Fang, P Yu</div>
-                    <div class="pub-journal">DTCO and Computational Patterning III 12954, 420-427</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Enhancing CD-SEM accuracy with attention-boosted Noise2Noise model</span>
-                    <div class="pub-authors">Y Okada, H Liu, CE Lee, CH Tien, P Yu</div>
-                    <div class="pub-journal">Metrology, Inspection, and Process Control XXXVIII 12955, 598-605</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Inverse reticle optimization with quantum annealing and hybrid
-                        solvers</span>
-                    <div class="pub-authors">PH Fang, YS Chen, JS Wu, P Yu</div>
-                    <div class="pub-journal">IEEE Access 12, 33069-33078</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2023 -->
-        <div class="year-section fade-in">
-            <h3 class="year-header">2023</h3>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Metadiffuser fabricated by DUV KrF 248nm photolithography for wavefront
-                        manipulation</span>
-                    <div class="pub-authors">H Liu, C Chou, L Huang, W Guo, P Yu, C Huang, C Cheng</div>
-                    <div class="pub-journal">Metamaterials, Metadevices, and Metasystems 2023 12646, 37-44</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Intelligent reticle modification enabled large-area metalens
-                        patterning</span>
-                    <div class="pub-authors">C Chou, H Liu, L Huang, W Guo, P Yu, Y Chang, Y Huang, J Shieh</div>
-                    <div class="pub-journal">Nanoengineering: Fabrication, Properties, Optics, Thin Films, and Devices
-                        XX ...</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Investigation on attention-based convolutional architectures applied to
-                        optical proximity corrections</span>
-                    <div class="pub-authors">A Lin, HC Tung, YW Feng, P Yu</div>
-                    <div class="pub-journal">Emerging Topics in Artificial Intelligence (ETAI) 2023, PC126550M</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Functional composite silicone made by roll-to-roll manufacturing for sensing
-                        applications and circular economy</span>
-                    <div class="pub-authors">PP Pancham, A Mukherjee, BL Yuan, P Yu, G Ahmad, S Mallik, CY Lo</div>
-                    <div class="pub-journal">2023 IEEE International Flexible Electronics Technology Conference (IFETC),
-                        1-3</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Thermal and photochemical stability studies of color-converted microLED
-                        microdisplay panels</span>
-                    <div class="pub-authors">AMN Elahi, Z Pei, P Yu, J Xu</div>
-                    <div class="pub-journal">IEEE Photonics Journal 15 (3), 1-6</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Novel graphene transfer method to silicone and its sensing application on
-                        porous PDMS</span>
-                    <div class="pub-authors">PP Pancham, A Mukherjee, BL Yuan, P Yu, WH Chiu, G Ahmad, S Mallik, ...
-                    </div>
-                    <div class="pub-journal">IEEE Sensors Letters 7 (5), 1-4</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Metasurfaces on silicon photonic waveguides for simultaneous emission phase
-                        and amplitude control</span>
-                    <div class="pub-authors">PY Hsieh, SL Fang, YS Lin, WH Huang, JM Shieh, P Yu, YC Chang</div>
-                    <div class="pub-journal">Optics Express 31 (8), 12487-12496</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Earlier Years (Sample) -->
-        <div class="year-section fade-in">
-            <h3 class="year-header">Earlier Publications</h3>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Optical proximity correction using machine learning assisted human
-                        decision</span>
-                    <div class="pub-authors">A Lin, T Rawat, CY Chang, HC Tung, HL Liu, P Yu</div>
-                    <div class="pub-journal">IEEE Photonics Journal 15 (1), 1-9 (2022)</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Integrated metasurfaces on silicon photonics for emission shaping and
-                        holographic projection</span>
-                    <div class="pub-authors">PY Hsieh, SL Fang, YS Lin, WH Huang, JM Shieh, P Yu, YC Chang</div>
-                    <div class="pub-journal">Nanophotonics 11 (21), 4687-4695 (2022)</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">High-efficiency photolithographic NIR metalenses enabled by optical
-                        proximity correction with a neural-network lithographic model</span>
-                    <div class="pub-authors">HL Liu, WP Liao, YT Chen, SS Su, JM Shieh, P Yu, YC Chang</div>
-                    <div class="pub-journal">Metamaterials, Metadevices, and Metasystems 2022, PC1219521</div>
-                </div>
-            </div>
-
-            <div class="pub-item">
-                <div class="pub-content">
-                    <span class="pub-title">Distributed optical proximity correction with deep-learning lithographic
-                        model for i-line photolithography</span>
-                    <div class="pub-authors">WP Liao, YF Lin, HL Liu, SD Gong, P Yu, YC Chang, JM Shieh, CC Chen, ...
-                    </div>
-                    <div class="pub-journal">Emerging Topics in Artificial Intelligence (ETAI) 2021 11804, 1180421</div>
-                </div>
-            </div>
-        </div>
-
+        <div id="pub-root"></div>
     </div>
 
     <!-- Footer -->
@@ -374,6 +108,547 @@ and P. Yu</div>
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+    // =========================================================================
+    // PUBLICATIONS DATABASE
+    // =========================================================================
+    // To add a new paper, copy a nearby entry and fill in the BibTeX fields.
+    //   - type       : 'article' | 'inproceedings' | 'book' | ...
+    //   - key        : unique BibTeX key (e.g. 'fang2026inverse')
+    //   - title      : full paper title
+    //   - author     : array of authors in "Last, First" format
+    //   - year       : publication year (number)
+    //   - journal    : journal name (for articles)
+    //   - booktitle  : conference/book name (for inproceedings)
+    //   - volume, number, pages, doi, organization : optional BibTeX fields
+    //   - scholar    : leave '' to auto-generate a Google Scholar search link
+    // =========================================================================
+    const PUBLICATIONS = [
+
+        // ── 2026 ─────────────────────────────────────────────────────────────
+
+        // @inproceedings{huang2026exploiting,
+        {
+            type: 'inproceedings',
+            key: 'huang2026exploiting',
+            title: 'Exploiting phase-shifting low-n, low-k absorbers for dense contact hole patterning in EUV lithography',
+            author: ['Huang, Chaowei', 'Chang, Pokai', 'Yu, Peichen'],
+            booktitle: 'Optical and EUV Nanolithography XXXIX',
+            volume: '13979',
+            pages: '436--443',
+            year: 2026,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // @inproceedings{fang2026inverse,
+        {
+            type: 'inproceedings',
+            key: 'fang2026inverse',
+            title: 'Inverse design framework for topological quasi phase-only masks in EUV lithography',
+            author: ['Fang, Po-Hsun', 'Chang, Pokai', 'Huang, Chaowei', 'Yu, Peichen'],
+            booktitle: 'Optical and EUV Nanolithography XXXIX',
+            volume: '13979',
+            pages: '378--386',
+            year: 2026,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // @inproceedings{chang2026mitigate,
+        {
+            type: 'inproceedings',
+            key: 'chang2026mitigate',
+            title: 'Mitigate slit position dependent cd variation with source optimization',
+            author: ['Chang, Po-Kai', 'Huang, Chaowei', 'Yu, Peichen'],
+            booktitle: 'Optical and EUV Nanolithography XXXIX',
+            volume: '13979',
+            pages: '139792D',
+            year: 2026,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // @inproceedings{fang2026cloud,
+        {
+            type: 'inproceedings',
+            key: 'fang2026cloud',
+            title: 'Cloud-based curvilinear OPC for free-form reticle designs in silicon photonics and metasurfaces',
+            author: ['Fang, Po-Hsun', 'Chang, Po-Kai', 'Liu, Hsueh-Li', 'Wang, Kuan-Hsun', 'Lo, Yu-Hsuan', 'Tsai, Ming-Lin', 'Wang, Zhi-Sheng', 'Huang, Han-Xuan', 'Wang, Shie-Yuan', 'Yu, Peichen'],
+            booktitle: 'Novel Patterning Technologies 2026',
+            pages: 'PC139820Y',
+            year: 2026,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // @inproceedings{wang2026unsupervised,
+        {
+            type: 'inproceedings',
+            key: 'wang2026unsupervised',
+            title: 'Unsupervised neural-network proximity correction (NNPC) for large-area chiral metasurface',
+            author: ['Wang, Kuan-Hsun', 'Liu, Hsueh-Li', 'Chang, Pokai', 'Chang, You-Chia', 'Yu, Peichen'],
+            booktitle: 'Novel Patterning Technologies 2026',
+            volume: '13982',
+            pages: '221--227',
+            year: 2026,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // ── 2025 ─────────────────────────────────────────────────────────────
+
+        // @article{liu2025intelligent,
+        {
+            type: 'article',
+            key: 'liu2025intelligent',
+            title: 'Intelligent Proximity Correction Enabled Large-Area Metasurfaces by KrF Photolithography',
+            author: ['Liu, Hsueh-Li', 'Su, Shih-Hung', 'Chang, Po-Kai', 'Chang, You-Chia', 'Huang, Yu-Wei', 'Chang, Ching-Wei', 'Huang, Tzu-Ming', 'Chen, Ching-Chi', 'Huang, Wen-Hsien', 'Shieh, Jia-Min', 'Yu, Peichen'],
+            journal: 'IEEE Access',
+            doi: '10.1109/ACCESS.2025.3631947',
+            year: 2025,
+            scholar: '',
+        },
+
+        // @inproceedings{chang2025reducing,
+        {
+            type: 'inproceedings',
+            key: 'chang2025reducing',
+            title: 'Reducing M3D effects in EUV masks by balancing diffraction orders',
+            author: ['Chang, Po-Kai', 'Fang, Po-Hsun', 'Chen, Li-Feng', 'Chen, Yi-Lun', 'Yu, Peichen'],
+            booktitle: 'Optical and EUV Nanolithography XXXVIII',
+            pages: 'PC134240N',
+            year: 2025,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // @inproceedings{liu2025large,
+        {
+            type: 'inproceedings',
+            key: 'liu2025large',
+            title: 'Large area metalens and AR waveguides fabricated by DUV KrF lithography via intelligent proximity correction (IPC)',
+            author: ['Liu, Hsueh-Li', 'Chang, Po-Kai', 'Fang, Po-Hsun', 'Su, Shih-Hung', 'Yu, Peichen'],
+            booktitle: 'Metrology, Inspection, and Process Control XXXIX',
+            volume: '13426',
+            pages: '1342644',
+            year: 2025,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // @inproceedings{wang2025practical,
+        {
+            type: 'inproceedings',
+            key: 'wang2025practical',
+            title: 'Practical inverse mask synthesis via data-efficient physics-informed neural networks (PINN) model',
+            author: ['Wang, Kuan-Hsun', 'Fang, Po-Hsun', 'Yu, Peichen'],
+            booktitle: 'DTCO and Computational Patterning IV',
+            volume: '13425',
+            pages: '390--396',
+            year: 2025,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // @inproceedings{fang2025quasi,
+        {
+            type: 'inproceedings',
+            key: 'fang2025quasi',
+            title: 'Quasi phase-only mask (POM) for high contrast EUV imaging',
+            author: ['Fang, Po-Hsun', 'Chang, Pokai', 'Chen, Li-Feng', 'Chen, Yi-Lun', 'Yu, Peichen'],
+            booktitle: 'Optical and EUV Nanolithography XXXVIII',
+            volume: '13424',
+            pages: '513--520',
+            year: 2025,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // @inproceedings{chang2025eyeglow,
+        {
+            type: 'inproceedings',
+            key: 'chang2025eyeglow',
+            title: 'Reducing eye glow in augmented reality waveguide through topological metagrating design',
+            author: ['Chang, You-Chia', 'Lin, Chun-En', 'Huang, Yu-Chen', 'Liang, Wan-Ting', 'Liu, Hsueh-Li', 'Yu, Peichen', 'Weng, Chung-Wei', 'Hu, Chih-Chiang'],
+            booktitle: 'Optical Architectures for Displays and Sensing in Augmented, Virtual, and Mixed Reality',
+            year: 2025,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // @inproceedings{liang2025metalens,
+        {
+            type: 'inproceedings',
+            key: 'liang2025metalens',
+            title: 'Metalens integrated Maxwellian view display for augmented reality glasses',
+            author: ['Liang, Wan-Ting', 'Chuang, I-Hsiang', 'Liu, Hsueh-Li', 'Huang, Yu-Chen', 'Chang, You-Chia', 'Yu, Peichen'],
+            booktitle: 'Optical Architectures for Displays and Sensing in Augmented, Virtual, and Mixed Reality',
+            year: 2025,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // ── 2024 ─────────────────────────────────────────────────────────────
+
+        // @article{huang2024novel,
+        {
+            type: 'article',
+            key: 'huang2024novel',
+            title: 'A Novel Optical Proximity Correction Machine Learning Model Using a Single-Flow Convolutional Feedback Networks with Customized Attention',
+            author: ['Huang, Chaowei', 'Tung, Hsiang-Chun', 'Feng, Yi-Wei', 'Hsu, Hao-Ting', 'Liu, Hsueh-Li', 'Lin, Allen', 'Yu, Peichen'],
+            journal: 'IEEE Access',
+            year: 2024,
+            scholar: '',
+        },
+
+        // @inproceedings{yu2024metasurface,
+        {
+            type: 'inproceedings',
+            key: 'yu2024metasurface',
+            title: 'Metasurface Design, Fabrication, and Applications',
+            author: ['Yu, Peichen', 'Huang, Yu-Wei', 'Chang, You-Chia'],
+            booktitle: '2024 33rd Wireless and Optical Communications Conference (WOCC)',
+            pages: '152--153',
+            year: 2024,
+            scholar: '',
+        },
+
+        // @inproceedings{chuang2024metalens,
+        {
+            type: 'inproceedings',
+            key: 'chuang2024metalens',
+            title: '75-4: Late-News Paper: Metalens-Integrated Augmented Reality (AR) Waveguides for Eye-tracking: A Proof of Concept',
+            author: ['Chuang, I-Hsiang', 'Yu, Peichen', 'Weng, Chung-Wei', 'Hu, Chih-Chiang'],
+            booktitle: 'SID Symposium Digest of Technical Papers',
+            volume: '55',
+            number: '1',
+            pages: '1038--1040',
+            year: 2024,
+            scholar: '',
+        },
+
+        // @inproceedings{lin2024metagratings,
+        {
+            type: 'inproceedings',
+            key: 'lin2024metagratings',
+            title: 'P-227: Late-News Poster: Design Freeform Metagratings for Eye-glow Attenuation in Diffractive AR Waveguides',
+            author: ['Lin, Chun-En', 'Weng, Chung-Wei', 'Hu, Chih-Chiang', 'Yu, Peichen'],
+            booktitle: 'SID Symposium Digest of Technical Papers',
+            volume: '55',
+            number: '1',
+            pages: '1567--1569',
+            year: 2024,
+            scholar: '',
+        },
+
+        // @article{pancham2024integrated,
+        {
+            type: 'article',
+            key: 'pancham2024integrated',
+            title: 'Integrated Pressure and Proximity Sensors on Silicone and PU Substrates That Supports Flexible Hybrid Electronics',
+            author: ['Pancham, Prathyusha Priya', 'Mukherjee, Ayan', 'Yuan, Bo-Lun', 'Tsai, Chun-Hung', 'Yu, Peichen', 'Lo, Ching-Yuan'],
+            journal: 'IEEE Journal on Flexible Electronics',
+            volume: '3',
+            number: '6',
+            pages: '259--265',
+            year: 2024,
+            scholar: '',
+        },
+
+        // @inproceedings{fang2024tackling,
+        {
+            type: 'inproceedings',
+            key: 'fang2024tackling',
+            title: 'Tackling data inconsistency and runtime issues in inverse lithography technology (ILT) with comparative convergence study',
+            author: ['Fang, Po-Hsun', 'Yu, Peichen'],
+            booktitle: 'DTCO and Computational Patterning III',
+            volume: '12954',
+            pages: '420--427',
+            year: 2024,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // @inproceedings{okada2024enhancing,
+        {
+            type: 'inproceedings',
+            key: 'okada2024enhancing',
+            title: 'Enhancing CD-SEM accuracy with attention-boosted Noise2Noise model',
+            author: ['Okada, Yuki', 'Liu, Hsueh-Li', 'Lee, Cheng-En', 'Tien, Ching-Hsiang', 'Yu, Peichen'],
+            booktitle: 'Metrology, Inspection, and Process Control XXXVIII',
+            volume: '12955',
+            pages: '598--605',
+            year: 2024,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // @article{fang2024inverse,
+        {
+            type: 'article',
+            key: 'fang2024inverse',
+            title: 'Inverse reticle optimization with quantum annealing and hybrid solvers',
+            author: ['Fang, Po-Hsun', 'Chen, Yi-Syuan', 'Wu, Jia-Sheng', 'Yu, Peichen'],
+            journal: 'IEEE Access',
+            volume: '12',
+            pages: '33069--33078',
+            year: 2024,
+            scholar: '',
+        },
+
+        // ── 2023 ─────────────────────────────────────────────────────────────
+
+        // @inproceedings{liu2023metadiffuser,
+        {
+            type: 'inproceedings',
+            key: 'liu2023metadiffuser',
+            title: 'Metadiffuser fabricated by DUV KrF 248nm photolithography for wavefront manipulation',
+            author: ['Liu, Hsueh-Li', 'Chou, Chun-Yu', 'Huang, Li', 'Guo, Wei', 'Yu, Peichen', 'Huang, Chao', 'Cheng, Chih'],
+            booktitle: 'Metamaterials, Metadevices, and Metasystems 2023',
+            volume: '12646',
+            pages: '37--44',
+            year: 2023,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // @inproceedings{chou2023intelligent,
+        {
+            type: 'inproceedings',
+            key: 'chou2023intelligent',
+            title: 'Intelligent reticle modification enabled large-area metalens patterning',
+            author: ['Chou, Chun-Yu', 'Liu, Hsueh-Li', 'Huang, Li', 'Guo, Wei', 'Yu, Peichen', 'Chang, You-Chia', 'Huang, Yu-Wei', 'Shieh, Jia-Min'],
+            booktitle: 'Nanoengineering: Fabrication, Properties, Optics, Thin Films, and Devices XX',
+            year: 2023,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // @inproceedings{lin2023investigation,
+        {
+            type: 'inproceedings',
+            key: 'lin2023investigation',
+            title: 'Investigation on attention-based convolutional architectures applied to optical proximity corrections',
+            author: ['Lin, Allen', 'Tung, Hsiang-Chun', 'Feng, Yi-Wei', 'Yu, Peichen'],
+            booktitle: 'Emerging Topics in Artificial Intelligence (ETAI) 2023',
+            pages: 'PC126550M',
+            year: 2023,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // @inproceedings{pancham2023functional,
+        {
+            type: 'inproceedings',
+            key: 'pancham2023functional',
+            title: 'Functional composite silicone made by roll-to-roll manufacturing for sensing applications and circular economy',
+            author: ['Pancham, Prathyusha Priya', 'Mukherjee, Ayan', 'Yuan, Bo-Lun', 'Yu, Peichen', 'Ahmad, Ghufran', 'Mallik, Sanjib', 'Lo, Ching-Yuan'],
+            booktitle: '2023 IEEE International Flexible Electronics Technology Conference (IFETC)',
+            pages: '1--3',
+            year: 2023,
+            scholar: '',
+        },
+
+        // @article{elahi2023thermal,
+        {
+            type: 'article',
+            key: 'elahi2023thermal',
+            title: 'Thermal and photochemical stability studies of color-converted microLED microdisplay panels',
+            author: ['Elahi, A. M. N.', 'Pei, Zhen', 'Yu, Peichen', 'Xu, Jin'],
+            journal: 'IEEE Photonics Journal',
+            volume: '15',
+            number: '3',
+            pages: '1--6',
+            year: 2023,
+            scholar: '',
+        },
+
+        // @article{pancham2023novel,
+        {
+            type: 'article',
+            key: 'pancham2023novel',
+            title: 'Novel graphene transfer method to silicone and its sensing application on porous PDMS',
+            author: ['Pancham, Prathyusha Priya', 'Mukherjee, Ayan', 'Yuan, Bo-Lun', 'Yu, Peichen', 'Chiu, Wen-Hsien', 'Ahmad, Ghufran', 'Mallik, Sanjib'],
+            journal: 'IEEE Sensors Letters',
+            volume: '7',
+            number: '5',
+            pages: '1--4',
+            year: 2023,
+            scholar: '',
+        },
+
+        // @article{hsieh2023metasurfaces,
+        {
+            type: 'article',
+            key: 'hsieh2023metasurfaces',
+            title: 'Metasurfaces on silicon photonic waveguides for simultaneous emission phase and amplitude control',
+            author: ['Hsieh, Ping-Yu', 'Fang, Shih-Lun', 'Lin, Yi-Syuan', 'Huang, Wen-Hsien', 'Shieh, Jia-Min', 'Yu, Peichen', 'Chang, You-Chia'],
+            journal: 'Optics Express',
+            volume: '31',
+            number: '8',
+            pages: '12487--12496',
+            year: 2023,
+            scholar: '',
+        },
+
+        // ── 2022 ─────────────────────────────────────────────────────────────
+
+        // @article{lin2022optical,
+        {
+            type: 'article',
+            key: 'lin2022optical',
+            title: 'Optical proximity correction using machine learning assisted human decision',
+            author: ['Lin, Allen', 'Rawat, Tarun', 'Chang, Chia-Yu', 'Tung, Hsiang-Chun', 'Liu, Hsueh-Li', 'Yu, Peichen'],
+            journal: 'IEEE Photonics Journal',
+            volume: '15',
+            number: '1',
+            pages: '1--9',
+            year: 2022,
+            scholar: '',
+        },
+
+        // @article{hsieh2022integrated,
+        {
+            type: 'article',
+            key: 'hsieh2022integrated',
+            title: 'Integrated metasurfaces on silicon photonics for emission shaping and holographic projection',
+            author: ['Hsieh, Ping-Yu', 'Fang, Shih-Lun', 'Lin, Yi-Syuan', 'Huang, Wen-Hsien', 'Shieh, Jia-Min', 'Yu, Peichen', 'Chang, You-Chia'],
+            journal: 'Nanophotonics',
+            volume: '11',
+            number: '21',
+            pages: '4687--4695',
+            year: 2022,
+            scholar: '',
+        },
+
+        // @inproceedings{liu2022high,
+        {
+            type: 'inproceedings',
+            key: 'liu2022high',
+            title: 'High-efficiency photolithographic NIR metalenses enabled by optical proximity correction with a neural-network lithographic model',
+            author: ['Liu, Hsueh-Li', 'Liao, Wei-Ping', 'Chen, Yi-Ting', 'Su, Shu-Sheng', 'Shieh, Jia-Min', 'Yu, Peichen', 'Chang, You-Chia'],
+            booktitle: 'Metamaterials, Metadevices, and Metasystems 2022',
+            pages: 'PC1219521',
+            year: 2022,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+        // ── 2021 ─────────────────────────────────────────────────────────────
+
+        // @inproceedings{liao2021distributed,
+        {
+            type: 'inproceedings',
+            key: 'liao2021distributed',
+            title: 'Distributed optical proximity correction with deep-learning lithographic model for i-line photolithography',
+            author: ['Liao, Wei-Ping', 'Lin, Yi-Fan', 'Liu, Hsueh-Li', 'Gong, Shen-Da', 'Yu, Peichen', 'Chang, You-Chia', 'Shieh, Jia-Min', 'Chen, Ching-Chi'],
+            booktitle: 'Emerging Topics in Artificial Intelligence (ETAI) 2021',
+            volume: '11804',
+            pages: '1180421',
+            year: 2021,
+            organization: 'SPIE',
+            scholar: '',
+        },
+
+    ]; // end PUBLICATIONS
+
+    // =========================================================================
+    // RENDERING — no need to edit below this line
+    // =========================================================================
+
+    function formatAuthor(a) {
+        const comma = a.indexOf(', ');
+        if (comma === -1) return a;
+        const last = a.substring(0, comma);
+        const first = a.substring(comma + 2);
+        const initials = first.split(/[-\s]+/).map(p => p[0].toUpperCase()).join('');
+        return initials + ' ' + last;
+    }
+
+    function formatAuthorList(authors) {
+        return authors.map(formatAuthor).join(', ');
+    }
+
+    function getVenue(pub) {
+        let parts = [];
+        if (pub.journal)    parts.push(pub.journal);
+        if (pub.booktitle)  parts.push(pub.booktitle);
+        if (pub.volume)     parts.push(pub.volume);
+        if (pub.number)     parts.push('(' + pub.number + ')');
+        if (pub.pages)      parts.push(pub.pages.replace(/--/g, '–'));
+        if (pub.doi)        parts.push('doi: ' + pub.doi);
+        // join: venue, vol (num), pages — use comma between all
+        let venue = '';
+        if (pub.journal || pub.booktitle) {
+            venue = (pub.journal || pub.booktitle);
+            const extras = [];
+            if (pub.volume) extras.push(pub.volume);
+            if (pub.number) extras.push('(' + pub.number + ')');
+            if (pub.pages)  extras.push(pub.pages.replace(/--/g, '–'));
+            if (pub.doi)    extras.push('doi: ' + pub.doi);
+            if (extras.length) venue += ' ' + extras.join(', ');
+        }
+        return venue;
+    }
+
+function getScholarUrl(pub) {
+        if (pub.scholar) return pub.scholar;
+        return 'https://scholar.google.com/scholar?q=' + encodeURIComponent(pub.title);
+    }
+
+    function escapeHtml(str) {
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+function renderGroup(pubs) {
+        return pubs.map(pub => {
+            const scholarUrl = getScholarUrl(pub);
+            return `
+            <div class="pub-item">
+              <div class="pub-content">
+                <a href="${scholarUrl}" target="_blank" rel="noopener" class="pub-title">${pub.title}</a>
+                <div class="pub-authors">${formatAuthorList(pub.author)}</div>
+                <div class="pub-journal">${escapeHtml(getVenue(pub))}</div>
+              </div>
+            </div>`;
+        }).join('');
+    }
+
+    function renderPublications() {
+        const byYear = {};
+        for (const pub of PUBLICATIONS) {
+            if (!byYear[pub.year]) byYear[pub.year] = [];
+            byYear[pub.year].push(pub);
+        }
+
+        const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
+
+        let html = '';
+        for (const year of years) {
+            const journals     = byYear[year].filter(p => p.type === 'article');
+            const conferences  = byYear[year].filter(p => p.type !== 'article');
+
+            html += '<div class="year-section fade-in">';
+            html += '<h3 class="year-header">' + year + '</h3>';
+
+            if (journals.length) {
+                html += '<h4 class="type-header">Journal Papers</h4>';
+                html += renderGroup(journals);
+            }
+            if (conferences.length) {
+                html += '<h4 class="type-header">Conference Papers</h4>';
+                html += renderGroup(conferences);
+            }
+
+            html += '</div>';
+        }
+
+        document.getElementById('pub-root').innerHTML = html;
+    }
+
+    renderPublications();
+    </script>
 </body>
 
 </html>
