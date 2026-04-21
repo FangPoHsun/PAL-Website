@@ -529,6 +529,7 @@
         // Dynamic Rendering for Home Page
         document.addEventListener('DOMContentLoaded', () => {
             renderHomePageContent();
+            initCelebrationFireworks();
         });
 
         function renderHomePageContent() {
@@ -540,7 +541,10 @@
                 homepageData.newsHighlights.forEach((highlight, index) => {
                     // Create Slide
                     const slide = document.createElement('li');
-                    slide.className = 'carousel-slide' + (index === 0 ? ' current-slide' : '');
+                    let slideClass = 'carousel-slide' + (index === 0 ? ' current-slide' : '');
+                    // celebration: true in data enables special animation; set to false to disable
+                    if (highlight.celebration) slideClass += ' slide--celebration';
+                    slide.className = slideClass;
 
                     let mediaHtml = '';
                     if (highlight.images) {
@@ -565,17 +569,60 @@
                         `;
                     }
 
+                    const linkHtml = highlight.link
+                        ? `<a href="${highlight.link}" class="slide-link">${highlight.linkText} &rarr;</a>`
+                        : '';
+
                     slide.innerHTML = `
                         <div class="slide-content-wrapper">
                             <div class="slide-text">
                                 <span class="tag ${highlight.tagClass}">${highlight.tag}</span>
                                 <h3>${highlight.title}</h3>
                                 <p>${highlight.description}</p>
-                                <a href="${highlight.link}" class="slide-link">${highlight.linkText} &rarr;</a>
+                                ${linkHtml}
                             </div>
                             ${mediaHtml}
                         </div>
                     `;
+
+                    // Inject fireworks layer + floating graduation cap for celebration slides
+                    if (highlight.celebration) {
+                        // Fireworks particle container (behind content, z-index: 2)
+                        const fwContainer = document.createElement('div');
+                        fwContainer.className = 'fireworks-container';
+                        slide.appendChild(fwContainer);
+
+                        // Floating graduation cap (above content, z-index: 3)
+                        const capEl = document.createElement('div');
+                        capEl.className = 'grad-cap-container';
+                        capEl.innerHTML = `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg" aria-label="Graduation cap">
+                            <!-- Shadow -->
+                            <ellipse cx="40" cy="48" rx="21" ry="5.5" fill="rgba(0,0,0,0.28)"/>
+                            <!-- Dome body sides -->
+                            <rect x="20" y="30" width="40" height="15" fill="#1a1a3e"/>
+                            <!-- Dome bottom rim -->
+                            <ellipse cx="40" cy="45" rx="20" ry="6" fill="#111130"/>
+                            <!-- Dome top ellipse -->
+                            <ellipse cx="40" cy="30" rx="20" ry="6.5" fill="#1e1e46"/>
+                            <!-- Board (rhombus from above) -->
+                            <polygon points="40,4 76,21 40,38 4,21" fill="#1a1a3e" stroke="#ffc400" stroke-width="1.8" stroke-linejoin="round"/>
+                            <!-- Board face shading -->
+                            <polygon points="40,6 73,22 40,36 7,22" fill="#26265a" opacity="0.65"/>
+                            <!-- Center button -->
+                            <circle cx="40" cy="21" r="4" fill="#ffc400"/>
+                            <circle cx="40" cy="21" r="2" fill="#c89a00"/>
+                            <!-- Tassel cord from right corner -->
+                            <path d="M76,21 C81,30 78,40 73,46" stroke="#ffc400" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                            <!-- Tassel knot -->
+                            <ellipse cx="73" cy="47" rx="4" ry="3" fill="#c89a00"/>
+                            <!-- Tassel strings -->
+                            <line x1="70" y1="49" x2="66" y2="62" stroke="#ffc400" stroke-width="1.6" stroke-linecap="round"/>
+                            <line x1="73" y1="50" x2="73" y2="63" stroke="#ffc400" stroke-width="1.6" stroke-linecap="round"/>
+                            <line x1="76" y1="49" x2="80" y2="62" stroke="#ffc400" stroke-width="1.6" stroke-linecap="round"/>
+                        </svg>`;
+                        slide.appendChild(capEl);
+                    }
+
                     track.appendChild(slide);
 
                     // Create Dot
@@ -607,6 +654,67 @@
                     highlightsList.appendChild(li);
                 });
             }
+        }
+
+        // Fireworks launcher for celebration slides
+        // To disable: set `celebration: false` in homepage-data.js
+        function initCelebrationFireworks() {
+            const celebSlides = document.querySelectorAll('.slide--celebration');
+            if (!celebSlides.length) return;
+
+            const COLORS = ['#ffc400', '#ff6b6b', '#64ffda', '#c878ff', '#ff9de2', '#ffffff'];
+
+            function launchFirework(slide) {
+                const container = slide.querySelector('.fireworks-container');
+                if (!container) return;
+
+                const w = container.offsetWidth  || 400;
+                const h = container.offsetHeight || 300;
+
+                // Random burst position — favour upper two-thirds of slide
+                const x = w * (0.1  + Math.random() * 0.8);
+                const y = h * (0.05 + Math.random() * 0.65);
+                const color    = COLORS[Math.floor(Math.random() * COLORS.length)];
+                const numSparks = 12 + Math.floor(Math.random() * 8);   // 12–19
+                const burstR    = 30 + Math.random() * 45;               // 30–75 px
+
+                const burst = document.createElement('div');
+                burst.className  = 'firework-burst';
+                burst.style.left = x + 'px';
+                burst.style.top  = y + 'px';
+                container.appendChild(burst);
+
+                // Radial sparks
+                for (let i = 0; i < numSparks; i++) {
+                    const angle = (i / numSparks) * 360 + (Math.random() - 0.5) * 15;
+                    const r     = burstR * (0.6 + Math.random() * 0.8);
+                    const spark = document.createElement('div');
+                    spark.className = 'firework-spark';
+                    spark.style.backgroundColor = color;
+                    spark.style.setProperty('--tx', (Math.cos(angle * Math.PI / 180) * r).toFixed(1) + 'px');
+                    spark.style.setProperty('--ty', (Math.sin(angle * Math.PI / 180) * r).toFixed(1) + 'px');
+                    spark.style.animationDuration = (0.65 + Math.random() * 0.55) + 's';
+                    burst.appendChild(spark);
+                }
+
+                // Center flash
+                const flash = document.createElement('div');
+                flash.className  = 'firework-flash';
+                flash.style.background = `radial-gradient(circle, #fff 0%, ${color} 55%, transparent 100%)`;
+                burst.appendChild(flash);
+
+                // Clean up after animation
+                setTimeout(() => burst.remove(), 1500);
+            }
+
+            celebSlides.forEach(slide => {
+                // Launch one burst immediately, then every 1.1 s while slide is active
+                setInterval(() => {
+                    if (slide.classList.contains('current-slide')) {
+                        launchFirework(slide);
+                    }
+                }, 1100);
+            });
         }
     </script>
     <script>

@@ -621,6 +621,7 @@ nav {
     color: var(--text-secondary);
     margin-bottom: 20px;
     font-size: 1rem;
+    text-align: justify;
 }
 
 /* Updated Spec for Media (Images & Video) */
@@ -775,6 +776,11 @@ nav {
     color: #bb86fc;
 }
 
+.tag.milestone {
+    background-color: rgba(200, 120, 255, 0.2);
+    color: #c878ff;
+}
+
 .slide-link {
     color: var(--accent-color);
     font-weight: bold;
@@ -903,6 +909,11 @@ footer a {
     }
 
     .slide-text {
+        text-align: center;
+    }
+
+    .slide-content p,
+    .slide-text p {
         text-align: center;
     }
 
@@ -1379,5 +1390,128 @@ footer a {
     .detail-media img,
     .detail-media video {
         max-height: 250px;
+    }
+}
+
+/* ================================================================
+   Celebration Mode — Ph.D Defense / Special Events
+   To disable: set `celebration: false` in homepage-data.js entry
+   ================================================================ */
+
+/* Clip fireworks to slide bounds */
+.slide--celebration {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Pulsing golden-purple border on the content wrapper */
+.slide--celebration .slide-content-wrapper {
+    position: relative;
+    z-index: 1;
+    border: 1.5px solid rgba(200, 120, 255, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    animation: celebrationGlow 2.8s ease-in-out infinite;
+}
+
+@keyframes celebrationGlow {
+    0%, 100% {
+        box-shadow: 0 0 12px rgba(200, 120, 255, 0.15), 0 0 4px rgba(255, 196, 0, 0.1);
+        border-color: rgba(200, 120, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(200, 120, 255, 0.5), 0 0 16px rgba(255, 196, 0, 0.35);
+        border-color: rgba(255, 196, 0, 0.75);
+    }
+}
+
+/* Fireworks layer — rendered above slide content */
+.fireworks-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+}
+
+/* Each firework burst group anchored at the explosion origin */
+.firework-burst {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* Individual spark flying outward from origin */
+.firework-spark {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    top: -2px;
+    left: -2px;
+    opacity: 0;
+    animation: sparkFly 1s ease-out forwards;
+}
+
+@keyframes sparkFly {
+    0%   { transform: translate(0, 0) scale(2);   opacity: 1; }
+    25%  { opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) scale(0.1); opacity: 0; }
+}
+
+/* Brief bright flash at burst center */
+.firework-flash {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    top: -7px;
+    left: -7px;
+    animation: flashBrief 0.45s ease-out forwards;
+}
+
+@keyframes flashBrief {
+    0%   { transform: scale(0);   opacity: 1; }
+    40%  { transform: scale(3);   opacity: 0.9; }
+    100% { transform: scale(0.8); opacity: 0; }
+}
+
+/* Floating graduation cap decoration */
+.grad-cap-container {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    z-index: 3;
+    pointer-events: none;
+    animation: capFloat 3.2s ease-in-out infinite;
+}
+
+.grad-cap-container svg {
+    width: 64px;
+    height: auto;
+    filter: drop-shadow(0 3px 10px rgba(255, 196, 0, 0.65));
+}
+
+@keyframes capFloat {
+    0%, 100% { transform: translateY(0px)  rotate(-4deg); }
+    50%       { transform: translateY(-9px) rotate(4deg); }
+}
+
+/* Mobile adjustments for celebration */
+@media (max-width: 768px) {
+    .slide--celebration .slide-content-wrapper {
+        padding: 14px 12px;
+    }
+
+    .grad-cap-container {
+        top: 6px;
+        right: 8px;
+    }
+
+    .grad-cap-container svg {
+        width: 46px;
     }
 }

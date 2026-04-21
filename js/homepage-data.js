@@ -1,6 +1,19 @@
 const homepageData = {
     newsHighlights: [
         {
+            tag: "Milestone",
+            tagClass: "milestone",
+            title: "Congratulations! Hsueh-Li Liu (劉學澧) Passes Ph.D Defense!",
+            description: "Warmest congratulations to Hsueh-Li Liu (Jack) on successfully passing his Ph.D defense on April 21, 2026! Jack's dedication and outstanding research have been an inspiration to the entire PAL Lab. We are incredibly proud of this achievement and wish him all the best in his future endeavors!",
+            link: "members.html",
+            linkText: "Meet the Team",
+            images: [
+                "image/News_highlight/Jack Ph.D Defense/Jack PhD defense.jpg",
+                "image/News_highlight/Jack Ph.D Defense/defense_cover.jpg"
+            ],
+            celebration: true
+        },
+        {
             tag: "Award",
             tagClass: "award",
             title: "ASML Best Student Paper Award at SPIE Advanced Lithography 2026",
@@ -90,6 +103,7 @@ const homepageData = {
         },
     ],
     latestHighlights: [
+        { en: "Congratulations! Hsueh-Li Liu (Jack) successfully passes his Ph.D defense on April 21, 2026!", zh: "恭喜！劉學澧（Jack）於2026年4月21日順利通過博士論文口試！" },
         { en: "Congratulations! Chao-Wei Huang wins ASML Best Student Paper Award at 2026 SPIE Advanced Lithography and Patterning Conference", zh: "恭喜！黃朝威榮獲2026 SPIE先進微影技術ASML最佳學生論文獎" },
         { en: "2026 PAL Lab Spring Party - Celebrating the New Year Together!", zh: "2026 PAL實驗室春酒 - 一起迎接新年！" },
         { en: "Launched OPC+ Cloud Service for general-purpose freeform mask correction", zh: "推出OPC+雲端服務，提供通用自由形式光罩校正" },
