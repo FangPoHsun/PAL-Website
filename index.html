@@ -400,7 +400,7 @@
 
         .media-lightbox-media img,
         .media-lightbox-media video {
-            max-width: 60vw;
+            max-width: 80vw;
             max-height: 80vh;
             object-fit: contain;
             border-radius: 8px;
@@ -503,22 +503,62 @@
         }
 
         @media (max-width: 768px) {
+            /* Fill as much of the screen as possible */
+            .media-lightbox-content {
+                max-width: 100%;
+                max-height: 100%;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .media-lightbox-media {
+                max-height: 82vh;
+                width: 100%;
+            }
+
+            .media-lightbox-media img,
+            .media-lightbox-media video {
+                max-width: 96vw;
+                max-height: 78vh;
+                border-radius: 4px;
+            }
+
+            /* Overlay nav buttons on top of the image edges */
             .media-lightbox-prev {
-                left: 10px;
+                left: 6px;
+                background: rgba(0, 0, 0, 0.45);
+                border-color: rgba(255,255,255,0.3);
             }
 
             .media-lightbox-next {
-                right: 10px;
+                right: 6px;
+                background: rgba(0, 0, 0, 0.45);
+                border-color: rgba(255,255,255,0.3);
             }
 
             .media-lightbox-nav {
-                width: 40px;
-                height: 40px;
+                width: 44px;
+                height: 44px;
             }
 
+            /* Move close button inside the screen, top-right */
             .media-lightbox-close {
-                top: -40px;
-                right: 10px;
+                position: fixed;
+                top: 12px;
+                right: 16px;
+                font-size: 2rem;
+                background: rgba(0,0,0,0.5);
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 1;
+            }
+
+            .media-lightbox-indicators {
+                margin-top: 14px;
             }
         }
     </style>
@@ -940,13 +980,30 @@
                 }
             });
 
-            // Pause autoplay on hover
+            // Pause autoplay on hover (desktop)
             lightboxMedia.addEventListener('mouseenter', stopAutoPlay);
             lightboxMedia.addEventListener('mouseleave', function () {
                 if (lightbox.classList.contains('active') && currentImages.length > 1) {
                     startAutoPlay();
                 }
             });
+
+            // Touch swipe navigation (mobile)
+            let touchStartX = 0;
+            let touchStartY = 0;
+            lightbox.addEventListener('touchstart', function (e) {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+            lightbox.addEventListener('touchend', function (e) {
+                const dx = e.changedTouches[0].clientX - touchStartX;
+                const dy = e.changedTouches[0].clientY - touchStartY;
+                // Only register horizontal swipes that are dominant
+                if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+                    if (dx < 0) { nextImage(); } else { prevImage(); }
+                    resetAutoPlay();
+                }
+            }, { passive: true });
 
             // Initialize on DOM ready
             if (document.readyState === 'loading') {
