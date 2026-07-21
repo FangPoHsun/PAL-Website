@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         /* Hero Banner for PI Page */
         .pi-hero-banner {
@@ -56,65 +56,33 @@
             font-size: 0.9rem;
             position: relative;
             overflow: hidden;
-            box-shadow:
-                0 10px 40px rgba(0, 0, 0, 0.4),
-                0 0 60px rgba(255, 196, 0, 0.1);
-        }
-
-        .pi-image::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            background: linear-gradient(135deg, var(--accent-color) 0%, transparent 50%, var(--accent-color) 100%);
-            border-radius: 14px;
-            z-index: -1;
-            opacity: 0.6;
-        }
-
-        .pi-image:hover {
-            transform: translateY(-5px);
-            box-shadow:
-                0 15px 50px rgba(0, 0, 0, 0.5),
-                0 0 80px rgba(255, 196, 0, 0.15);
-            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
         }
 
         /* PI Name Card Styling */
         .pi-name-card {
             margin-top: 25px;
             padding: 20px;
-            background: linear-gradient(145deg, rgba(17, 34, 64, 0.8) 0%, rgba(10, 25, 47, 0.9) 100%);
+            background: var(--card-bg);
             border-radius: 12px;
-            border: 1px solid rgba(255, 196, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             text-align: center;
         }
 
         .pi-name-card h3 {
             font-size: 1.6rem;
             margin-bottom: 5px;
-            background: linear-gradient(90deg, #e6f1ff, #ffc400);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-color);
         }
 
         /* Bio Section Cards */
         .bio-section {
-            background: linear-gradient(145deg, rgba(17, 34, 64, 0.6) 0%, rgba(10, 25, 47, 0.8) 100%);
-            border-radius: 16px;
+            background: var(--card-bg);
+            border-radius: 12px;
             padding: 30px;
             margin-bottom: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .bio-section:hover {
-            border-color: rgba(255, 196, 0, 0.2);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .bio-section h3 {
@@ -136,25 +104,22 @@
         }
 
         .bio-section p {
-            text-align: justify;
             line-height: 1.8;
         }
 
         /* CV Card - Enhanced Alignment */
         .cv-card {
-            background: linear-gradient(145deg, rgba(17, 34, 64, 0.8) 0%, rgba(10, 25, 47, 0.9) 100%);
-            border: 1px solid rgba(255, 196, 0, 0.3);
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
             padding: 18px 20px;
             margin-top: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .cv-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(255, 196, 0, 0.15);
+            transform: translateY(-2px);
             border-color: var(--accent-color);
         }
 
@@ -199,40 +164,11 @@
             margin-top: 20px;
             margin-bottom: 15px;
             padding: 20px;
-            background: linear-gradient(145deg, rgba(17, 34, 64, 0.8) 0%, rgba(10, 25, 47, 0.9) 100%);
+            background: var(--card-bg);
             border-radius: 12px;
-            border: 1px solid rgba(255, 196, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
             overflow: hidden;
-        }
-
-        /* Animated glow border */
-        .pi-research-domains::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg,
-                    transparent 0%,
-                    rgba(255, 196, 0, 0.4) 25%,
-                    transparent 50%,
-                    rgba(255, 196, 0, 0.4) 75%,
-                    transparent 100%);
-            background-size: 400% 400%;
-            border-radius: 14px;
-            z-index: -1;
-            animation: borderGlow 4s ease-in-out infinite;
-        }
-
-        @keyframes borderGlow {
-            0%, 100% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
         }
 
         .pi-research-domains h4 {
@@ -245,11 +181,6 @@
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-
-        .pi-research-domains h4::before {
-            content: '◆';
-            font-size: 0.6rem;
         }
 
         .pi-research-domains h4::after {
@@ -270,27 +201,13 @@
         }
 
         .pi-research-domains li {
-            background: linear-gradient(135deg, rgba(255, 196, 0, 0.2) 0%, rgba(255, 196, 0, 0.05) 100%);
-            border: 1px solid rgba(255, 196, 0, 0.6);
+            background: rgba(255, 196, 0, 0.06);
+            border: 1px solid rgba(255, 196, 0, 0.45);
             border-radius: 25px;
-            padding: 8px 18px;
+            padding: 7px 16px;
             font-size: 0.85rem;
             font-weight: 500;
-            color: #fff;
-            box-shadow:
-                0 2px 10px rgba(255, 196, 0, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .pi-research-domains li:hover {
-            background: linear-gradient(135deg, rgba(255, 196, 0, 0.4) 0%, rgba(255, 196, 0, 0.15) 100%);
-            transform: translateY(-3px) scale(1.02);
-            box-shadow:
-                0 6px 20px rgba(255, 196, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            border-color: var(--accent-color);
+            color: var(--text-color);
         }
 
         /* Enhanced Research Interests List */
@@ -321,13 +238,43 @@
             height: 8px;
             background: var(--accent-color);
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(255, 196, 0, 0.5);
         }
 
-        .research-interests-list li:hover {
-            background: rgba(255, 196, 0, 0.05);
-            border-left-color: var(--accent-color);
-            transform: translateX(5px);
+        /* Laptop/desktop: the long award history scrolls inside its card
+           so the page stays balanced. Mobile shows the full flat list. */
+        @media (min-width: 769px) {
+            .awards-scroll {
+                max-height: 340px;
+                overflow-y: auto;
+                padding-right: 10px;
+                scrollbar-width: thin;
+                scrollbar-color: rgba(255, 196, 0, 0.35) transparent;
+                /* fade at the bottom hints there is more to scroll */
+                -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 36px), transparent 100%);
+                mask-image: linear-gradient(180deg, #000 calc(100% - 36px), transparent 100%);
+            }
+
+            /* last item clears the fade once fully scrolled */
+            .awards-scroll .awards-timeline {
+                padding-bottom: 28px;
+            }
+
+            .awards-scroll::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .awards-scroll::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .awards-scroll::-webkit-scrollbar-thumb {
+                background: rgba(255, 196, 0, 0.35);
+                border-radius: 3px;
+            }
+
+            .awards-scroll::-webkit-scrollbar-thumb:hover {
+                background: var(--accent-color);
+            }
         }
 
         /* Awards Timeline Styling */
@@ -373,17 +320,6 @@
             z-index: 1;
         }
 
-        .awards-timeline li:hover {
-            background: rgba(255, 196, 0, 0.08);
-            border-color: rgba(255, 196, 0, 0.3);
-            transform: translateX(5px);
-        }
-
-        .awards-timeline li:hover::before {
-            background: var(--accent-color);
-            box-shadow: 0 0 15px rgba(255, 196, 0, 0.5);
-        }
-
         /* Service List */
         .service-list {
             list-style: none !important;
@@ -405,10 +341,6 @@
             left: 10px;
             color: #64ffda;
             font-weight: bold;
-        }
-
-        .service-list li:hover {
-            background: rgba(100, 255, 218, 0.05);
         }
 
         /* Section Labels */
@@ -646,6 +578,7 @@
                 <li><a href="members.html">Members</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="calendar.html">Lab Calendar</a></li>
+                <li><a href="join.html">Join Us</a></li>
                 <li><a href="#" class="lang-switch">EN | 中文</a></li>
             </ul>
         </nav>
@@ -784,6 +717,7 @@
                         </svg>
                         Honors and Awards
                     </p>
+                    <div class="awards-scroll">
                     <ul class="awards-timeline">
                         <li data-en="2025 Excellent Mentor Award, College of EEC, National Yang Ming Chiao Tung University"
                             data-zh="2025 國立陽明交通大學電機學院導師獎">2025 Excellent Mentor Award, College of EEC, National Yang
@@ -808,6 +742,7 @@
                             data-zh="2010 國立交通大學光電工程系績優導師">2010 Excellent Undergraduate Mentor Award, National Chiao
                             Tung University</li>
                     </ul>
+                    </div>
 
                     <p class="section-label" style="margin-top: 25px;" data-en="Society Service" data-zh="學會服務">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -893,7 +828,11 @@
                 Lab</p>
             <p data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung
                 University</p>
-            <p>&copy; 2025 PAL Lab. All Rights Reserved.</p>
+            <p data-en="Tin Ka Ping Building, No. 1001, Daxue Rd. Hsinchu City, 300093 Taiwan, Room 306"
+                data-zh="田家炳光電大樓 306室，新竹市大學路1001號，300093 台灣">Tin Ka Ping Building, No. 1001, Daxue Rd. Hsinchu City,
+                300093 Taiwan, Room 306</p>
+            <p><a href="mailto:peichen.yu@nycu.edu.tw">peichen.yu@nycu.edu.tw</a></p>
+            <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.7;">&copy; 2026 PAL Lab. All Rights Reserved.</p>
         </div>
     </footer>
 
