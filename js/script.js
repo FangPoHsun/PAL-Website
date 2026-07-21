@@ -221,8 +221,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Auto Play
             let autoPlayTimeout;
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            const stopAutoPlay = () => {
+                if (autoPlayTimeout) clearTimeout(autoPlayTimeout);
+            };
 
             const startAutoPlay = () => {
+                if (prefersReducedMotion) return;
                 if (autoPlayTimeout) clearTimeout(autoPlayTimeout);
 
                 const currentSlide = track.querySelector('.current-slide');
@@ -260,6 +266,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Initialize AutoPlay
             startAutoPlay();
+
+            // Pause autoplay while the user is reading or interacting (WCAG 2.2.2)
+            const carouselContainer = track.closest('.carousel-container');
+            if (carouselContainer) {
+                carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+                carouselContainer.addEventListener('mouseleave', startAutoPlay);
+                carouselContainer.addEventListener('focusin', stopAutoPlay);
+                carouselContainer.addEventListener('focusout', startAutoPlay);
+            }
 
             // Handle Resize with debounce
             const handleResize = () => {
@@ -321,6 +336,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (document.visibilityState === 'visible') {
                     // Reset carousel position when page becomes visible again
                     handleResize();
+                    startAutoPlay();
+                } else {
+                    stopAutoPlay();
                 }
             });
 

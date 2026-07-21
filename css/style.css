@@ -12,7 +12,7 @@
     /* Muted blue-gray */
     --bg-color: #0a192f;
     --card-bg: #112240;
-    --font-main: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-main: 'Inter', 'Noto Sans TC', 'Segoe UI', 'Microsoft JhengHei', Roboto, Helvetica, Arial, sans-serif;
     --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     --header-height: 70px;
 }
@@ -390,7 +390,6 @@ nav {
     font-size: 0.9rem;
     line-height: 1.6;
     color: var(--text-secondary);
-    text-align: justify;
     margin-bottom: 20px;
 }
 
@@ -429,23 +428,20 @@ nav {
     }
 }
 
-/* --- HOME PAGE SCROLL CONTAINER --- */
-.home-scroll-container {
-    /* Removed scroll snap for smoother "gradually visible" effect */
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-}
-
-/* Home Container Sections */
+/* --- HOME PAGE LAYOUT --- */
+/* The page scrolls normally; sections size to their content
+   with a consistent vertical rhythm. */
 .home-scroll-container section {
-    min-height: 100vh;
-    /* Ensure each section is a complete block */
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: var(--header-height);
-    padding-bottom: 20px;
+    padding-top: calc(var(--header-height) + 50px);
+    padding-bottom: 70px;
+}
+
+/* Only the hero keeps full-viewport impact */
+.home-scroll-container .hero {
+    min-height: 100vh;
 }
 
 /* Scroll Reveal Animation */
@@ -491,17 +487,56 @@ nav {
 }
 
 .btn {
+    position: relative;
     display: inline-block;
-    padding: 12px 24px;
+    padding: 12px 26px;
     border: 1px solid var(--accent-color);
-    border-radius: 4px;
+    border-radius: 6px;
     color: var(--accent-color);
     font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    overflow: hidden;
     transition: var(--transition);
 }
 
 .btn:hover {
     background-color: rgba(255, 196, 0, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 196, 0, 0.15);
+}
+
+/* Solid gold primary — glow + shine sweep on hover */
+.btn-primary {
+    background: linear-gradient(135deg, #ffd54d 0%, #ffc400 55%, #e6ac00 100%);
+    color: var(--primary-color);
+    font-weight: 600;
+    border-color: transparent;
+    box-shadow: 0 4px 18px rgba(255, 196, 0, 0.35);
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%);
+    transform: skewX(-20deg);
+    transition: left 0.55s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #ffdd66 0%, #ffc400 55%, #f0b800 100%);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 196, 0, 0.45);
+}
+
+.btn-primary:hover::after {
+    left: 130%;
 }
 
 /* Highlights Section */
@@ -621,7 +656,6 @@ nav {
     color: var(--text-secondary);
     margin-bottom: 20px;
     font-size: 1rem;
-    text-align: justify;
 }
 
 /* Updated Spec for Media (Images & Video) */
@@ -781,6 +815,14 @@ nav {
     color: #c878ff;
 }
 
+.slide-date {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin-left: 12px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
 .slide-link {
     color: var(--accent-color);
     font-weight: bold;
@@ -853,6 +895,418 @@ nav {
     background-color: var(--card-bg);
 }
 
+/* ================================================================
+   News — Featured story + card grid
+   ================================================================ */
+.news-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.news-featured-card {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    background: var(--bg-color);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.news-featured-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    cursor: pointer;
+    background: #020c1b;
+}
+
+.news-featured-media img,
+.news-featured-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.news-featured-media:hover img,
+.news-featured-media:hover video {
+    transform: scale(1.04);
+}
+
+.news-featured-body {
+    padding: 30px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.news-featured-body h3 {
+    font-size: 1.5rem;
+    line-height: 1.35;
+    margin-bottom: 14px;
+}
+
+.news-featured-body p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+}
+
+/* Celebration variant (featured card + its mobile twin) */
+.news-featured-card.slide--celebration,
+.news-card.slide--celebration {
+    border: 1.5px solid rgba(200, 120, 255, 0.5);
+    animation: celebrationGlow 2.8s ease-in-out infinite;
+}
+
+/* Mobile twin of the featured story — hidden on desktop */
+.news-card--featured-dup {
+    display: none;
+}
+
+/* Grid of smaller news cards */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.news-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-color);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.news-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 196, 0, 0.5);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.news-card-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    cursor: pointer;
+    background: #020c1b;
+}
+
+.news-card-media img,
+.news-card-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.news-card:hover .news-card-media img,
+.news-card:hover .news-card-media video {
+    transform: scale(1.05);
+}
+
+.news-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 20px 20px;
+    flex: 1;
+}
+
+.news-card-body .news-meta {
+    margin-bottom: 0;
+}
+
+.news-card-body h3 {
+    font-size: 1.05rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.news-card-body p {
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    margin: 0;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Photo-count badge on multi-image stories */
+.media-count {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.news-card.hidden-card {
+    display: none;
+}
+
+/* --- News detail modal (jump-out card) --- */
+.news-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 12, 27, 0.85);
+    backdrop-filter: blur(6px);
+    z-index: 1900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.news-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.news-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    max-height: 88vh;
+    overflow-y: auto;
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    transform: translateY(16px) scale(0.97);
+    transition: transform 0.3s ease;
+}
+
+.news-modal.active .news-modal-content {
+    transform: translateY(0) scale(1);
+}
+
+.news-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    z-index: 5;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(2, 12, 27, 0.6);
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.news-modal-close:hover {
+    color: var(--accent-color);
+    background: rgba(2, 12, 27, 0.85);
+}
+
+.news-modal-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #020c1b;
+}
+
+.news-modal-media img,
+.news-modal-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.news-modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(2, 12, 27, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.news-modal-nav:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.news-modal-nav.hidden {
+    display: none;
+}
+
+.news-modal-prev {
+    left: 10px;
+}
+
+.news-modal-next {
+    right: 10px;
+}
+
+.news-modal-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    gap: 8px;
+}
+
+.news-modal-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.news-modal-dot.active {
+    background: var(--accent-color);
+    transform: scale(1.25);
+}
+
+.news-modal-body {
+    padding: 24px 28px 28px;
+}
+
+.news-modal-body h3 {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin: 10px 0 12px;
+}
+
+.news-modal-body p {
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 16px;
+    white-space: pre-line;
+}
+
+@media (max-width: 768px) {
+    .news-modal {
+        padding: 10px;
+    }
+
+    .news-modal-body {
+        padding: 18px 20px 22px;
+    }
+
+    .news-modal-body h3 {
+        font-size: 1.15rem;
+    }
+}
+
+.news-more-wrap {
+    text-align: center;
+    margin-top: 28px;
+}
+
+/* Swipe-position dots (mobile only) */
+.news-swipe-dots {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    /* No hierarchy on mobile: the featured story joins the swipe deck
+       as a regular card (its twin), and the big featured card hides */
+    .news-featured-card {
+        display: none;
+    }
+
+    .news-grid .news-card--featured-dup {
+        display: flex;
+    }
+
+    /* Grid becomes a horizontal swipe row: one card per view,
+       with a peek of the next card as the swipe affordance */
+    .news-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 14px;
+        margin: 0 -20px;
+        padding: 4px 20px 10px;
+        scrollbar-width: none;
+    }
+
+    .news-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .news-grid .news-card {
+        flex: 0 0 82%;
+        scroll-snap-align: center;
+    }
+
+    /* All cards are reachable by swiping — no "Show More" on mobile */
+    .news-grid .news-card.hidden-card {
+        display: flex;
+    }
+
+    .news-more-wrap {
+        display: none;
+    }
+
+    .news-swipe-dots {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    .news-swipe-dot {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .news-swipe-dot.active {
+        background: var(--accent-color);
+        transform: scale(1.25);
+    }
+}
+
 /* Footer */
 footer {
     background-color: #020c1b;
@@ -862,10 +1316,6 @@ footer {
     font-size: 0.9rem;
     height: auto;
     min-height: auto;
-}
-
-.home-scroll-container footer {
-    scroll-snap-align: start;
 }
 
 footer p {
@@ -1006,8 +1456,6 @@ footer a {
     }
 
     .home-scroll-container section {
-        height: auto;
-        min-height: 100vh;
         padding-top: 100px;
         padding-bottom: 50px;
     }
@@ -1513,5 +1961,65 @@ footer a {
 
     .grad-cap-container svg {
         width: 46px;
+    }
+}
+
+/* ================================================================
+   Accessibility
+   ================================================================ */
+
+/* Visible focus ring for keyboard navigation (mouse clicks unaffected) */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible,
+video:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* Honor the user's reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .home-scroll-container {
+        scroll-behavior: auto;
+    }
+
+    /* Content that animations would otherwise leave hidden or moved */
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    /* Cross-fade slideshows keep images at opacity 0 between frames —
+       pin the first image visible instead */
+    .image-slideshow img {
+        animation: none !important;
+        opacity: 0;
+    }
+
+    .image-slideshow img:first-child {
+        opacity: 1;
+    }
+
+    .grad-cap-container {
+        animation: none !important;
+    }
+
+    .slide--celebration .slide-content-wrapper {
+        animation: none !important;
     }
 }
