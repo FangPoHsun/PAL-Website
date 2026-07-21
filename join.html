@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Join PAL Lab at NYCU - Ph.D., Master's, and undergraduate research positions in photonics, computational lithography, metasurfaces, and quantum computing.">
+    <title>Join Us | PAL Lab</title>
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .join-intro {
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .join-section-title {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-top: 50px;
+        }
+
+        /* Why PAL cards */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .why-card {
+            background-color: var(--secondary-color);
+            border: 1px solid transparent;
+            border-radius: 8px;
+            padding: 25px;
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .why-card h4 {
+            color: var(--accent-color);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Who we look for */
+        .look-for-list {
+            margin-top: 25px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .look-for-list li {
+            color: var(--text-secondary);
+            padding: 10px 0 10px 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .look-for-list li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        /* Application steps */
+        .apply-steps {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .apply-step {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .step-number {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            border-radius: 50%;
+            background: rgba(255, 196, 0, 0.12);
+            color: var(--accent-color);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .apply-step p {
+            color: var(--text-secondary);
+            margin: 5px 0 0;
+            line-height: 1.6;
+        }
+
+        .apply-cta {
+            margin-top: 35px;
+            text-align: center;
+        }
+
+        .apply-cta .btn {
+            padding: 14px 32px;
+        }
+
+        .openings-note {
+            margin-top: 25px;
+            padding: 18px 22px;
+            background: rgba(255, 196, 0, 0.05);
+            border-left: 3px solid var(--accent-color);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">PAL Lab</a>
+            <div class="hamburger" id="hamburger" role="button" aria-label="Toggle navigation menu" tabindex="0">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pi.html">PI Profile</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="members.html">Members</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="calendar.html">Lab Calendar</a></li>
+                <li><a href="join.html" class="active">Join Us</a></li>
+                <li><a href="#" class="lang-switch">EN | 中文</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
+        <h2 class="fade-in" data-en="Join Us" data-zh="加入我們">Join Us</h2>
+
+        <p class="join-intro fade-in"
+            data-en="We are always looking for motivated students who are excited about photonics, computational lithography, and the future of nanofabrication. PAL Lab welcomes applications for Ph.D., Master's, and undergraduate research positions."
+            data-zh="我們持續尋找對光子學、計算微影與奈米製造的未來充滿熱情的學生。PAL實驗室歡迎博士班、碩士班與大學部專題生申請加入。">
+            We are always looking for motivated students who are excited about photonics, computational lithography,
+            and the future of nanofabrication. PAL Lab welcomes applications for Ph.D., Master's, and undergraduate
+            research positions.
+        </p>
+
+        <div class="fade-in">
+            <h3 class="join-section-title" data-en="Why PAL Lab?" data-zh="為什麼選擇 PAL Lab？">Why PAL Lab?</h3>
+            <div class="why-grid">
+                <div class="why-card">
+                    <h4 data-en="Frontier Research" data-zh="前沿研究">Frontier Research</h4>
+                    <p data-en="Work on EUV lithography, metasurfaces, AR waveguides, and quantum computing — fields that define the next decade of semiconductors and optics."
+                        data-zh="投入EUV微影、超穎表面、AR波導與量子計算——這些領域將定義半導體與光學的下一個十年。">Work on EUV lithography, metasurfaces,
+                        AR waveguides, and quantum computing — fields that define the next decade of semiconductors and
+                        optics.</p>
+                </div>
+                <div class="why-card">
+                    <h4 data-en="Industry Collaboration" data-zh="產業合作">Industry Collaboration</h4>
+                    <p data-en="Collaborate through TSMC's Joint Development Program, TSRI, and D-Wave quantum computing projects. Our research solves real manufacturing problems."
+                        data-zh="參與台積電聯合開發計畫（JDP）、台灣半導體研究中心（TSRI）與D-Wave量子計算專案，研究直接解決真實的製造問題。">Collaborate through
+                        TSMC's Joint Development Program, TSRI, and D-Wave quantum computing projects. Our research
+                        solves real manufacturing problems.</p>
+                </div>
+                <div class="why-card">
+                    <h4 data-en="Proven Track Record" data-zh="卓越成果">Proven Track Record</h4>
+                    <p data-en="Our students win — including back-to-back ASML Best Student Paper Awards at SPIE Advanced Lithography 2025 and 2026."
+                        data-zh="我們的學生屢獲肯定——包括連續榮獲2025與2026年SPIE先進微影會議ASML最佳學生論文獎。">Our students win — including
+                        back-to-back ASML Best Student Paper Awards at SPIE Advanced Lithography 2025 and 2026.</p>
+                </div>
+                <div class="why-card">
+                    <h4 data-en="International Exposure" data-zh="國際視野">International Exposure</h4>
+                    <p data-en="Present your work at leading international conferences such as SPIE Advanced Lithography and Photonics West, and publish in top journals."
+                        data-zh="於SPIE Advanced Lithography、Photonics West等頂尖國際會議發表研究成果，並於一流期刊發表論文。">Present your work
+                        at leading international conferences such as SPIE Advanced Lithography and Photonics West, and
+                        publish in top journals.</p>
+                </div>
+            </div>
+
+            <div class="openings-note"
+                data-en="Openings: We typically admit new Master's and Ph.D. students each academic year. Undergraduates interested in special-topics research are welcome to reach out any time."
+                data-zh="招生資訊：我們每學年招收碩士班與博士班新生。歡迎對專題研究有興趣的大學部同學隨時與我們聯繫。">
+                Openings: We typically admit new Master's and Ph.D. students each academic year. Undergraduates
+                interested in special-topics research are welcome to reach out any time.
+            </div>
+        </div>
+
+        <div class="fade-in">
+            <h3 class="join-section-title" data-en="Who We Look For" data-zh="我們期待的夥伴">Who We Look For</h3>
+            <ul class="look-for-list">
+                <li data-en="Background in electrical engineering, photonics, physics, materials science, or computer science."
+                    data-zh="具電機、光電、物理、材料或資訊相關背景。">Background in electrical engineering, photonics, physics, materials
+                    science, or computer science.</li>
+                <li data-en="Programming experience (Python or MATLAB) is a plus, especially for computational lithography and machine learning topics."
+                    data-zh="具Python或MATLAB程式經驗尤佳，特別是計算微影與機器學習相關主題。">Programming experience (Python or MATLAB) is a
+                    plus, especially for computational lithography and machine learning topics.</li>
+                <li data-en="Curiosity and willingness to learn across disciplines — optics, fabrication, and AI."
+                    data-zh="對跨領域學習（光學、製程與AI）保持好奇心與學習熱情。">Curiosity and willingness to learn across disciplines —
+                    optics, fabrication, and AI.</li>
+            </ul>
+        </div>
+
+        <div class="fade-in">
+            <h3 class="join-section-title" data-en="How to Apply" data-zh="如何申請">How to Apply</h3>
+            <div class="apply-steps">
+                <div class="apply-step">
+                    <div class="step-number">1</div>
+                    <p data-en="Browse our Research areas and recent Publications to find topics that interest you."
+                        data-zh="瀏覽我們的研究領域與近期論文，找出您感興趣的主題。">Browse our Research areas and recent Publications to find
+                        topics that interest you.</p>
+                </div>
+                <div class="apply-step">
+                    <div class="step-number">2</div>
+                    <p data-en="Email Prof. Peichen Yu with your CV, transcript, and a short note about your research interests."
+                        data-zh="將您的履歷、成績單與簡短的研究興趣說明，以電子郵件寄給余沛慈教授。">Email Prof. Peichen Yu with your CV, transcript,
+                        and a short note about your research interests.</p>
+                </div>
+                <div class="apply-step">
+                    <div class="step-number">3</div>
+                    <p data-en="We will arrange a conversation and a lab visit to get to know each other."
+                        data-zh="我們將安排面談與實驗室參訪，讓彼此更深入認識。">We will arrange a conversation and a lab visit to get to know
+                        each other.</p>
+                </div>
+            </div>
+
+            <div class="apply-cta">
+                <a href="mailto:peichen.yu@nycu.edu.tw?subject=Application%20to%20Join%20PAL%20Lab" class="btn btn-primary"
+                    data-en="Email Prof. Yu →" data-zh="聯繫余教授 →">Email Prof. Yu →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p data-en="Photonics & Lithography (PAL) Lab" data-zh="光子與微影技術實驗室 (PAL Lab)">Photonics & Lithography (PAL)
+                Lab</p>
+            <p data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung
+                University</p>
+            <p data-en="Tin Ka Ping Building, No. 1001, Daxue Rd. Hsinchu City, 300093 Taiwan, Room 306"
+                data-zh="田家炳光電大樓 306室，新竹市大學路1001號，300093 台灣">Tin Ka Ping Building, No. 1001, Daxue Rd. Hsinchu City,
+                300093 Taiwan, Room 306</p>
+            <p><a href="mailto:peichen.yu@nycu.edu.tw">peichen.yu@nycu.edu.tw</a></p>
+            <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.7;">&copy; 2026 PAL Lab. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
