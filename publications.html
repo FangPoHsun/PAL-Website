@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         .year-section {
             margin-bottom: 50px;
@@ -68,6 +68,75 @@
             font-style: italic;
         }
 
+        /* Lab members highlighted in author lists */
+        .pub-lab-author {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .pub-note {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 30px;
+        }
+
+        .pub-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .pub-bibtex-btn {
+            position: relative;
+            background: transparent;
+            border: 1px solid var(--text-secondary);
+            color: var(--text-secondary);
+            border-radius: 4px;
+            padding: 2px 10px;
+            min-width: 92px;
+            text-align: center;
+            font-size: 0.75rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .pub-bibtex-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            background: rgba(255, 196, 0, 0.08);
+        }
+
+        .pub-bibtex-btn.copied {
+            border-color: #64ffda;
+            color: #64ffda;
+            background: rgba(100, 255, 218, 0.08);
+            animation: copiedPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Expanding ring that fades out on copy */
+        .pub-bibtex-btn.copied::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 4px;
+            border: 1px solid rgba(100, 255, 218, 0.8);
+            animation: copiedRipple 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes copiedPop {
+            0% { transform: scale(1); }
+            45% { transform: scale(1.12); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes copiedRipple {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.8); opacity: 0; }
+        }
+
     </style>
 </head>
 
@@ -88,13 +157,17 @@
                 <li><a href="members.html">Members</a></li>
                 <li><a href="publications.html" class="active">Publications</a></li>
                 <li><a href="calendar.html">Lab Calendar</a></li>
+                <li><a href="join.html">Join Us</a></li>
                 <li><a href="#" class="lang-switch">EN | 中文</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
-        <h2 class="fade-in">Publications</h2>
+        <h2 class="fade-in" data-en="Publications" data-zh="論文發表">Publications</h2>
+        <p class="pub-note fade-in" data-en="PAL Lab members are shown in bold. Click a title to open the paper, or copy a citation with the BibTeX button."
+            data-zh="粗體為本實驗室成員。點選標題可開啟論文，或使用 BibTeX 按鈕複製引用格式。">PAL Lab members are shown in bold. Click a title
+            to open the paper, or copy a citation with the BibTeX button.</p>
         <div id="pub-root"></div>
     </div>
 
@@ -103,10 +176,14 @@
         <div class="container">
             <p data-en="Photonics & Lithography (PAL) Lab" data-zh="光子與微影技術實驗室 (PAL Lab)">Photonics & Lithography (PAL) Lab</p>
             <p data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung University</p>
-            <p>&copy; 2025 PAL Lab. All Rights Reserved.</p>
+            <p data-en="Tin Ka Ping Building, No. 1001, Daxue Rd. Hsinchu City, 300093 Taiwan, Room 306"
+                data-zh="田家炳光電大樓 306室，新竹市大學路1001號，300093 台灣">Tin Ka Ping Building, No. 1001, Daxue Rd. Hsinchu City, 300093 Taiwan, Room 306</p>
+            <p><a href="mailto:peichen.yu@nycu.edu.tw">peichen.yu@nycu.edu.tw</a></p>
+            <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.7;">&copy; 2026 PAL Lab. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <script src="js/members-data.js"></script>
     <script src="js/script.js"></script>
     <script>
     // =========================================================================
@@ -557,13 +634,39 @@
     // RENDERING — no need to edit below this line
     // =========================================================================
 
+    // --- Lab member matching (bold in author lists) ------------------------
+    // Names are normalized (lowercase, letters only) so "Pokai Chang",
+    // "Chang, Po-Kai" and "Chang, Pokai" all match. Sourced from members-data.js;
+    // add alternate romanizations that appear on papers to the alias list below.
+    const normName = s => s.toLowerCase().replace(/[^a-z]/g, '');
+
+    const LAB_AUTHORS = new Set();
+    if (typeof membersData !== 'undefined') {
+        [...membersData.phd, ...membersData.master, ...membersData.inservice]
+            .forEach(m => LAB_AUTHORS.add(normName(m.name)));
+        membersData.alumni.forEach(g => g.members.forEach(m => LAB_AUTHORS.add(normName(m.name))));
+    }
+    // PI + alternate spellings used on published papers
+    ['Peichen Yu', 'I-Hsiang Chuang', 'Chun-En Lin', 'Wan-Ting Liang']
+        .forEach(n => LAB_AUTHORS.add(normName(n)));
+
     function formatAuthor(a) {
         const comma = a.indexOf(', ');
-        if (comma === -1) return a;
-        const last = a.substring(0, comma);
-        const first = a.substring(comma + 2);
-        const initials = first.split(/[-\s]+/).map(p => p[0].toUpperCase()).join('');
-        return initials + ' ' + last;
+        let display, fullNorm;
+        if (comma === -1) {
+            display = a;
+            fullNorm = normName(a);
+        } else {
+            const last = a.substring(0, comma);
+            const first = a.substring(comma + 2);
+            const initials = first.split(/[-\s]+/).map(p => p[0].toUpperCase()).join('');
+            display = initials + ' ' + last;
+            fullNorm = normName(first + last);
+        }
+        const html = escapeHtml(display);
+        return LAB_AUTHORS.has(fullNorm)
+            ? '<span class="pub-lab-author">' + html + '</span>'
+            : html;
     }
 
     function formatAuthorList(authors) {
@@ -592,9 +695,26 @@
         return venue;
     }
 
-function getScholarUrl(pub) {
+    // Prefer the permanent DOI link; fall back to an explicit URL, then Scholar search
+    function getPaperUrl(pub) {
+        if (pub.doi) return 'https://doi.org/' + pub.doi;
         if (pub.scholar) return pub.scholar;
         return 'https://scholar.google.com/scholar?q=' + encodeURIComponent(pub.title);
+    }
+
+    function toBibtex(pub) {
+        const fields = [];
+        fields.push('  title={' + pub.title + '}');
+        fields.push('  author={' + pub.author.join(' and ') + '}');
+        if (pub.journal)      fields.push('  journal={' + pub.journal + '}');
+        if (pub.booktitle)    fields.push('  booktitle={' + pub.booktitle + '}');
+        if (pub.volume)       fields.push('  volume={' + pub.volume + '}');
+        if (pub.number)       fields.push('  number={' + pub.number + '}');
+        if (pub.pages)        fields.push('  pages={' + pub.pages + '}');
+        fields.push('  year={' + pub.year + '}');
+        if (pub.organization) fields.push('  organization={' + pub.organization + '}');
+        if (pub.doi)          fields.push('  doi={' + pub.doi + '}');
+        return '@' + pub.type + '{' + pub.key + ',\n' + fields.join(',\n') + '\n}';
     }
 
     function escapeHtml(str) {
@@ -603,13 +723,16 @@ function getScholarUrl(pub) {
 
 function renderGroup(pubs) {
         return pubs.map(pub => {
-            const scholarUrl = getScholarUrl(pub);
+            const paperUrl = getPaperUrl(pub);
             return `
             <div class="pub-item">
               <div class="pub-content">
-                <a href="${scholarUrl}" target="_blank" rel="noopener" class="pub-title">${pub.title}</a>
+                <a href="${paperUrl}" target="_blank" rel="noopener" class="pub-title">${escapeHtml(pub.title)}</a>
                 <div class="pub-authors">${formatAuthorList(pub.author)}</div>
                 <div class="pub-journal">${escapeHtml(getVenue(pub))}</div>
+                <div class="pub-actions">
+                  <button class="pub-bibtex-btn" data-key="${pub.key}" title="Copy BibTeX citation" aria-label="Copy BibTeX citation">BibTeX</button>
+                </div>
               </div>
             </div>`;
         }).join('');
@@ -633,11 +756,11 @@ function renderGroup(pubs) {
             html += '<h3 class="year-header">' + year + '</h3>';
 
             if (journals.length) {
-                html += '<h4 class="type-header">Journal Papers</h4>';
+                html += '<h4 class="type-header" data-en="Journal Papers" data-zh="期刊論文">Journal Papers</h4>';
                 html += renderGroup(journals);
             }
             if (conferences.length) {
-                html += '<h4 class="type-header">Conference Papers</h4>';
+                html += '<h4 class="type-header" data-en="Conference Papers" data-zh="研討會論文">Conference Papers</h4>';
                 html += renderGroup(conferences);
             }
 
@@ -648,6 +771,45 @@ function renderGroup(pubs) {
     }
 
     renderPublications();
+
+    // --- Copy BibTeX to clipboard (event delegation, survives re-render) ----
+    document.getElementById('pub-root').addEventListener('click', async (e) => {
+        const btn = e.target.closest('.pub-bibtex-btn');
+        if (!btn) return;
+
+        const pub = PUBLICATIONS.find(p => p.key === btn.dataset.key);
+        if (!pub) return;
+
+        const bib = toBibtex(pub);
+        try {
+            await navigator.clipboard.writeText(bib);
+        } catch (err) {
+            // Fallback for older browsers / non-secure contexts
+            const ta = document.createElement('textarea');
+            ta.value = bib;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            ta.remove();
+        }
+
+        const lang = localStorage.getItem('pallab-lang') || 'en';
+        btn.textContent = lang === 'zh' ? '已複製 ✓' : 'Copied ✓';
+        btn.classList.add('copied');
+
+        // Revert with a soft fade instead of an abrupt swap
+        clearTimeout(btn._revertTimer);
+        btn._revertTimer = setTimeout(() => {
+            btn.style.opacity = '0';
+            setTimeout(() => {
+                btn.textContent = 'BibTeX';
+                btn.classList.remove('copied');
+                btn.style.opacity = '1';
+            }, 180);
+        }, 1500);
+    });
     </script>
 </body>
 
