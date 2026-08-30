@@ -13,7 +13,7 @@ const homepageData = {
             link: "https://doi.org/10.1364/OE.607043",
             linkText: "View Paper",
             linkTextZh: "查看論文",
-            video: "image/Research/RET.mp4"
+            image: "image/News_highlight/OE_QuasiPOM_2026/Cover.jpg"
         },
         {
             tag: "Milestone",
