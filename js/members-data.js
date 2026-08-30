@@ -1,14 +1,6 @@
 const membersData = {
     phd: [
         {
-            name: "Hsuehli Liu",
-            nameZh: "劉學澧",
-            grade: "Ph.D. Student",
-            avatar: "image/Member/Ph.D/劉學澧 Hsuehli Liu.jpg",
-            topics: ["Metasurfaces Optics", "OPC", "Machine Learning", "Computational Acceleration"],
-            bio: "Hsuehli Liu received the bachelor's degree in photonics from National Yang Ming Chiao Tung University, in 2019, where he is currently pursuing the Ph.D. degree. His research focuses on metasurface optics, photolithography, optical proximity correction (OPC), and the application of deep neural networks for lithography modeling and computational acceleration. In particular, he explores data-driven techniques for layout-to-image prediction and OPC mask optimization using deep-learning models. He is a Student Member of SPIE and has received multiple research awards in Taiwan."
-        },
-        {
             name: "Po-Hsun Fang",
             nameZh: "方柏勛",
             grade: "Ph.D. Student",
@@ -41,33 +33,17 @@ const membersData = {
             avatar: "image/Member/Ph.D/李冠霖 KuanLin Lee.jpg",
             topics: ["AR Optical Design", "Metalenses", "Retinal Projection"],
             bio: ""
-        }
-    ],
-    master: [
+        },
         {
             name: "Ping-Ke Li",
             nameZh: "李秉科",
-            grade: "Master Student 2 Year",
+            grade: "Ph.D. Student 1 Year",
             avatar: "image/Member/Master/李秉科 Ping-Ke Li.jpg",
             topics: ["Metasurfaces Optics", "Optical design", "End-to-End Optimization"],
             bio: ""
-        },
-        {
-            name: "Shang-Chiang Sung",
-            nameZh: "宋尚將",
-            grade: "Master Student 2 Year",
-            avatar: "image/Member/Master/宋尚將 Shang-Chiang Sung.jpg",
-            topics: ["AR Glasses", "Grating Coupler", "Inverse Design", "SiPh"],
-            bio: ""
-        },
-        {
-            name: "Chaowei Huang",
-            nameZh: "黃朝威",
-            grade: "Master Student 2 Year",
-            avatar: "image/Member/Master/黃朝威 Chaowei Huang.jpg",
-            topics: ["EUV", "Lithography", "Fourier Optics"],
-            bio: ""
-        },
+        }
+    ],
+    master: [
         {
             name: "Chih Han Wu",
             nameZh: "吳芝涵",
@@ -136,6 +112,15 @@ const membersData = {
         }
     ],
     alumni: [
+        {
+            year: "Class of 113",
+            yearZh: "113級",
+            members: [
+                { name: "Hsuehli Liu", nameZh: "劉學澧" },
+                { name: "Chaowei Huang", nameZh: "黃朝威" },
+                { name: "Shang-Chiang Sung", nameZh: "宋尚將" }
+            ]
+        },
         {
             year: "Class of 112",
             yearZh: "112級",

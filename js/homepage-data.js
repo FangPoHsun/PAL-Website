@@ -1,6 +1,21 @@
 const homepageData = {
     newsHighlights: [
         {
+            tag: "New Publication",
+            tagZh: "最新論文",
+            tagClass: "publication",
+            title: "New Paper in Optics Express: High Contrast EUV Imaging with Quasi Phase-Only Masks",
+            titleZh: "最新論文發表於《Optics Express》：準純相位光罩實現高對比EUV成像",
+            date: "Aug 2026",
+            dateZh: "2026年8月",
+            description: "Our paper \"High contrast EUV imaging enabled by topological quasi phase-only masks\" by Po-Hsun Fang, Pokai Chang, Chaowei Huang, and Peichen Yu is published in Optics Express (Vol. 34, Issue 16)! Molybdenum-based quasi phase-only masks deliver up to 35% higher image contrast, a fivefold larger common focus window, and 92% lower peak telecentricity error than conventional Ta-based absorbers, enabling 12.5-nm half-pitch resolution for 0.33-NA EUV systems.",
+            descriptionZh: "本實驗室論文「High contrast EUV imaging enabled by topological quasi phase-only masks」（方柏勛、張博凱、黃朝威、余沛慈等）正式發表於《Optics Express》（第34卷第16期）！以鉬（Mo）為基礎的準純相位光罩，相較於傳統鉭（Ta）吸收層可提升影像對比度達35%、共同聚焦窗口擴大五倍、峰值遠心誤差降低92%，並於0.33 NA EUV系統實現12.5奈米半間距解析度。",
+            link: "https://doi.org/10.1364/OE.607043",
+            linkText: "View Paper",
+            linkTextZh: "查看論文",
+            video: "image/Research/RET.mp4"
+        },
+        {
             tag: "Milestone",
             tagZh: "里程碑",
             tagClass: "milestone",
@@ -157,6 +172,7 @@ const homepageData = {
         },
     ],
     latestHighlights: [
+        { en: "New Publication in *Optics Express*!! \"High contrast EUV imaging enabled by topological quasi phase-only masks\"", zh: "新論文發表於《Optics Express》！！「High contrast EUV imaging enabled by topological quasi phase-only masks」" },
         { en: "Congratulations! Hsueh-Li Liu (Jack) successfully passes his Ph.D defense on April 21, 2026!", zh: "恭喜！劉學澧（Jack）於2026年4月21日順利通過博士論文口試！" },
         { en: "Congratulations! Chao-Wei Huang wins ASML Best Student Paper Award at 2026 SPIE Advanced Lithography and Patterning Conference", zh: "恭喜！黃朝威榮獲2026 SPIE先進微影技術ASML最佳學生論文獎" },
         { en: "2026 PAL Lab Spring Party - Celebrating the New Year Together!", zh: "2026 PAL實驗室春酒 - 一起迎接新年！" },
