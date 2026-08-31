@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="image/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=20260831c">
+    <link rel="stylesheet" href="css/style.css?v=20260831d">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -675,14 +675,23 @@
             if (featuredWrap && grid && homepageData.newsHighlights) {
                 const INITIAL_VISIBLE = 6; // grid cards shown before "Show More News"
 
-                const mediaHtmlOf = (h) => {
+                const mediaHtmlOf = (h, isFeatured) => {
                     const media = newsMediaOf(h);
                     if (!media.length) return '';
                     const first = media[0];
                     const imgCount = media.filter(m => m.type === 'image').length;
-                    const inner = first.type === 'video'
-                        ? `<video src="${first.src}" autoplay loop muted playsinline></video>`
-                        : `<img src="${first.src}" alt="${h.title}" loading="lazy">`;
+                    let inner;
+                    if (first.type === 'video') {
+                        inner = `<video src="${first.src}" autoplay loop muted playsinline></video>`;
+                    } else if (isFeatured) {
+                        // Featured card: always show the WHOLE figure regardless of
+                        // aspect ratio — a blurred cover-fit copy fills the panel
+                        // behind the contained image
+                        inner = `<img class="media-blur" src="${first.src}" alt="" aria-hidden="true">`
+                            + `<img class="media-fit" src="${first.src}" alt="${h.title}" loading="lazy">`;
+                    } else {
+                        inner = `<img src="${first.src}" alt="${h.title}" loading="lazy">`;
+                    }
                     const badge = imgCount > 1 ? `<span class="media-count">📷 ${imgCount}</span>` : '';
                     return inner + badge;
                 };
@@ -717,7 +726,7 @@
 
                     slide.innerHTML = `
                         <div class="${isFeatured ? 'news-featured-media' : 'news-card-media'}" data-news-index="${index}">
-                            ${mediaHtmlOf(highlight)}
+                            ${mediaHtmlOf(highlight, isFeatured)}
                         </div>
                         <div class="${isFeatured ? 'news-featured-body' : 'news-card-body'}">
                             ${metaHtml}
