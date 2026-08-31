@@ -99,6 +99,11 @@ content:
                 label: Link text (中文)
                 type: string
                 description: e.g. "查看論文"、"閱讀更多"
+          - name: keywords
+            label: Keyword tags
+            description: Short topic tags shown as #chips on the featured card and in the story pop-up, e.g. EUV, Lithography, Photonics
+            type: string
+            list: true
           - name: images
             label: Photos (use for one or more images)
             type: image

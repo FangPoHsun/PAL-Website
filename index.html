@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="image/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=20260831">
+    <link rel="stylesheet" href="css/style.css?v=20260831b">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -170,6 +170,7 @@
                 <h3 id="news-modal-title"></h3>
                 <p id="news-modal-text"></p>
                 <div id="news-modal-links" class="slide-links"></div>
+                <div id="news-modal-keywords" class="news-keywords"></div>
             </div>
         </div>
     </div>
@@ -708,6 +709,11 @@
                         ? '<div class="slide-links">' + links.map(l =>
                             `<a href="${l.url}" class="slide-link">${l.text || 'Read More'} →</a>`).join('') + '</div>'
                         : '';
+                    // Keyword chips — shown on the featured card only (grid cards stay compact)
+                    const kws = (highlight.keywords || []).map(k => String(k).replace(/[<>&"]/g, '').trim()).filter(Boolean);
+                    const kwHtml = (isFeatured && kws.length)
+                        ? '<div class="news-keywords">' + kws.map(k => `<span class="news-kw">#${k}</span>`).join('') + '</div>'
+                        : '';
 
                     slide.innerHTML = `
                         <div class="${isFeatured ? 'news-featured-media' : 'news-card-media'}" data-news-index="${index}">
@@ -718,6 +724,7 @@
                             <h3>${highlight.title}</h3>
                             <p>${highlight.description}</p>
                             ${linkHtml}
+                            ${kwHtml}
                         </div>
                     `;
 
@@ -934,6 +941,16 @@
                     linksEl.appendChild(a);
                 });
                 linksEl.style.display = links.length ? '' : 'none';
+
+                const kwEl = document.getElementById('news-modal-keywords');
+                kwEl.innerHTML = '';
+                (item.keywords || []).forEach(k => {
+                    const s = document.createElement('span');
+                    s.className = 'news-kw';
+                    s.textContent = '#' + String(k).trim();
+                    kwEl.appendChild(s);
+                });
+                kwEl.style.display = kwEl.childElementCount ? '' : 'none';
 
                 gallery = newsMediaOf(item);
                 mediaWrap.style.display = gallery.length ? '' : 'none';

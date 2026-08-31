@@ -23,7 +23,15 @@
         }
       ],
       "image": "image/News_highlight/OE_QuasiPOM_2026/Cover.jpg",
-      "celebration": false
+      "celebration": false,
+      "keywords": [
+        "EUV",
+        "Lithography",
+        "ComputationalLithography",
+        "ILT",
+        "Photonics",
+        "Semiconductor"
+      ]
     },
     {
       "tag": "Milestone",
