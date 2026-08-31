@@ -1,20 +1,11 @@
 {
   "routineEvents": [
     {
-      "day": "3",
+      "day": "4",
       "title": "Group Meeting",
       "time": "09:30 - 12:00",
-      "location": "NYCU TKP Photonic Bldg 1 floor meeting room",
+      "location": "NYCU TKP Photonic Bldg 3 floor meeting room",
       "description": "Weekly lab group meeting."
-    }
-  ],
-  "labEvents": [
-    {
-      "date": "2026-01-27",
-      "title": "EDA Project 期末尾牙聚會",
-      "time": "12:00 PM",
-      "location": "NARA Thai Cuisine 泰式料理 新竹巨城店（SOGO）",
-      "description": "Labs' EDA project end-of-semester gathering"
     }
   ]
 }
