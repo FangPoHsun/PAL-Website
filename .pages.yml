@@ -76,18 +76,29 @@ content:
           - name: descriptionZh
             label: Description (中文)
             type: text
-          - name: link
-            label: Link URL
-            type: string
-            description: Where "Read More" points — a page (members.html), a file, or an external URL
-          - name: linkText
-            label: Link text (English)
-            type: string
-            description: e.g. "View Paper", "Read More"
-          - name: linkTextZh
-            label: Link text (中文)
-            type: string
-            description: e.g. "查看論文"、"閱讀更多"
+          - name: links
+            label: Links
+            description: One or more links shown on the card — e.g. "View Paper" and "Editor's Pick Issue"
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{text}"
+            fields:
+              - name: url
+                label: URL
+                type: string
+                required: true
+                description: A page (members.html), a file, or an external URL (https://...)
+              - name: text
+                label: Link text (English)
+                type: string
+                required: true
+                description: e.g. "View Paper", "Read More"
+              - name: textZh
+                label: Link text (中文)
+                type: string
+                description: e.g. "查看論文"、"閱讀更多"
           - name: images
             label: Photos (use for one or more images)
             type: image
@@ -96,8 +107,10 @@ content:
             label: Single image (legacy — prefer "Photos" above)
             type: image
           - name: video
-            label: Video file (optional, e.g. image/Research/RET.mp4)
-            type: string
+            label: Video (optional — upload or pick an .mp4)
+            type: file
+            options:
+              categories: [video]
           - name: celebration
             label: Celebration effects (fireworks + graduation cap)
             type: boolean

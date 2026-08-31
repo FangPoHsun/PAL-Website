@@ -169,7 +169,7 @@
                 </div>
                 <h3 id="news-modal-title"></h3>
                 <p id="news-modal-text"></p>
-                <a href="#" class="slide-link" id="news-modal-link"></a>
+                <div id="news-modal-links"></div>
             </div>
         </div>
     </div>
@@ -573,6 +573,13 @@
                 margin-top: 14px;
             }
         }
+
+        /* Multiple links on a news card / modal sit side by side */
+        .news-featured-body .slide-link + .slide-link,
+        .news-card-body .slide-link + .slide-link,
+        #news-modal-links .slide-link + .slide-link {
+            margin-left: 18px;
+        }
     </style>
 
     <script src="js/script.js"></script>
@@ -637,9 +644,17 @@
 
         // Normalize a news item's media into [{src, type, alt}]
         function newsMediaOf(h) {
-            if (h.images) return h.images.map(src => ({ src, type: 'image', alt: h.title }));
+            if (h.images && h.images.length) return h.images.map(src => ({ src, type: 'image', alt: h.title }));
             if (h.image) return [{ src: h.image, type: 'image', alt: h.title }];
             if (h.video) return [{ src: h.video, type: 'video', alt: h.title }];
+            return [];
+        }
+
+        // Normalize a news item's links into [{url, text, textZh}]
+        // (supports both the links[] array and the legacy single link fields)
+        function newsLinksOf(h) {
+            if (Array.isArray(h.links)) return h.links.filter(l => l && l.url);
+            if (h.link) return [{ url: h.link, text: h.linkText || 'Read More', textZh: h.linkTextZh || '' }];
             return [];
         }
 
@@ -694,9 +709,9 @@
                             <span class="tag ${highlight.tagClass}">${highlight.tag}</span>
                             ${highlight.date ? `<span class="slide-date">${highlight.date}</span>` : ''}
                         </div>`;
-                    const linkHtml = highlight.link
-                        ? `<a href="${highlight.link}" class="slide-link">${highlight.linkText} →</a>`
-                        : '';
+                    const links = newsLinksOf(highlight);
+                    const linkHtml = links.map(l =>
+                        `<a href="${l.url}" class="slide-link">${l.text || 'Read More'} →</a>`).join('');
 
                     slide.innerHTML = `
                         <div class="${isFeatured ? 'news-featured-media' : 'news-card-media'}" data-news-index="${index}">
@@ -715,11 +730,10 @@
                     setBilingual(slide.querySelector('.slide-date'), highlight.date, highlight.dateZh);
                     setBilingual(slide.querySelector('h3'), highlight.title, highlight.titleZh);
                     setBilingual(slide.querySelector('p'), highlight.description, highlight.descriptionZh);
-                    if (highlight.link) {
-                        setBilingual(slide.querySelector('.slide-link'),
-                            highlight.linkText + ' →',
-                            highlight.linkTextZh ? highlight.linkTextZh + ' →' : '');
-                    }
+                    slide.querySelectorAll('.slide-link').forEach((a, li) => {
+                        const l = links[li];
+                        if (l) setBilingual(a, (l.text || 'Read More') + ' →', l.textZh ? l.textZh + ' →' : '');
+                    });
 
                     // Inject fireworks layer + floating graduation cap for celebration slides
                     // (full effect on the featured card; the mobile twin keeps the glow border via CSS)
@@ -827,7 +841,7 @@
             const dateEl = document.getElementById('news-modal-date');
             const titleEl = document.getElementById('news-modal-title');
             const textEl = document.getElementById('news-modal-text');
-            const linkEl = document.getElementById('news-modal-link');
+            const linksEl = document.getElementById('news-modal-links');
             const closeBtn = document.getElementById('news-modal-close');
 
             let gallery = [];
@@ -889,14 +903,20 @@
                 textEl.textContent = pick(item.details || item.description,
                     item.detailsZh || item.descriptionZh);
 
-                if (item.link) {
-                    linkEl.href = item.link;
-                    linkEl.textContent = pick(item.linkText, item.linkTextZh) + ' →';
-                    linkEl.target = /^https?:/i.test(item.link) ? '_blank' : '';
-                    linkEl.style.display = 'inline-block';
-                } else {
-                    linkEl.style.display = 'none';
-                }
+                const links = newsLinksOf(item);
+                linksEl.innerHTML = '';
+                links.forEach(l => {
+                    const a = document.createElement('a');
+                    a.href = l.url;
+                    a.className = 'slide-link';
+                    a.textContent = pick(l.text || 'Read More', l.textZh) + ' →';
+                    if (/^https?:/i.test(l.url)) {
+                        a.target = '_blank';
+                        a.rel = 'noopener';
+                    }
+                    linksEl.appendChild(a);
+                });
+                linksEl.style.display = links.length ? '' : 'none';
 
                 gallery = newsMediaOf(item);
                 mediaWrap.style.display = gallery.length ? '' : 'none';
