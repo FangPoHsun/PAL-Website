@@ -169,7 +169,7 @@
                 </div>
                 <h3 id="news-modal-title"></h3>
                 <p id="news-modal-text"></p>
-                <div id="news-modal-links"></div>
+                <div id="news-modal-links" class="slide-links"></div>
             </div>
         </div>
     </div>
@@ -574,12 +574,6 @@
             }
         }
 
-        /* Multiple links on a news card / modal sit side by side */
-        .news-featured-body .slide-link + .slide-link,
-        .news-card-body .slide-link + .slide-link,
-        #news-modal-links .slide-link + .slide-link {
-            margin-left: 18px;
-        }
     </style>
 
     <script src="js/script.js"></script>
@@ -710,8 +704,10 @@
                             ${highlight.date ? `<span class="slide-date">${highlight.date}</span>` : ''}
                         </div>`;
                     const links = newsLinksOf(highlight);
-                    const linkHtml = links.map(l =>
-                        `<a href="${l.url}" class="slide-link">${l.text || 'Read More'} →</a>`).join('');
+                    const linkHtml = links.length
+                        ? '<div class="slide-links">' + links.map(l =>
+                            `<a href="${l.url}" class="slide-link">${l.text || 'Read More'} →</a>`).join('') + '</div>'
+                        : '';
 
                     slide.innerHTML = `
                         <div class="${isFeatured ? 'news-featured-media' : 'news-card-media'}" data-news-index="${index}">

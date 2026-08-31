@@ -833,6 +833,14 @@ nav {
     text-decoration: underline;
 }
 
+/* Row of links at the bottom of a news card / modal */
+.slide-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    align-items: center;
+}
+
 .carousel-button {
     position: absolute;
     top: 50%;
@@ -919,7 +927,7 @@ nav {
 
 .news-featured-media {
     position: relative;
-    aspect-ratio: 16 / 10;
+    min-height: 340px;
     overflow: hidden;
     cursor: pointer;
     background: #020c1b;
@@ -956,6 +964,12 @@ nav {
     color: var(--text-secondary);
     font-size: 0.95rem;
     margin-bottom: 18px;
+    /* Keep the featured card balanced: clamp long stories — the full text
+       is always available in the detail modal (click the card) */
+    display: -webkit-box;
+    -webkit-line-clamp: 9;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 /* Celebration variant (featured card + its mobile twin) */
