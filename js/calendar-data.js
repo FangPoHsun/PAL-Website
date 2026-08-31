@@ -16,15 +16,9 @@
  *    - Lunar dates change each year, so manual updates are needed
  */
 
-const routineEvents = [
-    {
-        day: 3, // Thursday
-        title: "Group Meeting",
-        time: "09:30 - 12:00",
-        location: "NYCU TKP Photonic Bldg 1 floor meeting room",
-        description: "Weekly lab group meeting."
-    }
-];
+// NOTE: routine events and dated lab events moved to data/calendar.json —
+// edit them through the admin panel (Pages CMS). This file keeps only the
+// holiday reference data below.
 
 // Fixed holidays that occur on the same date every year
 const fixedHolidays = {
@@ -36,11 +30,6 @@ const fixedHolidays = {
 
 // Lunar calendar festivals - dates vary by year
 // Chinese Zodiac: 鼠牛虎兔龍蛇馬羊猴雞狗豬
-// Lab-specific events
-const labEvents = {
-    "2026-01-27": { title: "EDA Project 期末尾牙聚會", description: "Labs' EDA project end-of-semester gathering", time: "12:00 PM", location: "NARA Thai Cuisine 泰式料理 新竹巨城店（SOGO）", type: "event" },
-};
-
 const lunarFestivals = {
     // === 2025 Year of the Snake (蛇年) ===
     "2025-01-28": { title: "Chinese New Year's Eve (除夕)", description: "Lunar New Year's Eve - Family Reunion Dinner" },
@@ -124,11 +113,6 @@ function generateSpecificEvents(startYear, endYear) {
     // Add lunar festivals
     for (const [date, festival] of Object.entries(lunarFestivals)) {
         events[date] = { ...festival, time: "All Day", type: "holiday" };
-    }
-
-    // Add lab-specific events
-    for (const [date, event] of Object.entries(labEvents)) {
-        events[date] = { ...event };
     }
 
     return events;

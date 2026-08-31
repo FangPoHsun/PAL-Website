@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const calendarGrid = document.getElementById('calendar-grid');
     const monthDisplay = document.getElementById('current-month');
     const eventDetailsContainer = document.getElementById('event-details-content');
@@ -8,10 +8,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Exit if not on calendar page or required elements missing
     if (!calendarGrid || !monthDisplay || !eventDetailsContainer || !prevMonthBtn || !nextMonthBtn) return;
 
-    // Check if calendar data is loaded
-    if (typeof routineEvents === 'undefined' || typeof specificEvents === 'undefined') {
+    // Check if the holiday reference data is loaded
+    if (typeof specificEvents === 'undefined') {
         console.warn('Calendar data not loaded. Please ensure calendar-data.js is included before calendar.js');
         return;
+    }
+
+    // Load the editable events (admin panel) and merge them with the
+    // holiday data from calendar-data.js
+    let routineEvents = [];
+    try {
+        const res = await fetch('data/calendar.json?t=' + Date.now());
+        const json = await res.json();
+        routineEvents = (json.routineEvents || []).map(e => ({ ...e, day: Number(e.day) }));
+        (json.labEvents || []).forEach(e => {
+            if (e.date) specificEvents[e.date] = { type: 'event', ...e };
+        });
+    } catch (e) {
+        console.error('Failed to load data/calendar.json — serve the site over HTTP, not file://', e);
     }
 
     let currentDate = new Date();

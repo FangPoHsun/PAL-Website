@@ -101,6 +101,9 @@ async function main() {
     }
 
     data.publications = [...fresh.map(toEntry), ...data.publications];
+    // Keep the list ordered newest-first (stable within a year) so the
+    // admin panel and the data file stay tidy
+    data.publications.sort((a, b) => (b.year || 0) - (a.year || 0));
     writeFileSync(DATA_FILE, JSON.stringify(data, null, 2) + '\n');
 
     const body = [

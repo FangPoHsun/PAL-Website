@@ -33,7 +33,12 @@ to work they need **write access to the repo**:
   on the Publications page.
 - **Publications** — BibTeX-style entries. Fill in the DOI whenever one
   exists: it powers the title link, the "Cited by N" badge, and the
-  citation statistics.
+  citation statistics. Keep the list ordered newest-first (the weekly
+  auto-update re-sorts it anyway).
+- **Lab Calendar** — the weekly routine events (e.g. group meeting) and
+  one-off dated events (parties, visits, deadlines). National holidays
+  and lunar festivals through 2030 are built into the site and need no
+  editing.
 
 **Both languages, please:** every text field has an English and a 中文
 variant. Fill in both — the site's EN | 中文 toggle shows whichever the

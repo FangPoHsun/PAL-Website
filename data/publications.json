@@ -2,51 +2,6 @@
   "publications": [
     {
       "type": "article",
-      "key": "liao2022line",
-      "title": "I-line photolithographic metalenses enabled by distributed optical proximity correction with a deep-learning model",
-      "author": [
-        "Liao, Wei-Ping",
-        "Liu, Hsueh-Li",
-        "Lin, Yu-Fan",
-        "Su, Sheng-Siang",
-        "Chen, Yuteng",
-        "Lin, Guan-Bo",
-        "Tseng, Tsung-Chieh",
-        "Lin, Tong-Ke",
-        "Chen, Chun-Chi",
-        "Huang, Wen-Hsien",
-        "Chen, Shih‐Wei",
-        "Shieh, Jia‐Min",
-        "Yu, Peichen",
-        "Chang, You-Chia"
-      ],
-      "journal": "Optics Express",
-      "volume": "30",
-      "number": "12",
-      "pages": "21184",
-      "doi": "10.1364/oe.456469",
-      "year": 2022,
-      "scholar": ""
-    },
-    {
-      "type": "inproceedings",
-      "key": "su2022near",
-      "title": "Near-infrared metalenses employing hyperuniform disordered arrangement of nanostructures",
-      "author": [
-        "Su, Sheng Siang",
-        "Wu, Ying Chu",
-        "Liu, Hsueh Li",
-        "Yu, Peichen"
-      ],
-      "booktitle": "Metamaterials, Metadevices, and Metasystems 2022",
-      "pages": "99",
-      "doi": "10.1117/12.2644670",
-      "year": 2022,
-      "organization": "SPIE",
-      "scholar": ""
-    },
-    {
-      "type": "article",
       "key": "fang2026high",
       "title": "High contrast EUV imaging enabled by topological quasi phase-only masks",
       "author": [
@@ -563,6 +518,51 @@
       "pages": "12487--12496",
       "doi": "10.1364/OE.487589",
       "year": 2023,
+      "scholar": ""
+    },
+    {
+      "type": "article",
+      "key": "liao2022line",
+      "title": "I-line photolithographic metalenses enabled by distributed optical proximity correction with a deep-learning model",
+      "author": [
+        "Liao, Wei-Ping",
+        "Liu, Hsueh-Li",
+        "Lin, Yu-Fan",
+        "Su, Sheng-Siang",
+        "Chen, Yuteng",
+        "Lin, Guan-Bo",
+        "Tseng, Tsung-Chieh",
+        "Lin, Tong-Ke",
+        "Chen, Chun-Chi",
+        "Huang, Wen-Hsien",
+        "Chen, Shih‐Wei",
+        "Shieh, Jia‐Min",
+        "Yu, Peichen",
+        "Chang, You-Chia"
+      ],
+      "journal": "Optics Express",
+      "volume": "30",
+      "number": "12",
+      "pages": "21184",
+      "doi": "10.1364/oe.456469",
+      "year": 2022,
+      "scholar": ""
+    },
+    {
+      "type": "inproceedings",
+      "key": "su2022near",
+      "title": "Near-infrared metalenses employing hyperuniform disordered arrangement of nanostructures",
+      "author": [
+        "Su, Sheng Siang",
+        "Wu, Ying Chu",
+        "Liu, Hsueh Li",
+        "Yu, Peichen"
+      ],
+      "booktitle": "Metamaterials, Metadevices, and Metasystems 2022",
+      "pages": "99",
+      "doi": "10.1117/12.2644670",
+      "year": 2022,
+      "organization": "SPIE",
       "scholar": ""
     },
     {

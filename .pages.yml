@@ -266,6 +266,84 @@ content:
                 label: Name (中文)
                 type: string
 
+  # ── Lab calendar ─────────────────────────────────────────────────────
+  - name: calendar
+    label: Lab Calendar
+    description: Weekly routine events and dated lab events shown on the calendar page. National holidays and lunar festivals (through 2030) are built in and need no editing.
+    type: file
+    path: data/calendar.json
+    fields:
+      - name: routineEvents
+        label: Weekly routine events
+        description: Repeat every week on the chosen weekday (e.g. group meeting).
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} — {time}"
+        fields:
+          - name: day
+            label: Weekday
+            type: select
+            required: true
+            options:
+              values:
+                - value: "0"
+                  label: Sunday
+                - value: "1"
+                  label: Monday
+                - value: "2"
+                  label: Tuesday
+                - value: "3"
+                  label: Wednesday
+                - value: "4"
+                  label: Thursday
+                - value: "5"
+                  label: Friday
+                - value: "6"
+                  label: Saturday
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: time
+            label: Time
+            type: string
+            description: e.g. "09:30 - 12:00"
+          - name: location
+            label: Location
+            type: string
+          - name: description
+            label: Description
+            type: text
+      - name: labEvents
+        label: Dated lab events
+        description: One-off events on a specific date (parties, deadlines, visits).
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{date} — {title}"
+        fields:
+          - name: date
+            label: Date
+            type: date
+            required: true
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: time
+            label: Time
+            type: string
+            description: e.g. "12:00 PM" or "All Day"
+          - name: location
+            label: Location
+            type: string
+          - name: description
+            label: Description
+            type: text
+
   # ── Publications ─────────────────────────────────────────────────────
   - name: publications
     label: Publications
