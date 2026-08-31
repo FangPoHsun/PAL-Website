@@ -22,26 +22,8 @@
           "textZh": "論文全文"
         }
       ],
-      "image": "image/News_highlight/OE_QuasiPOM_2026/Cover.jpg"
-    },
-    {
-      "tag": "New Publication",
-      "tagZh": "最新論文",
-      "tagClass": "publication",
-      "title": "New Paper in Optics Express: High Contrast EUV Imaging with Quasi Phase-Only Masks",
-      "titleZh": "最新論文發表於《Optics Express》：準純相位光罩實現高對比EUV成像",
-      "date": "Aug 2026",
-      "dateZh": "2026年8月",
-      "description": "Our paper \"High contrast EUV imaging enabled by topological quasi phase-only masks\" by Po-Hsun Fang, Pokai Chang, Chaowei Huang, and Peichen Yu is published in Optics Express (Vol. 34, Issue 16)! Molybdenum-based quasi phase-only masks deliver up to 35% higher image contrast, a fivefold larger common focus window, and 92% lower peak telecentricity error than conventional Ta-based absorbers, enabling 12.5-nm half-pitch resolution for 0.33-NA EUV systems.",
-      "descriptionZh": "本實驗室論文「High contrast EUV imaging enabled by topological quasi phase-only masks」（方柏勛、張博凱、黃朝威、余沛慈等）正式發表於《Optics Express》（第34卷第16期）！以鉬（Mo）為基礎的準純相位光罩，相較於傳統鉭（Ta）吸收層可提升影像對比度達35%、共同聚焦窗口擴大五倍、峰值遠心誤差降低92%，並於0.33 NA EUV系統實現12.5奈米半間距解析度。",
       "image": "image/News_highlight/OE_QuasiPOM_2026/Cover.jpg",
-      "links": [
-        {
-          "url": "https://doi.org/10.1364/OE.607043",
-          "text": "View Paper",
-          "textZh": "查看論文"
-        }
-      ]
+      "celebration": false
     },
     {
       "tag": "Milestone",
@@ -53,18 +35,18 @@
       "dateZh": "2026年4月21日",
       "description": "Warmest congratulations to Hsueh-Li Liu (Jack) on successfully passing his Ph.D defense on April 21, 2026! Jack's dedication and outstanding research have been an inspiration to the entire PAL Lab. We are incredibly proud of this achievement and wish him all the best in his future endeavors!",
       "descriptionZh": "熱烈恭喜劉學澧（Jack）於2026年4月21日順利通過博士論文口試！Jack的努力不懈與傑出的研究成果，一直是PAL實驗室全體成員的榜樣。我們為這項成就感到無比驕傲，並祝福他未來一切順利！",
-      "images": [
-        "image/News_highlight/Jack Ph.D Defense/Jack PhD defense.jpg",
-        "image/News_highlight/Jack Ph.D Defense/defense_cover.jpg"
-      ],
-      "celebration": true,
       "links": [
         {
           "url": "members.html",
           "text": "Meet the Team",
           "textZh": "認識我們的團隊"
         }
-      ]
+      ],
+      "images": [
+        "image/News_highlight/Jack Ph.D Defense/Jack PhD defense.jpg",
+        "image/News_highlight/Jack Ph.D Defense/defense_cover.jpg"
+      ],
+      "celebration": true
     },
     {
       "tag": "Award",
@@ -76,18 +58,19 @@
       "dateZh": "2026年2月",
       "description": "Congratulations to Chao-Wei Huang for winning the ASML Best Student Paper Award at 2026 SPIE Advanced Lithography and Patterning Conference! Paper title: \"Exploiting phase-shifting low-n, low-k absorbers for dense contact hole patterning in EUV lithography\".",
       "descriptionZh": "恭喜黃朝威榮獲2026 SPIE Advanced Lithography and Patterning會議ASML最佳學生論文獎！論文題目：「Exploiting phase-shifting low-n, low-k absorbers for dense contact hole patterning in EUV lithography」。",
-      "images": [
-        "image/News_highlight/ASML_Best_Student_Paper_2026/81665_0.jpg",
-        "image/News_highlight/ASML_Best_Student_Paper_2026/81663_0.jpg",
-        "image/News_highlight/ASML_Best_Student_Paper_2026/81664_0.jpg"
-      ],
       "links": [
         {
           "url": "image/News_highlight/ASML_Best_Student_Paper_2026/SPIE Poster Template_v2.pdf",
           "text": "View Poster",
           "textZh": "查看海報"
         }
-      ]
+      ],
+      "images": [
+        "image/News_highlight/ASML_Best_Student_Paper_2026/81665_0.jpg",
+        "image/News_highlight/ASML_Best_Student_Paper_2026/81663_0.jpg",
+        "image/News_highlight/ASML_Best_Student_Paper_2026/81664_0.jpg"
+      ],
+      "celebration": false
     },
     {
       "tag": "Lab News",
@@ -99,16 +82,17 @@
       "dateZh": "2026年2月",
       "description": "PAL Lab celebrated the 2026 Spring Party! Lab members gathered together to enjoy great food and fun activities, welcoming the new year with warmth and laughter.",
       "descriptionZh": "PAL實驗室歡慶2026年春酒！實驗室成員齊聚一堂，享受美食與有趣的活動，在溫馨與歡笑中迎接新的一年。",
-      "images": [
-        "image/News_highlight/2026春酒/S__14729241_0.jpg"
-      ],
       "links": [
         {
           "url": "members.html",
           "text": "Meet the Team",
           "textZh": "認識我們的團隊"
         }
-      ]
+      ],
+      "images": [
+        "image/News_highlight/2026春酒/S__14729241_0.jpg"
+      ],
+      "celebration": false
     },
     {
       "tag": "Platform Launch",
@@ -120,14 +104,15 @@
       "dateZh": "2026年1月",
       "description": "Our team has developed a general-purpose OPC cloud service for freeform mask correction. Easy access, easy use - designed for everyone.",
       "descriptionZh": "本團隊開發了通用OPC雲端服務，提供自由形式光罩校正。易於存取、易於使用——為所有人設計。",
-      "image": "image/Research/OPC_Workflow_Comparison.png",
       "links": [
         {
           "url": "brochure/OPC_Cloud_Platform_Brochure.pdf",
           "text": "View Brochure",
           "textZh": "查看手冊"
         }
-      ]
+      ],
+      "image": "image/Research/OPC_Workflow_Comparison.png",
+      "celebration": false
     },
     {
       "tag": "Lab News",
@@ -139,6 +124,13 @@
       "dateZh": "2025年12月25日",
       "description": "PAL Lab celebrated Christmas 2025 with a fun gift exchange party! Lab members gathered together to share joy and exchange gifts, strengthening our lab family bonds.",
       "descriptionZh": "PAL實驗室以有趣的交換禮物派對歡慶2025年聖誕節！實驗室成員齊聚一堂分享喜悅、交換禮物，凝聚實驗室大家庭的情誼。",
+      "links": [
+        {
+          "url": "members.html",
+          "text": "Meet the Team",
+          "textZh": "認識我們的團隊"
+        }
+      ],
       "images": [
         "image/News_highlight/2025_12_25/xmas_1.jpg",
         "image/News_highlight/2025_12_25/xmas_2.jpg",
@@ -147,13 +139,7 @@
         "image/News_highlight/2025_12_25/xmas_5.jpg",
         "image/News_highlight/2025_12_25/xmas_6.jpg"
       ],
-      "links": [
-        {
-          "url": "members.html",
-          "text": "Meet the Team",
-          "textZh": "認識我們的團隊"
-        }
-      ]
+      "celebration": false
     },
     {
       "tag": "Award",
@@ -165,17 +151,18 @@
       "dateZh": "2025年2月",
       "description": "Congratulations to Po-Hsun Fang for winning the ASML Best Student Paper Award at SPIE Advanced Lithography + Patterning 2025! Research title: \"Quasi Phase Only Mask for high contrast EUV imaging\".",
       "descriptionZh": "恭喜方柏勛榮獲SPIE Advanced Lithography + Patterning 2025 ASML最佳學生論文獎！研究題目：「Quasi Phase Only Mask for high contrast EUV imaging」。",
-      "images": [
-        "image/News_highlight/ASML Best Student Paper/S__29188107_0.jpg",
-        "image/News_highlight/ASML Best Student Paper/S__29188108_0.jpg"
-      ],
       "links": [
         {
           "url": "https://dop.nycu.edu.tw/ch/news_ii.html?nID=656",
           "text": "Read More",
           "textZh": "閱讀更多"
         }
-      ]
+      ],
+      "images": [
+        "image/News_highlight/ASML Best Student Paper/S__29188107_0.jpg",
+        "image/News_highlight/ASML Best Student Paper/S__29188108_0.jpg"
+      ],
+      "celebration": false
     },
     {
       "tag": "Award",
@@ -187,14 +174,15 @@
       "dateZh": "2025年12月",
       "description": "Congratulation to Shang-Chiang Sung to win the student award in OPTIC 2025! Optical Nano Device and Application. Title: Apodized Metasurface Exit-Pupil Expansion Waveguide for High-Efficiency Augmented Reality Glasses",
       "descriptionZh": "恭喜宋尚將榮獲OPTIC 2025學生論文獎（光學奈米元件與應用）！題目：Apodized Metasurface Exit-Pupil Expansion Waveguide for High-Efficiency Augmented Reality Glasses",
-      "image": "image/News_highlight/Student%20ShangJiang.jpg",
       "links": [
         {
           "url": "https://optic2025.conf.tw/site/news_show.aspx?sid=1637&lang=en&pid=573",
           "text": "Read More",
           "textZh": "閱讀更多"
         }
-      ]
+      ],
+      "image": "image/News_highlight/Student ShangJiang.jpg",
+      "celebration": false
     },
     {
       "tag": "Award",
@@ -206,14 +194,15 @@
       "dateZh": "2025年12月",
       "description": "Congratulation to Ping-Ke Li to win the student award in OPTIC 2025! Optical Nano Device and Application. Title: Polarization-Controlled Meta-Holography via large area Chiral Metasurfaces",
       "descriptionZh": "恭喜李秉科榮獲OPTIC 2025學生論文獎（光學奈米元件與應用）！題目：Polarization-Controlled Meta-Holography via Large Area Chiral Metasurfaces",
-      "image": "image/News_highlight/Student%20Paper%20Pingke.jpg",
       "links": [
         {
           "url": "https://optic2025.conf.tw/site/news_show.aspx?sid=1637&lang=en&pid=573",
           "text": "Read More",
           "textZh": "閱讀更多"
         }
-      ]
+      ],
+      "image": "image/News_highlight/Student Paper Pingke.jpg",
+      "celebration": false
     },
     {
       "tag": "New Publication",
@@ -225,14 +214,15 @@
       "dateZh": "2025年4月",
       "description": "Published in *Metrology, Inspection, and Process Control*: \"Large area metalens and AR waveguides fabricated by DUV KrF lithography\".",
       "descriptionZh": "發表於《Metrology, Inspection, and Process Control》：「Large area metalens and AR waveguides fabricated by DUV KrF lithography」。",
-      "video": "image/News_highlight/AR%20glasses.mp4",
       "links": [
         {
           "url": "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13426/1342644/Large-area-metalens-and-AR-waveguides-fabricated-by-DUV-KrF/10.1117/12.3057618.short",
           "text": "View Paper",
           "textZh": "查看論文"
         }
-      ]
+      ],
+      "video": "image/News_highlight/AR glasses.mp4",
+      "celebration": false
     }
   ],
   "latestHighlights": [
