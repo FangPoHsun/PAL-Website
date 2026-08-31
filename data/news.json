@@ -242,6 +242,14 @@
       "dateZh": "2026年8月",
       "description": "Honored to share that OPC+ has received a 2026 Future Tech Award from Taiwan's National Science and Technology Council, in the Semiconductor / Photonics / Communications category.\n\nOPC+ is, to our knowledge, the world's first universal cloud OPC platform spanning i-line, KrF, and ArF lithography — and natively correcting freeform designs like silicon photonics, metalenses, and metasurfaces from a single GPU-accelerated engine (>50× over CPU). The goal is simple: make professional-grade mask correction accessible to the fabs, fabless teams, silicon-photonics startups, and universities that can't afford multi-million-dollar EDA seats.\n\nThis is a team milestone — my thanks to co-PIs Prof. Shie-Yuan Wang, Prof. Jhih-Sheng Wu and our talented students across NYCU's Photonics and Computer Science departments, TSRI for the KrF tapeout that took this from algorithm to silicon, and NSTC Taiwan Chip-based Industrial Innovation Program for Funding support .\n\nMore to come.",
       "descriptionZh": "很榮幸與大家分享——OPC+ 榮獲 2026 未來科技獎（國家科學及技術委員會主辦），入選半導體與光電通訊領域。\n\nOPC+ 是全球首個橫跨 i-line／KrF／ArF 光學微影製程的通用雲端光罩修正平台，並以單一 GPU 加速引擎（較 CPU 逾 50 倍）原生支援矽光子、超穎透鏡與超穎表面等自由曲線設計。我們的目標很單純：讓中小型晶圓廠、無晶圓設計團隊、矽光子新創與學研單位，也能用得起專業級的光罩修正。\n\n這是一整個團隊的成果——感謝共同主持人 王協源教授、吳致盛助理教授，感謝陽明交大光電系與資訊系一群優秀的學生，也感謝 TSRI 完成 KrF 流片驗證，讓演算法真正走到矽晶圓上，以及國科會晶創EDA計畫的經費支持。\n\n後續還有更多進展，敬請期待。",
+      "keywords": [
+        "FutureTechAward",
+        "ComputationalLithography",
+        "OPC",
+        "SiliconPhotonics",
+        "Semiconductor",
+        "NYCU"
+      ],
       "images": [
         "image/OPC+ Overview-2.jpg",
         "image/Pattern OPC-1.jpg"
