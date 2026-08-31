@@ -19,8 +19,6 @@
       "nameZh": "張博凱",
       "grade": "Ph.D. Student",
       "avatar": "image/Member/Ph.D/張博凱 Pokai Chang.jpg",
-      "extraGifTopRight": "image/Pokai/KaPo.gif",
-      "extraGifBottomLeft": "image/Pokai/KaPo1.gif",
       "topics": [
         "Resolution Enhancement Techniques",
         "OPC",
@@ -28,7 +26,8 @@
         "High NA",
         "Lithography"
       ],
-      "bio": ""
+      "extraGifTopRight": "image/Pokai/KaPo.gif",
+      "extraGifBottomLeft": "image/Pokai/KaPo1.gif"
     },
     {
       "name": "Kuan-Hsun Wang",
@@ -41,8 +40,7 @@
         "ILT",
         "Machine Learning",
         "CAT"
-      ],
-      "bio": ""
+      ]
     },
     {
       "name": "KuanLin Lee",
@@ -53,8 +51,7 @@
         "AR Optical Design",
         "Metalenses",
         "Retinal Projection"
-      ],
-      "bio": ""
+      ]
     },
     {
       "name": "Ping-Ke Li",
@@ -65,8 +62,7 @@
         "Metasurfaces Optics",
         "Optical design",
         "End-to-End Optimization"
-      ],
-      "bio": ""
+      ]
     }
   ],
   "master": [
@@ -78,53 +74,48 @@
       "topics": [
         "AR",
         "Metalens"
-      ],
-      "bio": ""
+      ]
     },
     {
       "name": "Wei-Zhe Li",
       "nameZh": "李惟哲",
-      "grade": "Master Student 1 Year",
+      "grade": "Master Student 2 Year",
       "avatar": "image/Member/Master/李惟哲  Wei-Zhe Li.jpg",
       "topics": [
         "Metasurface",
         "Deep Learning"
-      ],
-      "bio": ""
+      ]
     },
     {
       "name": "Yu-Chen Ye",
       "nameZh": "葉于甄",
-      "grade": "Master Student 1 Year",
+      "grade": "Master Student 2 Year",
       "avatar": "image/Member/Master/葉于甄 Yu-Chen Ye.jpg",
       "topics": [
         "Metasurface",
         "SiPh"
-      ],
-      "bio": ""
+      ]
     },
     {
       "name": "Ti-Chieh Hung",
       "nameZh": "洪第傑",
-      "grade": "Master Student 1 Year",
+      "grade": "Master Student 2 Year",
       "avatar": "image/Member/Master/洪第傑 TI-CHIEH HUNG.jpg",
       "topics": [
         "Metasurface"
-      ],
-      "bio": ""
+      ]
     },
     {
       "name": "Chia-Yao Yeh.",
       "nameZh": "葉家堯",
-      "grade": "Master Student 1 Year",
+      "grade": "Master Student 2 Year",
       "avatar": "image/Member/Master/葉家堯 Chia-Yao Yeh.jpg",
       "topics": [
         "Quantum Computing",
         "HPC",
         "SA",
         "NA"
-      ],
-      "bio": ""
+      ]
     }
   ],
   "inservice": [
@@ -148,8 +139,7 @@
       "avatar": "image/Member/In-service Master Program/陳子廷 Tzuting_Chen.jpg",
       "topics": [
         "AR Glasses"
-      ],
-      "bio": ""
+      ]
     },
     {
       "name": "Pei-Shan Tang",
@@ -158,8 +148,7 @@
       "avatar": "image/Member/In-service Master Program/唐珮珊 Pei-Shan Tang.jpg",
       "topics": [
         "AR Glasses"
-      ],
-      "bio": ""
+      ]
     }
   ],
   "alumni": [
