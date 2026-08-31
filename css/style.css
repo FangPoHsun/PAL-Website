@@ -874,8 +874,9 @@ nav {
 }
 
 .news-kw {
-    border: 1px solid rgba(136, 146, 176, 0.45);
-    color: var(--text-secondary);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    background: rgba(255, 196, 0, 0.07);
     border-radius: 12px;
     padding: 2px 10px;
     font-size: 0.72rem;
