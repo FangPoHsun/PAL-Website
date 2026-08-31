@@ -25,7 +25,10 @@ content:
       - name: newsHighlights
         label: News stories
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{date} — {title}"
         fields:
           - name: tag
             label: Tag (English)
@@ -102,7 +105,10 @@ content:
         label: Latest Highlights ticker
         description: Short one-line items shown in the homepage highlights list.
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{en}"
         fields:
           - name: en
             label: Text (English)
@@ -122,7 +128,10 @@ content:
       - name: phd
         label: Ph.D. students
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}（{nameZh}）"
         fields:
           - name: name
             label: Name (English)
@@ -155,7 +164,10 @@ content:
       - name: master
         label: Master students
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}（{nameZh}）"
         fields:
           - name: name
             label: Name (English)
@@ -182,7 +194,10 @@ content:
       - name: inservice
         label: In-service Master Program
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}（{nameZh}）"
         fields:
           - name: name
             label: Name (English)
@@ -208,7 +223,10 @@ content:
       - name: alumni
         label: Alumni (by graduating class)
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{year}（{yearZh}）"
         fields:
           - name: year
             label: Class label (English)
@@ -222,7 +240,10 @@ content:
           - name: members
             label: Graduates
             type: object
-            list: true
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name}（{nameZh}）"
             fields:
               - name: name
                 label: Name (English)
@@ -242,7 +263,10 @@ content:
       - name: publications
         label: Papers
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{year} · {title}"
         fields:
           - name: type
             label: Type
