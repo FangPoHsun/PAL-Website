@@ -1,0 +1,317 @@
+{
+  "phd": [
+    {
+      "name": "Po-Hsun Fang",
+      "nameZh": "方柏勛",
+      "grade": "Ph.D. Student",
+      "avatar": "image/Member/Ph.D/方柏勛 Po-Hsun Fang.jpg",
+      "topics": [
+        "Resolution Enhancement Techniques",
+        "OPC",
+        "ILT",
+        "SMO",
+        "Quantum Annealing"
+      ],
+      "bio": "Po-Hsun Fang is a PhD student in the Department of Photonics at National Yang Ming Chiao Tung University (NYCU), Taiwan, working under Prof. Yu. His research focuses on computational lithography, including inverse lithography technology, optical proximity correction, and quantum computing applications for semiconductor manufacturing. He is involved in TSMC's Joint Development Program and D-Wave quantum computing projects. Po-Hsun received the ASML Best Student Paper Award at SPIE Advanced Lithography + Patterning 2025 for his work on quasi Phase-Only Masks in EUV lithography. His current interests include MEEF-based OPC using quantum annealing and machine learning approaches for lithography optimization."
+    },
+    {
+      "name": "Pokai Chang",
+      "nameZh": "張博凱",
+      "grade": "Ph.D. Student",
+      "avatar": "image/Member/Ph.D/張博凱 Pokai Chang.jpg",
+      "extraGifTopRight": "image/Pokai/KaPo.gif",
+      "extraGifBottomLeft": "image/Pokai/KaPo1.gif",
+      "topics": [
+        "Resolution Enhancement Techniques",
+        "OPC",
+        "EUV",
+        "High NA",
+        "Lithography"
+      ],
+      "bio": ""
+    },
+    {
+      "name": "Kuan-Hsun Wang",
+      "nameZh": "王冠勛",
+      "grade": "Ph.D. Student",
+      "avatar": "image/Member/Ph.D/王冠勛 Kuan-Hsun Wang.jpg",
+      "topics": [
+        "Resolution Enhancement Techniques",
+        "OPC",
+        "ILT",
+        "Machine Learning",
+        "CAT"
+      ],
+      "bio": ""
+    },
+    {
+      "name": "KuanLin Lee",
+      "nameZh": "李冠霖",
+      "grade": "Ph.D. Student",
+      "avatar": "image/Member/Ph.D/李冠霖 KuanLin Lee.jpg",
+      "topics": [
+        "AR Optical Design",
+        "Metalenses",
+        "Retinal Projection"
+      ],
+      "bio": ""
+    },
+    {
+      "name": "Ping-Ke Li",
+      "nameZh": "李秉科",
+      "grade": "Ph.D. Student 1 Year",
+      "avatar": "image/Member/Master/李秉科 Ping-Ke Li.jpg",
+      "topics": [
+        "Metasurfaces Optics",
+        "Optical design",
+        "End-to-End Optimization"
+      ],
+      "bio": ""
+    }
+  ],
+  "master": [
+    {
+      "name": "Chih Han Wu",
+      "nameZh": "吳芝涵",
+      "grade": "Master Student 2 Year",
+      "avatar": "image/Member/Master/吳芝涵 Chih Han Wu.jpg",
+      "topics": [
+        "AR",
+        "Metalens"
+      ],
+      "bio": ""
+    },
+    {
+      "name": "Wei-Zhe Li",
+      "nameZh": "李惟哲",
+      "grade": "Master Student 1 Year",
+      "avatar": "image/Member/Master/李惟哲  Wei-Zhe Li.jpg",
+      "topics": [
+        "Metasurface",
+        "Deep Learning"
+      ],
+      "bio": ""
+    },
+    {
+      "name": "Yu-Chen Ye",
+      "nameZh": "葉于甄",
+      "grade": "Master Student 1 Year",
+      "avatar": "image/Member/Master/葉于甄 Yu-Chen Ye.jpg",
+      "topics": [
+        "Metasurface",
+        "SiPh"
+      ],
+      "bio": ""
+    },
+    {
+      "name": "Ti-Chieh Hung",
+      "nameZh": "洪第傑",
+      "grade": "Master Student 1 Year",
+      "avatar": "image/Member/Master/洪第傑 TI-CHIEH HUNG.jpg",
+      "topics": [
+        "Metasurface"
+      ],
+      "bio": ""
+    },
+    {
+      "name": "Chia-Yao Yeh.",
+      "nameZh": "葉家堯",
+      "grade": "Master Student 1 Year",
+      "avatar": "image/Member/Master/葉家堯 Chia-Yao Yeh.jpg",
+      "topics": [
+        "Quantum Computing",
+        "HPC",
+        "SA",
+        "NA"
+      ],
+      "bio": ""
+    }
+  ],
+  "inservice": [
+    {
+      "name": "Chia-Wei Chang",
+      "nameZh": "張家瑋",
+      "grade": "In-service Master",
+      "avatar": "image/Member/In-service Master Program/張家偉 Chia-Wei Chang.jpg",
+      "topics": [
+        "OPC Modeling",
+        "Lithography",
+        "Metasurface",
+        "Process Optimization"
+      ],
+      "bio": "CHIA-WEI CHANG received the B.S. degree in photonics from Feng Chia University, Taichung, Taiwan. He is currently pursuing the M.S. degree in electro-optical engineering with National Yang Ming Chiao Tung University, Hsinchu, Taiwan. He has worked with United Microelectronics Corporation, Hsinchu, and Giga Solution Tech. Company Ltd., Hsinchu. He is currently with the Taiwan Semiconductor Research Institute, Hsinchu. His research interests include MEEF and OPC modeling, lithography process optimization, and metasurface-based optical system design"
+    },
+    {
+      "name": "Tzuting Chen",
+      "nameZh": "陳子廷",
+      "grade": "In-service Master",
+      "avatar": "image/Member/In-service Master Program/陳子廷 Tzuting_Chen.jpg",
+      "topics": [
+        "AR Glasses"
+      ],
+      "bio": ""
+    },
+    {
+      "name": "Pei-Shan Tang",
+      "nameZh": "唐珮珊",
+      "grade": "In-service Master",
+      "avatar": "image/Member/In-service Master Program/唐珮珊 Pei-Shan Tang.jpg",
+      "topics": [
+        "AR Glasses"
+      ],
+      "bio": ""
+    }
+  ],
+  "alumni": [
+    {
+      "year": "Class of 113",
+      "yearZh": "113級",
+      "members": [
+        {
+          "name": "Hsuehli Liu",
+          "nameZh": "劉學澧"
+        },
+        {
+          "name": "Chaowei Huang",
+          "nameZh": "黃朝威"
+        },
+        {
+          "name": "Shang-Chiang Sung",
+          "nameZh": "宋尚將"
+        }
+      ]
+    },
+    {
+      "year": "Class of 112",
+      "yearZh": "112級",
+      "members": [
+        {
+          "name": "Yu-Chia Chang",
+          "nameZh": "張祐嘉"
+        },
+        {
+          "name": "Ya-Chun Huang",
+          "nameZh": "黃雅淳"
+        },
+        {
+          "name": "Wen-Teng Liang",
+          "nameZh": "梁文鐙"
+        }
+      ]
+    },
+    {
+      "year": "Class of 111",
+      "yearZh": "111級",
+      "members": [
+        {
+          "name": "I-Hsuan Chuang",
+          "nameZh": "莊宜璇"
+        },
+        {
+          "name": "Chuan-En Lin",
+          "nameZh": "林傳恩"
+        },
+        {
+          "name": "Tien-Kuang Yang",
+          "nameZh": "楊天廣"
+        }
+      ]
+    },
+    {
+      "year": "Class of 110",
+      "yearZh": "110級",
+      "members": [
+        {
+          "name": "Chun-Yen Chou",
+          "nameZh": "周均諺"
+        },
+        {
+          "name": "Ching-Ya Lin",
+          "nameZh": "林靜雅"
+        },
+        {
+          "name": "I-Chun Wang",
+          "nameZh": "王奕竣"
+        },
+        {
+          "name": "Kuan-Yu Lu",
+          "nameZh": "盧冠佑"
+        },
+        {
+          "name": "Ling-Chia Huang",
+          "nameZh": "黃苓嘉"
+        }
+      ]
+    },
+    {
+      "year": "Class of 109",
+      "yearZh": "109級",
+      "members": [
+        {
+          "name": "Sheng-Hsiang Su",
+          "nameZh": "蘇聖翔"
+        },
+        {
+          "name": "Yu-Teng Chen",
+          "nameZh": "陳育騰"
+        },
+        {
+          "name": "Tung-Ko Lin",
+          "nameZh": "林桐可"
+        }
+      ]
+    },
+    {
+      "year": "Class of 108",
+      "yearZh": "108級",
+      "members": [
+        {
+          "name": "Wei-Ping Liao",
+          "nameZh": "廖維平"
+        },
+        {
+          "name": "Ting-Yun Yang",
+          "nameZh": "楊婷芸"
+        },
+        {
+          "name": "Yu-Fan Lin",
+          "nameZh": "林峪凡"
+        },
+        {
+          "name": "Chien-Chi Huang",
+          "nameZh": "黃建錡"
+        }
+      ]
+    },
+    {
+      "year": "Class of 107",
+      "yearZh": "107級",
+      "members": [
+        {
+          "name": "Chi-Te Lin",
+          "nameZh": "林其德"
+        },
+        {
+          "name": "Li-Jung Kuo",
+          "nameZh": "郭力榕"
+        },
+        {
+          "name": "Yu-Chun Chang",
+          "nameZh": "張寓鈞"
+        },
+        {
+          "name": "Po-Hua Lin",
+          "nameZh": "林柏樺"
+        },
+        {
+          "name": "Lieh-Yuan Huang",
+          "nameZh": "黃烈淵"
+        },
+        {
+          "name": "Shu-Te Kung",
+          "nameZh": "龔書德"
+        }
+      ]
+    }
+  ]
+}

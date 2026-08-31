@@ -575,11 +575,18 @@
         }
     </style>
 
-    <script src="js/homepage-data.js"></script>
     <script src="js/script.js"></script>
     <script>
         // Dynamic Rendering for Home Page
-        document.addEventListener('DOMContentLoaded', () => {
+        // Content is loaded from data/news.json (editable through the admin panel).
+        let homepageData = { newsHighlights: [], latestHighlights: [] };
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const res = await fetch('data/news.json');
+                homepageData = await res.json();
+            } catch (e) {
+                console.error('Failed to load data/news.json — serve the site over HTTP, not file://', e);
+            }
             renderHomePageContent();
             initNewsModal();
             initNewsSwipeDots();
@@ -934,7 +941,7 @@
         }
 
         // Fireworks launcher for celebration slides
-        // To disable: set `celebration: false` in homepage-data.js
+        // To disable: set `celebration: false` on the story in data/news.json
         function initCelebrationFireworks() {
             if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 

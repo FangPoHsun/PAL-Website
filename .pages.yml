@@ -1,0 +1,297 @@
+# =========================================================================
+# PAGES CMS CONFIGURATION — the lab's admin panel
+# -------------------------------------------------------------------------
+# Editors sign in at https://app.pagescms.org with a GitHub account that
+# has write access to this repository, then edit News, Members, and
+# Publications through forms. Saving commits to the repo and GitHub Pages
+# redeploys the site automatically (~1 minute).
+#
+# Every visitor-facing text field has an English and a Chinese (中文)
+# variant — please fill in both so the site's EN | 中文 toggle works.
+# =========================================================================
+
+media:
+  input: image
+  output: image
+
+content:
+  # ── News & Highlights (homepage) ─────────────────────────────────────
+  - name: news
+    label: News & Highlights
+    description: Homepage news cards and the "Latest Highlights" ticker. The FIRST story in the list becomes the big featured card.
+    type: file
+    path: data/news.json
+    fields:
+      - name: newsHighlights
+        label: News stories
+        type: object
+        list: true
+        fields:
+          - name: tag
+            label: Tag (English)
+            type: string
+            required: true
+            description: e.g. Award, Milestone, Lab News, New Publication
+          - name: tagZh
+            label: Tag (中文)
+            type: string
+            description: e.g. 獲獎、里程碑、實驗室動態、最新論文
+          - name: tagClass
+            label: Tag color style
+            type: select
+            options:
+              values:
+                - value: news
+                  label: Blue (Lab News)
+                - value: award
+                  label: Gold (Award)
+                - value: milestone
+                  label: Milestone
+                - value: publication
+                  label: Publication
+                - value: tag-platform
+                  label: Platform / Tool
+          - name: title
+            label: Title (English)
+            type: string
+            required: true
+          - name: titleZh
+            label: Title (中文)
+            type: string
+          - name: date
+            label: Date shown (English)
+            type: string
+            description: Free text, e.g. "Aug 2026" or "Apr 21, 2026"
+          - name: dateZh
+            label: Date shown (中文)
+            type: string
+            description: e.g. "2026年8月"
+          - name: description
+            label: Description (English)
+            type: text
+            required: true
+          - name: descriptionZh
+            label: Description (中文)
+            type: text
+          - name: link
+            label: Link URL
+            type: string
+            description: Where "Read More" points — a page (members.html), a file, or an external URL
+          - name: linkText
+            label: Link text (English)
+            type: string
+            description: e.g. "View Paper", "Read More"
+          - name: linkTextZh
+            label: Link text (中文)
+            type: string
+            description: e.g. "查看論文"、"閱讀更多"
+          - name: images
+            label: Photos (use for one or more images)
+            type: image
+            list: true
+          - name: image
+            label: Single image (legacy — prefer "Photos" above)
+            type: image
+          - name: video
+            label: Video file (optional, e.g. image/Research/RET.mp4)
+            type: string
+          - name: celebration
+            label: Celebration effects (fireworks + graduation cap)
+            type: boolean
+      - name: latestHighlights
+        label: Latest Highlights ticker
+        description: Short one-line items shown in the homepage highlights list.
+        type: object
+        list: true
+        fields:
+          - name: en
+            label: Text (English)
+            type: string
+            required: true
+          - name: zh
+            label: Text (中文)
+            type: string
+
+  # ── Lab members ──────────────────────────────────────────────────────
+  - name: members
+    label: Members
+    description: Current members and alumni shown on the Members page. Names also control bold highlighting on the Publications page.
+    type: file
+    path: data/members.json
+    fields:
+      - name: phd
+        label: Ph.D. students
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Name (English)
+            type: string
+            required: true
+          - name: nameZh
+            label: Name (中文)
+            type: string
+            required: true
+          - name: grade
+            label: Grade / role
+            type: string
+            description: e.g. "Ph.D. Student", "Ph.D. Student 1 Year"
+          - name: avatar
+            label: Photo
+            type: image
+          - name: topics
+            label: Research topics
+            type: string
+            list: true
+          - name: bio
+            label: Bio (optional, English)
+            type: text
+          - name: extraGifTopRight
+            label: Decorative GIF top-right (optional)
+            type: image
+          - name: extraGifBottomLeft
+            label: Decorative GIF bottom-left (optional)
+            type: image
+      - name: master
+        label: Master students
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Name (English)
+            type: string
+            required: true
+          - name: nameZh
+            label: Name (中文)
+            type: string
+            required: true
+          - name: grade
+            label: Grade / role
+            type: string
+            description: e.g. "Master Student 1 Year", "Master Student 2 Year"
+          - name: avatar
+            label: Photo
+            type: image
+          - name: topics
+            label: Research topics
+            type: string
+            list: true
+          - name: bio
+            label: Bio (optional, English)
+            type: text
+      - name: inservice
+        label: In-service Master Program
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Name (English)
+            type: string
+            required: true
+          - name: nameZh
+            label: Name (中文)
+            type: string
+            required: true
+          - name: grade
+            label: Grade / role
+            type: string
+          - name: avatar
+            label: Photo
+            type: image
+          - name: topics
+            label: Research topics
+            type: string
+            list: true
+          - name: bio
+            label: Bio (optional, English)
+            type: text
+      - name: alumni
+        label: Alumni (by graduating class)
+        type: object
+        list: true
+        fields:
+          - name: year
+            label: Class label (English)
+            type: string
+            required: true
+            description: e.g. "Class of 113"
+          - name: yearZh
+            label: Class label (中文)
+            type: string
+            description: e.g. "113級"
+          - name: members
+            label: Graduates
+            type: object
+            list: true
+            fields:
+              - name: name
+                label: Name (English)
+                type: string
+                required: true
+              - name: nameZh
+                label: Name (中文)
+                type: string
+
+  # ── Publications ─────────────────────────────────────────────────────
+  - name: publications
+    label: Publications
+    description: Papers listed on the Publications page (BibTeX-style fields). New papers are also proposed automatically every Monday via pull request from OpenAlex.
+    type: file
+    path: data/publications.json
+    fields:
+      - name: publications
+        label: Papers
+        type: object
+        list: true
+        fields:
+          - name: type
+            label: Type
+            type: select
+            required: true
+            options:
+              values:
+                - value: article
+                  label: Journal article
+                - value: inproceedings
+                  label: Conference paper
+          - name: key
+            label: BibTeX key (unique, e.g. fang2026high)
+            type: string
+            required: true
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: author
+            label: Authors ("Last, First" — one per line)
+            type: string
+            list: true
+            required: true
+          - name: journal
+            label: Journal name (articles only)
+            type: string
+          - name: booktitle
+            label: Conference / proceedings name (conference papers only)
+            type: string
+          - name: volume
+            label: Volume
+            type: string
+          - name: number
+            label: Issue number
+            type: string
+          - name: pages
+            label: Pages (use -- for ranges, e.g. 513--520)
+            type: string
+          - name: doi
+            label: DOI (e.g. 10.1364/OE.607043 — enables the citation badge)
+            type: string
+          - name: year
+            label: Year
+            type: number
+            required: true
+          - name: organization
+            label: Organization (e.g. SPIE)
+            type: string
+          - name: scholar
+            label: Custom link (optional — DOI is used when set)
+            type: string

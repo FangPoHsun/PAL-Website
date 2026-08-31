@@ -25,7 +25,7 @@ jobs:
       - name: Open pull request if anything changed
         uses: peter-evans/create-pull-request@v6
         with:
-          add-paths: js/publications-data.js
+          add-paths: data/publications.json
           branch: auto/update-publications
           delete-branch: true
           title: 'New publications detected on OpenAlex'

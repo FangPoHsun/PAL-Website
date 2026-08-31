@@ -375,29 +375,31 @@
         </div>
     </footer>
 
-    <script src="js/members-data.js"></script>
-    <script src="js/publications-data.js"></script>
     <script src="js/script.js"></script>
     <script>
     // =========================================================================
-    // RENDERING — publication data lives in js/publications-data.js
+    // RENDERING — publication data lives in data/publications.json
+    // (editable through the admin panel)
     // =========================================================================
 
     // --- Lab member matching (bold in author lists) ------------------------
     // Names are normalized (lowercase, letters only) so "Pokai Chang",
-    // "Chang, Po-Kai" and "Chang, Pokai" all match. Sourced from members-data.js;
+    // "Chang, Po-Kai" and "Chang, Pokai" all match. Sourced from data/members.json;
     // add alternate romanizations that appear on papers to the alias list below.
     const normName = s => s.toLowerCase().replace(/[^a-z]/g, '');
 
+    let PUBLICATIONS = [];
     const LAB_AUTHORS = new Set();
-    if (typeof membersData !== 'undefined') {
-        [...membersData.phd, ...membersData.master, ...membersData.inservice]
-            .forEach(m => LAB_AUTHORS.add(normName(m.name)));
-        membersData.alumni.forEach(g => g.members.forEach(m => LAB_AUTHORS.add(normName(m.name))));
-    }
     // PI + alternate spellings used on published papers
     ['Peichen Yu', 'I-Hsiang Chuang', 'Chun-En Lin', 'Wan-Ting Liang']
         .forEach(n => LAB_AUTHORS.add(normName(n)));
+
+    function addLabAuthors(membersData) {
+        if (!membersData) return;
+        [...(membersData.phd || []), ...(membersData.master || []), ...(membersData.inservice || [])]
+            .forEach(m => LAB_AUTHORS.add(normName(m.name)));
+        (membersData.alumni || []).forEach(g => (g.members || []).forEach(m => LAB_AUTHORS.add(normName(m.name))));
+    }
 
     function formatAuthor(a) {
         const comma = a.indexOf(', ');
@@ -513,8 +515,6 @@
         document.getElementById('pub-root').innerHTML = html;
     }
 
-    renderPublications();
-
     // --- Copy BibTeX to clipboard (event delegation, survives re-render) ----
     document.getElementById('pub-root').addEventListener('click', async (e) => {
         const btn = e.target.closest('.pub-bibtex-btn');
@@ -557,7 +557,7 @@
     // =========================================================================
     // PUBLICATIONS-PER-YEAR CHART (rendered from PUBLICATIONS, no network)
     // =========================================================================
-    (function renderYearChart() {
+    function renderYearChart() {
         const byYear = {};
         for (const p of PUBLICATIONS) {
             if (!byYear[p.year]) byYear[p.year] = { j: 0, c: 0 };
@@ -648,7 +648,7 @@
             tip.style.top = (e.clientY - 34) + 'px';
         });
         chartEl.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
-    })();
+    }
 
     // =========================================================================
     // LIVE METRICS FROM OPENALEX (cached 24 h in localStorage)
@@ -673,20 +673,18 @@
         document.getElementById(id).textContent = Number(v).toLocaleString();
     };
 
-    setStat('stat-count', PUBLICATIONS.length);
-
     // PI career totals
-    (async () => {
+    async function loadAuthorStats() {
         try {
             const a = await cachedJson('pallab-oa-author-v1',
                 `https://api.openalex.org/authors/${OA_AUTHOR}?select=cited_by_count,summary_stats&mailto=${OA_MAILTO}`);
             setStat('stat-picites', a.cited_by_count);
             setStat('stat-hindex', a.summary_stats && a.summary_stats.h_index);
         } catch (e) { /* leave the em-dash placeholders */ }
-    })();
+    }
 
     // Per-paper citation counts (one batched request for every listed DOI)
-    (async () => {
+    async function loadCitationCounts() {
         const dois = PUBLICATIONS.map(p => p.doi).filter(Boolean).map(d => d.toLowerCase());
         if (!dois.length) return;
         try {
@@ -711,6 +709,37 @@
             });
             setStat('stat-labcites', total);
         } catch (e) { /* leave the em-dash placeholder */ }
+    }
+
+    // =========================================================================
+    // PAGE INIT — load JSON data, then render everything
+    // =========================================================================
+    (async function initPublicationsPage() {
+        let membersData = null;
+        try {
+            const [pubs, members] = await Promise.all([
+                fetch('data/publications.json').then(r => r.json()),
+                fetch('data/members.json').then(r => r.json()).catch(() => null),
+            ]);
+            PUBLICATIONS = pubs.publications || [];
+            membersData = members;
+        } catch (e) {
+            console.error('Failed to load data/publications.json — serve the site over HTTP, not file://', e);
+            return;
+        }
+        addLabAuthors(membersData);
+        renderPublications();
+        renderYearChart();
+        // Re-apply the saved language to freshly injected bilingual labels
+        // (script.js translated the page before this async render finished)
+        if ((localStorage.getItem('pallab-lang') || 'en') === 'zh') {
+            document.querySelectorAll('#pub-root [data-en], .pub-chart-table [data-en]').forEach(el => {
+                if (el.dataset.zh) el.textContent = el.dataset.zh;
+            });
+        }
+        setStat('stat-count', PUBLICATIONS.length);
+        loadAuthorStats();
+        loadCitationCounts();
     })();
     </script>
 </body>

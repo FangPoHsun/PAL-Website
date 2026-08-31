@@ -436,16 +436,30 @@
     </footer>
 
     <!-- Dynamic Rendering Scripts -->
-    <script src="js/members-data.js"></script>
     <script src="js/script.js"></script>
     <script>
         // Initialize members rendering
-        document.addEventListener('DOMContentLoaded', () => {
-            renderMembers();
+        // Member data is loaded from data/members.json (editable through the admin panel).
+        document.addEventListener('DOMContentLoaded', async () => {
+            let membersData = { phd: [], master: [], inservice: [], alumni: [] };
+            try {
+                const res = await fetch('data/members.json');
+                membersData = await res.json();
+            } catch (e) {
+                console.error('Failed to load data/members.json — serve the site over HTTP, not file://', e);
+            }
+            renderMembers(membersData);
+            // Re-apply the saved language to the freshly injected bilingual labels
+            // (script.js translated the page before this async render finished)
+            if ((localStorage.getItem('pallab-lang') || 'en') === 'zh') {
+                document.getElementById('alumni-container').querySelectorAll('[data-en]').forEach(el => {
+                    if (el.dataset.zh) el.textContent = el.dataset.zh;
+                });
+            }
             initLightbox();
         });
 
-        function renderMembers() {
+        function renderMembers(membersData) {
             const phdGrid = document.getElementById('phd-grid');
             const masterGrid = document.getElementById('master-grid');
             const inserviceGrid = document.getElementById('inservice-grid');
