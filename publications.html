@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="image/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=20260831">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         .year-section {
@@ -718,8 +718,8 @@
         let membersData = null;
         try {
             const [pubs, members] = await Promise.all([
-                fetch('data/publications.json').then(r => r.json()),
-                fetch('data/members.json').then(r => r.json()).catch(() => null),
+                fetch('data/publications.json?t=' + Date.now()).then(r => r.json()),
+                fetch('data/members.json?t=' + Date.now()).then(r => r.json()).catch(() => null),
             ]);
             PUBLICATIONS = pubs.publications || [];
             membersData = members;

@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="image/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=20260831">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -583,7 +583,7 @@
         let homepageData = { newsHighlights: [], latestHighlights: [] };
         document.addEventListener('DOMContentLoaded', async () => {
             try {
-                const res = await fetch('data/news.json');
+                const res = await fetch('data/news.json?t=' + Date.now());
                 homepageData = await res.json();
             } catch (e) {
                 console.error('Failed to load data/news.json — serve the site over HTTP, not file://', e);
@@ -809,6 +809,27 @@
                         if (window.openNewsModal) window.openNewsModal(idx);
                     });
                 });
+
+                // Long stories are clamped by CSS; give them an explicit
+                // "View full story" button (clicking it bubbles up to the
+                // card, which opens the detail modal with the full text).
+                const markClampedStories = () => {
+                    document.querySelectorAll('.news-featured-body p, .news-card-body p').forEach(p => {
+                        if (p.nextElementSibling && p.nextElementSibling.classList.contains('news-readmore')) return;
+                        if (p.scrollHeight > p.clientHeight + 2) {
+                            const btn = document.createElement('button');
+                            btn.type = 'button';
+                            btn.className = 'news-readmore';
+                            btn.setAttribute('data-en', 'View full story ▸');
+                            btn.setAttribute('data-zh', '查看完整內容 ▸');
+                            btn.textContent = currentLang === 'zh' ? '查看完整內容 ▸' : 'View full story ▸';
+                            p.insertAdjacentElement('afterend', btn);
+                        }
+                    });
+                };
+                requestAnimationFrame(markClampedStories);
+                // Cards revealed by "Show More News" are measurable only once visible
+                if (moreBtn) moreBtn.addEventListener('click', () => requestAnimationFrame(markClampedStories));
             }
 
             if (highlightsList && homepageData.latestHighlights) {

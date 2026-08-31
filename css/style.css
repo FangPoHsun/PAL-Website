@@ -841,6 +841,30 @@ nav {
     align-items: center;
 }
 
+/* "View full story" affordance, injected only when a story's text is clamped */
+.news-readmore {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: -8px 0 14px;
+    align-self: flex-start;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-family: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.news-readmore:hover {
+    color: var(--accent-color);
+}
+
+.news-card-body .news-readmore {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
 .carousel-button {
     position: absolute;
     top: 50%;
