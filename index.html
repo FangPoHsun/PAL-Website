@@ -831,6 +831,13 @@
                     return slide;
                 };
 
+                // The deploy step bakes a prerendered copy of this content into
+                // the HTML for crawlers — clear it before rebuilding, so the
+                // client render stays the single source of truth
+                featuredWrap.innerHTML = '';
+                grid.innerHTML = '';
+                document.querySelectorAll('.news-swipe-dots').forEach(d => d.remove());
+
                 homepageData.newsHighlights.forEach((highlight, index) => {
                     if (index === 0) {
                         // Desktop shows the featured layout; on mobile a regular
@@ -891,6 +898,7 @@
             }
 
             if (highlightsList && homepageData.latestHighlights) {
+                highlightsList.innerHTML = ''; // drop the prerendered copy
                 homepageData.latestHighlights.forEach(h => {
                     const li = document.createElement('li');
                     li.setAttribute('data-en', h.en);

@@ -485,6 +485,10 @@
             const inserviceGrid = document.getElementById('inservice-grid');
             const alumniContainer = document.getElementById('alumni-container');
 
+            // The deploy step bakes a prerendered copy into the HTML for
+            // crawlers — clear it before rebuilding
+            [phdGrid, masterGrid, inserviceGrid, alumniContainer].forEach(el => { el.innerHTML = ''; });
+
             // Render PhD
             membersData.phd.forEach(member => {
                 phdGrid.appendChild(createMemberCard(member));

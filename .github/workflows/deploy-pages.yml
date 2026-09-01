@@ -1,0 +1,77 @@
+name: Deploy site with prerendered content
+
+# Builds the site by loading the JSON-driven pages in headless Chrome and
+# capturing the fully rendered DOM, so crawlers that do not run JavaScript
+# (Bing, social previews, citation tools) see real content. The client
+# scripts clear and re-render the same containers on load, so browsers
+# behave exactly as before.
+#
+# Requires GitHub Pages to be set to "GitHub Actions" as the source:
+# repo Settings -> Pages -> Build and deployment -> Source.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Copy site into _site
+        run: |
+          mkdir -p _site
+          rsync -a --exclude _site --exclude .git --exclude .github \
+            --exclude node_modules --exclude scripts ./ _site/
+
+      - name: Prerender JSON-driven pages with headless Chrome
+        run: |
+          cd _site
+          python3 -m http.server 8765 &
+          SERVER_PID=$!
+          sleep 2
+          for page in index members publications calendar; do
+            echo "Prerendering $page.html"
+            google-chrome --headless=new --no-sandbox --disable-gpu \
+              --dump-dom --virtual-time-budget=15000 \
+              "http://localhost:8765/$page.html" > "/tmp/$page.html"
+            # Sanity: keep the original if the capture failed or came back tiny
+            if [ "$(wc -c < /tmp/$page.html)" -gt 20000 ]; then
+              printf '<!DOCTYPE html>\n' > "$page.html"
+              cat "/tmp/$page.html" >> "$page.html"
+            else
+              echo "WARNING: capture of $page.html too small, keeping original"
+            fi
+          done
+          kill $SERVER_PID
+
+      - name: Verify prerendered content
+        run: |
+          grep -c 'class="pub-item"' _site/publications.html
+          grep -c 'class="member-card"' _site/members.html
+          grep -c 'news-card' _site/index.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
