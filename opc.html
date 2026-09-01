@@ -118,16 +118,29 @@
             margin-bottom: 16px;
         }
 
-        .figure-card {
-            background: #fff;
-            border-radius: 10px;
-            padding: 14px;
-            margin: 18px 0 6px;
+        /* Mask-layout / printed-wafer panel pairs inside a comparison column */
+        .mickey-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            align-items: start;
         }
 
-        .figure-card img {
+        .mickey-grid figure {
+            margin: 0;
+        }
+
+        .mickey-grid img {
             width: 100%;
+            border-radius: 8px;
             display: block;
+        }
+
+        .mickey-grid figcaption {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 6px;
         }
 
         .fig-caption {
@@ -423,8 +436,33 @@
                 wavelength is comparable to the features being printed, diffraction distorts the result: corners round
                 off, line widths drift, and the smallest features can vanish entirely. Optical Proximity Correction
                 (OPC) pre-distorts the mask so the printed pattern matches the designer's intent.</p>
-            <div class="figure-card">
-                <img src="image/OPC/pattern_comparison.jpg" alt="Comparison of an uncorrected target mask and an OPC-corrected mask: the corrected wafer image faithfully reproduces the design" loading="lazy">
+            <div class="sem-pair" style="margin-top: 20px;">
+                <div class="sem-item">
+                    <span class="sem-label no" data-en="Target — without correction" data-zh="目標圖形——未修正">Target — without correction</span>
+                    <div class="mickey-grid">
+                        <figure>
+                            <img src="image/OPC/mickey_target_mask.jpg" alt="Uncorrected mask layout" loading="lazy">
+                            <figcaption data-en="Mask layout" data-zh="光罩佈局">Mask layout</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="image/OPC/mickey_target_wafer.jpg" alt="Wafer image printed from the uncorrected mask: detail is lost" loading="lazy">
+                            <figcaption data-en="Printed wafer" data-zh="晶圓成像">Printed wafer</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="sem-item">
+                    <span class="sem-label yes" data-en="OPC mask — with correction" data-zh="OPC光罩——修正後">OPC mask — with correction</span>
+                    <div class="mickey-grid">
+                        <figure>
+                            <img src="image/OPC/mickey_opc_mask.jpg" alt="Pre-distorted OPC mask layout" loading="lazy">
+                            <figcaption data-en="Mask layout" data-zh="光罩佈局">Mask layout</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="image/OPC/mickey_opc_wafer.jpg" alt="Wafer image printed from the OPC mask: the intended pattern is restored" loading="lazy">
+                            <figcaption data-en="Printed wafer" data-zh="晶圓成像">Printed wafer</figcaption>
+                        </figure>
+                    </div>
+                </div>
             </div>
             <p class="fig-caption"
                 data-en="Without correction (left) the printed wafer image loses detail; the pre-distorted OPC mask (right) restores the intended pattern."
