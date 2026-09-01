@@ -55,18 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.getElementById('nav-links');
 
     if (hamburger && navLinks) {
+        // A real <button>, so Enter/Space fire click natively — no keydown
+        // handler needed (one would double-toggle)
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('toggle');
-        });
-
-        // Support keyboard navigation for hamburger menu
-        hamburger.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                navLinks.classList.toggle('active');
-                hamburger.classList.toggle('toggle');
-            }
+            hamburger.setAttribute('aria-expanded', navLinks.classList.contains('active') ? 'true' : 'false');
         });
     }
 
@@ -394,6 +388,10 @@ document.addEventListener('DOMContentLoaded', () => {
             modalOverlay.classList.add('active');
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
 
+            // Move keyboard focus into the dialog; remember where to return it
+            modalOverlay._returnFocus = document.activeElement;
+            if (closeBtn) closeBtn.focus();
+
             // Apply language to dynamically injected content
             const currentLang = localStorage.getItem('pallab-lang') || 'en';
             modalBody.querySelectorAll('[data-en]').forEach(el => {
@@ -408,6 +406,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const closeModal = () => {
             modalOverlay.classList.remove('active');
             document.body.style.overflow = '';
+            // Return keyboard focus to the card that opened the dialog
+            if (modalOverlay._returnFocus && modalOverlay._returnFocus.focus) {
+                modalOverlay._returnFocus.focus();
+            }
         };
 
         researchCards.forEach(card => {

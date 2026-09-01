@@ -23,7 +23,7 @@
     <meta name="twitter:image" content="https://nycu-pal.com/image/og-card.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=20260901a">
+    <link rel="stylesheet" href="css/style.css?v=20260901b">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         .research-grid {
@@ -174,15 +174,17 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content" data-en="Skip to content" data-zh="跳至主要內容">Skip to content</a>
+
 
     <header>
         <nav>
             <a href="index.html" class="logo">PAL Lab</a>
-            <div class="hamburger" id="hamburger" role="button" aria-label="Toggle navigation menu" tabindex="0">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="pi.html">PI Profile</a></li>
@@ -196,7 +198,7 @@
         </nav>
     </header>
 
-    <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
+    <div id="main-content" class="container" style="padding-top: 100px; padding-bottom: 60px;">
         <h2 class="fade-in" data-en="Research Areas" data-zh="研究領域">Research Areas</h2>
         <p class="fade-in" style="color: var(--text-secondary); max-width: 800px;"
             data-en="Our lab explores the cutting edge of photonics and lithography, focusing on four main pillars of research."
@@ -549,7 +551,7 @@
     </footer>
 
     <!-- Research Modal -->
-    <div class="modal-overlay" id="research-modal">
+    <div class="modal-overlay" id="research-modal" role="dialog" aria-modal="true" aria-label="Research details">
         <div class="modal-content">
             <button class="close-modal">&times;</button>
             <div class="modal-body">

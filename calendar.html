@@ -22,21 +22,23 @@
     <meta name="twitter:image" content="https://nycu-pal.com/image/og-card.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=20260901a">
+    <link rel="stylesheet" href="css/style.css?v=20260901b">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content" data-en="Skip to content" data-zh="跳至主要內容">Skip to content</a>
+
 
     <!-- Navigation -->
     <header>
         <nav>
             <a href="index.html" class="logo">PAL Lab</a>
-            <div class="hamburger" id="hamburger" role="button" aria-label="Toggle navigation menu" tabindex="0">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="pi.html">PI Profile</a></li>
@@ -50,7 +52,7 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="section-bg" style="min-height: 100vh; padding-top: 100px;">
             <div class="container">
                 <h2 class="reveal active" data-en="Lab Schedule & Events" data-zh="實驗室行程與活動">Lab Schedule & Events</h2>
