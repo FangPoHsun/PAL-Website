@@ -1042,8 +1042,10 @@ nav {
     animation: celebrationGlow 2.8s ease-in-out infinite;
 }
 
-/* Mobile twin of the featured story — hidden on desktop */
-.news-card--featured-dup {
+/* Mobile twin of the featured story — hidden on desktop.
+   (Two classes in the selector so the later `.news-card { display:flex }`
+   rule cannot override the hide — it did before, duplicating the story.) */
+.news-grid .news-card--featured-dup {
     display: none;
 }
 

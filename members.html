@@ -23,7 +23,7 @@
     <meta name="twitter:image" content="https://nycu-pal.com/image/og-card.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=20260831d">
+    <link rel="stylesheet" href="css/style.css?v=20260901a">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         .members-section {
@@ -205,6 +205,13 @@
         /* Clickable avatar */
         .member-avatar {
             cursor: pointer;
+        }
+
+        /* Initials placeholder when a member has no (working) photo */
+        .member-avatar.avatar-fallback::after {
+            content: attr(data-initials);
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
         .member-avatar:hover {
@@ -520,9 +527,18 @@
                 ? `<ul>${member.topics.map(t => `<li>${t}</li>`).join('')}</ul>`
                 : '';
 
+            // Missing or broken photos fall back to the member's initials
+            // instead of a broken-image icon
+            const initials = (member.name || '?').trim().split(/\s+/)
+                .map(w => w[0]).slice(0, 2).join('').toUpperCase();
+            const avatarHtml = member.avatar
+                ? `<img src="${member.avatar}" alt="${member.name}" loading="lazy"
+                     onerror="this.remove(); this.parentElement.classList.add('avatar-fallback')">`
+                : '';
+
             card.innerHTML = `
-                <div class="member-avatar">
-                   <img src="${member.avatar}" alt="${member.name}">
+                <div class="member-avatar${member.avatar ? '' : ' avatar-fallback'}" data-initials="${initials}">
+                   ${avatarHtml}
                 </div>
                 <div class="member-name">${member.name}</div>
                 <div class="member-name-zh">${member.nameZh}</div>
@@ -554,6 +570,7 @@
                 const avatar = e.target.closest('.member-avatar');
                 if (avatar) {
                     const img = avatar.querySelector('img');
+                    if (!img) return; // initials placeholder — nothing to enlarge
                     const card = avatar.closest('.member-card');
                     const name = card.querySelector('.member-name').textContent;
                     const nameZh = card.querySelector('.member-name-zh').textContent;
