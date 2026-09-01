@@ -53,9 +53,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             calendarGrid.appendChild(emptyCell);
         }
 
-        // Days
+        // Days — real buttons so the calendar is keyboard-operable
         for (let day = 1; day <= daysInMonth; day++) {
-            const dayCell = document.createElement('div');
+            const dayCell = document.createElement('button');
+            dayCell.type = 'button';
             dayCell.classList.add('calendar-day');
 
             const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
@@ -91,7 +92,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             dayCell.textContent = day;
-            dayCell.addEventListener('click', () => showEventDetails(dateString, currentDayOfWeek));
+            dayCell.addEventListener('click', () => {
+                calendarGrid.querySelectorAll('.calendar-day.selected')
+                    .forEach(c => c.classList.remove('selected'));
+                dayCell.classList.add('selected');
+                showEventDetails(dateString, currentDayOfWeek);
+            });
 
             calendarGrid.appendChild(dayCell);
         }

@@ -3,8 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Language Switching System ---
     const langSwitch = document.querySelector('.lang-switch');
 
-    // Get saved language or default to English
-    let currentLang = localStorage.getItem('pallab-lang') || 'en';
+    // Get saved language or default to English. A ?lang= URL parameter
+    // wins over the saved preference, so language-specific links can be
+    // shared and indexed (review F5).
+    const urlLang = new URLSearchParams(location.search).get('lang');
+    let currentLang = (urlLang === 'zh' || urlLang === 'en')
+        ? urlLang
+        : (localStorage.getItem('pallab-lang') || 'en');
 
     // Apply language on page load
     const applyLanguage = (lang) => {
@@ -36,6 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Save preference
         localStorage.setItem('pallab-lang', lang);
         currentLang = lang;
+
+        // Reflect the language in the URL so the current view is linkable
+        try {
+            const url = new URL(location.href);
+            if (lang === 'zh') url.searchParams.set('lang', 'zh');
+            else url.searchParams.delete('lang');
+            history.replaceState(null, '', url);
+        } catch (e) { /* older browsers: preference still works */ }
     };
 
     // Initialize language

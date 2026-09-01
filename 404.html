@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Page Not Found | PAL Lab</title>
+    <link rel="icon" type="image/x-icon" href="/image/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=20260901c">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .nf-wrap {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 60px;
+        }
+
+        .nf-code {
+            font-size: clamp(4rem, 14vw, 7rem);
+            font-weight: 700;
+            color: var(--accent-color);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .nf-wrap h1 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .nf-wrap p {
+            color: var(--text-secondary);
+            max-width: 480px;
+            margin-bottom: 26px;
+        }
+
+        .nf-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/index.html" class="logo">PAL Lab</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/research.html">Research</a></li>
+                <li><a href="/opc.html">OPC+</a></li>
+                <li><a href="/publications.html">Publications</a></li>
+                <li><a href="/join.html">Join Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="nf-wrap">
+        <div class="nf-code">404</div>
+        <h1 data-en="This page doesn't exist" data-zh="找不到此頁面">This page doesn't exist</h1>
+        <p data-en="The address may be mistyped, or the page may have moved. Everything on the site is reachable from the pages below."
+            data-zh="網址可能輸入有誤，或頁面已搬移。以下連結可到達本站所有內容。">
+            The address may be mistyped, or the page may have moved. Everything on the site is reachable from the pages
+            below.</p>
+        <div class="nf-links">
+            <a href="/index.html" class="btn btn-primary" data-en="Go to Homepage" data-zh="回到首頁">Go to Homepage</a>
+            <a href="/publications.html" class="btn btn-secondary" data-en="Publications" data-zh="論文發表">Publications</a>
+            <a href="/opc.html" class="btn" data-en="OPC+ Platform" data-zh="OPC+ 平台">OPC+ Platform</a>
+        </div>
+    </main>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

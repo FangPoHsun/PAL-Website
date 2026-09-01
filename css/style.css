@@ -13,7 +13,14 @@
     --bg-color: #0a192f;
     --card-bg: #112240;
     --font-main: 'Inter', 'Noto Sans TC', 'Segoe UI', 'Microsoft JhengHei', Roboto, Helvetica, Arial, sans-serif;
-    --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    /* Named properties only — transitioning `all` animates layout
+       properties by accident and softens hover states */
+    --transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1),
+        box-shadow 0.25s cubic-bezier(0.645, 0.045, 0.355, 1),
+        border-color 0.25s cubic-bezier(0.645, 0.045, 0.355, 1),
+        background-color 0.25s cubic-bezier(0.645, 0.045, 0.355, 1),
+        color 0.25s cubic-bezier(0.645, 0.045, 0.355, 1),
+        opacity 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
     --header-height: 70px;
 }
 
@@ -1668,6 +1675,11 @@ footer a {
     background: rgba(255, 255, 255, 0.05);
     cursor: pointer;
     position: relative;
+    /* Day cells are real <button>s — strip the native chrome */
+    border: none;
+    font: inherit;
+    color: inherit;
+    padding: 0;
     transition: var(--transition);
 }
 
@@ -1682,6 +1694,13 @@ footer a {
 
 .calendar-day.today {
     border: 2px solid var(--accent-color);
+}
+
+/* Persistent highlight on the day whose details are shown */
+.calendar-day.selected {
+    background: rgba(255, 196, 0, 0.18);
+    outline: 2px solid var(--accent-color);
+    outline-offset: -2px;
 }
 
 .calendar-day.has-event::after {
