@@ -125,6 +125,51 @@
         .detail-media video {
             pointer-events: none;
         }
+
+        /* Key Publications list at the end of each pillar's detail view */
+        .key-pubs {
+            margin-top: 26px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .key-pubs h4 {
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 0 0 12px;
+        }
+
+        .key-pubs ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .key-pubs li {
+            margin-bottom: 12px;
+        }
+
+        .key-pubs a {
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .key-pubs a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .kp-venue {
+            display: block;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
     </style>
 </head>
 
@@ -514,6 +559,58 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script>
+        // =====================================================================
+        // KEY PUBLICATIONS per research pillar (review F11)
+        // Pulled from data/publications.json (the same source the admin panel
+        // and the Publications page use), matched by BibTeX key, and appended
+        // to each pillar's detail view so the modal shows them.
+        // Pillar order follows the cards on this page: 01 AR Waveguides,
+        // 02 Metalens & Large-Area, 03 RET / OPC+, 04 Quantum Annealing.
+        // =====================================================================
+        const KEY_PUBS = [
+            ['chang2025eyeglow', 'chuang2024metalens', 'liang2025metalens'],
+            ['liu2025intelligent', 'liao2022line', 'hsieh2023metasurfaces'],
+            ['fang2026high', 'huang2024novel', 'chang2025reducing'],
+            ['fang2024inverse', 'fang2024tackling', 'wang2025practical'],
+        ];
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            let pubs = [];
+            try {
+                const res = await fetch('data/publications.json?t=' + Date.now());
+                pubs = (await res.json()).publications || [];
+            } catch (e) {
+                console.error('Failed to load data/publications.json', e);
+                return;
+            }
+            const byKey = {};
+            pubs.forEach(p => { byKey[p.key] = p; });
+            const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+            document.querySelectorAll('.research-detail').forEach((detail, i) => {
+                if (!KEY_PUBS[i]) return;
+                const items = KEY_PUBS[i].map(k => byKey[k]).filter(Boolean);
+                if (!items.length) return;
+                // Reuse the prerendered container if it is already there
+                let box = detail.querySelector('.key-pubs');
+                if (!box) {
+                    box = document.createElement('div');
+                    box.className = 'key-pubs';
+                    detail.appendChild(box);
+                }
+                box.innerHTML = '<h4 data-en="Key Publications" data-zh="代表著作">Key Publications</h4>'
+                    + '<ul>' + items.map(p => {
+                        const url = p.doi
+                            ? 'https://doi.org/' + p.doi
+                            : 'https://scholar.google.com/scholar?q=' + encodeURIComponent(p.title);
+                        const venue = (p.journal || p.booktitle || '') + ', ' + p.year;
+                        return `<li><a href="${url}" target="_blank" rel="noopener">${esc(p.title)}</a>`
+                            + `<span class="kp-venue">${esc(venue)}</span></li>`;
+                    }).join('') + '</ul>';
+            });
+        });
+    </script>
 </body>
 
 </html>

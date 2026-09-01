@@ -41,7 +41,7 @@ jobs:
           python3 -m http.server 8765 &
           SERVER_PID=$!
           sleep 2
-          for page in index members publications calendar; do
+          for page in index members publications calendar research; do
             echo "Prerendering $page.html"
             google-chrome --headless=new --no-sandbox --disable-gpu \
               --dump-dom --virtual-time-budget=15000 \
