@@ -438,3 +438,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Respect prefers-reduced-motion for ambient autoplaying videos:
+// stop them and expose controls instead. The capturing 'play' listener
+// also catches videos injected later (news cards, modal).
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.addEventListener('play', (e) => {
+        const v = e.target;
+        if (v.tagName === 'VIDEO' && v.hasAttribute('autoplay')) {
+            v.pause();
+            v.removeAttribute('autoplay');
+            v.controls = true;
+        }
+    }, true);
+}
