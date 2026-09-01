@@ -53,6 +53,15 @@ in papers by other researchers with the same name. To permanently reject a
 paper, close the PR and add its DOI to
 [`scripts/publications-ignore.json`](scripts/publications-ignore.json).
 
+## How publishing works
+
+Every push to `main` (including saves from Pages CMS) runs the
+"Deploy site with prerendered content" GitHub Action: it renders the
+JSON-driven pages in a headless browser and deploys the result, so search
+engines and link previews see the full content. Publishing takes about
+2–3 minutes end to end. GitHub Pages must stay set to
+*Settings → Pages → Source: GitHub Actions*.
+
 ## Previewing locally
 
 The pages load their data with `fetch()`, which browsers block for
