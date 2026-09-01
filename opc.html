@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OPC+ Cloud Platform — GPU-accelerated, cloud-native optical proximity correction with native curvilinear mask support. 50× faster than CPU solvers. Winner of a 2026 Future Tech Award.">
+    <title>OPC+ Cloud Platform | PAL Lab</title>
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
+    <link rel="canonical" href="https://nycu-pal.com/opc.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PAL Lab — Photonics &amp; Lithography Laboratory, NYCU">
+    <meta property="og:title" content="OPC+ Cloud Platform | PAL Lab">
+    <meta property="og:description" content="GPU-accelerated, cloud-native optical proximity correction with native curvilinear mask support. 50× faster than CPU solvers. Winner of a 2026 Future Tech Award.">
+    <meta property="og:url" content="https://nycu-pal.com/opc.html">
+    <meta property="og:image" content="https://nycu-pal.com/image/OPC/banner.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OPC+ Cloud Platform | PAL Lab">
+    <meta name="twitter:description" content="GPU-accelerated, cloud-native optical proximity correction with native curvilinear mask support. 50× faster than CPU solvers.">
+    <meta name="twitter:image" content="https://nycu-pal.com/image/OPC/banner.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/style.css?v=20260901b">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ── Hero ─────────────────────────────────────────────────────── */
+        .opc-hero {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .opc-hero img {
+            width: 100%;
+            display: block;
+            min-height: 260px;
+            object-fit: cover;
+        }
+
+        .opc-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(10, 25, 47, 0.92) 0%, rgba(10, 25, 47, 0.55) 55%, rgba(10, 25, 47, 0.2) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 30px 40px;
+        }
+
+        .opc-hero h1 {
+            font-size: clamp(1.6rem, 4vw, 2.6rem);
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+
+        .opc-hero .tagline {
+            color: var(--text-secondary);
+            font-size: clamp(0.9rem, 2vw, 1.05rem);
+            max-width: 560px;
+            margin-bottom: 18px;
+        }
+
+        .opc-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 10px;
+            margin-bottom: 20px;
+        }
+
+        .opc-chip {
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            background: rgba(10, 25, 47, 0.6);
+            border-radius: 14px;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .opc-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        @media (max-width: 700px) {
+            .opc-hero-overlay {
+                position: static;
+                background: var(--card-bg);
+                padding: 22px;
+            }
+
+            .opc-hero img {
+                min-height: 0;
+            }
+        }
+
+        /* ── Sections ────────────────────────────────────────────────── */
+        .opc-section {
+            margin-bottom: 55px;
+        }
+
+        .opc-section > h2 {
+            font-size: 1.6rem;
+            color: var(--text-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 18px;
+        }
+
+        .opc-section p.lead {
+            color: var(--text-secondary);
+            max-width: 850px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .figure-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 14px;
+            margin: 18px 0 6px;
+        }
+
+        .figure-card img {
+            width: 100%;
+            display: block;
+        }
+
+        .fig-caption {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        /* Problem bullets */
+        .opc-problems {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .opc-problem {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 18px 20px;
+        }
+
+        .opc-problem h4 {
+            color: var(--accent-color);
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+
+        .opc-problem p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            margin: 0;
+        }
+
+        /* SEM comparisons */
+        .sem-block {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 22px;
+        }
+
+        .sem-block h3 {
+            color: var(--text-color);
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+        }
+
+        .sem-block .sem-desc {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            margin-bottom: 16px;
+            max-width: 820px;
+        }
+
+        .sem-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 640px) {
+            .sem-pair {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sem-item img {
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .sem-label {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .sem-label.no {
+            background: rgba(232, 120, 94, 0.15);
+            color: #e8785e;
+            border: 1px solid rgba(232, 120, 94, 0.5);
+        }
+
+        .sem-label.yes {
+            background: rgba(255, 196, 0, 0.12);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        .sem-item p {
+            color: var(--text-secondary);
+            font-size: 0.83rem;
+            margin: 8px 0 0;
+        }
+
+        /* Modules */
+        .opc-modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+        }
+
+        .opc-module {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 22px;
+        }
+
+        .opc-module .num {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 196, 0, 0.1);
+            color: var(--accent-color);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .opc-module h4 {
+            color: var(--text-color);
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .opc-module p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            margin: 0;
+        }
+
+        /* Recognition */
+        .opc-recognition {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+        }
+
+        .recog-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 20px 22px;
+        }
+
+        .recog-card.award {
+            border-color: rgba(255, 196, 0, 0.45);
+        }
+
+        .recog-card h4 {
+            color: var(--accent-color);
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+
+        .recog-card p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            margin: 0;
+        }
+
+        /* Key publications (matches research page styling) */
+        .key-pubs h4 {
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 0 0 12px;
+        }
+
+        .key-pubs ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .key-pubs li {
+            margin-bottom: 12px;
+        }
+
+        .key-pubs a {
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .key-pubs a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .kp-venue {
+            display: block;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+
+        /* Access band */
+        .opc-access {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 196, 0, 0.3);
+            border-radius: 12px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .opc-access h3 {
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+
+        .opc-access p {
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content" data-en="Skip to content" data-zh="跳至主要內容">Skip to content</a>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">PAL Lab</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pi.html">PI Profile</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="opc.html" class="active">OPC+</a></li>
+                <li><a href="members.html">Members</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="calendar.html">Lab Calendar</a></li>
+                <li><a href="join.html">Join Us</a></li>
+                <li><a href="#" class="lang-switch">EN | 中文</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="main-content" class="container" style="padding-top: 100px; padding-bottom: 60px;">
+
+        <!-- Hero -->
+        <div class="opc-hero fade-in">
+            <img src="image/OPC/banner.jpg" alt="OPC+ Cloud Platform — GPU-accelerated mask correction">
+            <div class="opc-hero-overlay">
+                <h1 data-en="OPC+ Cloud Platform" data-zh="OPC+ 雲端平台">OPC+ Cloud Platform</h1>
+                <p class="tagline"
+                    data-en="Cloud-native, GPU-accelerated optical proximity correction with native curvilinear mask support — professional-grade mask correction for everyone."
+                    data-zh="雲端原生、GPU加速的光學鄰近效應修正（OPC），原生支援曲線型光罩——讓專業級光罩修正人人可用。">
+                    Cloud-native, GPU-accelerated optical proximity correction with native curvilinear mask support —
+                    professional-grade mask correction for everyone.</p>
+                <div class="opc-chips">
+                    <span class="opc-chip" data-en="50× faster than CPU solvers" data-zh="較CPU求解器快50倍">50× faster than CPU solvers</span>
+                    <span class="opc-chip" data-en="Native curvilinear masks" data-zh="原生曲線型光罩">Native curvilinear masks</span>
+                    <span class="opc-chip" data-en="2026 Future Tech Award" data-zh="2026 未來科技獎">2026 Future Tech Award</span>
+                </div>
+                <div class="opc-cta">
+                    <a href="https://opc-cloud.com/" target="_blank" rel="noopener" class="btn btn-primary" data-en="🚀 Launch Platform" data-zh="🚀 開始使用">🚀 Launch Platform</a>
+                    <a href="https://youtu.be/r_czE7M4en0" target="_blank" rel="noopener" class="btn btn-secondary" data-en="🎬 Watch Demo" data-zh="🎬 觀看示範影片">🎬 Watch Demo</a>
+                    <a href="brochure/OPC_Cloud_Platform_Brochure.pdf" target="_blank" class="btn" data-en="📄 Brochure (EN)" data-zh="📄 英文手冊">📄 Brochure (EN)</a>
+                    <a href="brochure/OPC_Cloud_Platform_Brochure_Chinese.pdf" target="_blank" class="btn" data-en="📄 手冊 (中文)" data-zh="📄 中文手冊">📄 手冊 (中文)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- What & why -->
+        <section class="opc-section fade-in">
+            <h2 data-en="Why Mask Correction Matters" data-zh="為什麼需要光罩修正">Why Mask Correction Matters</h2>
+            <p class="lead"
+                data-en="Chips and photonic devices are printed by projecting light through a patterned mask. Because the light's wavelength is comparable to the features being printed, diffraction distorts the result: corners round off, line widths drift, and the smallest features can vanish entirely. Optical Proximity Correction (OPC) pre-distorts the mask so the printed pattern matches the designer's intent."
+                data-zh="晶片與光子元件是透過光線穿過圖案化光罩投影而製造的。由於曝光波長與最小特徵尺寸相當，繞射會使成像失真：轉角圓化、線寬偏移，最小的特徵甚至完全消失。光學鄰近效應修正（OPC）預先對光罩進行補償變形，使晶圓上的圖案忠實還原設計意圖。">
+                Chips and photonic devices are printed by projecting light through a patterned mask. Because the light's
+                wavelength is comparable to the features being printed, diffraction distorts the result: corners round
+                off, line widths drift, and the smallest features can vanish entirely. Optical Proximity Correction
+                (OPC) pre-distorts the mask so the printed pattern matches the designer's intent.</p>
+            <div class="figure-card">
+                <img src="image/OPC/pattern_comparison.jpg" alt="Comparison of an uncorrected target mask and an OPC-corrected mask: the corrected wafer image faithfully reproduces the design" loading="lazy">
+            </div>
+            <p class="fig-caption"
+                data-en="Without correction (left) the printed wafer image loses detail; the pre-distorted OPC mask (right) restores the intended pattern."
+                data-zh="未修正時（左）晶圓成像細節流失；經過預補償的OPC光罩（右）則忠實還原設計圖案。">
+                Without correction (left) the printed wafer image loses detail; the pre-distorted OPC mask (right)
+                restores the intended pattern.</p>
+
+            <div class="opc-problems">
+                <div class="opc-problem">
+                    <h4 data-en="Traditional OPC is slow" data-zh="傳統OPC速度慢">Traditional OPC is slow</h4>
+                    <p data-en="CPU-bound serial solvers take hours per job. OPC+ runs CUDA multi-stream parallelism on GPU clusters — 50× faster."
+                        data-zh="CPU序列運算每件工作動輒數小時。OPC+以GPU叢集的CUDA多串流平行運算，速度提升50倍。">
+                        CPU-bound serial solvers take hours per job. OPC+ runs CUDA multi-stream parallelism on GPU
+                        clusters — 50× faster.</p>
+                </div>
+                <div class="opc-problem">
+                    <h4 data-en="…expensive and exclusive" data-zh="…昂貴且門檻高">…expensive and exclusive</h4>
+                    <p data-en="Commercial licenses and required expertise shut out startups and research labs. OPC+ is a web interface: upload, configure, submit."
+                        data-zh="商用授權費用高昂且需專業人力，將新創與研究單位拒於門外。OPC+只需網頁操作：上傳、設定、送出。">
+                        Commercial licenses and required expertise shut out startups and research labs. OPC+ is a web
+                        interface: upload, configure, submit.</p>
+                </div>
+                <div class="opc-problem">
+                    <h4 data-en="…and Manhattan-only" data-zh="…且僅支援直角圖形">…and Manhattan-only</h4>
+                    <p data-en="Legacy tools force curved photonic designs into rectilinear approximations. OPC+ corrects freeform and curvilinear masks natively."
+                        data-zh="傳統工具將曲線光子設計強制轉為直角近似。OPC+原生修正自由形式與曲線型光罩。">
+                        Legacy tools force curved photonic designs into rectilinear approximations. OPC+ corrects
+                        freeform and curvilinear masks natively.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEM proof -->
+        <section class="opc-section fade-in">
+            <h2 data-en="Fabricated Proof: SEM Before / After" data-zh="實作驗證：SEM 修正前後對比">Fabricated Proof: SEM Before / After</h2>
+            <p class="lead"
+                data-en="These scanning electron microscope images show real devices fabricated with and without OPC+ correction — the difference is not simulated."
+                data-zh="以下掃描式電子顯微鏡（SEM）影像為實際製作的元件，比較有無OPC+修正的結果——差異並非模擬，而是真實製程。">
+                These scanning electron microscope images show real devices fabricated with and without OPC+ correction
+                — the difference is not simulated.</p>
+
+            <div class="sem-block">
+                <h3 data-en="Line patterns — line-end shortening" data-zh="線條圖形——線端縮短">Line patterns — line-end shortening</h3>
+                <p class="sem-desc"
+                    data-en="Diffraction makes printed line ends recede inward, so lines come out shorter than designed. OPC extends the mask at line ends to restore the intended length."
+                    data-zh="繞射使線條末端內縮，導致成品比設計短。OPC於線端延伸光罩圖形，恢復設計長度。">
+                    Diffraction makes printed line ends recede inward, so lines come out shorter than designed. OPC
+                    extends the mask at line ends to restore the intended length.</p>
+                <div class="sem-pair">
+                    <div class="sem-item">
+                        <span class="sem-label no" data-en="Without OPC" data-zh="未修正">Without OPC</span>
+                        <img src="image/OPC/sem_line_no_opc.jpg" alt="SEM of line patterns without OPC: line ends recede and undershoot the target length" loading="lazy">
+                        <p data-en="Line ends visibly recede; printed length undershoots the target."
+                            data-zh="線端明顯內縮，長度不足。">Line ends visibly recede; printed length undershoots the target.</p>
+                    </div>
+                    <div class="sem-item">
+                        <span class="sem-label yes" data-en="With OPC+" data-zh="OPC+ 修正後">With OPC+</span>
+                        <img src="image/OPC/sem_line_with_opc.jpg" alt="SEM of line patterns with OPC: line ends accurately reproduced" loading="lazy">
+                        <p data-en="Line ends accurately reproduced; critical dimension restored."
+                            data-zh="線端精準還原，關鍵尺寸恢復。">Line ends accurately reproduced; critical dimension restored.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sem-block">
+                <h3 data-en="Ring resonator — fatal defect eliminated" data-zh="環形共振器——致命缺陷消除">Ring resonator — fatal defect eliminated</h3>
+                <p class="sem-desc"
+                    data-en="In photonic ring resonators the narrow coupling gap decides whether the device works at all. Without correction the gap fails to open — a fatal defect. With OPC+ the geometry prints cleanly."
+                    data-zh="光子環形共振器的耦合間隙決定元件能否運作。未修正時間隙無法打開——屬致命缺陷；經OPC+修正後幾何結構完整成形。">
+                    In photonic ring resonators the narrow coupling gap decides whether the device works at all. Without
+                    correction the gap fails to open — a fatal defect. With OPC+ the geometry prints cleanly.</p>
+                <div class="sem-pair">
+                    <div class="sem-item">
+                        <span class="sem-label no" data-en="Without OPC" data-zh="未修正">Without OPC</span>
+                        <img src="image/OPC/sem_ring_no_opc.jpg" alt="SEM of a ring resonator without OPC: the coupling gap region fails to open" loading="lazy">
+                        <p data-en="Coupling region not opened — the device is non-functional."
+                            data-zh="耦合區未打開——元件無法運作。">Coupling region not opened — the device is non-functional.</p>
+                    </div>
+                    <div class="sem-item">
+                        <span class="sem-label yes" data-en="With OPC+" data-zh="OPC+ 修正後">With OPC+</span>
+                        <img src="image/OPC/sem_ring_with_opc.jpg" alt="SEM of a ring resonator with OPC: coupling region fully resolved" loading="lazy">
+                        <p data-en="Coupling region fully resolved — the device is functional."
+                            data-zh="耦合區完整解析——元件功能正常。">Coupling region fully resolved — the device is functional.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sem-block">
+                <h3 data-en="Metalens — sub-wavelength features survive" data-zh="超穎透鏡——次波長結構完整保留">Metalens — sub-wavelength features survive</h3>
+                <p class="sem-desc"
+                    data-en="A metalens is made of densely packed nano-structures whose exact shapes set the optical phase profile. Without correction the smallest features distort or disappear; with OPC+ every feature prints, preserving the lens function."
+                    data-zh="超穎透鏡由密集的奈米結構組成，其精確形狀決定相位分布。未修正時最小特徵變形或消失；經OPC+修正後所有特徵完整成形，維持透鏡光學功能。">
+                    A metalens is made of densely packed nano-structures whose exact shapes set the optical phase
+                    profile. Without correction the smallest features distort or disappear; with OPC+ every feature
+                    prints, preserving the lens function.</p>
+                <div class="sem-pair">
+                    <div class="sem-item">
+                        <span class="sem-label no" data-en="Without OPC" data-zh="未修正">Without OPC</span>
+                        <img src="image/OPC/sem_metalens_no_opc.jpg" alt="SEM of metalens structures without OPC: small features fail to resolve" loading="lazy">
+                        <p data-en="Critical nano-structures lost or severely distorted."
+                            data-zh="關鍵奈米結構流失或嚴重變形。">Critical nano-structures lost or severely distorted.</p>
+                    </div>
+                    <div class="sem-item">
+                        <span class="sem-label yes" data-en="With OPC+" data-zh="OPC+ 修正後">With OPC+</span>
+                        <img src="image/OPC/sem_metalens_with_opc.jpg" alt="SEM of metalens structures with OPC: all sub-wavelength features fully resolved" loading="lazy">
+                        <p data-en="All sub-wavelength features fully resolved; phase profile preserved."
+                            data-zh="所有次波長特徵完整解析，相位分布保留。">All sub-wavelength features fully resolved; phase profile
+                            preserved.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works -->
+        <section class="opc-section fade-in">
+            <h2 data-en="How It Works" data-zh="運作方式">How It Works</h2>
+            <p class="lead"
+                data-en="Upload a GDS/OASIS layout, set your scanner parameters, and submit — the platform integrates three modules into one automated pipeline."
+                data-zh="上傳GDS／OASIS佈局檔、設定曝光機參數並送出——平台將三大模組整合為單一自動化流程。">
+                Upload a GDS/OASIS layout, set your scanner parameters, and submit — the platform integrates three
+                modules into one automated pipeline.</p>
+            <div class="opc-modules">
+                <div class="opc-module">
+                    <div class="num">1</div>
+                    <h4 data-en="Mask Correction" data-zh="光罩修正">Mask Correction</h4>
+                    <p data-en="Full-mask inverse lithography (ILT) with contour-based global optimization — higher pattern fidelity than rule-based edge correction."
+                        data-zh="全光罩逆向微影技術（ILT）搭配輪廓式全域最佳化，圖案保真度優於規則式邊緣修正。">
+                        Full-mask inverse lithography (ILT) with contour-based global optimization — higher pattern
+                        fidelity than rule-based edge correction.</p>
+                </div>
+                <div class="opc-module">
+                    <div class="num">2</div>
+                    <h4 data-en="Lithography Simulation" data-zh="微影模擬">Lithography Simulation</h4>
+                    <p data-en="High-fidelity aerial image simulation for your scanner: wavelength, NA, resolution, and illumination source configuration."
+                        data-zh="針對您的曝光機進行高擬真空間影像模擬：波長、數值孔徑、解析度與照明光源組態。">
+                        High-fidelity aerial image simulation for your scanner: wavelength, NA, resolution, and
+                        illumination source configuration.</p>
+                </div>
+                <div class="opc-module">
+                    <div class="num">3</div>
+                    <h4 data-en="Model Calibration" data-zh="模型校準">Model Calibration</h4>
+                    <p data-en="Imaging models fitted to your fab's CD-SEM measurements, capturing scanner, resist, and process variations."
+                        data-zh="以您產線的CD-SEM量測資料擬合成像模型，涵蓋曝光機、光阻與製程變異。">
+                        Imaging models fitted to your fab's CD-SEM measurements, capturing scanner, resist, and process
+                        variations.</p>
+                </div>
+            </div>
+            <p class="fig-caption" style="margin-top: 14px;">
+                <a href="https://opc-cloud-platform.github.io/opc-cloud-platform/" target="_blank" rel="noopener" style="color: var(--accent-color);"
+                    data-en="Full technical documentation, comparison tables, and deployment options →"
+                    data-zh="完整技術文件、比較表與部署方案 →">Full technical documentation, comparison tables, and deployment options →</a>
+            </p>
+        </section>
+
+        <!-- Recognition -->
+        <section class="opc-section fade-in">
+            <h2 data-en="Recognition & Validation" data-zh="獲獎與驗證">Recognition & Validation</h2>
+            <div class="opc-recognition">
+                <div class="recog-card award">
+                    <h4 data-en="🏆 2026 Future Tech Award" data-zh="🏆 2026 未來科技獎">🏆 2026 Future Tech Award</h4>
+                    <p data-en="Awarded by Taiwan's National Science and Technology Council in the Semiconductor / Photonics / Communications category."
+                        data-zh="由國家科學及技術委員會（NSTC）頒發，半導體／光電／通訊領域。">
+                        Awarded by Taiwan's National Science and Technology Council in the Semiconductor / Photonics /
+                        Communications category.</p>
+                </div>
+                <div class="recog-card">
+                    <h4 data-en="Industry & academic validation" data-zh="產學驗證">Industry & academic validation</h4>
+                    <p data-en="Validated through collaborations with the Taiwan Semiconductor Research Institute (TSRI) and the University of Southampton, UK."
+                        data-zh="與台灣半導體研究中心（TSRI）及英國南安普敦大學合作驗證。">
+                        Validated through collaborations with the Taiwan Semiconductor Research Institute (TSRI) and the
+                        University of Southampton, UK.</p>
+                </div>
+                <div class="recog-card">
+                    <h4 data-en="Joint development" data-zh="共同開發">Joint development</h4>
+                    <p data-en="Built by PAL Lab with the NYCU Network and System Laboratory (NSL); supported by the National Science and Technology Council."
+                        data-zh="由PAL實驗室與陽明交大網路系統實驗室（NSL）共同開發，國科會支持。">
+                        Built by PAL Lab with the NYCU Network and System Laboratory (NSL); supported by the National
+                        Science and Technology Council.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key publications -->
+        <section class="opc-section fade-in">
+            <h2 data-en="Key Publications" data-zh="代表著作">Key Publications</h2>
+            <div class="key-pubs" id="opc-key-pubs" data-keys="fang2026cloud,liu2025intelligent,wang2025practical,fang2024tackling,fang2024inverse"></div>
+        </section>
+
+        <!-- Access -->
+        <section class="opc-section fade-in">
+            <div class="opc-access">
+                <h3 data-en="Try OPC+ on your own design" data-zh="用您的設計試用 OPC+">Try OPC+ on your own design</h3>
+                <p data-en="Register on the platform for research or professional use — the interface supports English and Traditional Chinese."
+                    data-zh="於平台註冊即可用於研究或專業用途——介面支援英文與繁體中文。">
+                    Register on the platform for research or professional use — the interface supports English and
+                    Traditional Chinese.</p>
+                <a href="https://opc-cloud.com/" target="_blank" rel="noopener" class="btn btn-primary" data-en="Get Started at opc-cloud.com" data-zh="前往 opc-cloud.com 開始使用">Get Started at opc-cloud.com</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p data-en="Photonics & Lithography (PAL) Lab" data-zh="光子與微影技術實驗室 (PAL Lab)">Photonics & Lithography (PAL) Lab</p>
+            <p data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung University</p>
+            <p data-en="Tin Ka Ping Building, No. 1001, Daxue Rd. Hsinchu City, 300093 Taiwan, Room 306"
+                data-zh="田家炳光電大樓 306室，新竹市大學路1001號，300093 台灣">Tin Ka Ping Building, No. 1001, Daxue Rd. Hsinchu City, 300093 Taiwan, Room 306</p>
+            <p><a href="mailto:peichen.yu@nycu.edu.tw">peichen.yu@nycu.edu.tw</a></p>
+            <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.7;">&copy; 2026 PAL Lab. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Key publications, pulled from the shared publications data by
+        // BibTeX key (same pattern as the research page)
+        document.addEventListener('DOMContentLoaded', async () => {
+            const box = document.getElementById('opc-key-pubs');
+            if (!box) return;
+            let pubs = [];
+            try {
+                const res = await fetch('data/publications.json?t=' + Date.now());
+                pubs = (await res.json()).publications || [];
+            } catch (e) {
+                console.error('Failed to load data/publications.json', e);
+                return;
+            }
+            const byKey = {};
+            pubs.forEach(p => { byKey[p.key] = p; });
+            const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const items = box.dataset.keys.split(',').map(k => byKey[k]).filter(Boolean);
+            if (!items.length) return;
+            box.innerHTML = '<ul>' + items.map(p => {
+                const url = p.doi
+                    ? 'https://doi.org/' + p.doi
+                    : 'https://scholar.google.com/scholar?q=' + encodeURIComponent(p.title);
+                const venue = (p.journal || p.booktitle || '') + ', ' + p.year;
+                return `<li><a href="${url}" target="_blank" rel="noopener">${esc(p.title)}</a>`
+                    + `<span class="kp-venue">${esc(venue)}</span></li>`;
+            }).join('') + '</ul>';
+
+            // Re-apply saved language to injected bilingual labels
+            if ((localStorage.getItem('pallab-lang') || 'en') === 'zh') {
+                box.querySelectorAll('[data-en]').forEach(el => {
+                    if (el.dataset.zh) el.textContent = el.dataset.zh;
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
