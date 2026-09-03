@@ -26,7 +26,7 @@
     <meta name="twitter:image" content="https://nycu-pal.com/image/og-card.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=20260903b">
+    <link rel="stylesheet" href="css/style.css?v=20260903c">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         .research-grid {
@@ -129,6 +129,71 @@
             pointer-events: none;
         }
 
+        /* --- Card polish: equal heights, affordance, blended media --- */
+        .research-card {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .card-img {
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .card-img img,
+        .card-img video {
+            border-radius: 0 !important;   /* the card clips its own corners */
+            transition: transform 0.5s ease;
+        }
+
+        /* Fade the media into the card so white slide images stop clashing */
+        .card-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                rgba(17, 34, 64, 0) 45%,
+                rgba(17, 34, 64, 0.55) 80%,
+                rgba(17, 34, 64, 0.92) 100%);
+            pointer-events: none;
+        }
+
+        .research-card:hover .card-img img,
+        .research-card:hover .card-img video {
+            transform: scale(1.04);
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        /* Same visual weight on every card regardless of copy length */
+        .card-content > p:first-of-type {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-cta {
+            margin-top: auto;
+            padding-top: 16px;
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .research-card:hover .card-cta {
+            transform: translateX(4px);
+        }
+
         /* Key Publications list at the end of each pillar's detail view */
         .key-pubs {
             margin-top: 26px;
@@ -225,6 +290,7 @@
                         data-zh="利用超穎表面設計與製造先進繞射光學元件，以提升擴增實境顯示系統的視角與效率。">Design and fabrication of advanced diffractive
                         optical elements using metasurfaces to enhance the
                         field of view and efficiency of AR display systems.</p>
+                    <span class="card-cta" data-en="Explore →" data-zh="深入了解 →">Explore →</span>
 
 
                     <!-- Hidden Detail Content for Modal -->
@@ -281,6 +347,7 @@
                         data-zh="利用KrF微影技術結合AI輔助設計，開發大面積超穎透鏡陣列，實現高聚焦效率，應用於成像、AR顯示與多焦點系統。">Developing large-area metalens
                         arrays using KrF photolithography with AI-assisted design,
                         achieving high focusing efficiency for imaging, AR displays, and multifocal applications.</p>
+                    <span class="card-cta" data-en="Explore →" data-zh="深入了解 →">Explore →</span>
 
 
                     <div class="research-detail" style="display: none;">
@@ -349,6 +416,7 @@
                         lithography algorithms, including Source-Mask Optimization (SMO) and
                         OPC, to push the limits of semiconductor manufacturing. Our team has deployed the OPC+ Cloud
                         Service - a general-purpose OPC platform designed for easy access and easy use for everyone.</p>
+                    <span class="card-cta" data-en="Explore →" data-zh="深入了解 →">Explore →</span>
 
 
                     <div class="research-detail" style="display: none;">
@@ -499,6 +567,7 @@
                         data-zh="應用量子計算範式解決逆向微影與光罩合成的複雜最佳化問題，實現更快的收斂速度與更佳的圖案保真度。">Applying quantum computing paradigms
                         to solve complex optimization problems in inverse
                         lithography and mask synthesis, achieving faster convergence and better pattern fidelity.</p>
+                    <span class="card-cta" data-en="Explore →" data-zh="深入了解 →">Explore →</span>
 
 
                     <div class="research-detail" style="display: none;">
