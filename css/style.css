@@ -2635,3 +2635,69 @@ video:focus-visible {
         gap: 30px;
     }
 }
+
+/* ---- Hero: pillar chips + two alternating visual slides -------------- */
+.hero-pillars {
+    list-style: none;
+    margin: -12px 0 28px;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+}
+
+.hero-pillars a {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border: 1px solid rgba(136, 146, 176, 0.4);
+    border-radius: 14px;
+    padding: 4px 12px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-pillars a:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.hero-slides {
+    position: relative;
+}
+
+.hero-slide--2 {
+    position: absolute;
+    inset: 0;
+}
+
+/* 20 s cycle: OPC story for the first half, meta-optics for the second */
+.hero-slide--1 { animation: heroSlide1 20s ease-in-out infinite; }
+.hero-slide--2 { animation: heroSlide2 20s ease-in-out infinite; }
+
+@keyframes heroSlide1 {
+    0%, 46%  { opacity: 1; }
+    52%, 94% { opacity: 0; }
+    100%     { opacity: 1; }
+}
+
+@keyframes heroSlide2 {
+    0%, 46%  { opacity: 0; }
+    52%, 94% { opacity: 1; }
+    100%     { opacity: 0; }
+}
+
+/* Slide 2 has no before/after: its images stay put */
+.hero-slide--2 .opc-demo-panel img {
+    animation: none;
+    opacity: 1;
+}
+
+.hero-visual:hover .hero-slide {
+    animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-slide--1, .hero-slide--2 { animation: none; }
+    .hero-slide--2 { opacity: 0; }
+}

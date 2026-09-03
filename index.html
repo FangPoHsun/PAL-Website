@@ -55,7 +55,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=20260903e">
+    <link rel="stylesheet" href="css/style.css?v=20260903f">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -96,10 +96,16 @@
                     <p class="hero-eyebrow" data-en="Photonics &amp; Lithography Lab · NYCU" data-zh="光子與微影技術實驗室 · 陽明交大">Photonics &amp; Lithography Lab · NYCU</p>
                     <h1 data-en="Computing light at the nanoscale" data-zh="在奈米尺度上計算光">Computing light at the nanoscale</h1>
                     <p class="hero-lede"
-                        data-en="From EUV masks and inverse lithography to metasurfaces and AR optics — we design the patterns that print exactly what you imagined."
-                        data-zh="從EUV光罩與逆向微影，到超穎表面與AR光學——我們設計出能忠實印出你所構想圖案的技術。">
-                        From EUV masks and inverse lithography to metasurfaces and AR optics — we design the patterns
-                        that print exactly what you imagined.</p>
+                        data-en="From metasurfaces and AR waveguides to EUV masks and inverse lithography — we design nanoscale patterns that shape light and print exactly as intended."
+                        data-zh="從超穎表面與AR波導，到EUV光罩與逆向微影——我們設計能操控光、並忠實成像的奈米圖案。">
+                        From metasurfaces and AR waveguides to EUV masks and inverse lithography — we design nanoscale
+                        patterns that shape light and print exactly as intended.</p>
+                    <ul class="hero-pillars" aria-label="Research areas">
+                        <li><a href="research.html" data-en="Meta-optics &amp; AR waveguides" data-zh="超穎光學與AR波導">Meta-optics &amp; AR waveguides</a></li>
+                        <li><a href="research.html" data-en="Large-area metalenses" data-zh="大面積超穎透鏡">Large-area metalenses</a></li>
+                        <li><a href="research.html" data-en="Computational lithography" data-zh="計算微影">Computational lithography</a></li>
+                        <li><a href="research.html" data-en="Quantum annealing" data-zh="量子退火">Quantum annealing</a></li>
+                    </ul>
                     <div class="hero-actions">
                         <a href="research.html" class="btn btn-primary" data-en="Explore Research" data-zh="探索研究">Explore Research</a>
                         <a href="#highlights" class="hero-link" data-en="See latest news ↓" data-zh="查看最新動態 ↓">See latest news ↓</a>
@@ -108,7 +114,8 @@
 
                 <!-- Live OPC before/after: the lab's own result, crossfading -->
                 <div class="hero-visual reveal" aria-hidden="true">
-                    <div class="opc-demo">
+                    <div class="hero-slides">
+                    <div class="opc-demo hero-slide hero-slide--1">
                         <div class="opc-demo-panel">
                             <img class="od-before" src="image/OPC/mickey_target_mask.png" alt="">
                             <img class="od-after" src="image/OPC/mickey_opc_mask.png" alt="">
@@ -124,6 +131,23 @@
                             <span class="od-before od-chip od-chip--no" data-en="Without OPC" data-zh="未修正">Without OPC</span>
                             <span class="od-after od-chip od-chip--yes" data-en="With OPC+ correction" data-zh="OPC+ 修正後">With OPC+ correction</span>
                         </div>
+                    </div>
+
+                    <!-- Slide 2: meta-optics -->
+                    <div class="opc-demo hero-slide hero-slide--2">
+                        <div class="opc-demo-panel">
+                            <img src="image/Research/Metalens.jpg" alt="">
+                            <span class="od-tag" data-en="Metalens array" data-zh="超穎透鏡陣列">Metalens array</span>
+                        </div>
+                        <div class="opc-demo-arrow">→</div>
+                        <div class="opc-demo-panel">
+                            <img src="image/Research/AR_glass.jpg" alt="">
+                            <span class="od-tag" data-en="AR waveguide" data-zh="AR 波導">AR waveguide</span>
+                        </div>
+                        <div class="opc-demo-state">
+                            <span class="od-chip od-chip--yes" data-en="Meta-optics, fabricated by photolithography" data-zh="以光微影製作的超穎光學元件">Meta-optics, fabricated by photolithography</span>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
