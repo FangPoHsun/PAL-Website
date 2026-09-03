@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             dayCell.textContent = day;
+            dayCell.dataset.date = dateString;
             dayCell.addEventListener('click', () => {
                 calendarGrid.querySelectorAll('.calendar-day.selected')
                     .forEach(c => c.classList.remove('selected'));
@@ -139,12 +140,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         eventDetailsContainer.innerHTML = html;
-
-        // Highlight selected day
-        const allDays = document.querySelectorAll('.calendar-day');
-        allDays.forEach(d => d.classList.remove('selected'));
-        // Find the day cell that was clicked (approximate way or pass element)
-        // Re-selecting based on text content and logic is tricky, simpler to let user click visuals
+        // (the clicked day cell manages its own .selected highlight)
     };
 
     // Listeners
@@ -158,6 +154,69 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderCalendar(currentDate);
     });
 
-    // Initial Render
+    // --- Upcoming list: next routine meetings, holidays and lab events ---
+    const upcomingList = document.getElementById('upcoming-list');
+    const esc = t => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const toDs = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+
+    const renderUpcoming = () => {
+        if (!upcomingList) return;
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const horizon = 120 * 86400000;
+        const items = [];
+
+        Object.keys(specificEvents).forEach(ds => {
+            const d = new Date(ds + 'T00:00:00');
+            if (isNaN(d) || d < today || d - today > horizon) return;
+            const ev = specificEvents[ds];
+            items.push({ date: d, ds, title: ev.title, time: ev.time,
+                         type: ev.type === 'holiday' ? 'holiday' : 'event' });
+        });
+        routineEvents.forEach(r => {
+            for (let i = 0, n = 0; i < 28 && n < 3; i++) {
+                const d = new Date(today);
+                d.setDate(today.getDate() + i);
+                if (d.getDay() === r.day) {
+                    items.push({ date: d, ds: toDs(d), title: r.title, time: r.time, type: 'routine' });
+                    n++;
+                }
+            }
+        });
+        items.sort((a, b) => a.date - b.date);
+
+        const lang = localStorage.getItem('pallab-lang') || 'en';
+        const fmt = d => d.toLocaleDateString(lang === 'zh' ? 'zh-TW' : 'en-US',
+            { month: 'short', day: 'numeric', weekday: 'short' });
+
+        if (!items.length) {
+            upcomingList.innerHTML = `<li class="up-empty">${lang === 'zh' ? '近期沒有排定的行程。' : 'Nothing scheduled in the next few months.'}</li>`;
+            return;
+        }
+        upcomingList.innerHTML = items.slice(0, 6).map(it => `
+            <li><button type="button" class="up-item up-${it.type}" data-date="${it.ds}">
+                <span class="up-date">${fmt(it.date)}</span>
+                <span class="up-title">${esc(it.title)}</span>
+                ${it.time && it.time !== 'All Day' ? `<span class="up-time">${esc(it.time)}</span>` : ''}
+            </button></li>`).join('');
+    };
+
+    // Clicking an upcoming item jumps the calendar to that day
+    if (upcomingList) {
+        upcomingList.addEventListener('click', (e) => {
+            const btn = e.target.closest('.up-item');
+            if (!btn) return;
+            const d = new Date(btn.dataset.date + 'T00:00:00');
+            currentDate = new Date(d.getFullYear(), d.getMonth(), 1);
+            renderCalendar(currentDate);
+            const cell = calendarGrid.querySelector(`[data-date="${btn.dataset.date}"]`);
+            if (cell) cell.click();
+        });
+    }
+
+    // Initial Render: open on today, with what's coming up beneath
     renderCalendar(currentDate);
+    renderUpcoming();
+    const todayCell = calendarGrid.querySelector('.calendar-day.today');
+    if (todayCell) todayCell.click();
 });
