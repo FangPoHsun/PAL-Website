@@ -55,7 +55,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=20260901c">
+    <link rel="stylesheet" href="css/style.css?v=20260903a">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -90,19 +90,57 @@
 
     <main id="main-content" class="home-scroll-container">
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content reveal">
-                <h1 data-en-html="Photonics &amp; Lithography Lab"
-                    data-zh-html="<span style='white-space: nowrap;'>光子與微影技術</span><br><span style='white-space: nowrap;'>實驗室</span>">
-                    Photonics & Lithography Lab</h1>
-                <p data-en="Advancing the frontiers of Nanostructures, Metasurfaces, and Computational Lithography."
-                    data-zh="推動奈米結構、超穎表面與計算微影技術的前沿發展。">Advancing the frontiers of Nanostructures, Metasurfaces, and
-                    Computational Lithography.</p>
-                <div class="hero-btns">
-                    <a href="research.html" class="btn btn-primary" data-en="Explore Research" data-zh="探索研究">Explore Research</a>
-                    <a href="#highlights" class="btn btn-secondary" data-en="See Highlights ↓" data-zh="查看亮點 ↓">See
-                        Highlights &darr;</a>
-                    <a href="join.html" class="btn" data-en="Join Our Lab" data-zh="加入我們">Join Our Lab</a>
+        <section class="hero hero--v2">
+            <div class="hero-inner">
+                <div class="hero-copy reveal">
+                    <p class="hero-eyebrow" data-en="Photonics &amp; Lithography Lab · NYCU" data-zh="光子與微影技術實驗室 · 陽明交大">Photonics &amp; Lithography Lab · NYCU</p>
+                    <h1 data-en="Computing light at the nanoscale" data-zh="在奈米尺度上計算光">Computing light at the nanoscale</h1>
+                    <p class="hero-lede"
+                        data-en="From EUV masks and inverse lithography to metasurfaces and AR optics — we design the patterns that print exactly what you imagined."
+                        data-zh="從EUV光罩與逆向微影，到超穎表面與AR光學——我們設計出能忠實印出你所構想圖案的技術。">
+                        From EUV masks and inverse lithography to metasurfaces and AR optics — we design the patterns
+                        that print exactly what you imagined.</p>
+                    <div class="hero-actions">
+                        <a href="research.html" class="btn btn-primary" data-en="Explore Research" data-zh="探索研究">Explore Research</a>
+                        <a href="#highlights" class="hero-link" data-en="See latest news ↓" data-zh="查看最新動態 ↓">See latest news ↓</a>
+                    </div>
+                </div>
+
+                <!-- Live OPC before/after: the lab's own result, crossfading -->
+                <div class="hero-visual reveal" aria-hidden="true">
+                    <div class="opc-demo">
+                        <div class="opc-demo-panel">
+                            <img class="od-before" src="image/OPC/mickey_target_mask.png" alt="">
+                            <img class="od-after" src="image/OPC/mickey_opc_mask.png" alt="">
+                            <span class="od-tag" data-en="Mask layout" data-zh="光罩佈局">Mask layout</span>
+                        </div>
+                        <div class="opc-demo-arrow">→</div>
+                        <div class="opc-demo-panel">
+                            <img class="od-before" src="image/OPC/mickey_target_wafer.jpg" alt="">
+                            <img class="od-after" src="image/OPC/mickey_opc_wafer.jpg" alt="">
+                            <span class="od-tag" data-en="Printed wafer" data-zh="晶圓成像">Printed wafer</span>
+                        </div>
+                        <div class="opc-demo-state">
+                            <span class="od-before od-chip od-chip--no" data-en="Without OPC" data-zh="未修正">Without OPC</span>
+                            <span class="od-after od-chip od-chip--yes" data-en="With OPC+ correction" data-zh="OPC+ 修正後">With OPC+ correction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proof strip: three facts, one line -->
+            <div class="hero-proof reveal">
+                <div class="hero-proof-item">
+                    <strong id="hero-pubs">34</strong>
+                    <span data-en="papers since 2021" data-zh="篇論文（2021年起）">papers since 2021</span>
+                </div>
+                <div class="hero-proof-item">
+                    <strong data-en="Editor's Pick" data-zh="編輯精選">Editor's Pick</strong>
+                    <span data-en="Optics Express, 2026" data-zh="Optics Express，2026">Optics Express, 2026</span>
+                </div>
+                <div class="hero-proof-item">
+                    <strong data-en="Future Tech Award" data-zh="未來科技獎">Future Tech Award</strong>
+                    <span data-en="NSTC Taiwan, 2026" data-zh="國科會，2026">NSTC Taiwan, 2026</span>
                 </div>
             </div>
         </section>
@@ -638,6 +676,10 @@
                 console.error('Failed to load data/news.json — serve the site over HTTP, not file://', e);
             }
             renderHomePageContent();
+            fetch('data/publications.json?t=' + Date.now()).then(r => r.json()).then(j => {
+                const n = (j.publications || []).length;
+                if (n) document.getElementById('hero-pubs').textContent = n;
+            }).catch(() => {});
             initNewsModal();
             initNewsSwipeDots();
             initCelebrationFireworks();

@@ -2150,3 +2150,241 @@ video:focus-visible {
         animation: none !important;
     }
 }
+/* =====================================================================
+   HERO v2 — two-column thesis hero with the lab's own OPC before/after
+   ===================================================================== */
+.home-scroll-container .hero.hero--v2 {
+    display: block;          /* the generic section rule makes sections flex rows */
+    min-height: 0;
+    padding: calc(var(--header-height) + 56px) 20px 34px;
+    background:
+        radial-gradient(720px 480px at 82% 42%, rgba(255, 196, 0, 0.10), transparent 65%),
+        radial-gradient(900px 600px at 15% 20%, rgba(17, 34, 64, 0.9), transparent 70%),
+        var(--bg-color);
+}
+
+.hero--v2 .hero-inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    align-items: center;
+    min-height: min(62vh, 540px);   /* don't balloon on tall monitors */
+}
+
+.hero--v2 .hero-copy {
+    text-align: left;
+    max-width: 600px;
+}
+
+.hero-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-bottom: 18px;
+}
+
+.hero--v2 h1 {
+    font-size: clamp(2.3rem, 4.4vw, 3.7rem);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    margin-bottom: 20px;
+    text-wrap: balance;
+}
+
+.hero-lede {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    max-width: 520px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    flex-wrap: wrap;
+}
+
+.hero-link {
+    color: var(--text-color);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(230, 241, 255, 0.35);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-link:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* --- OPC demo ------------------------------------------------------- */
+.opc-demo {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 14px;
+    padding: 22px 22px 58px;
+    background: rgba(17, 34, 64, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+}
+
+.opc-demo-panel {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--card-bg);
+}
+
+.opc-demo-panel img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.opc-demo-arrow {
+    color: var(--accent-color);
+    font-size: 1.6rem;
+    font-weight: 700;
+    opacity: 0.85;
+}
+
+.od-tag {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    background: rgba(10, 25, 47, 0.75);
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.opc-demo-state {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 18px;
+    height: 26px;
+}
+
+.od-chip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 12px;
+    border-radius: 4px;
+}
+
+.od-chip--no {
+    color: #e8785e;
+    border: 1px solid rgba(232, 120, 94, 0.55);
+    background: rgba(232, 120, 94, 0.12);
+}
+
+.od-chip--yes {
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    background: rgba(255, 196, 0, 0.12);
+}
+
+/* Crossfade: 8 s cycle — "before" for the first half, "after" for the second */
+.od-before { animation: odBefore 8s ease-in-out infinite; }
+.od-after  { animation: odAfter 8s ease-in-out infinite; }
+
+@keyframes odBefore {
+    0%, 42%  { opacity: 1; }
+    50%, 92% { opacity: 0; }
+    100%     { opacity: 1; }
+}
+
+@keyframes odAfter {
+    0%, 42%  { opacity: 0; }
+    50%, 92% { opacity: 1; }
+    100%     { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .od-before, .od-after { animation: none; }
+    .od-before { opacity: 0; }
+    .od-after  { opacity: 1; }
+}
+
+/* --- Proof strip ---------------------------------------------------- */
+.hero-proof {
+    width: 100%;
+    max-width: 1200px;
+    margin: 44px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-proof-item {
+    flex: 1 1 200px;
+    padding: 18px 22px 0 0;
+    margin-right: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.hero-proof-item + .hero-proof-item {
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    padding-left: 22px;
+}
+
+.hero-proof-item strong {
+    font-size: 1.35rem;
+    color: var(--text-color);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+}
+
+.hero-proof-item span {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+    .hero--v2 .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        min-height: 0;
+    }
+
+    .hero--v2 .hero-copy {
+        max-width: none;
+    }
+
+    .hero-visual {
+        max-width: 520px;
+        width: 100%;
+    }
+
+    .hero-proof-item + .hero-proof-item {
+        border-left: none;
+        padding-left: 0;
+    }
+}
+
