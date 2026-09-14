@@ -23,7 +23,7 @@ jobs:
         run: node scripts/update-publications.mjs
 
       - name: Open pull request if anything changed
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           add-paths: data/publications.json
           branch: auto/update-publications
