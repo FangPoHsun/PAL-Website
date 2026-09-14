@@ -1,6 +1,65 @@
 {
   "publications": [
     {
+      "type": "inproceedings",
+      "key": "lee2026late",
+      "title": "52-5: Late-News & Invited Paper: Mass-Producible Dual-Focal AR Waveguide Display via KrF-Fabricated Stitched Metalens Array",
+      "author": [
+        "Lee, Kuan-Lin",
+        "Liang, Wen-Teng",
+        "Huang, Ya-Chun",
+        "Chang, You-Chia",
+        "Yu, Peichen"
+      ],
+      "booktitle": "SID Symposium Digest of Technical Papers",
+      "volume": "57",
+      "number": "1",
+      "pages": "729--731",
+      "doi": "10.1002/sdtp.70001_200",
+      "year": 2026,
+      "scholar": ""
+    },
+    {
+      "type": "inproceedings",
+      "key": "li2026late",
+      "title": "P-267: Late-News Poster: Large-area Visible Metalens Fabricated by KrF Photolithography Using Double Patterning and Optical Proximity Correction (OPC)",
+      "author": [
+        "Li, Ping-Ke",
+        "Liu, Hsueh-Li",
+        "Sung, Shang-Chiang",
+        "Chen, Chien-Wei",
+        "Yang, Teng-I",
+        "Yu, Peichen"
+      ],
+      "booktitle": "SID Symposium Digest of Technical Papers",
+      "volume": "57",
+      "number": "1",
+      "pages": "2280--2283",
+      "doi": "10.1002/sdtp.70001_623",
+      "year": 2026,
+      "scholar": ""
+    },
+    {
+      "type": "inproceedings",
+      "key": "lee2026metasurface",
+      "title": "52-4: Metasurface-Integrated Augmented Reality Waveguide Enabled by Resolution Enhancement Technology in KrF Photolithography",
+      "author": [
+        "Lee, Kuan-Lin",
+        "Sung, Shang-Chiang",
+        "Wu, Chih-Han",
+        "Li, Ping-Ke",
+        "Liang, Wen-Teng",
+        "Yu, Peichen"
+      ],
+      "booktitle": "SID Symposium Digest of Technical Papers",
+      "volume": "57",
+      "number": "1",
+      "pages": "725--728",
+      "doi": "10.1002/sdtp.70001_199",
+      "year": 2026,
+      "scholar": ""
+    },
+    {
       "type": "article",
       "key": "fang2026high",
       "title": "High contrast EUV imaging enabled by topological quasi phase-only masks",
@@ -535,8 +594,8 @@
         "Lin, Tong-Ke",
         "Chen, Chun-Chi",
         "Huang, Wen-Hsien",
-        "Chen, Shih‐Wei",
-        "Shieh, Jia‐Min",
+        "Chen, Shih-Wei",
+        "Shieh, Jia-Min",
         "Yu, Peichen",
         "Chang, You-Chia"
       ],
