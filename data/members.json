@@ -116,6 +116,15 @@
         "SA",
         "NA"
       ]
+    },
+    {
+      "name": "De-Sheng,Wu",
+      "nameZh": "吳德聖",
+      "grade": "Master Student 1 Year",
+      "avatar": "image/吳德聖.jpg",
+      "topics": [
+        "metalens"
+      ]
     }
   ],
   "inservice": [
