@@ -19,10 +19,11 @@
         "NYCU"
       ],
       "images": [
+        "image/Future_Tech_OPC.png",
         "image/OPC+ Overview-2.jpg",
-        "image/Pattern OPC-1.jpg"
+        "image/Pattern OPC.jpg"
       ],
-      "celebration": false
+      "celebration": true
     },
     {
       "tag": "Editor's Pick",
