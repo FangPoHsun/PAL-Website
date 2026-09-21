@@ -884,15 +884,17 @@
                         if (l) setBilingual(a, (l.text || 'Read More') + ' →', l.textZh ? l.textZh + ' →' : '');
                     });
 
-                    // Inject fireworks layer + floating graduation cap for celebration slides
-                    // (full effect on the featured card; the mobile twin keeps the glow border via CSS)
+                    // Inject fireworks for celebration slides (full effect on the
+                    // featured card; the mobile twin keeps the glow border via CSS)
                     if (isFeatured && highlight.celebration) {
                         // Fireworks particle container (behind content, z-index: 2)
                         const fwContainer = document.createElement('div');
                         fwContainer.className = 'fireworks-container';
                         slide.appendChild(fwContainer);
+                    }
 
-                        // Floating graduation cap (above content, z-index: 3)
+                    // Floating graduation cap is its own toggle (above content, z-index: 3)
+                    if (isFeatured && highlight.graduation) {
                         const capEl = document.createElement('div');
                         capEl.className = 'grad-cap-container';
                         capEl.innerHTML = `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg" aria-label="Graduation cap">

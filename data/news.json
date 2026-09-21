@@ -79,7 +79,8 @@
         "image/News_highlight/Jack Ph.D Defense/Jack PhD defense.jpg",
         "image/News_highlight/Jack Ph.D Defense/defense_cover.jpg"
       ],
-      "celebration": true
+      "celebration": true,
+      "graduation": true
     },
     {
       "tag": "Award",

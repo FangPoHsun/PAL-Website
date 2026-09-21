@@ -117,7 +117,10 @@ content:
             options:
               categories: [video]
           - name: celebration
-            label: Celebration effects (fireworks + graduation cap)
+            label: Celebration effects (fireworks + glowing border)
+            type: boolean
+          - name: graduation
+            label: Graduation cap (for defense / graduation stories)
             type: boolean
       - name: latestHighlights
         label: Latest Highlights ticker
