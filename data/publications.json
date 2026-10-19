@@ -1,6 +1,27 @@
 {
   "publications": [
     {
+      "type": "article",
+      "key": "yu2026bivariate",
+      "title": "Bivariate Least-Squares Stacking InSAR for Sparse Data Scenarios",
+      "author": [
+        "Yu, Peichen",
+        "Wang, Chao",
+        "Guan, Shaoyang",
+        "Ning, Jing",
+        "Jiang, Chaowei",
+        "Tang, Yixian",
+        "Zhang, Hailong",
+        "Yu, Hanwen"
+      ],
+      "journal": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+      "volume": "19",
+      "pages": "24830--24852",
+      "doi": "10.1109/jstars.2026.3709457",
+      "year": 2026,
+      "scholar": ""
+    },
+    {
       "type": "inproceedings",
       "key": "lee2026late",
       "title": "52-5: Late-News & Invited Paper: Mass-Producible Dual-Focal AR Waveguide Display via KrF-Fabricated Stitched Metalens Array",
@@ -166,6 +187,25 @@
       "pages": "221--227",
       "year": 2026,
       "organization": "SPIE",
+      "scholar": ""
+    },
+    {
+      "type": "inproceedings",
+      "key": "guan2025railway",
+      "title": "Railway Safety Assessment Using Dual-Frequency Insar Data in Central Shandong of Eastern China",
+      "author": [
+        "Guan, Shaoyang",
+        "Wang, Chao",
+        "Tang, Yixian",
+        "Wu, Fan",
+        "Zou, Lichuan",
+        "Yu, Peichen",
+        "Ning, Jing"
+      ],
+      "booktitle": "IEEE International Geoscience and Remote Sensing Symposium (IGARSS)",
+      "pages": "2098--2101",
+      "doi": "10.1109/igarss55030.2025.11314055",
+      "year": 2025,
       "scholar": ""
     },
     {
