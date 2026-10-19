@@ -1225,6 +1225,9 @@ nav {
     position: absolute;
     bottom: 8px;
     right: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
     font-size: 0.7rem;
