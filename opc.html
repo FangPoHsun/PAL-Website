@@ -351,6 +351,142 @@
             margin-top: 2px;
         }
 
+        /* Platform screenshots (two-up) */
+        .platform-shots {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 22px;
+        }
+
+        .platform-shots figure {
+            margin: 0;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .platform-shots img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .platform-shots figcaption {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            padding: 10px 14px;
+        }
+
+        /* Demo video cards */
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .demo-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            overflow: hidden;
+            color: inherit;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255, 196, 0, 0.5);
+        }
+
+        .demo-thumb {
+            position: relative;
+            display: block;
+            aspect-ratio: 16 / 9;
+            background: #020c1b;
+            overflow: hidden;
+        }
+
+        .demo-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .demo-play {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 56px;
+            height: 56px;
+            margin: -28px 0 0 -28px;
+            border-radius: 50%;
+            background: rgba(10, 25, 47, 0.8);
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            padding-left: 4px;
+        }
+
+        .demo-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 14px 16px 16px;
+        }
+
+        .demo-meta strong {
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        .demo-meta span {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Hardware planner callout */
+        .planner-callout {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 196, 0, 0.3);
+            border-radius: 10px;
+            padding: 22px 24px;
+        }
+
+        .planner-callout h4 {
+            color: var(--accent-color);
+            margin-bottom: 8px;
+        }
+
+        .planner-callout p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            margin: 0;
+            max-width: 72ch;
+        }
+
+        .planner-callout .btn {
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 760px) {
+            .platform-shots, .demo-grid { grid-template-columns: 1fr; }
+            .planner-callout { flex-direction: column; align-items: flex-start; }
+        }
+
         /* Access band */
         .opc-access {
             background: var(--card-bg);
@@ -416,7 +552,7 @@
                 </div>
                 <div class="opc-cta">
                     <a href="https://opc-cloud.com/" target="_blank" rel="noopener" class="btn btn-primary" data-en="🚀 Launch Platform" data-zh="🚀 開始使用">🚀 Launch Platform</a>
-                    <a href="https://youtu.be/r_czE7M4en0" target="_blank" rel="noopener" class="btn btn-secondary" data-en="🎬 Watch Demo" data-zh="🎬 觀看示範影片">🎬 Watch Demo</a>
+                    <a href="#opc-demos" class="btn btn-secondary" data-en="🎬 Watch the Demos" data-zh="🎬 觀看示範影片">🎬 Watch the Demos</a>
                     <a href="brochure/OPC_Cloud_Platform_Brochure.pdf" target="_blank" class="btn" data-en="📄 Brochure (EN)" data-zh="📄 英文手冊">📄 Brochure (EN)</a>
                     <a href="brochure/OPC_Cloud_Platform_Brochure_Chinese.pdf" target="_blank" class="btn" data-en="📄 手冊 (中文)" data-zh="📄 中文手冊">📄 手冊 (中文)</a>
                 </div>
@@ -577,13 +713,21 @@
         <section class="opc-section fade-in">
             <h2 class="section-heading" data-en="How It Works" data-zh="運作方式">How It Works</h2>
             <p class="lead"
-                data-en="Upload a GDS/OASIS layout, set your scanner parameters, and submit — the platform integrates three modules into one automated pipeline."
-                data-zh="上傳GDS／OASIS佈局檔、設定曝光機參數並送出——平台將三大模組整合為單一自動化流程。">
-                Upload a GDS/OASIS layout, set your scanner parameters, and submit — the platform integrates three
-                modules into one automated pipeline.</p>
+                data-en="Upload a GDS/OASIS layout, set your scanner parameters, and submit — three modules, the same three steps you see in the platform's navigation."
+                data-zh="上傳GDS／OASIS佈局檔、設定曝光機參數並送出——三大模組，正是平台導覽列中的三個步驟。">
+                Upload a GDS/OASIS layout, set your scanner parameters, and submit — three modules, the same three
+                steps you see in the platform's navigation.</p>
             <div class="opc-modules">
                 <div class="opc-module">
                     <div class="num">1</div>
+                    <h4 data-en="Litho Model Setting" data-zh="微影模型建置">Litho Model Setting</h4>
+                    <p data-en="Imaging models fitted to your fab's CD-SEM measurements, capturing scanner, resist, and process variations."
+                        data-zh="以您產線的CD-SEM量測資料擬合成像模型，涵蓋曝光機、光阻與製程變異。">
+                        Imaging models fitted to your fab's CD-SEM measurements, capturing scanner, resist, and process
+                        variations.</p>
+                </div>
+                <div class="opc-module">
+                    <div class="num">2</div>
                     <h4 data-en="Mask Correction" data-zh="光罩修正">Mask Correction</h4>
                     <p data-en="Full-mask inverse lithography (ILT) with contour-based global optimization — higher pattern fidelity than rule-based edge correction."
                         data-zh="全光罩逆向微影技術（ILT）搭配輪廓式全域最佳化，圖案保真度優於規則式邊緣修正。">
@@ -591,27 +735,83 @@
                         fidelity than rule-based edge correction.</p>
                 </div>
                 <div class="opc-module">
-                    <div class="num">2</div>
-                    <h4 data-en="Lithography Simulation" data-zh="微影模擬">Lithography Simulation</h4>
-                    <p data-en="High-fidelity aerial image simulation for your scanner: wavelength, NA, resolution, and illumination source configuration."
-                        data-zh="針對您的曝光機進行高擬真空間影像模擬：波長、數值孔徑、解析度與照明光源組態。">
-                        High-fidelity aerial image simulation for your scanner: wavelength, NA, resolution, and
-                        illumination source configuration.</p>
-                </div>
-                <div class="opc-module">
                     <div class="num">3</div>
-                    <h4 data-en="Model Calibration" data-zh="模型校準">Model Calibration</h4>
-                    <p data-en="Imaging models fitted to your fab's CD-SEM measurements, capturing scanner, resist, and process variations."
-                        data-zh="以您產線的CD-SEM量測資料擬合成像模型，涵蓋曝光機、光阻與製程變異。">
-                        Imaging models fitted to your fab's CD-SEM measurements, capturing scanner, resist, and process
-                        variations.</p>
+                    <h4 data-en="Imaging Simulation &amp; Mask Rule Check" data-zh="成像模擬與光罩規格檢測">Imaging Simulation &amp; Mask Rule Check</h4>
+                    <p data-en="Aerial-image and contour simulation for your scanner (wavelength, NA, illumination), plus a mask rule check — minimum width, spacing, area and corner radius — with a built-in layout viewer to pick the analysis region."
+                        data-zh="針對您的曝光機（波長、數值孔徑、照明）進行空間影像與輪廓模擬，並提供光罩規格檢測——最小線寬、間距、面積與轉角半徑——內建版圖檢視器可框選分析區域。">
+                        Aerial-image and contour simulation for your scanner (wavelength, NA, illumination), plus a mask
+                        rule check — minimum width, spacing, area and corner radius — with a built-in layout viewer to
+                        pick the analysis region.</p>
                 </div>
             </div>
+
+            <div class="platform-shots">
+                <figure>
+                    <img src="image/OPC/platform_dashboard.jpg" alt="OPC+ dashboard: the three workflow steps, recent jobs and usage statistics" loading="lazy" width="1200" height="750">
+                    <figcaption data-en="The dashboard — workflow steps, recent jobs and usage at a glance." data-zh="儀表板——工作流程步驟、最近任務與使用統計一目瞭然。">The dashboard — workflow steps, recent jobs and usage at a glance.</figcaption>
+                </figure>
+                <figure>
+                    <img src="image/OPC/platform_mrc.jpg" alt="OPC+ mask rule check with the inline layout viewer and a selected analysis region" loading="lazy" width="1200" height="750">
+                    <figcaption data-en="Mask rule check with the built-in layout viewer and analysis-region selection." data-zh="光罩規格檢測，內建版圖檢視器與分析區域框選。">Mask rule check with the built-in layout viewer and analysis-region selection.</figcaption>
+                </figure>
+            </div>
             <p class="fig-caption" style="margin-top: 14px;">
-                <a href="https://opc-cloud-platform.github.io/opc-cloud-platform/" target="_blank" rel="noopener" style="color: var(--accent-color);"
-                    data-en="Full technical documentation, comparison tables, and deployment options →"
-                    data-zh="完整技術文件、比較表與部署方案 →">Full technical documentation, comparison tables, and deployment options →</a>
+                <a href="https://opc-cloud.com/#comparison" target="_blank" rel="noopener" style="color: var(--accent-color);"
+                    data-en="Full technical comparison and documentation on opc-cloud.com →"
+                    data-zh="完整技術比較與文件請見 opc-cloud.com →">Full technical comparison and documentation on opc-cloud.com →</a>
             </p>
+        </section>
+
+        <!-- Demos -->
+        <section class="opc-section fade-in" id="opc-demos">
+            <h2 class="section-heading" data-en="Watch the Demos" data-zh="觀看示範影片">Watch the Demos</h2>
+            <div class="demo-grid">
+                <a class="demo-card" href="https://youtu.be/Qnlfx6igFrw" target="_blank" rel="noopener">
+                    <span class="demo-thumb"><img src="https://i.ytimg.com/vi/Qnlfx6igFrw/hqdefault.jpg" alt="" loading="lazy"><span class="demo-play">▶</span></span>
+                    <span class="demo-meta">
+                        <strong data-en="What is OPC? — the idea, from zero" data-zh="什麼是 OPC？——從零開始理解">What is OPC? — the idea, from zero</strong>
+                        <span data-en="2:09 · lithography, the blur, and how OPC+ reshapes the mask. Subtitles EN / 中文." data-zh="2:09 · 微影、光學模糊，以及 OPC+ 如何重塑光罩。字幕 EN / 中文。">2:09 · lithography, the blur, and how OPC+ reshapes the mask. Subtitles EN / 中文.</span>
+                    </span>
+                </a>
+                <a class="demo-card" href="https://youtu.be/jwxMNyf0YYw" target="_blank" rel="noopener">
+                    <span class="demo-thumb"><img src="https://i.ytimg.com/vi/jwxMNyf0YYw/hqdefault.jpg" alt="" loading="lazy"><span class="demo-play">▶</span></span>
+                    <span class="demo-meta">
+                        <strong data-en="Platform tour — three steps in your browser" data-zh="平台導覽——瀏覽器中的三個步驟">Platform tour — three steps in your browser</strong>
+                        <span data-en="2:25 · litho model, correction and check, on real jobs. Subtitles EN / 中文." data-zh="2:25 · 微影模型、光罩修正與結果檢查，以真實工作示範。字幕 EN / 中文。">2:25 · litho model, correction and check, on real jobs. Subtitles EN / 中文.</span>
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Deployment & capacity -->
+        <section class="opc-section fade-in">
+            <h2 class="section-heading" data-en="Deployment &amp; Capacity Planning" data-zh="部署模式與硬體規劃">Deployment &amp; Capacity Planning</h2>
+            <div class="opc-modules">
+                <div class="opc-module">
+                    <h4 data-en="Public cloud" data-zh="公有雲">Public cloud</h4>
+                    <p data-en="Managed cluster of 12+ GPUs with dynamic scheduling — no infrastructure to run." data-zh="由 12 張以上 GPU 組成的代管叢集，動態排程——無需自行維運基礎設施。">Managed cluster of 12+ GPUs with dynamic scheduling — no infrastructure to run.</p>
+                </div>
+                <div class="opc-module">
+                    <h4 data-en="Private cloud" data-zh="私有雲">Private cloud</h4>
+                    <p data-en="On-premises deployment for maximum IP security and data isolation, with full administrative control." data-zh="本地部署，提供最高等級的智財安全與資料隔離，並擁有完整管理控制權。">On-premises deployment for maximum IP security and data isolation, with full administrative control.</p>
+                </div>
+                <div class="opc-module">
+                    <h4 data-en="Hybrid" data-zh="混合模式">Hybrid</h4>
+                    <p data-en="Public and private resources combined, allocated per workload sensitivity." data-zh="結合公有與私有資源，依工作負載敏感度配置。">Public and private resources combined, allocated per workload sensitivity.</p>
+                </div>
+            </div>
+            <div class="planner-callout">
+                <div>
+                    <h4 data-en="How much hardware do you need?" data-zh="您需要多少硬體？">How much hardware do you need?</h4>
+                    <p data-en="The platform's planner sizes a GPU fleet for your layout and deadline from measured runs — about 1.6 s per correction tile on an RTX 4090, and ≈0.84 s per tile per RTX Pro 6000 card. Upload a GDS/OASIS file and it detects die size and pattern density in your browser; the file never leaves your computer."
+                       data-zh="平台的硬體規劃工具依實測結果，為您的版圖與期限估算所需 GPU 數量——RTX 4090 每個修正圖塊約 1.6 秒，RTX Pro 6000 每卡約 0.84 秒／圖塊。上傳 GDS／OASIS 檔即可在瀏覽器中自動偵測晶片尺寸與圖案密度，檔案不會離開您的電腦。">
+                        The platform's planner sizes a GPU fleet for your layout and deadline from measured runs — about
+                        1.6 s per correction tile on an RTX 4090, and ≈0.84 s per tile per RTX Pro 6000 card. Upload a
+                        GDS/OASIS file and it detects die size and pattern density in your browser; the file never leaves
+                        your computer.</p>
+                </div>
+                <a href="https://opc-cloud.com/#hardware" target="_blank" rel="noopener" class="btn" data-en="Open the hardware planner →" data-zh="開啟硬體規劃工具 →">Open the hardware planner →</a>
+            </div>
         </section>
 
         <!-- Recognition -->
@@ -652,10 +852,11 @@
         <section class="opc-section fade-in">
             <div class="opc-access">
                 <h3 data-en="Try OPC+ on your own design" data-zh="用您的設計試用 OPC+">Try OPC+ on your own design</h3>
-                <p data-en="Register on the platform for research or professional use — the interface supports English and Traditional Chinese."
-                    data-zh="於平台註冊即可用於研究或專業用途——介面支援英文與繁體中文。">
-                    Register on the platform for research or professional use — the interface supports English and
-                    Traditional Chinese.</p>
+                <p data-en="Register on the platform for research or professional use (English and Traditional Chinese interface). For industrial deployment, contact Prof. Peichen Yu — peichen.yu@nycu.edu.tw · +886-3-5712121 ext. 56357."
+                    data-zh="於平台註冊即可用於研究或專業用途（介面支援英文與繁體中文）。產業應用請聯繫余沛慈教授——peichen.yu@nycu.edu.tw · +886-3-5712121 分機 56357。">
+                    Register on the platform for research or professional use (English and Traditional Chinese
+                    interface). For industrial deployment, contact Prof. Peichen Yu — peichen.yu@nycu.edu.tw ·
+                    +886-3-5712121 ext. 56357.</p>
                 <a href="https://opc-cloud.com/" target="_blank" rel="noopener" class="btn btn-primary" data-en="Get Started at opc-cloud.com" data-zh="前往 opc-cloud.com 開始使用">Get Started at opc-cloud.com</a>
             </div>
         </section>
