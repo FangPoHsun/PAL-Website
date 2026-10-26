@@ -1,6 +1,85 @@
 {
   "publications": [
     {
+      "type": "article",
+      "key": "yu2026bivariate",
+      "title": "Bivariate Least-Squares Stacking InSAR for Sparse Data Scenarios",
+      "author": [
+        "Yu, Peichen",
+        "Wang, Chao",
+        "Guan, Shaoyang",
+        "Ning, Jing",
+        "Jiang, Chaowei",
+        "Tang, Yixian",
+        "Zhang, Hailong",
+        "Yu, Hanwen"
+      ],
+      "journal": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+      "volume": "19",
+      "pages": "24830--24852",
+      "doi": "10.1109/jstars.2026.3709457",
+      "year": 2026,
+      "scholar": ""
+    },
+    {
+      "type": "inproceedings",
+      "key": "guan2026observation",
+      "title": "Observation of Infrastructure Construction and Stability in the Cold Regions of Ne China Using Alos-2/4 InSAR",
+      "author": [
+        "Guan, Shaoyang",
+        "Wang, Chao",
+        "Tang, Yixian",
+        "Yu, Peichen",
+        "Jiang, Chaowei",
+        "Zou, Lichuan",
+        "Zhang, Zhengjia",
+        "Takeo, Tadono"
+      ],
+      "booktitle": "IEEE International Geoscience and Remote Sensing Symposium (IGARSS)",
+      "pages": "2721--2724",
+      "doi": "10.1109/igarss60577.2026.11730750",
+      "year": 2026,
+      "scholar": ""
+    },
+    {
+      "type": "inproceedings",
+      "key": "yu2026distributed",
+      "title": "Distributed 2-D Parabolic Interpolation Framework for Non-Rigid UAV InSAR Image Registration",
+      "author": [
+        "Yu, Peichen",
+        "Wang, Chao",
+        "Tang, Yixian",
+        "Guan, Shaoyang",
+        "Jiang, Chaowei",
+        "Ning, Jing",
+        "Luo, Yunhua",
+        "Zhao, Yao"
+      ],
+      "booktitle": "IEEE International Geoscience and Remote Sensing Symposium (IGARSS)",
+      "pages": "4970--4973",
+      "doi": "10.1109/igarss60577.2026.11730909",
+      "year": 2026,
+      "scholar": ""
+    },
+    {
+      "type": "inproceedings",
+      "key": "ning2026direct",
+      "title": "Direct Residual Motion Errors Estimation for UAV-Borne SAR Interferometry",
+      "author": [
+        "Ning, Jing",
+        "Wang, Chao",
+        "Tang, Yixian",
+        "Luo, Yunhua",
+        "Yu, Peichen",
+        "Zhao, Yao"
+      ],
+      "booktitle": "IEEE International Geoscience and Remote Sensing Symposium (IGARSS)",
+      "pages": "2246--2249",
+      "doi": "10.1109/igarss60577.2026.11731089",
+      "year": 2026,
+      "scholar": ""
+    },
+    {
       "type": "inproceedings",
       "key": "lee2026late",
       "title": "52-5: Late-News & Invited Paper: Mass-Producible Dual-Focal AR Waveguide Display via KrF-Fabricated Stitched Metalens Array",
@@ -166,6 +245,25 @@
       "pages": "221--227",
       "year": 2026,
       "organization": "SPIE",
+      "scholar": ""
+    },
+    {
+      "type": "inproceedings",
+      "key": "guan2025railway",
+      "title": "Railway Safety Assessment Using Dual-Frequency Insar Data in Central Shandong of Eastern China",
+      "author": [
+        "Guan, Shaoyang",
+        "Wang, Chao",
+        "Tang, Yixian",
+        "Wu, Fan",
+        "Zou, Lichuan",
+        "Yu, Peichen",
+        "Ning, Jing"
+      ],
+      "booktitle": "IEEE International Geoscience and Remote Sensing Symposium (IGARSS)",
+      "pages": "2098--2101",
+      "doi": "10.1109/igarss55030.2025.11314055",
+      "year": 2025,
       "scholar": ""
     },
     {
