@@ -239,6 +239,87 @@
             font-size: 0.8rem;
             margin-top: 2px;
         }
+
+        /* Formerly inline styles (QA batch C) */
+        .research-detail {
+            display: none; /* source for the modal; script.js copies its innerHTML */
+        }
+
+        .page-lede {
+            color: var(--text-secondary);
+            max-width: 800px;
+        }
+
+        .card-img > img,
+        .card-img > video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .detail-rule {
+            margin: 2rem 0;
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .detail-media--spaced {
+            margin: 1.5rem 0;
+        }
+
+        .detail-media img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .platform-access {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 196, 0, 0.05);
+            border-left: 3px solid var(--accent-color);
+            border-radius: 4px;
+        }
+
+        .platform-access .pa-lead {
+            margin: 0 0 1rem 0;
+        }
+
+        .pa-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            margin: 0 10px 10px 0;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background var(--transition), opacity var(--transition);
+        }
+
+        .pa-btn--github {
+            background: #24292e;
+            color: #fff;
+        }
+
+        .pa-btn--github:hover {
+            background: #2f363d;
+        }
+
+        .pa-btn--gold {
+            background: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .pa-btn--gold:hover {
+            opacity: 0.9;
+        }
+
+        .platform-access .pa-note {
+            margin: 1rem 0 0 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
     </style>
 </head>
 
@@ -270,7 +351,7 @@
 
     <main id="main-content" class="container" style="padding-top: 100px; padding-bottom: 60px;">
         <h1 class="page-title fade-in" data-en="Research Areas" data-zh="研究領域">Research Areas</h1>
-        <p class="fade-in" style="color: var(--text-secondary); max-width: 800px;"
+        <p class="fade-in page-lede"
             data-en="Our lab explores the cutting edge of photonics and lithography, focusing on four main pillars of research."
             data-zh="本實驗室專注於光子與微影技術的前沿研究，主要涵蓋四大研究方向。">
             Our lab explores the cutting edge of photonics and lithography, focusing on four main pillars of research.
@@ -280,8 +361,7 @@
             <!-- Research Item 1 -->
             <div class="research-card">
                 <div class="card-img">
-                    <img src="image/Research/AR_glass.jpg" alt="AR Glasses"
-                        style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                    <img src="image/Research/AR_glass.jpg" alt="AR Glasses">
                 </div>
                 <div class="card-content">
                     <div class="icon-box">01</div>
@@ -295,7 +375,7 @@
 
 
                     <!-- Hidden Detail Content for Modal -->
-                    <div class="research-detail" style="display: none;">
+                    <div class="research-detail">
                         <div class="detail-media">
                             <img src="image/Research/AR_glass.jpg" alt="AR Glasses">
                         </div>
@@ -337,7 +417,6 @@
             <div class="research-card">
                 <div class="card-img">
                     <img src="image/Research/Metalens.jpg" alt="Metalens"
-                        style="width:100%; height:100%; object-fit:cover; border-radius:8px;"
                         onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-secondary);font-size:3rem;\'>ML</div>';">
                 </div>
                 <div class="card-content">
@@ -351,7 +430,7 @@
                     <span class="card-cta" data-en="Explore →" data-zh="深入了解 →">Explore →</span>
 
 
-                    <div class="research-detail" style="display: none;">
+                    <div class="research-detail">
                         <div class="detail-media">
                             <img src="image/Research/Metalens.jpg" alt="Metalens">
                         </div>
@@ -403,8 +482,7 @@
             <!-- Research Item 2 -->
             <div class="research-card">
                 <div class="card-img">
-                    <video src="image/Research/RET.mp4" title="Resolution Enhancement Technique"
-                        style="width:100%; height:100%; object-fit:cover; border-radius:8px;" autoplay loop muted
+                    <video src="image/Research/RET.mp4" title="Resolution Enhancement Technique" autoplay loop muted
                         playsinline></video>
                 </div>
                 <div class="card-content">
@@ -420,7 +498,7 @@
                     <span class="card-cta" data-en="Explore →" data-zh="深入了解 →">Explore →</span>
 
 
-                    <div class="research-detail" style="display: none;">
+                    <div class="research-detail">
                         <div class="detail-media">
                             <video src="image/Research/RET.mp4" title="Resolution Enhancement Technique" preload="none" autoplay loop
                                 muted playsinline></video>
@@ -459,14 +537,13 @@
                         </p>
 
                         <!-- OPC+ Cloud Platform Section -->
-                        <hr style="margin: 2rem 0; border: none; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                        <hr class="detail-rule">
 
                         <h3 data-en="OPC+ Cloud Service Implementation" data-zh="OPC+ 雲端服務實作">OPC+ Cloud Service
                             Implementation</h3>
 
-                        <div class="detail-media" style="margin: 1.5rem 0;">
-                            <img src="image/Research/OPC_Platform_Login.png" alt="OPC+ Workflow Comparison"
-                                style="width: 100%; border-radius: 8px;">
+                        <div class="detail-media detail-media--spaced">
+                            <img src="image/Research/OPC_Platform_Login.png" alt="OPC+ Workflow Comparison">
                         </div>
 
                         <p><strong data-en="Overview:" data-zh="概述：">Overview:</strong> <span
@@ -520,14 +597,10 @@
                                 Support both semiconductor and photonic manufacturing</li>
                         </ul>
 
-                        <div
-                            style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(255, 196, 0, 0.05); border-left: 3px solid var(--accent-color); border-radius: 4px;">
-                            <p style="margin: 0 0 1rem 0;"><strong data-en="Access the Platform:" data-zh="存取平台：">Access
+                        <div class="platform-access">
+                            <p class="pa-lead"><strong data-en="Access the Platform:" data-zh="存取平台：">Access
                                     the Platform:</strong></p>
-                            <a href="https://github.com/FangPoHsun/opc-cloud-platform" target="_blank" rel="noopener"
-                                style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: #24292e; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background 0.3s ease;"
-                                onmouseover="this.style.background='#2f363d'"
-                                onmouseout="this.style.background='#24292e'">
+                            <a href="https://github.com/FangPoHsun/opc-cloud-platform" target="_blank" rel="noopener" class="pa-btn pa-btn--github">
                                 <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor">
                                     <path
                                         d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
@@ -535,9 +608,7 @@
                                 <span data-en="View on GitHub" data-zh="在 GitHub 上查看">View on GitHub</span>
                             </a>
 
-                            <a href="brochure/OPC_Cloud_Platform_Brochure.pdf" target="_blank" rel="noopener"
-                                style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--accent-color); color: var(--primary-color); text-decoration: none; border-radius: 6px; font-weight: 500; transition: all 0.3s ease; margin-left: 10px;"
-                                onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+                            <a href="brochure/OPC_Cloud_Platform_Brochure.pdf" target="_blank" rel="noopener" class="pa-btn pa-btn--gold">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 24 24"
                                     fill="currentColor">
                                     <path
@@ -545,7 +616,7 @@
                                 </svg>
                                 <span data-en="View Brochure" data-zh="查看手冊">View Brochure</span>
                             </a>
-                            <p style="margin: 1rem 0 0 0; font-size: 0.9rem; color: var(--text-secondary);"
+                            <p class="pa-note"
                                 data-en="Contact us for platform access and collaboration opportunities."
                                 data-zh="聯繫我們以獲取平台存取權限和合作機會。">Contact us for platform access and collaboration
                                 opportunities.</p>
@@ -557,8 +628,7 @@
             <!-- Research Item 3 -->
             <div class="research-card">
                 <div class="card-img">
-                    <video src="image/Research/Quantum_Annealing.mp4" title="Quantum Annealing"
-                        style="width:100%; height:100%; object-fit:cover; border-radius:8px;" autoplay loop muted
+                    <video src="image/Research/Quantum_Annealing.mp4" title="Quantum Annealing" autoplay loop muted
                         playsinline></video>
                 </div>
                 <div class="card-content">
@@ -571,7 +641,7 @@
                     <span class="card-cta" data-en="Explore →" data-zh="深入了解 →">Explore →</span>
 
 
-                    <div class="research-detail" style="display: none;">
+                    <div class="research-detail">
                         <div class="detail-media">
                             <video src="image/Research/Quantum_Annealing.mp4" title="Quantum Annealing" preload="none" autoplay loop
                                 muted playsinline></video>

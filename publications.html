@@ -33,6 +33,42 @@
             margin-bottom: 50px;
         }
 
+        /* Year filter above the list */
+        .pub-years {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0 0 28px;
+        }
+
+        .pub-year-btn {
+            font: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color var(--transition), border-color var(--transition), background var(--transition);
+        }
+
+        .pub-year-btn:hover {
+            color: var(--text-color);
+            border-color: rgba(255, 196, 0, 0.5);
+        }
+
+        .pub-year-btn.is-active {
+            color: var(--primary-color);
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .year-section[hidden] {
+            display: none;
+        }
+
         .year-header {
             font-size: 2rem;
             color: var(--accent-color);
@@ -539,12 +575,20 @@
 
         const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
 
-        let html = '';
+        // Year filter: the full list is ~40 entries (10,000+ px on a phone),
+        // so readers can narrow it to one year. "All" stays the default.
+        let html = '<div class="pub-years" role="group" aria-label="Filter by year">';
+        html += '<button type="button" class="pub-year-btn is-active" data-year="all" aria-pressed="true" data-en="All" data-zh="全部">All</button>';
+        for (const year of years) {
+            html += '<button type="button" class="pub-year-btn" data-year="' + year + '" aria-pressed="false">' + year + '</button>';
+        }
+        html += '</div>';
+
         for (const year of years) {
             const journals     = byYear[year].filter(p => p.type === 'article');
             const conferences  = byYear[year].filter(p => p.type !== 'article');
 
-            html += '<div class="year-section fade-in">';
+            html += '<div class="year-section fade-in" data-year="' + year + '">';
             html += '<h2 class="year-header">' + year + '</h2>';
 
             if (journals.length) {
@@ -561,6 +605,21 @@
 
         document.getElementById('pub-root').innerHTML = html;
     }
+
+    // Year filter buttons (event delegation; the list may be re-rendered)
+    document.getElementById('pub-root').addEventListener('click', (e) => {
+        const btn = e.target.closest('.pub-year-btn');
+        if (!btn) return;
+        const pick = btn.dataset.year;
+        document.querySelectorAll('.pub-year-btn').forEach(b => {
+            const on = b === btn;
+            b.classList.toggle('is-active', on);
+            b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        document.querySelectorAll('.year-section').forEach(sec => {
+            sec.hidden = pick !== 'all' && sec.dataset.year !== pick;
+        });
+    });
 
     // --- Copy BibTeX to clipboard (event delegation, survives re-render) ----
     document.getElementById('pub-root').addEventListener('click', async (e) => {

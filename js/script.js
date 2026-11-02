@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
             else url.searchParams.delete('lang');
             history.replaceState(null, '', url);
         } catch (e) { /* older browsers: preference still works */ }
+
+        // Let page scripts (calendar, publications) re-render generated text
+        document.dispatchEvent(new CustomEvent('pallab:langchange', { detail: { lang } }));
     };
 
     // Initialize language

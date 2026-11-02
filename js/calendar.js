@@ -29,6 +29,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     let currentDate = new Date();
+    let shownDate = null; // last date opened in the details panel
+
+    // Generated text follows the site language (script.js stores it)
+    const lang = () => localStorage.getItem('pallab-lang') || 'en';
+    const T = {
+        en: { time: 'Time:', location: 'Location:', routine: 'Routine', none: 'No events scheduled for this date.', details: 'See Details' },
+        zh: { time: '時間：', location: '地點：', routine: '例行', none: '這一天沒有排定的活動。', details: '詳見說明' },
+    };
+    const t = key => (T[lang()] || T.en)[key];
 
     const renderCalendar = (date) => {
         calendarGrid.innerHTML = '';
@@ -39,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const monthNames = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"];
 
-        monthDisplay.textContent = `${monthNames[month]} ${year}`;
+        monthDisplay.textContent = lang() === 'zh' ? `${year}年${month + 1}月` : `${monthNames[month]} ${year}`;
 
         // First day of usage month
         const firstDay = new Date(year, month, 1).getDay();
@@ -108,17 +117,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         const specific = specificEvents[dateString];
         const routine = routineEvents.find(e => e.day === dayOfWeek);
 
+        shownDate = { dateString, dayOfWeek };
+
         // Format Header Date
         const dateObj = new Date(dateString);
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        let html = `<h3>${dateObj.toLocaleDateString('en-US', options)}</h3>`;
+        let html = `<h3>${dateObj.toLocaleDateString(lang() === 'zh' ? 'zh-TW' : 'en-US', options)}</h3>`;
 
         if (specific) {
             html += `
                 <div class="event-card specific">
                     <h4>${specific.title}</h4>
-                    <p><strong>Time:</strong> ${specific.time}</p>
-                    <p><strong>Location:</strong> ${specific.location || 'See Details'}</p>
+                    <p><strong>${t('time')}</strong> ${specific.time}</p>
+                    <p><strong>${t('location')}</strong> ${specific.location || t('details')}</p>
                     <p>${specific.description}</p>
                 </div>
             `;
@@ -127,16 +138,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (routine) {
             html += `
                 <div class="event-card routine">
-                    <h4>${routine.title} <span class="badge">Routine</span></h4>
-                    <p><strong>Time:</strong> ${routine.time}</p>
-                    <p><strong>Location:</strong> ${routine.location}</p>
+                    <h4>${routine.title} <span class="badge">${t('routine')}</span></h4>
+                    <p><strong>${t('time')}</strong> ${routine.time}</p>
+                    <p><strong>${t('location')}</strong> ${routine.location}</p>
                     <p>${routine.description}</p>
                 </div>
             `;
         }
 
         if (!specific && !routine) {
-            html += `<p>No events scheduled for this date.</p>`;
+            html += `<p>${t('none')}</p>`;
         }
 
         eventDetailsContainer.innerHTML = html;
@@ -200,6 +211,17 @@ document.addEventListener('DOMContentLoaded', async () => {
                 ${it.time && it.time !== 'All Day' ? `<span class="up-time">${esc(it.time)}</span>` : ''}
             </button></li>`).join('');
     };
+
+    // Language toggle: re-render the month grid, the open day and the upcoming list
+    document.addEventListener('pallab:langchange', () => {
+        renderCalendar(currentDate);
+        if (shownDate) {
+            showEventDetails(shownDate.dateString, shownDate.dayOfWeek);
+            const cell = calendarGrid.querySelector(`[data-date="${shownDate.dateString}"]`);
+            if (cell) cell.classList.add('selected');
+        }
+        renderUpcoming();
+    });
 
     // Clicking an upcoming item jumps the calendar to that day
     if (upcomingList) {
