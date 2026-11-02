@@ -1,0 +1,77 @@
+name: Site QA (render · functions · links · a11y · weight)
+
+# Runs the Playwright harness in qa/ across 7 browser/viewport projects.
+# On every push to main, weekly on Tuesday morning (Taiwan), and on demand.
+# A failing scheduled run opens (or updates) a GitHub issue with the summary.
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'data/**'          # content edits from the admin panel don't need a full matrix
+      - '**/*.md'
+  schedule:
+    - cron: '0 23 * * 1'   # Tuesday 07:00 Taiwan time
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: qa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci || npm install --no-audit --no-fund
+
+      - name: Install browsers
+        run: npx playwright install --with-deps chromium firefox webkit
+
+      - name: Run harness
+        id: run
+        env:
+          CI: 'true'
+        run: npx playwright test
+        continue-on-error: true
+
+      - name: Write summary
+        if: always()
+        run: |
+          node qa/summarize.mjs > /dev/null
+          cat qa/SUMMARY.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload report (screenshots, traces, attachments)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-report
+          path: |
+            qa/report
+            qa/SUMMARY.md
+          retention-days: 30
+
+      - name: Open or update issue on scheduled failure
+        if: always() && github.event_name == 'schedule' && steps.run.outcome == 'failure'
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: 'Weekly site QA found problems'
+          content-filepath: qa/SUMMARY.md
+          labels: qa, automated
+          issue-number: ${{ vars.QA_ISSUE_NUMBER }}
+
+      - name: Fail the job if the harness failed
+        if: steps.run.outcome == 'failure'
+        run: exit 1

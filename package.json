@@ -1,0 +1,16 @@
+{
+  "name": "pal-website-qa",
+  "private": true,
+  "description": "Automated QA harness for nycu-pal.com: cross-device/browser rendering, functions, links, accessibility, performance budgets.",
+  "scripts": {
+    "serve": "python -m http.server 8080",
+    "qa": "playwright test",
+    "qa:chromium": "playwright test --project=chromium-laptop --project=chromium-mobile",
+    "qa:report": "playwright show-report qa/report",
+    "qa:summary": "node qa/summarize.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@playwright/test": "^1.49.0"
+  }
+}
