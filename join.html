@@ -142,6 +142,59 @@
             padding: 14px 32px;
         }
 
+        .visit-note {
+            margin-top: 25px;
+            padding: 24px 26px;
+            background: rgba(255, 196, 0, 0.06);
+            border: 1px solid rgba(255, 196, 0, 0.35);
+            border-radius: 10px;
+        }
+
+        .visit-note h4 {
+            color: var(--accent-color);
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        .visit-note > p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0 0 16px;
+            max-width: 70ch;
+        }
+
+        .visit-facts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 40px;
+        }
+
+        .visit-fact {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .visit-fact svg {
+            color: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        .visit-foot {
+            margin: 16px 0 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 22px;
+        }
+
+        .visit-foot a {
+            color: var(--accent-color);
+        }
+
         .openings-note {
             margin-top: 25px;
             padding: 18px 22px;
@@ -263,10 +316,33 @@
                 </div>
                 <div class="apply-step">
                     <div class="step-number">3</div>
-                    <p data-en="We will arrange a conversation and a lab visit to get to know each other."
-                        data-zh="我們將安排面談與實驗室參訪，讓彼此更深入認識。">We will arrange a conversation and a lab visit to get to know
-                        each other.</p>
+                    <p data-en="We will arrange a conversation to get to know each other — or simply drop by during our daily open hour (below) to see the lab first."
+                        data-zh="我們將安排面談讓彼此更深入認識——也歡迎先在每日開放時段（見下方）直接來訪，實地看看實驗室。">We will arrange a conversation to get to know
+                        each other — or simply drop by during our daily open hour (below) to see the lab first.</p>
                 </div>
+            </div>
+
+            <div class="visit-note" id="visit">
+                <h4 data-en="Visit the lab — daily open hour" data-zh="實驗室參訪——每日開放時段">Visit the lab — daily open hour</h4>
+                <p data-en="Prospective members are welcome to drop by without an appointment. A lab member will show you around and answer your questions."
+                   data-zh="有意加入的同學歡迎直接來訪，無需預約。將有實驗室成員為您導覽並解答問題。">
+                    Prospective members are welcome to drop by without an appointment. A lab member will show you
+                    around and answer your questions.</p>
+                <div class="visit-facts">
+                    <div class="visit-fact">
+                        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                        <span data-en="2:00 PM, Monday to Friday" data-zh="週一至週五 下午 2:00">2:00 PM, Monday to Friday</span>
+                    </div>
+                    <div class="visit-fact">
+                        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                        <span data-en="Tin Ka Ping Photonics Building, Room 306 (田家炳光電大樓 306)" data-zh="田家炳光電大樓 306 室（陽明交大光復校區）">Tin Ka Ping Photonics Building, Room 306 (田家炳光電大樓 306)</span>
+                    </div>
+                </div>
+                <p class="visit-foot">
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%9C%8B%E7%AB%8B%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E7%94%B0%E5%AE%B6%E7%82%B3%E5%85%89%E9%9B%BB%E5%A4%A7%E6%A8%93" target="_blank" rel="noopener"
+                       data-en="Open in Google Maps →" data-zh="在 Google 地圖開啟 →">Open in Google Maps →</a>
+                    <span data-en="Other times are possible by email." data-zh="其他時間請先來信預約。">Other times are possible by email.</span>
+                </p>
             </div>
 
             <div class="apply-cta">
