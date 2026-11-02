@@ -27,7 +27,7 @@
     <meta name="twitter:image" content="https://nycu-pal.com/image/og-card.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=20261019b">
+    <link rel="stylesheet" href="css/style.css?v=20261102a">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         .join-intro {
@@ -62,7 +62,8 @@
             transform: translateY(-3px);
         }
 
-        .why-card h4 {
+        .why-card h3 {
+            font-weight: 600; /* was an h4 */
             color: var(--accent-color);
             font-size: 1.05rem;
             margin-bottom: 10px;
@@ -150,7 +151,8 @@
             border-radius: 10px;
         }
 
-        .visit-note h4 {
+        .visit-note h3 {
+            font-weight: 600; /* was an h4 */
             color: var(--accent-color);
             font-size: 1.05rem;
             margin-bottom: 8px;
@@ -233,8 +235,8 @@
         </nav>
     </header>
 
-    <div id="main-content" class="container" style="padding-top: 100px; padding-bottom: 60px;">
-        <h2 class="fade-in" data-en="Join Us" data-zh="加入我們">Join Us</h2>
+    <main id="main-content" class="container" style="padding-top: 100px; padding-bottom: 60px;">
+        <h1 class="page-title fade-in" data-en="Join Us" data-zh="加入我們">Join Us</h1>
 
         <p class="join-intro fade-in"
             data-en="We are always looking for motivated students who are excited about photonics, computational lithography, and the future of nanofabrication. PAL Lab welcomes applications for Ph.D., Master's, and undergraduate research positions."
@@ -245,30 +247,30 @@
         </p>
 
         <div class="fade-in">
-            <h3 class="section-heading join-section-title" data-en="Why PAL Lab?" data-zh="為什麼選擇 PAL Lab？">Why PAL Lab?</h3>
+            <h2 class="section-heading join-section-title" data-en="Why PAL Lab?" data-zh="為什麼選擇 PAL Lab？">Why PAL Lab?</h2>
             <div class="why-grid">
                 <div class="why-card">
-                    <h4 data-en="Frontier Research" data-zh="前沿研究">Frontier Research</h4>
+                    <h3 data-en="Frontier Research" data-zh="前沿研究">Frontier Research</h3>
                     <p data-en="Work on EUV lithography, metasurfaces, AR waveguides, and quantum computing — fields that define the next decade of semiconductors and optics."
                         data-zh="投入EUV微影、超穎表面、AR波導與量子計算——這些領域將定義半導體與光學的下一個十年。">Work on EUV lithography, metasurfaces,
                         AR waveguides, and quantum computing — fields that define the next decade of semiconductors and
                         optics.</p>
                 </div>
                 <div class="why-card">
-                    <h4 data-en="Industry Collaboration" data-zh="產業合作">Industry Collaboration</h4>
+                    <h3 data-en="Industry Collaboration" data-zh="產業合作">Industry Collaboration</h3>
                     <p data-en="Collaborate through TSMC's Joint Development Program, TSRI, and D-Wave quantum computing projects. Our research solves real manufacturing problems."
                         data-zh="參與台積電聯合開發計畫（JDP）、台灣半導體研究中心（TSRI）與D-Wave量子計算專案，研究直接解決真實的製造問題。">Collaborate through
                         TSMC's Joint Development Program, TSRI, and D-Wave quantum computing projects. Our research
                         solves real manufacturing problems.</p>
                 </div>
                 <div class="why-card">
-                    <h4 data-en="Proven Track Record" data-zh="卓越成果">Proven Track Record</h4>
+                    <h3 data-en="Proven Track Record" data-zh="卓越成果">Proven Track Record</h3>
                     <p data-en="Our students win — including back-to-back ASML Best Student Paper Awards at SPIE Advanced Lithography 2025 and 2026."
                         data-zh="我們的學生屢獲肯定——包括連續榮獲2025與2026年SPIE先進微影會議ASML最佳學生論文獎。">Our students win — including
                         back-to-back ASML Best Student Paper Awards at SPIE Advanced Lithography 2025 and 2026.</p>
                 </div>
                 <div class="why-card">
-                    <h4 data-en="International Exposure" data-zh="國際視野">International Exposure</h4>
+                    <h3 data-en="International Exposure" data-zh="國際視野">International Exposure</h3>
                     <p data-en="Present your work at leading international conferences such as SPIE Advanced Lithography and Photonics West, and publish in top journals."
                         data-zh="於SPIE Advanced Lithography、Photonics West等頂尖國際會議發表研究成果，並於一流期刊發表論文。">Present your work
                         at leading international conferences such as SPIE Advanced Lithography and Photonics West, and
@@ -285,7 +287,7 @@
         </div>
 
         <div class="fade-in">
-            <h3 class="section-heading join-section-title" data-en="Who We Look For" data-zh="我們期待的夥伴">Who We Look For</h3>
+            <h2 class="section-heading join-section-title" data-en="Who We Look For" data-zh="我們期待的夥伴">Who We Look For</h2>
             <ul class="look-for-list">
                 <li data-en="Background in electrical engineering, photonics, physics, materials science, or computer science."
                     data-zh="具電機、光電、物理、材料或資訊相關背景。">Background in electrical engineering, photonics, physics, materials
@@ -300,7 +302,7 @@
         </div>
 
         <div class="fade-in">
-            <h3 class="section-heading join-section-title" data-en="How to Apply" data-zh="如何申請">How to Apply</h3>
+            <h2 class="section-heading join-section-title" data-en="How to Apply" data-zh="如何申請">How to Apply</h2>
             <div class="apply-steps">
                 <div class="apply-step">
                     <div class="step-number">1</div>
@@ -323,7 +325,7 @@
             </div>
 
             <div class="visit-note" id="visit">
-                <h4 data-en="Visit the lab — daily open hour" data-zh="實驗室參訪——每日開放時段">Visit the lab — daily open hour</h4>
+                <h3 data-en="Visit the lab — daily open hour" data-zh="實驗室參訪——每日開放時段">Visit the lab — daily open hour</h3>
                 <p data-en="Prospective members are welcome to drop by without an appointment. A lab member will show you around and answer your questions."
                    data-zh="有意加入的同學歡迎直接來訪，無需預約。將有實驗室成員為您導覽並解答問題。">
                     Prospective members are welcome to drop by without an appointment. A lab member will show you
@@ -350,18 +352,18 @@
                     data-en="Email Prof. Yu →" data-zh="聯繫余教授 →">Email Prof. Yu →</a>
             </div>
         </div>
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container footer-grid">
             <div class="footer-brand">
                 <img src="image/logo-dark-scene.png" alt="NYCU-PAL — Photonics &amp; Advanced Lithography Lab" class="footer-logo" width="240" height="93" loading="lazy">
-                <p data-en="Photonics &amp; Advanced Lithography Laboratory" data-zh="光子與先進微影技術實驗室">Photonics &amp; Advanced Lithography Laboratory</p>
+                <p data-en="Photonics &amp; Advanced Lithography Laboratory" data-zh="光子與先進微影實驗室">Photonics &amp; Advanced Lithography Laboratory</p>
                 <p data-en="Department of Photonics, National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學 光電工程學系">Department of Photonics, National Yang Ming Chiao Tung University</p>
             </div>
             <nav class="footer-links" aria-label="Footer">
-                <h4 data-en="Explore" data-zh="探索">Explore</h4>
+                <h3 data-en="Explore" data-zh="探索">Explore</h3>
                 <ul>
                     <li><a href="research.html" data-en="Research" data-zh="研究領域">Research</a></li>
                     <li><a href="opc.html" data-en="OPC+ Platform" data-zh="OPC+ 平台">OPC+ Platform</a></li>
@@ -373,7 +375,7 @@
                 </ul>
             </nav>
             <div class="footer-contact">
-                <h4 data-en="Contact" data-zh="聯絡我們">Contact</h4>
+                <h3 data-en="Contact" data-zh="聯絡我們">Contact</h3>
                 <p><a href="mailto:peichen.yu@nycu.edu.tw">peichen.yu@nycu.edu.tw</a></p>
                 <p data-en="Tin Ka Ping Building, Room 306, No. 1001 Daxue Rd., Hsinchu City 300093, Taiwan"
                    data-zh="田家炳光電大樓 306 室，新竹市大學路 1001 號，300093 台灣">Tin Ka Ping Building, Room 306, No. 1001 Daxue Rd., Hsinchu City 300093, Taiwan</p>

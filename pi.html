@@ -49,7 +49,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=20261019b">
+    <link rel="stylesheet" href="css/style.css?v=20261102a">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         /* Hero Banner for PI Page */
@@ -109,7 +109,7 @@
             text-align: center;
         }
 
-        .pi-name-card h3 {
+        .pi-name-card h2 {
             font-size: 1.6rem;
             margin-bottom: 5px;
             color: var(--text-color);
@@ -124,7 +124,7 @@
             border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        .bio-section h3 {
+        .bio-section h2 {
             color: var(--accent-color);
             margin-top: 0;
             margin-bottom: 20px;
@@ -134,7 +134,7 @@
             gap: 12px;
         }
 
-        .bio-section h3::before {
+        .bio-section h2::before {
             content: '';
             width: 4px;
             height: 24px;
@@ -185,7 +185,7 @@
             flex: 1;
         }
 
-        .cv-card .cv-title h4 {
+        .cv-card .cv-title h3 {
             margin: 0 0 4px 0;
             color: var(--text-color);
             font-size: 1.05rem;
@@ -210,7 +210,7 @@
             overflow: hidden;
         }
 
-        .pi-research-domains h4 {
+        .pi-research-domains h3 {
             font-size: 0.75rem;
             color: var(--accent-color);
             margin-bottom: 15px;
@@ -222,7 +222,7 @@
             gap: 8px;
         }
 
-        .pi-research-domains h4::after {
+        .pi-research-domains h3::after {
             content: '';
             flex: 1;
             height: 1px;
@@ -500,7 +500,7 @@
                 text-align: center;
             }
 
-            .pi-name-card h3 {
+            .pi-name-card h2 {
                 font-size: 1.4rem;
             }
 
@@ -538,7 +538,7 @@
                 margin-bottom: 20px;
             }
 
-            .bio-section h3 {
+            .bio-section h2 {
                 font-size: 1.1rem;
             }
 
@@ -572,7 +572,7 @@
                 min-width: 42px;
             }
 
-            .cv-card .cv-title h4 {
+            .cv-card .cv-title h3 {
                 font-size: 0.95rem;
             }
 
@@ -593,7 +593,7 @@
                 font-size: 0.8rem;
             }
 
-            .pi-research-domains h4::after {
+            .pi-research-domains h3::after {
                 display: none;
             }
         }
@@ -626,8 +626,8 @@
         </nav>
     </header>
 
-    <div id="main-content" class="container" style="padding-top: 100px; padding-bottom: 60px;">
-        <h2 class="fade-in" data-en="Principal Investigator" data-zh="實驗室主持人">Principal Investigator</h2>
+    <main id="main-content" class="container" style="padding-top: 100px; padding-bottom: 60px;">
+        <h1 class="page-title fade-in" data-en="Principal Investigator" data-zh="實驗室主持人">Principal Investigator</h1>
 
         <div class="pi-container fade-in">
             <div class="pi-side">
@@ -636,7 +636,7 @@
                         style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
                 </div>
                 <div class="pi-name-card">
-                    <h3 data-en="Peichen Yu" data-zh="余沛慈">Peichen Yu</h3>
+                    <h2 data-en="Peichen Yu" data-zh="余沛慈">Peichen Yu</h2>
                     <p style="color: var(--accent-color); font-weight: 600; margin-bottom: 8px;" data-en="Professor" data-zh="教授">Professor</p>
                     <p style="font-size: 0.95rem;" data-en="Department of Photonics" data-zh="光電工程學系">Department of Photonics</p>
                     <p style="font-size: 0.9rem; color: var(--text-secondary);" data-en="National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學">National Yang Ming Chiao Tung University</p>
@@ -662,7 +662,7 @@
                             </svg>
                             Email
                         </a>
-                        <a href="https://scholar.google.com/citations?hl=zh-TW&user=y159uKQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="contact-link">
+                        <a href="https://scholar.google.com/citations?hl=zh-TW&user=y159uKQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener" class="contact-link">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
                                 <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
@@ -700,14 +700,14 @@
                             </svg>
                         </div>
                         <div class="cv-title">
-                            <h4>Curriculum Vitae</h4>
+                            <h3>Curriculum Vitae</h3>
                             <p>PDF Document</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="pi-research-domains" style="margin-top: 20px;">
-                    <h4 data-en="Research Domains" data-zh="研究領域">Research Domains</h4>
+                    <h3 data-en="Research Domains" data-zh="研究領域">Research Domains</h3>
                     <ul>
                         <li>Optical Lithography</li>
                         <li>Semiconductor Process</li>
@@ -721,7 +721,7 @@
 
             <div class="pi-info">
                 <div class="bio-section fade-in-up">
-                    <h3 data-en="Biography" data-zh="學經歷">Biography</h3>
+                    <h2 data-en="Biography" data-zh="學經歷">Biography</h2>
                     <p data-en="PEICHEN YU (Member, IEEE) received the Ph.D. degree in electrical engineering from the University of Michigan, Ann Arbor, MI, USA, in 2004. From 2004 to 2006, she joined the Advanced Design Group, Intel Corporation, Hillsboro, OR, USA, as a Resolution Enhancement Technology (RET) Design Engineer. Since 2006, she switched careers to academia and is currently a Professor with the Department of Photonics, National Yang Ming Chiao Tung University. Her research interests include nanostructures and metasurfaces patterning for optoelectronic applications. She is also actively engaged in the development of RET solutions, including inverse lithography technology (ILT) for ArF 193i and EUV lithography. She has published over 60 refereed technical articles in the above research areas. Her work has been highlighted in various scientific journals, including Virtual Journal of Nanoscale Science and Technology, SPIE Newsroom, and NPG Nature Asia-Material. She is also a member of the IEEE Photonics Society and SPIE. She received several research and teaching awards in Taiwan."
                         data-zh="余沛慈教授 (IEEE會員) 於2004年取得美國密西根大學安娜堡分校電機工程博士學位。2004至2006年間，她加入美國Intel Corporation先進設計部門擔任解析度增強技術(RET)設計工程師。2006年起轉入學術界，現為國立陽明交通大學光電工程學系教授。她的研究興趣包括應用於光電元件之奈米結構與超穎表面圖案化技術。她亦積極投入RET解決方案之開發，包括適用於ArF 193i與EUV微影之逆向微影技術(ILT)。她在上述研究領域已發表超過60篇經同儕審查的技術論文，研究成果曾被多個科學期刊報導，包括Virtual Journal of Nanoscale Science and Technology、SPIE Newsroom及NPG Nature Asia-Material。她是IEEE Photonics Society與SPIE會員，並曾獲得台灣多項研究與教學獎項。">
                         PEICHEN YU (Member, IEEE) received the Ph.D. degree in electrical engineering from the
@@ -740,7 +740,7 @@
                 </div>
 
                 <div class="bio-section fade-in-up">
-                    <h3 data-en="Research Interests" data-zh="研究領域">Research Interests</h3>
+                    <h2 data-en="Research Interests" data-zh="研究領域">Research Interests</h2>
                     <ul class="research-interests-list">
                         <li data-en="Cloud-native, GPU-accelerated optical proximity correction (OPC+) platform"
                             data-zh="雲原生、GPU加速之光學鄰近修正(OPC+)平台">Cloud-native, GPU-accelerated optical proximity
@@ -766,7 +766,7 @@
                 </div>
 
                 <div class="bio-section fade-in-up">
-                    <h3 data-en="Achievements & Membership" data-zh="學術成就與會員資格">Achievements & Membership</h3>
+                    <h2 data-en="Achievements & Membership" data-zh="學術成就與會員資格">Achievements & Membership</h2>
 
                     <p class="section-label" data-en="Honors and Awards" data-zh="榮譽與獎項">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -775,7 +775,7 @@
                         </svg>
                         Honors and Awards
                     </p>
-                    <div class="awards-scroll">
+                    <div class="awards-scroll" tabindex="0" role="region" aria-label="Honors and awards list (scrollable)">
                     <ul class="awards-timeline">
                         <li data-en="2025 Excellent Mentor Award, College of EEC, National Yang Ming Chiao Tung University"
                             data-zh="2025 國立陽明交通大學電機學院導師獎">2025 Excellent Mentor Award, College of EEC, National Yang
@@ -877,18 +877,18 @@
                 </a>
             </div>
         </div>
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container footer-grid">
             <div class="footer-brand">
                 <img src="image/logo-dark-scene.png" alt="NYCU-PAL — Photonics &amp; Advanced Lithography Lab" class="footer-logo" width="240" height="93" loading="lazy">
-                <p data-en="Photonics &amp; Advanced Lithography Laboratory" data-zh="光子與先進微影技術實驗室">Photonics &amp; Advanced Lithography Laboratory</p>
+                <p data-en="Photonics &amp; Advanced Lithography Laboratory" data-zh="光子與先進微影實驗室">Photonics &amp; Advanced Lithography Laboratory</p>
                 <p data-en="Department of Photonics, National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學 光電工程學系">Department of Photonics, National Yang Ming Chiao Tung University</p>
             </div>
             <nav class="footer-links" aria-label="Footer">
-                <h4 data-en="Explore" data-zh="探索">Explore</h4>
+                <h3 data-en="Explore" data-zh="探索">Explore</h3>
                 <ul>
                     <li><a href="research.html" data-en="Research" data-zh="研究領域">Research</a></li>
                     <li><a href="opc.html" data-en="OPC+ Platform" data-zh="OPC+ 平台">OPC+ Platform</a></li>
@@ -900,7 +900,7 @@
                 </ul>
             </nav>
             <div class="footer-contact">
-                <h4 data-en="Contact" data-zh="聯絡我們">Contact</h4>
+                <h3 data-en="Contact" data-zh="聯絡我們">Contact</h3>
                 <p><a href="mailto:peichen.yu@nycu.edu.tw">peichen.yu@nycu.edu.tw</a></p>
                 <p data-en="Tin Ka Ping Building, Room 306, No. 1001 Daxue Rd., Hsinchu City 300093, Taiwan"
                    data-zh="田家炳光電大樓 306 室，新竹市大學路 1001 號，300093 台灣">Tin Ka Ping Building, Room 306, No. 1001 Daxue Rd., Hsinchu City 300093, Taiwan</p>

@@ -24,7 +24,7 @@
     <meta name="twitter:image" content="https://nycu-pal.com/image/OPC/banner.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=20261019b">
+    <link rel="stylesheet" href="css/style.css?v=20261102a">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         /* ── Hero ─────────────────────────────────────────────────────── */
@@ -162,7 +162,7 @@
             padding: 18px 20px;
         }
 
-        .opc-problem h4 {
+        .opc-problem h3 {
             color: var(--accent-color);
             font-size: 0.95rem;
             margin-bottom: 6px;
@@ -226,9 +226,9 @@
         }
 
         .sem-label.no {
-            background: rgba(232, 120, 94, 0.15);
-            color: #e8785e;
-            border: 1px solid rgba(232, 120, 94, 0.5);
+            background: rgba(244, 164, 142, 0.12);
+            color: #f4a48e;
+            border: 1px solid rgba(244, 164, 142, 0.5);
         }
 
         .sem-label.yes {
@@ -270,7 +270,7 @@
             margin-bottom: 14px;
         }
 
-        .opc-module h4 {
+        .opc-module h3 {
             color: var(--text-color);
             font-size: 1rem;
             margin-bottom: 8px;
@@ -300,7 +300,7 @@
             border-color: rgba(255, 196, 0, 0.45);
         }
 
-        .recog-card h4 {
+        .recog-card h3 {
             color: var(--accent-color);
             font-size: 0.95rem;
             margin-bottom: 6px;
@@ -467,8 +467,10 @@
             padding: 22px 24px;
         }
 
-        .planner-callout h4 {
+        .planner-callout h3 {
             color: var(--accent-color);
+            font-size: 1.05rem;
+            font-weight: 600;
             margin-bottom: 8px;
         }
 
@@ -535,7 +537,7 @@
         </nav>
     </header>
 
-    <div id="main-content" class="container" style="padding-top: 100px; padding-bottom: 60px;">
+    <main id="main-content" class="container" style="padding-top: 100px; padding-bottom: 60px;">
 
         <!-- Hero -->
         <div class="opc-hero fade-in">
@@ -555,8 +557,8 @@
                 <div class="opc-cta">
                     <a href="https://opc-cloud.com/" target="_blank" rel="noopener" class="btn btn-primary" data-en="Launch Platform" data-zh="開始使用">Launch Platform</a>
                     <a href="#opc-demos" class="btn btn-secondary" data-en="Watch the Demos" data-zh="觀看示範影片">Watch the Demos</a>
-                    <a href="brochure/OPC_Cloud_Platform_Brochure.pdf" target="_blank" class="btn" data-en="Brochure (EN)" data-zh="英文手冊">Brochure (EN)</a>
-                    <a href="brochure/OPC_Cloud_Platform_Brochure_Chinese.pdf" target="_blank" class="btn" data-en="Brochure (中文)" data-zh="中文手冊">Brochure (中文)</a>
+                    <a href="brochure/OPC_Cloud_Platform_Brochure.pdf" target="_blank" rel="noopener" class="btn" data-en="Brochure (EN)" data-zh="英文手冊">Brochure (EN)</a>
+                    <a href="brochure/OPC_Cloud_Platform_Brochure_Chinese.pdf" target="_blank" rel="noopener" class="btn" data-en="Brochure (中文)" data-zh="中文手冊">Brochure (中文)</a>
                 </div>
             </div>
         </div>
@@ -607,21 +609,21 @@
 
             <div class="opc-problems">
                 <div class="opc-problem">
-                    <h4 data-en="Traditional OPC is slow" data-zh="傳統OPC速度慢">Traditional OPC is slow</h4>
+                    <h3 data-en="Traditional OPC is slow" data-zh="傳統OPC速度慢">Traditional OPC is slow</h3>
                     <p data-en="CPU-bound serial solvers take hours per job. OPC+ runs CUDA multi-stream parallelism on GPU clusters — 50× faster."
                         data-zh="CPU序列運算每件工作動輒數小時。OPC+以GPU叢集的CUDA多串流平行運算，速度提升50倍。">
                         CPU-bound serial solvers take hours per job. OPC+ runs CUDA multi-stream parallelism on GPU
                         clusters — 50× faster.</p>
                 </div>
                 <div class="opc-problem">
-                    <h4 data-en="…expensive and exclusive" data-zh="…昂貴且門檻高">…expensive and exclusive</h4>
+                    <h3 data-en="…expensive and exclusive" data-zh="…昂貴且門檻高">…expensive and exclusive</h3>
                     <p data-en="Commercial licenses and required expertise shut out startups and research labs. OPC+ is a web interface: upload, configure, submit."
                         data-zh="商用授權費用高昂且需專業人力，將新創與研究單位拒於門外。OPC+只需網頁操作：上傳、設定、送出。">
                         Commercial licenses and required expertise shut out startups and research labs. OPC+ is a web
                         interface: upload, configure, submit.</p>
                 </div>
                 <div class="opc-problem">
-                    <h4 data-en="…and Manhattan-only" data-zh="…且僅支援直角圖形">…and Manhattan-only</h4>
+                    <h3 data-en="…and Manhattan-only" data-zh="…且僅支援直角圖形">…and Manhattan-only</h3>
                     <p data-en="Legacy tools force curved photonic designs into rectilinear approximations. OPC+ corrects freeform and curvilinear masks natively."
                         data-zh="傳統工具將曲線光子設計強制轉為直角近似。OPC+原生修正自由形式與曲線型光罩。">
                         Legacy tools force curved photonic designs into rectilinear approximations. OPC+ corrects
@@ -722,7 +724,7 @@
             <div class="opc-modules">
                 <div class="opc-module">
                     <div class="num">1</div>
-                    <h4 data-en="Litho Model Setting" data-zh="微影模型建置">Litho Model Setting</h4>
+                    <h3 data-en="Litho Model Setting" data-zh="微影模型建置">Litho Model Setting</h3>
                     <p data-en="Imaging models fitted to your fab's CD-SEM measurements, capturing scanner, resist, and process variations."
                         data-zh="以您產線的CD-SEM量測資料擬合成像模型，涵蓋曝光機、光阻與製程變異。">
                         Imaging models fitted to your fab's CD-SEM measurements, capturing scanner, resist, and process
@@ -730,7 +732,7 @@
                 </div>
                 <div class="opc-module">
                     <div class="num">2</div>
-                    <h4 data-en="Mask Correction" data-zh="光罩修正">Mask Correction</h4>
+                    <h3 data-en="Mask Correction" data-zh="光罩修正">Mask Correction</h3>
                     <p data-en="Full-mask inverse lithography (ILT) with contour-based global optimization — higher pattern fidelity than rule-based edge correction."
                         data-zh="全光罩逆向微影技術（ILT）搭配輪廓式全域最佳化，圖案保真度優於規則式邊緣修正。">
                         Full-mask inverse lithography (ILT) with contour-based global optimization — higher pattern
@@ -738,7 +740,7 @@
                 </div>
                 <div class="opc-module">
                     <div class="num">3</div>
-                    <h4 data-en="Imaging Simulation &amp; Mask Rule Check" data-zh="成像模擬與光罩規格檢測">Imaging Simulation &amp; Mask Rule Check</h4>
+                    <h3 data-en="Imaging Simulation &amp; Mask Rule Check" data-zh="成像模擬與光罩規格檢測">Imaging Simulation &amp; Mask Rule Check</h3>
                     <p data-en="Aerial-image and contour simulation for your scanner (wavelength, NA, illumination), plus a mask rule check — minimum width, spacing, area and corner radius — with a built-in layout viewer to pick the analysis region."
                         data-zh="針對您的曝光機（波長、數值孔徑、照明）進行空間影像與輪廓模擬，並提供光罩規格檢測——最小線寬、間距、面積與轉角半徑——內建版圖檢視器可框選分析區域。">
                         Aerial-image and contour simulation for your scanner (wavelength, NA, illumination), plus a mask
@@ -790,21 +792,21 @@
             <h2 class="section-heading" data-en="Deployment &amp; Capacity Planning" data-zh="部署模式與硬體規劃">Deployment &amp; Capacity Planning</h2>
             <div class="opc-modules">
                 <div class="opc-module">
-                    <h4 data-en="Public cloud" data-zh="公有雲">Public cloud</h4>
+                    <h3 data-en="Public cloud" data-zh="公有雲">Public cloud</h3>
                     <p data-en="Managed cluster of 12+ GPUs with dynamic scheduling — no infrastructure to run." data-zh="由 12 張以上 GPU 組成的代管叢集，動態排程——無需自行維運基礎設施。">Managed cluster of 12+ GPUs with dynamic scheduling — no infrastructure to run.</p>
                 </div>
                 <div class="opc-module">
-                    <h4 data-en="Private cloud" data-zh="私有雲">Private cloud</h4>
+                    <h3 data-en="Private cloud" data-zh="私有雲">Private cloud</h3>
                     <p data-en="On-premises deployment for maximum IP security and data isolation, with full administrative control." data-zh="本地部署，提供最高等級的智財安全與資料隔離，並擁有完整管理控制權。">On-premises deployment for maximum IP security and data isolation, with full administrative control.</p>
                 </div>
                 <div class="opc-module">
-                    <h4 data-en="Hybrid" data-zh="混合模式">Hybrid</h4>
+                    <h3 data-en="Hybrid" data-zh="混合模式">Hybrid</h3>
                     <p data-en="Public and private resources combined, allocated per workload sensitivity." data-zh="結合公有與私有資源，依工作負載敏感度配置。">Public and private resources combined, allocated per workload sensitivity.</p>
                 </div>
             </div>
             <div class="planner-callout">
                 <div>
-                    <h4 data-en="How much hardware do you need?" data-zh="您需要多少硬體？">How much hardware do you need?</h4>
+                    <h3 data-en="How much hardware do you need?" data-zh="您需要多少硬體？">How much hardware do you need?</h3>
                     <p data-en="The platform's planner sizes a GPU fleet for your layout and deadline from measured runs — about 1.6 s per correction tile on an RTX 4090, and ≈0.84 s per tile per RTX Pro 6000 card. Upload a GDS/OASIS file and it detects die size and pattern density in your browser; the file never leaves your computer."
                        data-zh="平台的硬體規劃工具依實測結果，為您的版圖與期限估算所需 GPU 數量——RTX 4090 每個修正圖塊約 1.6 秒，RTX Pro 6000 每卡約 0.84 秒／圖塊。上傳 GDS／OASIS 檔即可在瀏覽器中自動偵測晶片尺寸與圖案密度，檔案不會離開您的電腦。">
                         The platform's planner sizes a GPU fleet for your layout and deadline from measured runs — about
@@ -821,21 +823,21 @@
             <h2 class="section-heading" data-en="Recognition & Validation" data-zh="獲獎與驗證">Recognition & Validation</h2>
             <div class="opc-recognition">
                 <div class="recog-card award">
-                    <h4 data-en="2026 Future Tech Award" data-zh="2026 未來科技獎">2026 Future Tech Award</h4>
+                    <h3 data-en="2026 Future Tech Award" data-zh="2026 未來科技獎">2026 Future Tech Award</h3>
                     <p data-en="Awarded by Taiwan's National Science and Technology Council in the Semiconductor / Photonics / Communications category."
                         data-zh="由國家科學及技術委員會（NSTC）頒發，半導體／光電／通訊領域。">
                         Awarded by Taiwan's National Science and Technology Council in the Semiconductor / Photonics /
                         Communications category.</p>
                 </div>
                 <div class="recog-card">
-                    <h4 data-en="Industry & academic validation" data-zh="產學驗證">Industry & academic validation</h4>
+                    <h3 data-en="Industry & academic validation" data-zh="產學驗證">Industry & academic validation</h3>
                     <p data-en="Validated through collaborations with the Taiwan Semiconductor Research Institute (TSRI) and the University of Southampton, UK."
                         data-zh="與台灣半導體研究中心（TSRI）及英國南安普敦大學合作驗證。">
                         Validated through collaborations with the Taiwan Semiconductor Research Institute (TSRI) and the
                         University of Southampton, UK.</p>
                 </div>
                 <div class="recog-card">
-                    <h4 data-en="Joint development" data-zh="共同開發">Joint development</h4>
+                    <h3 data-en="Joint development" data-zh="共同開發">Joint development</h3>
                     <p data-en="Built by PAL Lab with the NYCU Network and System Laboratory (NSL); supported by the National Science and Technology Council."
                         data-zh="由PAL實驗室與陽明交大網路系統實驗室（NSL）共同開發，國科會支持。">
                         Built by PAL Lab with the NYCU Network and System Laboratory (NSL); supported by the National
@@ -862,18 +864,18 @@
                 <a href="https://opc-cloud.com/" target="_blank" rel="noopener" class="btn btn-primary" data-en="Get Started at opc-cloud.com" data-zh="前往 opc-cloud.com 開始使用">Get Started at opc-cloud.com</a>
             </div>
         </section>
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container footer-grid">
             <div class="footer-brand">
                 <img src="image/logo-dark-scene.png" alt="NYCU-PAL — Photonics &amp; Advanced Lithography Lab" class="footer-logo" width="240" height="93" loading="lazy">
-                <p data-en="Photonics &amp; Advanced Lithography Laboratory" data-zh="光子與先進微影技術實驗室">Photonics &amp; Advanced Lithography Laboratory</p>
+                <p data-en="Photonics &amp; Advanced Lithography Laboratory" data-zh="光子與先進微影實驗室">Photonics &amp; Advanced Lithography Laboratory</p>
                 <p data-en="Department of Photonics, National Yang Ming Chiao Tung University" data-zh="國立陽明交通大學 光電工程學系">Department of Photonics, National Yang Ming Chiao Tung University</p>
             </div>
             <nav class="footer-links" aria-label="Footer">
-                <h4 data-en="Explore" data-zh="探索">Explore</h4>
+                <h3 data-en="Explore" data-zh="探索">Explore</h3>
                 <ul>
                     <li><a href="research.html" data-en="Research" data-zh="研究領域">Research</a></li>
                     <li><a href="opc.html" data-en="OPC+ Platform" data-zh="OPC+ 平台">OPC+ Platform</a></li>
@@ -885,7 +887,7 @@
                 </ul>
             </nav>
             <div class="footer-contact">
-                <h4 data-en="Contact" data-zh="聯絡我們">Contact</h4>
+                <h3 data-en="Contact" data-zh="聯絡我們">Contact</h3>
                 <p><a href="mailto:peichen.yu@nycu.edu.tw">peichen.yu@nycu.edu.tw</a></p>
                 <p data-en="Tin Ka Ping Building, Room 306, No. 1001 Daxue Rd., Hsinchu City 300093, Taiwan"
                    data-zh="田家炳光電大樓 306 室，新竹市大學路 1001 號，300093 台灣">Tin Ka Ping Building, Room 306, No. 1001 Daxue Rd., Hsinchu City 300093, Taiwan</p>
