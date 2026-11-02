@@ -562,7 +562,7 @@
                 .map(w => w[0]).slice(0, 2).join('').toUpperCase();
             const avatarHtml = member.avatar
                 ? `<img src="${member.avatar}" alt="${member.name}" loading="lazy"
-                     onerror="this.remove(); this.parentElement.classList.add('avatar-fallback')">`
+                     onerror="this.parentElement.classList.add('avatar-fallback'); this.remove()">`
                 : '';
 
             card.innerHTML = `
